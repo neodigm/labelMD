@@ -1,0 +1,47 @@
+"use strict";
+//  Show email promo image (branded) reveal once, every 7 days
+//  Open drawer to email panel when clicked
+var fElmRevPromo = function( _d, _aIds ){
+    var _eRev = _d.getElementById( _aIds[0] ), _sBrand="LTD";
+    var _eRevI = _d.getElementsByClassName( _aIds[1] )[0];
+
+    return {
+        init: function( sBrand ){
+            if( sBrand && ( typeof _eRevI != "undefined") ){
+                _sBrand = (sBrand.toUpperCase() == "LTD") ? "LTD" : "LSC";
+                _eRevI.src = _eRevI.dataset.brandSrc.replace( "##", _sBrand );
+                _eRevI.addEventListener("click", function( e ){
+                    if( typeof ltdc_promo_drawer != "undefined" ){
+                        if(typeof ltdc_reveal != "undefined"){
+                            ltdc_reveal.close();
+                        }else{
+                            $("#" + _aIds[0] ).foundation("reveal", "close");
+                        }
+                        ltdc_promo_drawer.open("email", "e_leftnav_email_p");
+                    }
+                }, true );
+                this.open();
+            }
+        },
+        open: function(){
+            var sLocSt = localStorage.getItem("ltdc_elm_rev_promo");
+            if( sLocSt ){  //  Reset if time limit elapsed
+                var dLS = new Date( Number( sLocSt ) ), dNow = new Date();
+                if( dLS < dNow ){
+                    sLocSt = null;
+                    localStorage.removeItem("ltdc_elm_rev_promo");
+                }
+            }
+            if( !sLocSt ){  //  Only on first engagement
+                var dPlus7days = new Date(Date.now() + 7*24*60*60*1000);
+                localStorage.setItem("ltdc_elm_rev_promo", dPlus7days.getTime() );
+                if( typeof ltdc_reveal != "undefined" ){
+                    ltdc_reveal.autoOpen("js-elmRev__promo--id");
+                }else{
+                    $("#" + _aIds[0] ).foundation("reveal", "open");
+                }
+            }
+        }
+    }
+}( document, ["js-elmRev__promo--id", "js-elmRev__image"]);
+fElmRevPromo.init( document.body.dataset.brand );
