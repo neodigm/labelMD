@@ -1,0 +1,24 @@
+{
+  "name": "labelmd",
+  "version": "1.0.0",
+  "description": "Label Material Design | A placeholder > label polyfill for existing legacy INPUT elements.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neodigm/labelMD.git"
+  },
+  "keywords": [
+    "material-design",
+    "a1y",
+    "polyfill"
+  ],
+  "author": "Scott C. Krause",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/neodigm/labelMD/issues"
+  },
+  "homepage": "https://github.com/neodigm/labelMD#readme"
+}
