@@ -296,11 +296,14 @@ var vltdc_productdetail = new Vue( {
         }
       } );
       this.selectedHero = ( _sImg ) ? _sImg : _aTn[0].img;
-      var _selH = this.selectedHero, _tempOrd = _aTn.filter(function( _t ){
-        if( _t.img === _selH ){ return true; }
-      });
+      var _selH = this.selectedHero, _nCnt = 0;
+
+      this.aFlickHero.forEach( function( _e, _i){
+        if( _e.img === _selH ) _nCnt = _i;
+      } );
+
       if( this.oFlickHero.select ){
-        this.oFlickHero.select( ( _tempOrd[0].nOrd ), false, false )  //  Animate Carousel
+        this.oFlickHero.select( ( _nCnt ), false, false )  //  Animate Carousel
       }
 
       if(  this.jResponse.childSkus[ _ChildSku ] && !_bPers ){  //  Do not process size chart, pers instruction or video
