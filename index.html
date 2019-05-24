@@ -2724,15 +2724,31 @@ $(document).ready(function(){
 <style>
 
 
-[data-label-md] {
-	border: 2px solid #EDBA08 !important;
-	background-color: yellow !important;
+input.label-md__inp {
+		border-radius: 4px;
+    color: #444;
+    font-size: 16px;
+    height: 28px;
+    margin: 1px 1px 0 1px;
+    padding: 13px 15px;
+    z-index: 1;
 }
-[data-label-md]::focus {
+input [data-label-md]::focus {
 	border: 22px solid #EDBA08 !important;
 	background-color: red !important;
 	color: red !important;
 }
+
+body[data-brand=LS] input.label-md__inp {
+		border: 1px solid #ff0000;
+		
+}
+
+body[data-brand=LTD] input.label-md__inp {
+		border: 1px solid #0000ff;
+		
+}
+
 </style>
 <script src="dist/labelMD.js"></script>
 

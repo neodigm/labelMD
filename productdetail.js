@@ -122,7 +122,8 @@ var vltdc_productdetail = new Vue( {
             _child.value.auxiliaryMedia.filter( function( _aux ){
               for( var k in _aux ){  //  Add tn from aux media if the key contains MN
                 if(( k.indexOf("sw") != -1) && (_aux[ k ].indexOf("_sw.") != -1) ){
-                  _aSwatches.push( {"p1v": _v.getSwatchName( nSkuCnt ), "img": _aux[ k ], "imgtn": _aux.largeImageUrl, "avail": _child.value.availabilityId, "sku": _child.key, "pers": false, "alt": _v.getSwatchName( nSkuCnt ) } );
+                  //_aSwatches.push( {"p1v": _v.getSwatchName( nSkuCnt ), "img": _aux[ k ], "imgtn": _aux.largeImageUrl, "avail": _child.value.availabilityId, "sku": _child.key, "pers": false, "alt": _v.getSwatchName( nSkuCnt ) } );
+                  _aSwatches.push( {"p1v": _v.getSwatchName( nSkuCnt ), "img": _aux[ k ], "imgtn": _aux.largeImageUrl, "avail": 1, "availPost": _child.value.availabilityId, "sku": _child.key, "pers": false, "alt": _v.getSwatchName( nSkuCnt ) } );
 
                 }
                 if( k.indexOf("zm") != -1 ){
@@ -757,8 +758,8 @@ var vltdc_productdetail = new Vue( {
         oRollup[ sImgName ] = {};
         oRollup[ sImgName ].availList = "";
         oRollup[ sImgName ].aSKUClass = [];
-      }  //  A swatch is only sold out when all SKUs are sold out (11)
-      oRollup[ sImgName ].availList += (( _sw.avail === "11" ) ?  "|" : (_sw.p1v + "#"));
+      }
+      oRollup[ sImgName ].availList += (( _sw.availPost === "11" ) ?  "|" : (_sw.p1v + "#"));
       oRollup[ sImgName ].aSKUClass.push( [ nIdx++, _sw.sku ] );
     } );
     this.aSwatches = this.aSwatches.filter( function( _sw ){
