@@ -23,15 +23,16 @@ var labelMD = ( function( _d, _g ){  //  Dynamic Material Design INPUT Labels
     ["z-index", "1"]
 ]],
 ["label.label-md__lab", [
-    ["cursor", "text"],
     ["background-color", "#fff"],
-    ["position", "relative"],
+    ["cursor", "text"],
+    ["display", "inline"],
+    ["font-family", "sans-serif"],
+    ["font-size", "14px"],
     ["left", "4px"],
-    ["top", "10px"],
     ["margin", "0 0 0 10px"],
     ["padding", "0 10px"],
-    ["font-size", "14px"],
-    ["display", "inline"],
+    ["position", "relative"],
+    ["top", "10px"],
 ]],
 ["body[data-brand=LS]  input.label-md__inp", [
     ["border", "1px solid #a1b5c2"]
