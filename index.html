@@ -2722,32 +2722,37 @@ $(document).ready(function(){
 </ltdc-reveal></div><script></script><div style="display: none;"><img src="./index_files/track_page_view" width="0" height="0" title="blank image" aria-hidden="true" style="display: none;" alt="track_page_view?payload=%7B%22title%22%3A%22Free%20Catalog%20Request%20%7C%20The%20Lakeside%20Collection%22%2C%22url%22%3A%22https%3A%2F%2Fwww.lakeside.com%2Fcatalog_request%2Findex.jsp%22%2C%22referrer%22%3A%22https%3A%2F%2Fwww.lakeside.com%2Fhomels%2"></div>
 
 <style>
-
+.h-ds__none {
+	display: none !important;
+}
 
 input.label-md__inp {
+		background-color: #fff !important;
 		border-radius: 4px;
-    color: #444;
+		box-shadow: none;
+    color: #343a40;
     font-size: 16px;
-    height: 28px;
-    margin: 1px 1px 0 1px;
-    padding: 13px 15px;
+    height: 48px;
+    margin: 6px !important;
+    padding: 14px;
     z-index: 1;
 }
-input [data-label-md]::focus {
-	border: 22px solid #EDBA08 !important;
-	background-color: red !important;
-	color: red !important;
+
+label.label-md__lab {
+	background-color: #fff;
+    position: relative;
+    left: 8px;
+    top: 16px;
+    margin: 0 0 0 12px;
+    padding: 0 12px;
+    font-size: 16px;
+    display: inline;
 }
 
-body[data-brand=LS] input.label-md__inp {
-		border: 1px solid #ff0000;
-		
-}
-
-body[data-brand=LTD] input.label-md__inp {
-		border: 1px solid #0000ff;
-		
-}
+body[data-brand=LS]  input.label-md__inp { border: 1px solid #a1b5c2;}
+body[data-brand=LTD] input.label-md__inp { border: 1px solid #0000ff; }
+body[data-brand=LS]  input:focus.label-md__inp { border: 1px solid #343a40;}
+body[data-brand=LTD] input:focus.label-md__inp { border: 1px solid #0000ff; }
 
 </style>
 <script src="dist/labelMD.js"></script>
