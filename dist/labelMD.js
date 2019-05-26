@@ -114,7 +114,6 @@ var labelMD = ( function( _d, _g ){  //  Dynamic Material Design INPUT Labels
                 aLab.push( eLab );
                 _inp.before( eLab );  //  TODO test in MS IE & Edge
                 _inp.dataset.labelMd = _idx;
-                //_inp.className = "label-md__inp";
                 _inp.dataset.labelMdCl = _inp.className;
                 _inp.classList.add( "label-md__inp" );  
                 _inp.addEventListener("focus", function( _ev ){ onInpFoc(_ev.currentTarget); });
