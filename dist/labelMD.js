@@ -1,7 +1,6 @@
-//console.clear();
 var labelMD_default = {  //  Detault configuration
     mode: "default",
-    aExcludeID: ["js-inp-search--id","js-toplogo-slide__input--id","js-inp-topsearch--id","quickSearch-query-for-small","emailSubscribeAddressModal","emailAddressFieldId","quickSearch-query"],
+    aExcludeID: ["js-qty__input--id","js-inp-search--id","js-toplogo-slide__input--id","js-inp-topsearch--id","quickSearch-query-for-small","emailSubscribeAddressModal","emailAddressFieldId","quickSearch-query"],
     aExcludeCL: ["js-eml__input--field", "js-sms__input"]
 };
 
@@ -18,8 +17,8 @@ var labelMD = ( function( _d, _g ){  //  Dynamic Material Design INPUT Labels
     ["color", "#343a40"],
     ["display", "block"],
     ["font-size", "16px"],
-    ["height", "48px"],
-    ["padding", "14px"],
+    ["height", "44px"],
+    ["padding", "6px"],
     ["z-index", "1"]
 ]],
 ["label.label-md__lab", [
@@ -28,9 +27,9 @@ var labelMD = ( function( _d, _g ){  //  Dynamic Material Design INPUT Labels
     ["display", "inline"],
     ["font-family", "sans-serif"],
     ["font-size", "14px"],
-    ["left", "4px"],
-    ["margin", "0 0 0 10px"],
-    ["padding", "0 10px"],
+    ["left", "6px"],
+    ["margin", "0 0 0 8px"],
+    ["padding", "0 6px"],
     ["position", "relative"],
     ["top", "10px"],
 ]],
@@ -115,9 +114,9 @@ var labelMD = ( function( _d, _g ){  //  Dynamic Material Design INPUT Labels
                 aLab.push( eLab );
                 _inp.before( eLab );  //  TODO test in MS IE & Edge
                 _inp.dataset.labelMd = _idx;
-                _inp.className = "label-md__inp";
+                //_inp.className = "label-md__inp";
                 _inp.dataset.labelMdCl = _inp.className;
-                _inp.className = "label-md__inp";  
+                _inp.classList.add( "label-md__inp" );  
                 _inp.addEventListener("focus", function( _ev ){ onInpFoc(_ev.currentTarget); });
                 _inp.addEventListener("blur", function( _ev ){ onInpBlur(_ev.currentTarget); });
             } );
