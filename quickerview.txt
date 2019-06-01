@@ -2,10 +2,8 @@
 
 Vue.config.devtools = true;
 
-var doZoom = null;
-
-var vltdc_productdetail = new Vue( {
-  el: "#js-productdetail--id",
+var vltdc_quickerview = new Vue( {
+  el: "#js-quickerview--id",
   data: {
     Opt : {"async_base": "/catalog/modals/productDetail.jsp?productId="},
     jResponse: {"childSkus": [{"value":{"largeImageUrl":""}}]},
@@ -14,10 +12,6 @@ var vltdc_productdetail = new Vue( {
     aThumbnails3: [],
     aSwatches: [],
     aSizeCharts: [],
-    aFlickHero: [],
-    bFlickHero: false,
-    oFlickHero: {},
-    nFlickHeroPers: -1,
     nQty: "1",
     noDropdowns: 0,
     aPicker1: [],
@@ -26,6 +20,7 @@ var vltdc_productdetail = new Vue( {
     selectedPickr2SKU: {},
     sProdId: "",
     sBookId: "",
+    sFinalURL: "",
     C2AMicrocopy: "",
     bShowSoldOut: false,
     isLessThan4: false,
@@ -42,7 +37,7 @@ var vltdc_productdetail = new Vue( {
     dropd_surf_init_1: false, dropd_cont_state_1: false,
     dropd_surf_init_2: false, dropd_cont_state_2: false,
     OUT_OF_STOCK: "11",
-    fontZoom: 1,
+    fontZoom: 2,
     isWaiting: false,
     isCartMsg: false,
     isCartMsgErr: false,
@@ -51,19 +46,14 @@ var vltdc_productdetail = new Vue( {
     isGiftMsgErr: false,
     aGiftMsg: [],
     isPersCollapsed: false,
-    isPersChecked: false,
-    isProductDescCollapsed: true,
-    isExclusive: false,
-    isInit: false,
-    showSocial: false
+    isPersChecked: false
+  },
+  computed: {
+    isPers: function(){
+      return ( this.jResponse.childSkus[0].value.isPersonalized );
+    }
   },
   watch: {
-    aFlickHero : function(){
-      vltdc_productdetail.bindFlick();
-    },
-    selectedHero : function(){
-      this.zoomzoom();
-    },
     isCartMsg : function(){
       if( this.isCartMsg ){
         var _self = this;
@@ -77,25 +67,22 @@ var vltdc_productdetail = new Vue( {
       }
     },
     isGiftMsg : function(){
-      if( this.isGiftMsg ){
-        var _self = this;
-        setTimeout(function(){ _self.isGiftMsg = false; }, 6400);
-      }
-    },
-    isGiftMsgErr : function(){
-      if( this.isGifttMsgErr ){
-        var _self = this;
-        setTimeout(function(){ _self.isGifttMsgErr = false; }, 6400);
-      }
-    },
+        if( this.isGiftMsg ){
+          var _self = this;
+          setTimeout(function(){ _self.isGiftMsg = false; }, 6400);
+        }
+      },
+      isGiftMsgErr : function(){
+        if( this.isGiftMsgErr ){
+          var _self = this;
+          setTimeout(function(){ _self.isGiftMsgErr = false; }, 6400);
+        }
+      },
     jResponse : function(){
       var _v = this;
       var _aThumbnails = this.aThumbnails;
       var _aSwatches = this.aSwatches;
       var _aSizeCharts = this.aSizeCharts;
-      var _aFlickHero = this.aFlickHero;
-      var _nFlickHeroPers = this.nFlickHeroPers;
-      var _isExclusive = this.isExclusive;
       var _nCnt = 0, _sSizeChart = "";
       this.selectedSKU = this.jResponse.childSkus[0];
       if( this.jResponse.childSkus.length >= 2 ){
@@ -103,29 +90,30 @@ var vltdc_productdetail = new Vue( {
         if( this.jResponse.childSkus[0].value.picker2Title !== "" ) this.noDropdowns++;
       }
       if( this.jResponse.largeImageUrl ){
-        _aThumbnails.push( { "level" : "10", "img": this.jResponse.largeImageUrl, "sku": "product", "pers": true, "alt": this.jResponse.displayName } );
+		    _aThumbnails.push( { "level" : "10", "img": this.jResponse.largeImageUrl, "sku": "product", "pers": true, "hide":false, "alt": this.jResponse.displayName } );
       }
       this.jResponse.childSkus = this.jResponse.childSkus.filter( function( _child ){  //  Remove Archived
           return !_child.value.isArchived;
       });
-      if( this.jResponse.auxiliaryMedia && this.jResponse.auxiliaryMedia.length ){  //  Product zm1 and 2
+
+      if( this.jResponse.auxiliaryMedia && this.jResponse.auxiliaryMedia.length ){  //  Product zm1
         this.jResponse.auxiliaryMedia.filter( function( _oAux ){
           var sKey = Object.keys( _oAux )[0];
           if( sKey.indexOf("zm") != -1 ){
             if( _oAux[sKey].indexOf("_zm") != -1 ){  //  Exclude *_qmn.jpg
-              _aThumbnails.push( { "level" : "11", "img": _oAux[sKey], "sku": vltdc_productdetail.jResponse.repositoryId, "pers": true, "alt": vltdc_productdetail.jResponse.displayName } );
+              _aThumbnails.push( {  "level" : "11", "img": _oAux[sKey], "sku": vltdc_quickerview.jResponse.repositoryId, "pers": true, "alt": vltdc_quickerview.jResponse.displayName } );
             }
           }
         } );
       }
-      this.jResponse.childSkus.filter( function( _child, nSkuCnt ){  //  Build Thumbnails
-        if( _child.value.isExclusive ) _isExclusive = true;
+
+      this.jResponse.childSkus.filter( function( _child, nSkuCnt  ){  //  Build Thumbnails
         if( _child.value.displayName ) _child.value.displayName = _child.value.displayName.replace("&amp;trade;", "&trade;");
-        if( _child.value.largeImageUrl ) _aThumbnails.push( { "level" : nSkuCnt + 12, "img": _child.value.largeImageUrl, "sku": _child.key, "pers": false, "alt": _child.value.displayName } );
+        if( _child.value.largeImageUrl ) _aThumbnails.push( { "level" : nSkuCnt + 12, "img": _child.value.largeImageUrl, "sku": _child.key, "pers": false, "hide":false, "alt": _child.value.displayName } );
           if( _child.value.auxiliaryMedia ){
             _child.value.auxiliaryMedia.filter( function( _aux ){
               for( var k in _aux ){  //  Add tn from aux media if the key contains MN
-                if(( k.indexOf("sw") != -1) && (_aux[ k ].indexOf("_sw.") != -1) ){
+                if(  k.indexOf("sw") != -1 ){
                   if( _v.noDropdowns === 1 ){
                     _aSwatches.push( {"p1v": _v.getSwatchName( nSkuCnt ), "img": _aux[ k ], "imgtn": _aux.largeImageUrl, "avail": _child.value.availabilityId, "availPost": _child.value.availabilityId, "sku": _child.key, "pers": false, "alt": _v.getSwatchName( nSkuCnt ) } );
                   }else{
@@ -134,28 +122,27 @@ var vltdc_productdetail = new Vue( {
                 }
                 if( k.indexOf("zm") != -1 ){
                   if( _aux[ k ].indexOf("_zm") != -1 ){  //  Exclude *_qmn.jpg
-                    _aThumbnails.push( { "level" : nSkuCnt + 12, "img": _aux[ k ], "sku": _child.key, "pers": false, "alt": _child.value.displayName  } );
+                    _aThumbnails.push( { "level" : nSkuCnt + 12, "img": _aux[ k ], "sku": _child.key, "pers": false, "hide":false, "alt": _child.value.displayName  } );
                   }
                 }
               }
             } );
           }
       } );
-      this.isExclusive = _isExclusive;
 
       this.sortTN( _aThumbnails );
-      
+
       if( this.jResponse.auxiliaryMedia && this.jResponse.auxiliaryMedia.length ){  //  Personal Instructions
         this.jResponse.auxiliaryMedia.filter( function( _oAux ){
           if( _oAux.pm ){
-            _aThumbnails.push( { "img": _oAux.pm , "sku": vltdc_productdetail.jResponse.repositoryId, "pers": true, "alt": "How to Personalize" } );
-            vltdc_productdetail.persInstructSrc = _oAux.pm;
+            _aThumbnails.push( { "img": _oAux.pm , "sku": vltdc_quickerview.jResponse.repositoryId, "pers": true, "hide":false, "alt": "How to Personalize" } );
+            vltdc_quickerview.persInstructSrc = _oAux.pm;
           }
-        var sKey = Object.keys( _oAux )[0];
-        if( sKey.indexOf("sc") != -1 ){
-            if( _oAux[sKey].indexOf("_sc") != -1 ){  //  size chart only
-              _aSizeCharts.push( { "img": _oAux[sKey], "sku": vltdc_productdetail.jResponse.repositoryId, "pers": true, "alt": "Size Chart" } );
-            }
+          var sKey = Object.keys( _oAux )[0];
+          if( sKey.indexOf("sc") != -1 ){
+              if( _oAux[sKey].indexOf("_sc") != -1 ){  //  size chart only
+                _aSizeCharts.push( { "img": _oAux[sKey], "sku": vltdc_quickerview.jResponse.repositoryId, "pers": true, "alt": "Size Chart" } );
+              }
           }
         } );
       }
@@ -166,20 +153,11 @@ var vltdc_productdetail = new Vue( {
         }
       }
 
-      _aThumbnails.filter( function( _tn ){ //  Build Hero array from TN (may pers instr but not video or size chart)
-        _aFlickHero.push( { "img": _tn.img, "sku": _tn.sku, "pers": _tn.pers } );
-      });
-
-      if( this.jResponse.productVideo ){  //  Video | second button and on state
+      if( this.jResponse.productVideo ){  //  Video | second button and off state
         this.isPlayingVideo = false;
-        _aThumbnails.splice(1, 0, { "img": "/media/global/images/icons/pdp-video-btn.jpg" , "sku": "video", "pers": true });
+        _aThumbnails.splice(1, 0, { "img": "/media/global/images/icons/pdp-video-btn.jpg" , "sku": "video", "pers": true, "hide":false });
       }
-
-      _aThumbnails.forEach(function(_currentValue, _index, _arr){
-        _currentValue.nOrd = _index;
-      }, "thisValue");
-
-      this.isLessThan4 = ( this.aThumbnails3.length <= 4 );  //  Hide Nav Arrows
+      this.isLessThan4 = ( this.aThumbnails3.length <= 3 );  //  Hide Nav Arrows
       if( _aThumbnails[0] ) this.selectedHero = _aThumbnails[0].img;  //  Init
 
       if( this.jResponse.childSkus[0].value.isPersonalized ){ // gen pers input placeholder
@@ -225,41 +203,88 @@ var vltdc_productdetail = new Vue( {
       this.selectedPickr2SKU = this.aPicker2[0];
       }
       this.getPrice( this.jResponse.salePriceRange,this.jResponse.listPriceRange,this.jResponse.compareAtPriceRange,this.jResponse.saveValueMin,this.jResponse.saveValue, true );
-      if( this.jResponse.selectedSku && this.noDropdowns == 1){ // Be careful with the case of this var
-        this.selectSKU( this.jResponse.selectedSku, 0, false ); // This has to fire after the thumbs have been gen
+      if( this.jResponse.selectedSku ){ // Be careful with the case of this var
+        if( this.getChildIndex( this.jResponse.selectedSku ) && this.noDropdowns == 1){ // Return element index if exists in child SKUs
+          this.selectSKU( this.jResponse.selectedSku, 0, false ); // This has to fire after the thumbs have been gen
+        }
       }
-      if( oTopmenu && !oTopmenu.isMobile() ){
-        this.fontZoom = 2;  //  Small A (1) on mobile else medium A (2)
-      }
-      
-      this.dedupeTN();  //  Hide duplication Thumbnails
+      this.dedupeTN();
       if( this.aSwatches.length > 0 ) this.dedupeSW();  //  Hide duplication Swatches
-      this.dedupeFH(); 	//  Hide duplication flickity hero's - mobile.
       this.update3();
     },
     nQty : function(){
         this.nQty = String( this.nQty ).replace(/[^0-9]/g,"");  //  Filter out alphas
-    }  //  End of JResponse watch
+    }
   },
   methods: {
-    "zoomzoom": function(){
-      if( oTopmenu && !oTopmenu.isMobile() ){
-        var sInner = "<img id=#js-z__image# src=#" + vltdc_productdetail.selectedHero + "# alt=#Magnifying Glass#>";
-        document.getElementById( "js-z__cont" ).innerHTML = sInner.split('#').join("'");
-        vltdc_productdetail.$forceUpdate();
-        doZoom = new Zoom("#js-z__image", { large: this.selectedHero, helperSize: 177, animation: 480 } );
-      }
-    },
-    doAction: function( jProductDet ){
-      if( jProductDet ){
-        vltdc_productdetail = this;
-        vltdc_productdetail.jResponse =  jProductDet[Object.keys(jProductDet)[0]];
-        vltdc_productdetail.sProdId = "sProd";   // TODO get from json
-        vltdc_productdetail.sBookId = "sBookId"; // TODO get from json
-        vltdc_productdetail.bShowSoldOut = true; // TODO get from location href search
+    doAction: function( sProd, sFinalURL, sBookId, bShowSoldOut, DefaultSKU ){
+      this.toggleView( false );
+      vltdc_quickerview = this;
+      this.refresh();
+      if( sProd ){
+      sFinalURL= (sFinalURL.indexOf("?") > -1) ? sFinalURL +"&fm=qvdetails" : sFinalURL +"?fm=qvdetails";
+      sFinalURL += "&navAction=jump&navCount=0";
+        vltdc_quickerview.sProdId = sProd;
+        vltdc_quickerview.sBookId = sBookId;
+        vltdc_quickerview.sFinalURL = sFinalURL;
+        vltdc_quickerview.bShowSoldOut = bShowSoldOut;
+        axios.get( vltdc_quickerview.Opt.async_base + vltdc_quickerview.sProdId + "&bookId=" + vltdc_quickerview.sBookId ).then( function( response ){
+          var jData = response.data[Object.keys(response.data)[0]];
+          if( (typeof DefaultSKU != "undefined") && DefaultSKU ){  //  Modify the json object before the watch executes
+            jData.selectedSku = DefaultSKU;
+          }
+          vltdc_quickerview.jResponse = jData; 
+          var utag_data = "{"+response.data[ Object.keys(response.data)[0] ]["utag_data"]+"}";
+          utag_data = JSON.parse(utag_data);
+          if(sFinalURL.indexOf("rrec") > -1){
+            utag_data.page_type="recs_quick-view";
+          }
+          fireTealiumPageView(utag_data);
+        } ).catch( function( error ){
+            if ( window.console ) {
+              console.log( "async error: " + error );
+            }
+        } );
       }
     },
     refresh: function(){
+      this.aThumbnails = [];
+      this.aThumbnails3 = [];
+      this.aSwatches = [];
+      this.aSizeCharts = [];
+      this.nQty = "1";
+      this.noDropdowns = 0;
+      this.aPicker1 = [];
+      this.aPicker2 = [];
+      this.selectedPickr1SKU = {};
+      this.selectedPickr2SKU = {};
+      this.sProdId = "";
+      this.sFinalURL = "";
+      this.C2AMicrocopy = "";
+      this.bShowSoldOut = false;
+      this.isLessThan4 = false;
+      this.isPlayingVideo = false,
+      this.calcPriceLine1 = "";
+      this.calcPriceLine2 = "";
+      this.calcPriceLine3 = "";
+      this.calcPriceLine4 = "";
+      this.tabmutex = [{"caption": "Overview", "selected": true}, {"caption": "Details", "selected": false}];
+      this.tabmutex_selected( this.tabmutex[0] );
+      this.selectedSKU = {"value" : {"listPrice" : 0} };
+      this.selectedHero = "";
+      this.persInstructSrc = "";
+      this.dropd_surf_init_0 = false; this.dropd_cont_state_0 = false;
+      this.dropd_surf_init_1 = false; this.dropd_cont_state_1 = false;
+      this.dropd_surf_init_2 = false; this.dropd_cont_state_2 = false;
+      this.fontZoom = 2;
+      this.jResponse = {"childSkus": [{"value":{"largeImageUrl":""}}]};
+      this.isWaiting = false;
+      this.isCartMsg = false; this.isCartMsgErr = false;
+      this.aCartMsg = [];
+      this.isGiftMsg = false; this.isGiftMsgErr = false;
+      this.aGiftMsg = [];
+      this.isPersCollapsed = false;
+      this.isPersChecked = false;
     },
     tabmutex_selected : function( tab ){
       var _ePanelSelected = document.getElementById( "js-tabmutex-tabpanel__"+tab.caption.toLowerCase()+"--id" );
@@ -291,24 +316,15 @@ var vltdc_productdetail = new Vue( {
       }
       if( nSKU_index != -1 ) this.selectSKU( aSKUClass[ nSKU_index ][1], 0, false );
     },
-    selectSKU : function( _sSku, _sImg, _bPers, _nOrd ){  //  Create selected sku data model
+    selectSKU : function( _sSku, _sImg, _bPers ){  //  Create selected sku data model
       var _ChildSku = this.getChildIndex( _sSku );
+
       var _aTn = this.aThumbnails.filter( function( _oTn ){
         if( _oTn.sku === _sSku ){
           return true;
         }
       } );
       this.selectedHero = ( _sImg ) ? _sImg : _aTn[0].img;
-      var _selH = this.selectedHero, _nCnt = 0;
-
-      this.aFlickHero.forEach( function( _e, _i){
-        if( _e.img === _selH ) _nCnt = _i;
-      } );
-
-      if( this.oFlickHero.select ){
-        this.oFlickHero.select( ( _nCnt ), false, false )  //  Animate Carousel
-      }
-
       if(  this.jResponse.childSkus[ _ChildSku ] && !_bPers ){  //  Do not process size chart, pers instruction or video
         this.selectedSKU = this.jResponse.childSkus[ _ChildSku ];
         if( this.noDropdowns === 1 ){  //  The dropdown has been init
@@ -446,13 +462,13 @@ var vltdc_productdetail = new Vue( {
     thumbArrowNav: function( _nValue ){
       var oTn;
       if( _nValue === 1 ){
-        while( true ){ // loop until first visable
+        while( true ){ // loop until first visible
           oTn = this.aThumbnails.pop();
           this.aThumbnails.unshift( oTn );
           if( !oTn.hide ) break;
         }
       }else{
-        while( true ){ // loop until first visable
+        while( true ){ // loop until first visible
           oTn = this.aThumbnails.shift();
           this.aThumbnails.push( oTn );
           if( !oTn.hide ) break;
@@ -461,19 +477,6 @@ var vltdc_productdetail = new Vue( {
       this.update3();
     },
     dropd_surf_toggle: function( _nDropd ){
-      var sWidth = document.getElementById("js-dropdown-0--id");
-      if( sWidth ){
-        sWidth = document.getElementById("js-dropdown-0--id").offsetWidth;
-        if( !sWidth ){
-          sWidth = document.getElementById("js-dropdown_1--id").offsetWidth;
-        }
-        if( sWidth ){
-          document.getElementById( "js-drop-container__0--id" ).style.width = sWidth + "px";
-          document.getElementById( "js-drop-container__1--id" ).style.width = sWidth + "px";
-          document.getElementById( "js-drop-container__2--id" ).style.width = sWidth + "px";
-        }
-      }
-
       switch( String( _nDropd ) ) {
         case "0":
           this.dropd_cont_state_0 = !this.dropd_cont_state_0;
@@ -560,24 +563,30 @@ var vltdc_productdetail = new Vue( {
       return ( !_bAnyIsInvalid );
     },
     submitGift: function( _callBack ){
-      var _nQty = this.nQty;
-      if( this.isC2AValid() ){
-        _callBack();
-        this.isWaiting = true;
-      }
-    },
-    submitGiftComplete: function(){
-        this.isWaiting = false;
-        this.nQty = 1;
-        this.isGiftMsg = true;
-        this.selectedSKU = this.jResponse.childSkus[0];
-        this.dropd_surf_init_0 = false; this.dropd_cont_state_0 = false;
-        this.dropd_surf_init_1 = false; this.dropd_cont_state_1 = false; this.dropd_surf_init_2 = false; this.dropd_cont_state_2 = false;
-        this.clearPersInput();
-    },
-    submitGiftError: function(){        
-        this.isWaiting = false;        
-    },
+        var _nQty = this.nQty;
+        if( this.isC2AValid() ){
+          _callBack();
+          this.isWaiting = true;
+          //this.aCartMsg[0] = this.nQty;
+          //this.aCartMsg[1] = this.jResponse.displayName + " " + this.selectedSKU.value.displayName;
+          //this.aGiftMsg[2] = this.nQty;
+        }
+      },
+      submitGiftComplete: function(){
+          this.isWaiting = false;
+          this.nQty = 1;
+          this.isGiftMsg = true;
+          this.selectedSKU = this.jResponse.childSkus[0];
+          this.dropd_surf_init_0 = false; this.dropd_cont_state_0 = false;
+          this.dropd_surf_init_1 = false; this.dropd_cont_state_1 = false; this.dropd_surf_init_2 = false; this.dropd_cont_state_2 = false;
+          this.clearPersInput();
+      },
+      submitGiftError: function( sError ){
+          var _sError = ( sError ) ? sError : "An unexpected error has occurred.";
+          this.isWaiting = false;
+          this.isGiftMsgErr = true;
+          this.aGiftMsg[3] = _sError;
+      },
     submitCart: function( _callBack ){
       var _nQty = this.nQty;
       if( this.isC2AValid() ){
@@ -585,13 +594,7 @@ var vltdc_productdetail = new Vue( {
         this.isWaiting = true;
         this.aCartMsg[0] = this.nQty;
         this.aCartMsg[1] = this.jResponse.displayName + " " + this.selectedSKU.value.displayName;
-      } else {
-        if( oTopmenu && oTopmenu.isMobile() ){
-          var _eS = document.querySelectorAll(".thumb-nav")[0];
-          if( _eS ) {  //  offset value for floating
-            _eS.scrollIntoView( true );
-          }
-        }
+      }else{
         this.open1st();
       }
     },
@@ -604,8 +607,11 @@ var vltdc_productdetail = new Vue( {
         this.dropd_surf_init_1 = false; this.dropd_cont_state_1 = false; this.dropd_surf_init_2 = false; this.dropd_cont_state_2 = false;
         this.clearPersInput();
     },
-    submitCartError: function(){
+    submitCartError: function( sError ){
+        var _sError = ( sError ) ? sError : "An unexpected error has occurred.";
         this.isWaiting = false;
+        this.isCartMsgErr = true;
+        this.aCartMsg[3] = _sError;
     },
     clearPersInput: function(){  //  Clear the pers input from the data model
       if( this.jResponse.childSkus[0].value.isPersonalized ){
@@ -620,6 +626,7 @@ var vltdc_productdetail = new Vue( {
         });
         this.aPicker1.filter( function( _oPick ){ _oPick.context = true; });
         this.aPicker2.filter( function( _oPick ){ _oPick.context = true; });
+        vltdc_quickerview.$forceUpdate();
       }
     },
     dropd_select: function( _sKey, _nDropd ){
@@ -643,13 +650,13 @@ var vltdc_productdetail = new Vue( {
         this.filterPDContext( 2, this.selectedPickr1SKU.value );  //  filter bottom
         if( !this.selectedPickr2SKU.context ){  //  Deselect if not context
           this.deselectPicker( 2 );
-          vltdc_productdetail.selectedPickr2SKU = this.aPicker2[0];  //  This may need to be first context=true
+          vltdc_quickerview.selectedPickr2SKU = this.aPicker2[0];  //  This may need to be first context=true
         }
       }
       if( _nDropd == 2 ){
         if( !this.selectedPickr2SKU.context ){  //  Deselect if not context
           this.deselectPicker( 1 );
-          vltdc_productdetail.selectedPickr1SKU = this.aPicker1[0];  //  This may need to be first context=true
+          vltdc_quickerview.selectedPickr1SKU = this.aPicker1[0];  //  This may need to be first context=true
         }
       }
 
@@ -705,7 +712,7 @@ var vltdc_productdetail = new Vue( {
       return day > 0 && day <= monthLength[month - 1];
     },
     isValidKeyStroke: function(){
-      vltdc_productdetail.$forceUpdate()
+      vltdc_quickerview.$forceUpdate()
       this.jResponse.childSkus.filter( function( _child ){
         if( _child.value.personalizedData ){
           _child.value.personalizedData.personalizedAttributes.filter( function( _oInput ){
@@ -744,17 +751,24 @@ var vltdc_productdetail = new Vue( {
   },
   doPersIntruct: function(){
     this.selectedHero = this.persInstructSrc;
-    this.oFlickHero.select( ( this.nFlickHeroPers ), false, false )  //  Animate Carousel
   },
-  bindFlick: function(){
-    if( oTopmenu && oTopmenu.isMobile() ){
-      setTimeout(function(){
-        vltdc_productdetail.bFlickHero = true;
-        vltdc_productdetail.oFlickHero = new Flickity( "#js-flickHero--id", { pageDots: false, wrapAround: true, cellSelector: ".flickhero__cell", cellAlign: "center", "prevNextButtons": false });
-        document.getElementById( "js-flick__hero--id" ).style.display = "block";
-        vltdc_productdetail.oFlickHero.resize();
-      }, 1200);
+  toggleView: function( _bView ){
+    if( _bView ){
+      document.getElementById( "js-quickerview__cont--id" ).classList.remove("hidden");
+      document.getElementById( "js-quickerview__spin--id" ).classList.add("hidden");
+    }else{
+      document.getElementById( "js-quickerview__cont--id" ).classList.add("hidden");
+      document.getElementById( "js-quickerview__spin--id" ).classList.remove("hidden");
     }
+  },
+  dedupeTN: function(){  //  Hide thumbs with the same image
+    var sUnq = "";
+    this.aThumbnails.filter( function( _tn ){
+      if( sUnq.indexOf( _tn.img + "#" ) == -1 ){
+        sUnq += _tn.img + "#";
+      }else{ _tn.hide = true; }
+      return true;
+    });
   },
   dedupeSW: function(){  //  Hide swatches with the same image
     var oRollup = {}, sImgName, nIdx=0, sUnq = "";
@@ -778,15 +792,6 @@ var vltdc_productdetail = new Vue( {
       }
     });
   },
-  dedupeFH: function(){  //  Hide FlickHero's with the same image - mobile
-    var sUnq = "";
-    this.aFlickHero = this.aFlickHero.filter( function( _tn ){
-      if( sUnq.indexOf( _tn.img + "#" ) == -1 ){
-        sUnq += _tn.img + "#";
-        return true;
-      }
-    });
-  },
   sortTN: function( _aTN ){
     _aTN.sort(function(a,b) {  //  sort by level + file name asc
       var sZm_a, sZm_b;
@@ -799,31 +804,19 @@ var vltdc_productdetail = new Vue( {
       return 0;
     } );
   },
-  dedupeTN: function(){  //  Hide thumbs with the same image
-    var sUnq = "";
-    this.aThumbnails.filter( function( _tn ){
-      if( sUnq.indexOf( _tn.img + "#" ) == -1 ){
-        sUnq += _tn.img + "#";
-      }else{ _tn.hide = true; }
-      return true;
-    });
-  },
   update3: function(){  //  Sync the proxy / presentation array
     this.aThumbnails3 = this.aThumbnails.filter( function( _tn ){
       return !_tn.hide;
     });
-    this.isLessThan4 = ( this.aThumbnails3.length <= 4 );  //  Hide Nav Arrows
-  },
-  toggleSocial: function(){
-    this.showSocial = true;
+    this.isLessThan4 = ( this.aThumbnails3.length <= 3 );  //  Hide Nav Arrows
   },
   open1st: function(){  //  Open first drop-down - should be closed
-    this.dropd_surf_toggle( '0' );
+    this.dropd_surf_toggle( String( this.noDropdowns - 1 ) );
   }
   },
   created: function( e ){
     document.body.addEventListener("click", function( e ){  //  Outside Click close
-      var cQv = vltdc_productdetail, eTarget = e.target, bInside = false;
+      var cQv = vltdc_quickerview, eTarget = e.target, bInside = false;
       while( eTarget.tagName !== "HTML" ){  //  Disregard clicks from within
         if( eTarget.tagName === "LTDC-DROPDOWN" ){ bInside = true; break; }
         eTarget = eTarget.parentNode;
@@ -837,335 +830,40 @@ var vltdc_productdetail = new Vue( {
       }
     }, true);
   },
-  mounted: function(){
-    setTimeout(function(){ vltdc_productdetail.zoomzoom(); }, 1200);
-  },
   updated: function( e ){
-    if( !this.isInit ){
-      if( typeof ltdc_pdpsocial !== "undefined" ){
-        ltdc_pdpsocial.init( document, document.body.dataset.brand );
-        this.isInit = true;
-        if( fSecCards && oTopmenu ){ fSecCards.bind( "ltdc-productdetail .seccard__surface", oTopmenu.isMobile() ); }
+      this.nUpdates++;
+      if( this.nUpdates == 3 ){
+        this.nUpdates = 0;
+        this.toggleView( true );
+        if( fSecCards_QV && !fSecCards_QV.isInit() ){ fSecCards_QV.bind( "ltdc-quickerview .seccard__surface", false ); }
       }
-    }
   }
 } );
 
-if( vltdc_productdetail && jProductDet ){ vltdc_productdetail.doAction( jProductDet ); }
-window.addEventListener("resize", function(){
-  if( typeof vltdc_productdetail !== "undefined" ){ vltdc_productdetail.zoomzoom(); }
-})
-
-var fSecCards = (function(){  //  function for Section Card bound events
-  var _eCards;
+var fSecCards_QV = (function(){  //  function for Section Card bound events
+  var _eCards, _bInit = false;
   return {
+      isInit: function(){ return _bInit; },
       bind: function( sQuery, bMobile ){  //  Wire DOM events
+        _bInit = true;
         _eCards = document.querySelectorAll( sQuery );
         if( _eCards ){
-            for (var idx = 0; idx < _eCards.length; ++idx) {
-              var oPrDatSt = _eCards[ idx ].parentNode.dataset;
-              if( bMobile && oPrDatSt.stateMobile ){ oPrDatSt.state = oPrDatSt.stateMobile; }  //  Init state
-              _eCards[ idx ].addEventListener("click", function( e ){
-                  var _eArtc = this.parentNode;  //  Article element
-                  _eArtc.dataset.state = (_eArtc.dataset.state == "opened") ? "closed" : "opened";
-              });
-            }
+          for (var idx = 0; idx < _eCards.length; ++idx) {
+            var oPrDatSt = _eCards[ idx ].parentNode.dataset;
+            if( bMobile && oPrDatSt.stateMobile ){ oPrDatSt.state = oPrDatSt.stateMobile; }  //  Init state
+            _eCards[ idx ].addEventListener("click", function( e ){
+                var _eArtc = this.parentNode;  //  Article element
+                _eArtc.dataset.state = (_eArtc.dataset.state == "opened") ? "closed" : "opened";
+            });
+          }
         }
       }
   };
 })();
-if( fSecCards && oTopmenu ){ fSecCards.bind( "#reviewSummary .seccard__surface", oTopmenu.isMobile() ); }
-
-(function(root) {
-  'use strict';
-  var IE9 = navigator.appVersion.indexOf("MSIE 9.") > -1;
-  var defaultConfig = {
-    helperSize: 150,
-    containHelper: true,
-    containerClass: "zm-container",
-    wrapperClass: "zm-wrapper",
-    previewClass: "zm-preview",
-    customPreviewClass: "zm-custom-preview",
-    imageClass: "zm-image",
-    helperClass: "zm-helper",
-    hoverClass: "zm-hover",
-    fadeInClass: "zm-fade-in",
-    fadeOutClass: "zm-fade-out",
-    activeClass: "zm-active"
-  };
-
-  /* classList shim for IE9 */
-  var classList = {
-    contains: function(a, b) {
-      if ( a )
-        return a.classList ? a.classList.contains(b) : !!a.className && !!a.className.match(new RegExp("(\\s|^)" + b + "(\\s|$)"));
-    },
-    add: function(a, b) {
-      if (!classList.contains(a, b)) {
-        if (a.classList) { a.classList.add(b); } else { a.className = a.className.trim() + " " + b; } }
-    },
-    remove: function(a, b) {
-      if (classList.contains(a, b)) { if (a.classList) { a.classList.remove(b); } else { a.className = a.className.replace(new RegExp("(^|\\s)" + b.split(" ").join("|") + "(\\s|$)", "gi"), " "); }}
-},
-  };
-
-  var transform = function(el, x, y) {
-    if ( IE9 ) {
-      el.style.left = x + "px";
-      el.style.top = y + "px";
-    } else {
-      el.style.transform = "translate3d(" + x + "px, " + y + "px, 0px)";
-    }
-  };
-
-  var extend = function(target, varArgs) {
-    var to = Object(target);
-    for (var index = 1; index < arguments.length; index++) {
-      var nextSource = arguments[index];
-
-      if (nextSource != null) {
-        // Skip over if undefined or null
-        for (var nextKey in nextSource) {
-          // Avoid bugs when hasOwnProperty is shadowed
-          if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
-            to[nextKey] = nextSource[nextKey];
-          }
-        }
-      }
-    }
-    return to;
-  };
-
-  var rect = function(el) {
-    var win = window, doc = document, body = doc.body;
-    var r = el.getBoundingClientRect();
-    var x = win.pageXOffset !== undefined ? win.pageXOffset : (doc.documentElement || body.parentNode || body).scrollLeft;
-    var y = win.pageYOffset !== undefined ? win.pageYOffset : (doc.documentElement || body.parentNode || body).scrollTop;
-
-    return {
-      x: r.left + x,
-      y: r.top + y,
-      height: r.height,
-      width: r.width
-    };
-  };
-
-  var debounce = function(func, wait, immediate) {
-    var timeout;
-    return function() {
-      var context = this, args = arguments, later = function() {
-        timeout = null;
-        if (!immediate) func.apply(context, args);
-      };
-      var callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-      if (callNow) func.apply(context, args);
-    };
-  }
-
-  var Zoom = function(el, options) {
-    this.el = typeof el === "string" ? document.querySelector(el) : el;
-    this.config = extend({}, defaultConfig, options || {});
-
-    this.events = {
-      loaded: this.loaded.bind(this),
-      mouseenter: this.mouseenter.bind(this),
-      mousemove: this.mousemove.bind(this),
-      mouseleave: this.mouseleave.bind(this),
-      update: this.update.bind(this)
-    };
-
-    this.events.debounce = debounce(this.events.update, 50);
-    this.ratio = {};
-    this.imageLoaded = false;
-    this.zoomLoaded = false;
-
-    this.initDOM();
-  }
-
-  Zoom.prototype.init = function() {
-
-    this.ratio.x = this.image.width / this.config.helperSize;
-    this.ratio.y = this.image.height / 216;//this.config.helperSize;
-    this.zoomImage.style.width = (this.image.width * this.ratio.x) + "px";
-
-    window.addEventListener("resize", this.events.debounce);
-    this.wrapper.addEventListener("mouseenter", this.events.mouseenter);
-  };
-
-  Zoom.prototype.initDOM = function() {
-
-    var o = this.config;
-    this.wrapper = document.createElement("div");
-    if ( this.el.nodeName !== "IMG" ) {
-
-      this.container = this.el;
-      this.image = document.createElement("img");
-      this.image.src = this.config.small;
-      classList.add(this.image, o.imageClass);
-      this.wrapper.appendChild(this.image);
-
-    } else {
-
-      this.isImage = true;
-      this.container = document.createElement("div");
-      this.image = this.el;
-      classList.add(this.el, o.imageClass);
-
-    }
-    this.zoomImage = document.createElement("img");
-    this.zoomImage.src = o.large;
-    this.zoomImage.alt = "Zoom Magnified Image";
-
-    classList.add(this.container, o.containerClass);
-
-    classList.add(this.wrapper, o.wrapperClass);
-
-    this.helper = document.createElement("div");
-    classList.add(this.helper, o.helperClass);
-
-    if ( o.previewContainer ) {
-      this.customPreview = true;
-      this.previewContainer = document.querySelector(o.previewContainer);
-      classList.add(this.previewContainer, o.customPreviewClass);
-    } else {
-      this.previewContainer = document.createElement("div");
-      this.container.appendChild(this.previewContainer);
-      classList.add(this.previewContainer, o.previewClass);
-    }
-
-    this.previewContainer.appendChild(this.zoomImage);
-    this.container.appendChild(this.wrapper);
-    this.wrapper.appendChild(this.helper);
-    this.el.parentNode.insertBefore(this.container, this.el);
-
-    if ( this.isImage ) {
-      this.wrapper.appendChild(this.el);
-    }
-
-    this.update();
-    this.helper.style.width = this.config.helperSize + "px";
-    this.helper.style.height = this.config.helperSize + "px";
-    this.previewContainer.style.width = this.rect.width + "px",
-    this.previewContainer.style.height = this.rect.height + "px"
-    this.image.addEventListener("load", this.events.loaded);
-    this.zoomImage.addEventListener("load", this.events.loaded);
-  }
-
-  Zoom.prototype.loaded = function(e) {
-    if ( e.target === this.image ) {
-      this.imageLoaded = true;
-    } else {
-      this.zoomLoaded = true;
-    }
-
-    if ( this.imageLoaded && this.zoomLoaded ) {
-      this.init();
-    }
-  };
-
-  Zoom.prototype.mousemove = function(e) {
-    var r = this.rect;
-    var s = this.config.helperSize;
-    var x = e.pageX - r.x - (s / 2);
-    var y = e.pageY - r.y - (s / 2);
-
-    // Limit movement
-    if ( this.config.containHelper ) {
-      if ( x <= 0 ) {
-        x = 0;
-      }
-      if ( x >= r.width - s ) {
-        x = r.width - s;
-      }
-      if ( y <= 0 ) {
-        y = 0;
-      }
-      if ( y >= r.height - s ) {
-        y = r.height - s;
-      }
-    }
-    transform(this.helper, x, y);
-    transform(this.zoomImage, (-x * this.ratio.x), (-y * this.ratio.y));
-  };
-  Zoom.prototype.mouseenter = function(e) {
-    var that = this, o = this.config;
-    if ( o.animation && that.timer ) {
-      clearTimeout(that.timer);
-
-      if ( that.customPreview ) {
-        classList.remove(that.previewContainer, o.fadeOutClass);
-      } else {
-        classList.remove(that.container, o.fadeOutClass);
-      }
-    }
-    classList.add(that.container, o.hoverClass);
-
-    if ( that.customPreview ) {
-      classList.add(that.previewContainer, o.activeClass);
-    }
-    if ( o.animation ) {
-      if ( that.customPreview ) {
-        classList.add(that.previewContainer, o.fadeInClass);
-      } else {
-        classList.add(that.container, o.fadeInClass);
-      }
-    }
-    that.wrapper.addEventListener("mousemove", that.events.mousemove);
-    that.wrapper.addEventListener("mouseleave", that.events.mouseleave);
-  };
-
-  Zoom.prototype.mouseleave = function(e) {
-    var that = this, o = this.config;
-    if ( o.animation ) {
-      if ( that.customPreview ) {
-        classList.remove(that.previewContainer, o.fadeInClass);
-        classList.add(that.previewContainer, o.fadeOutClass);
-      } else {
-        classList.remove(that.container, o.fadeInClass);
-        classList.add(that.container, o.fadeOutClass);
-      }
-      that.timer = setTimeout(function() {
-        classList.remove(that.container, o.hoverClass);
-        classList.remove(that.container, o.fadeOutClass);
-
-        if ( that.customPreview ) {
-          classList.remove(that.previewContainer, o.fadeOutClass);
-          classList.remove(that.previewContainer, o.activeClass);
-        } else {
-          classList.remove(that.container, o.fadeOutClass);
-        }
-        that.timer = false;
-      }, 250);
-    } else {
-      classList.remove(that.container, o.hoverClass);
-      if ( that.customPreview ) {
-        classList.remove(that.previewContainer, o.activeClass);
-      }
-    }
-    that.wrapper.removeEventListener("mousemove", that.events.mousemove);
-    that.wrapper.removeEventListener("mouseleave", that.events.mouseleave);
-  };
-  Zoom.prototype.update = function() {
-    this.rect = rect(this.container);
-  };
-  root.Zoom = Zoom;
-}(this));
 
 function letterCounter (x) {
   return x.replace(/[^a-zA-Z]/g, '').length;
 }
 function numberCounter (x) {
   return x.replace(/[^0-9]/g, '').length;
-}
-
-var prodCollBtn = document.getElementsByClassName("js-view__prod--coll");
-if(prodCollBtn.length > 0) {
-		var prodCollEle = document.getElementsByClassName("prod__collection");
-		prodCollBtn[0].addEventListener("click", function() {
-			if (prodCollEle.length > 0) {
-        document.getElementsByClassName("prod__collection")[0].scrollIntoView( true );
-			}
-		});
 }

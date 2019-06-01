@@ -98,6 +98,10 @@ var vltdc_productdetail = new Vue( {
       var _isExclusive = this.isExclusive;
       var _nCnt = 0, _sSizeChart = "";
       this.selectedSKU = this.jResponse.childSkus[0];
+      if( this.jResponse.childSkus.length >= 2 ){
+        this.noDropdowns = 1; // No of Dropdowns | 0,1 or 2
+        if( this.jResponse.childSkus[0].value.picker2Title !== "" ) this.noDropdowns++;
+      }
       if( this.jResponse.largeImageUrl ){
         _aThumbnails.push( { "level" : "10", "img": this.jResponse.largeImageUrl, "sku": "product", "pers": true, "alt": this.jResponse.displayName } );
       }
@@ -122,8 +126,11 @@ var vltdc_productdetail = new Vue( {
             _child.value.auxiliaryMedia.filter( function( _aux ){
               for( var k in _aux ){  //  Add tn from aux media if the key contains MN
                 if(( k.indexOf("sw") != -1) && (_aux[ k ].indexOf("_sw.") != -1) ){
-                  _aSwatches.push( {"p1v": _v.getSwatchName( nSkuCnt ), "img": _aux[ k ], "imgtn": _aux.largeImageUrl, "avail": 1, "availPost": _child.value.availabilityId, "sku": _child.key, "pers": false, "alt": _v.getSwatchName( nSkuCnt ) } );
-
+                  if( _v.noDropdowns === 1 ){
+                    _aSwatches.push( {"p1v": _v.getSwatchName( nSkuCnt ), "img": _aux[ k ], "imgtn": _aux.largeImageUrl, "avail": _child.value.availabilityId, "availPost": _child.value.availabilityId, "sku": _child.key, "pers": false, "alt": _v.getSwatchName( nSkuCnt ) } );
+                  }else{
+                    _aSwatches.push( {"p1v": _v.getSwatchName( nSkuCnt ), "img": _aux[ k ], "imgtn": _aux.largeImageUrl, "avail": 1, "availPost": _child.value.availabilityId, "sku": _child.key, "pers": false, "alt": _v.getSwatchName( nSkuCnt ) } );
+                  }
                 }
                 if( k.indexOf("zm") != -1 ){
                   if( _aux[ k ].indexOf("_zm") != -1 ){  //  Exclude *_qmn.jpg
@@ -198,10 +205,6 @@ var vltdc_productdetail = new Vue( {
             });
           }
         });
-      }
-      if( this.jResponse.childSkus.length >= 2 ){
-        this.noDropdowns = 1; // No of Dropdowns | 0,1 or 2
-        if( this.jResponse.childSkus[0].value.picker2Title !== "" ) this.noDropdowns++;
       }
       if( this.noDropdowns == 2 ){  //  Gen Pickers OM
         var _aP1 = this.aPicker1, _aP2 = this.aPicker2, _sUniq1 = "", _sUniq2 = "", _sTmp = "";
@@ -341,7 +344,11 @@ var vltdc_productdetail = new Vue( {
           if( _sw.availList.indexOf( _v.getSwatchName( _v.getChildIndex( _sw.sku ) ) ) !== -1 ){
             _sw.avail = 1;
           }else{
-            _sw.avail = 11;
+            if( _v.noDropdowns === 1 ){
+              _sw.avail = _sw.availPost;
+            }else{
+              _sw.avail = 11;
+            }
           }
         });
       }
