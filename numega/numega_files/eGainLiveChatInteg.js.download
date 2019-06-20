@@ -1,0 +1,119 @@
+var EGAIN_CMD = 'egainCommand';
+var integWrapUpFlag = false;
+
+function egainLiveCustomConfigHook()
+{
+	return false;
+}
+
+function getUrlParameterInteg(name) {
+    name = name.replace(/[\[]/, '\\\[').replace(/[\]]/, '\\\]');
+    var results = new RegExp('[\\?&]' + name + '=([^&#]*)')
+                                .exec(window.location.href);
+    return results ? results[1] : null;
+}
+
+//This hook displays custom messages.
+function customWrapUpMessagesHook(condition, customChatPropertyObjStr){
+
+	var templateId = "kiwi";
+	if (customChatPropertyObjStr)
+		templateId = "aqua";
+
+	var subActivity = "chat_base";
+	if (getUrlParameterInteg('subActivity') != null) {
+	         subActivity = getUrlParameterInteg('subActivity').toLowerCase();
+    }
+	var isIntegratedDockedChat = sessionStorage.getItem('isIntegratedDockedChat');
+    if (subActivity != "chat_base" || isIntegratedDockedChat == "true") {
+
+		var customChatPropertyObj = parseMessages(customChatPropertyObjStr);
+
+		var conditions = {
+					  "L10N_EXIT_TXT": typeof L10N_EXIT_TXT != 'undefined' ? L10N_EXIT_TXT: customChatPropertyObj.L10N_EXIT_TXT,
+					  "L10N_SYSTEM_CANNOT_ASSIGN_AGENT":typeof L10N_SYSTEM_CANNOT_ASSIGN_AGENT != 'undefined'  ? L10N_SYSTEM_CANNOT_ASSIGN_AGENT: customChatPropertyObj.L10N_SYSTEM_CANNOT_ASSIGN_AGENT,
+					  "L10N_MSG_CMB_FAILURE":typeof L10N_MSG_CMB_FAILURE != 'undefined'  ? L10N_MSG_CMB_FAILURE: customChatPropertyObj.L10N_MSG_CMB_FAILURE,
+					  "L10N_NO_AGENTS_AVAILABLE":typeof L10N_NO_AGENTS_AVAILABLE != 'undefined'  ? L10N_NO_AGENTS_AVAILABLE: customChatPropertyObj.L10N_NO_AGENTS_AVAILABLE
+				   };
+
+		if(typeof condition == 'undefined' || condition == null || !(conditions [condition]))
+			return false;
+
+
+		if(conditions [condition]){
+
+			if (templateId == "aqua"){
+				HooksFactory.ShowError(conditions [condition].replace(/\"/g, ""));
+				integWrapUpFlag = true;	sessionStorage.removeItem('isIntegratedDockedChat');
+				return true;
+			}
+			else{
+				var returnVal = false;
+					App.chat_wrap_view.$el.html(App.chat_wrap_view.template());
+
+					//Append the wrap to the content parent element
+					$('#eg-chat-content').append(App.chat_wrap_view.$el);
+
+					App.chat_wrap_view.$('.box')
+					.append(App.chat_stream_view.el);
+					  App.chat_stream_view.render();
+
+
+
+				App.chat_wrap_view.$('.window-view').hide();
+				if(conditions [condition]){
+					this.$('.notice').html(conditions [condition]).show();
+					App.connection.confail = true;
+					return true;
+				}
+			}
+		}
+	}
+
+    return false;
+}
+
+function systemMessageIntegHook(msg)
+{
+	var isNotDRASR = true;
+	for ( var i = 0; i < msg.childNodes.length; i++) {
+		if((typeof msg.childNodes[i].baseName != "undefined" && msg.childNodes[i].baseName != null && msg.childNodes[i].baseName == EGAIN_CMD) || (typeof msg.childNodes[i].localName != "undefined" && msg.childNodes[i].localName != null && msg.childNodes[i].localName.trim() == EGAIN_CMD))
+		{
+			var egainCmd = null;
+			if(typeof msg.childNodes[i].text != "undefined" && msg.childNodes[i].text!= null)
+				egainCmd = msg.childNodes[i].text;
+			else if(typeof msg.childNodes[i].textContent != "undefined" && msg.childNodes[i].textContent != null)
+				egainCmd = msg.childNodes[i].textContent.trim();
+
+			if(egainCmd != null && egainCmd != '')
+			{
+				if(egainCmd == "drasr")
+					isNotDRASR = false;
+			}
+		}
+	}
+
+	return isNotDRASR;
+}
+
+function parseMessages(messagingPropertyStr) {
+	var messagingPropertyObj = {};
+	if (messagingPropertyStr) {
+		var mesagingPropertyVariables = messagingPropertyStr.split('\n');
+		for (i = 0; i < mesagingPropertyVariables.length; i++) {
+			var keyValuePair = mesagingPropertyVariables[i].split('=');
+			if (keyValuePair.constructor === Array && keyValuePair.length > 1) {
+				var key = keyValuePair[0].trim();
+				var value = keyValuePair[1].trim();
+				messagingPropertyObj[key] = value;
+			}
+
+		}
+	}
+	return messagingPropertyObj;
+}
+
+//This method is added for compatibility with kiwi template. No implementation required
+function customValidationHook(inputName, value,errors)
+{
+}
