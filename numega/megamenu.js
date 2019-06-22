@@ -1,5 +1,5 @@
 "use strict";
-alert("ducks");
+
 var ltdc_megamenu = new Vue( {
 	el: "#js-megamenu--id",
 	data: {
@@ -8,6 +8,8 @@ var ltdc_megamenu = new Vue( {
 		stick: false,
 		bL2: false,
 		bL3: false,
+		nl2l3: 0,
+		cat_l2l3: [],
 		cat_lvl1: {},
 		cat_lvl2: {},
 		hasImage: false,
@@ -45,22 +47,15 @@ var ltdc_megamenu = new Vue( {
 				this.cat_lvl1 = {};
 				this.bL2 = false;
 			}else{
-				this.cat_lvl1 = this.getSubCat( sCat );
+this.cat_l2l3 = this.getL2L3( sCat );  //  Get denorm arr of l2 and l3
+this.nl2l3 = this.calcBreakPoint();  //  Math.floor( this.cat_l2l3.length / 2 );
 				if( this.cat_lvl1 ) this.bL2 = true;
 			}
 			this.bL3 = false;
 			this.aMegaNav.children.filter(function( _lvl1 ){ _lvl1.select = false; });  //  clear hover state
 		},
-		hover_l2: function( sCat ){
-			//this.mutexUgc2( sCat );
-			this.cat_lvl1.select = true;  //  force hover state
-			this.cat_lvl2 = this.getSubCat( sCat );
-			this.bL3 = ( this.cat_lvl2.children );
-			this.cat_lvl1.children.filter(function( _lvl2 ){ _lvl2.select = false; });  //  clear hover state
-		},
-		hover_l3: function( sCat ){
-			//this.mutexUgc2( sCat );
-			this.cat_lvl2.select = true;  //  force hover state
+		calcBreakPoint: function(){
+			return (this.aMegaNav.children.length - 1);
 		},
 		mutexUgc2: function( sCat ){
 			var _hasUGC2 = false;
@@ -83,24 +78,21 @@ var ltdc_megamenu = new Vue( {
 				this.hasImage = false;
 			}
 		},
-		getSubCat: function( sCat ){
-			var aL3 = [], aSub = [], oReturn ={};
-			aSub = this.aMegaNav.children.filter(function( oCat ){  //  Search L2
-				if( oCat.cat === sCat){ return true; }
+		getL2L3: function( sCat ){  //  Gen denorm array of l2 and l3
+			var aL2 = [];
+			this.aMegaNav.children.filter(function( oCat ){
+				if( oCat.cat === sCat){
+					oCat.children.filter(function( oCat2 ){
+						aL2.push( { cat:oCat.cat, name:oCat2.name, href:oCat.href, l:2, l1:sCat } );
+						if( oCat2.children ){
+							oCat2.children.filter(function( oCat3 ){
+								aL2.push( { cat:oCat3.cat, name:oCat3.name, href:oCat3.href, l:3, l1:sCat } );
+							});							
+						}
+					});
+				};		
 			});
-			if( aSub.length === 0 ){
-				aSub = this.aMegaNav.children.filter(function( oCat ){  //  Search L3
-					if( oCat.children ){
-						aL3 = oCat.children.filter(function( oL3 ){
-							if( oL3.cat === sCat ){ return true; }
-						});
-						if( aL3.length >= 1) oReturn = aL3[0];
-					}
-				});
-			}else{
-				oReturn = aSub[0];
-			}
-			return oReturn;
+			return aL2;
 		},
 	    parseJSONCat: function(){
 	      var oPush={}, nLvl=0, sName="", sHref="", nL2Ct = -1;

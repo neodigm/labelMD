@@ -30,8 +30,8 @@
 
     align-items: stretch; /*test in ios*/
 
-	font-size: 16px;
-	font-weight: 600;
+	font-size: 17px;
+	font-weight: 400;
 	color: #000;
 }
 .mm-grid .mm-grid__lvl1 {
@@ -41,13 +41,13 @@ border-radius: 0 0 0 24px;
 }
 .mm-grid .mm-grid__lvl1 a {
 display: block;
-margin: 8px 0 8px 8px;padding: 4px 14px 4px 4px;
+margin: 9px 0 9px 8px;padding: 4px 14px 4px 4px;
 text-decoration: none;
 color: #000;
 border-radius: 10px 0 0 10px;
 }
 .mm-grid .mm-grid__lvl2 {
-min-width: 660px;
+
 min-height: 498px;
 }
 .mm-grid .mm-grid__lvl2--round {
@@ -55,19 +55,16 @@ border-radius: 0 0 24px 0;
 }
 .mm-grid .mm-grid__lvl2 a {
 display: block;
-margin: 8px 0 8px 8px;padding: 4px 14px 4px 4px;
+margin: 9px 0 9px 8px;padding: 4px 14px 4px 4px;
 text-decoration: none;
-border: solid 1px #666;
+width: 256px;
 }
 .mm-grid .mm-grid__lvl3 {
 min-width: 1px;
 background-color: #000;
 }
-.mm-grid .mm-grid__lvl3 a {
-display: block;
-margin: 8px 0 8px 8px;padding: 4px 6px 4px 4px;
-text-decoration: none;
-color: #fff;
+.mm-grid .mm-grid__lvl2 a.link__l3 {
+margin: 9px 0 9px 16px;
 }
 .mm-grid .mm-grid__lvl3 a:hover {
 	text-decoration: underline;
@@ -104,24 +101,22 @@ border-radius: 0 0 24px 0;
 
 body[data-brand="LS"]  .l-megamenu { background-color: #fff; }
 body[data-brand="LTD"] .l-megamenu { background-color: #fff; }
-body[data-brand="LS"]  .mm-grid .mm-grid__lvl2 { background-color: #f5f5f5; }
-body[data-brand="LTD"] .mm-grid .mm-grid__lvl2 { background-color: #f5f5f5; }
+body[data-brand="LS"]  .mm-grid .mm-grid__lvl2 { background-color: #f8f8f8; }
+body[data-brand="LTD"] .mm-grid .mm-grid__lvl2 { background-color: #f8f8f8; }
 body[data-brand="LS"]  .mm-grid .mm-grid__lvl3 { background-color: #ededed; }
 body[data-brand="LTD"] .mm-grid .mm-grid__lvl3 { background-color: #ededed; }
 
-body[data-brand="LS"]  .mm-grid .mm-grid__lvl2 a { color: #000; }
-body[data-brand="LTD"] .mm-grid .mm-grid__lvl2 a { color: #000; }
-body[data-brand="LS"]  .mm-grid .mm-grid__lvl3 a { color: #000; }
-body[data-brand="LTD"] .mm-grid .mm-grid__lvl3 a { color: #000; }
-body[data-brand="LS"]  .mm-grid .mm-grid__lvl1 a:hover { text-decoration: underline; background-color: #f5f5f5; }
-body[data-brand="LTD"] .mm-grid .mm-grid__lvl1 a:hover { text-decoration: underline; background-color: #f5f5f5; }
-body[data-brand="LS"]  .mm-grid .mm-grid__lvl2 a:hover { text-decoration: underline; background-color: #ededed; }
-body[data-brand="LTD"] .mm-grid .mm-grid__lvl2 a:hover { text-decoration: underline; background-color: #ededed; }
-body[data-brand="LS"]  .mm-grid .mm-grid__lvl3 a:hover { text-decoration: underline; }
-body[data-brand="LTD"] .mm-grid .mm-grid__lvl3 a:hover { text-decoration: underline; }
+body[data-brand="LS"]  .mm-grid .mm-grid__lvl2 a.link__l2 { color: #000; }
+body[data-brand="LTD"] .mm-grid .mm-grid__lvl2 a.link__l2 { color: #000; }
+body[data-brand="LS"]  .mm-grid .mm-grid__lvl2 a.link__l3 { color: #d0021b; }
+body[data-brand="LTD"] .mm-grid .mm-grid__lvl2 a.link__l3 { color: #254b77; }
+body[data-brand="LS"]  .mm-grid .mm-grid__lvl1 a:hover { text-decoration: underline; background-color: #f8f8f8; }
+body[data-brand="LTD"] .mm-grid .mm-grid__lvl1 a:hover { text-decoration: underline; background-color: #f8f8f8; }
+body[data-brand="LS"]  .mm-grid .mm-grid__lvl2 a:hover { text-decoration: underline; }
+body[data-brand="LTD"] .mm-grid .mm-grid__lvl2 a:hover { text-decoration: underline; }
 
-body[data-brand="LS"]  .mm-grid .mm-grid__lvl1 .lvl1--select { color: #000; background-color: #f5f5f5; }
-body[data-brand="LTD"] .mm-grid .mm-grid__lvl1 .lvl1--select { color: #000; background-color: #f5f5f5; }
+body[data-brand="LS"]  .mm-grid .mm-grid__lvl1 .lvl1--select { color: #000; background-color: #f8f8f8; }
+body[data-brand="LTD"] .mm-grid .mm-grid__lvl1 .lvl1--select { color: #000; background-color: #f8f8f8; }
 
 body[data-brand="LS"]  .mm-grid .mm-grid__lvl2 .lvl2--select { color: #000; background-color: #ededed;}
 body[data-brand="LTD"] .mm-grid .mm-grid__lvl2 .lvl2--select { color: #000; background-color: #ededed; }
