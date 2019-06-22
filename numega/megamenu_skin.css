@@ -64,7 +64,7 @@ min-width: 1px;
 background-color: #000;
 }
 .mm-grid .mm-grid__lvl2 a.link__l3 {
-margin: 9px 0 9px 16px;
+margin: -8px 0 12px 16px;
 }
 .mm-grid .mm-grid__lvl3 a:hover {
 	text-decoration: underline;
@@ -114,9 +114,3 @@ body[data-brand="LS"]  .mm-grid .mm-grid__lvl1 a:hover { text-decoration: underl
 body[data-brand="LTD"] .mm-grid .mm-grid__lvl1 a:hover { text-decoration: underline; background-color: #f8f8f8; }
 body[data-brand="LS"]  .mm-grid .mm-grid__lvl2 a:hover { text-decoration: underline; }
 body[data-brand="LTD"] .mm-grid .mm-grid__lvl2 a:hover { text-decoration: underline; }
-
-body[data-brand="LS"]  .mm-grid .mm-grid__lvl1 .lvl1--select { color: #000; background-color: #f8f8f8; }
-body[data-brand="LTD"] .mm-grid .mm-grid__lvl1 .lvl1--select { color: #000; background-color: #f8f8f8; }
-
-body[data-brand="LS"]  .mm-grid .mm-grid__lvl2 .lvl2--select { color: #000; background-color: #ededed;}
-body[data-brand="LTD"] .mm-grid .mm-grid__lvl2 .lvl2--select { color: #000; background-color: #ededed; }

@@ -47,15 +47,25 @@ var ltdc_megamenu = new Vue( {
 				this.cat_lvl1 = {};
 				this.bL2 = false;
 			}else{
-this.cat_l2l3 = this.getL2L3( sCat );  //  Get denorm arr of l2 and l3
-this.nl2l3 = this.calcBreakPoint();  //  Math.floor( this.cat_l2l3.length / 2 );
+				this.cat_l2l3 = this.getL2L3( sCat );  //  Get denorm arr of l2 and l3
+				this.nl2l3 = this.calcBreakPoint();
 				if( this.cat_lvl1 ) this.bL2 = true;
 			}
 			this.bL3 = false;
 			this.aMegaNav.children.filter(function( _lvl1 ){ _lvl1.select = false; });  //  clear hover state
 		},
-		calcBreakPoint: function(){
-			return (this.aMegaNav.children.length - 1);
+		calcBreakPoint: function(){  //  Visually balance the left / right cols
+			var nL1_len = this.aMegaNav.children.length;
+			var nL23_len = this.cat_l2l3.length;
+			var nRet = (nL1_len - 1);
+			if( nL1_len < nL23_len ){
+				nRet = ( Math.floor( nL23_len / 2) - 1);
+				do {
+					nRet++;
+				}
+				while ( this.cat_l2l3[ nRet ] && this.cat_l2l3[ nRet ].l === 3 );
+			}
+			return nRet;
 		},
 		mutexUgc2: function( sCat ){
 			var _hasUGC2 = false;
@@ -83,10 +93,10 @@ this.nl2l3 = this.calcBreakPoint();  //  Math.floor( this.cat_l2l3.length / 2 );
 			this.aMegaNav.children.filter(function( oCat ){
 				if( oCat.cat === sCat){
 					oCat.children.filter(function( oCat2 ){
-						aL2.push( { cat:oCat.cat, name:oCat2.name, href:oCat.href, l:2, l1:sCat } );
+						aL2.push( { cat:oCat.cat, name:oCat2.name, href:oCat.href, l:2} );
 						if( oCat2.children ){
 							oCat2.children.filter(function( oCat3 ){
-								aL2.push( { cat:oCat3.cat, name:oCat3.name, href:oCat3.href, l:3, l1:sCat } );
+								aL2.push( { cat:oCat3.cat, name:oCat3.name, href:oCat3.href, l:3} );
 							});							
 						}
 					});
