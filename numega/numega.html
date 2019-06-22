@@ -152,7 +152,8 @@
 	               	
 		    	
 	
-	<section id="c_headnavtype__search--id" class="search__cont topmenu__mobl--hide c_headnavtype headnav__search no__print"><nav><aside><svg height="36" width="36" viewBox="0 0 55 55" xmlns="http://www.w3.org/2000/svg" class="search__cont--vect"><path d="M24.23 14.808c0-5.196-4.227-9.423-9.422-9.423-5.196 0-9.423 4.227-9.423 9.423 0 5.195 4.227 9.423 9.423 9.423 5.195 0 9.423-4.228 9.423-9.423zM35 32.308A2.711 2.711 0 0 1 32.308 35a2.64 2.64 0 0 1-1.893-.8L23.2 27.008a14.773 14.773 0 0 1-8.392 2.608C6.626 29.615 0 22.99 0 14.808S6.626 0 14.808 0c8.182 0 14.807 6.626 14.807 14.808 0 2.986-.904 5.931-2.608 8.392l7.215 7.215c.484.483.778 1.178.778 1.893z" fill-rule="evenodd"></path></svg> <form method="get" action="https://www.ltdcommodities.com/browse/" id="basicsearchForm"><input name="_dyncharset" type="hidden" value="ISO-8859-1"><input autocomplete="off" tabindex="6" name="/atg/commerce/endeca/QueryFormHandler.question" id="js-inp-search--id" placeholder="Item# or Keyword" type="text" value="" aria-label="Item# or Keyword" class="search__cont--input legacy_input_override"><input name="_D:/atg/commerce/endeca/QueryFormHandler.question" type="hidden" value=" "><input name="/atg/commerce/endeca/QueryFormHandler.search" type="hidden" value="Search"><input name="_D:/atg/commerce/endeca/QueryFormHandler.search" type="hidden" value=" "> <a data-search-form-id="basicsearchForm" tabindex="21" class="search__cont--righta js-search__btn">Search</a> <input name="_DARGS" type="hidden" value="/common/includes/inc_search_form.jsp.basicsearch"></form></aside></nav> <aside id="js-headnavtype__search--id" class="headnavtype hidden"><ul></ul></aside></section>
+<section id="c_headnavtype__search--id" class="search__cont topmenu__mobl--hide c_headnavtype headnav__search no__print"><nav><aside><svg height="36" width="36" viewBox="0 0 55 55" xmlns="http://www.w3.org/2000/svg" class="search__cont--vect"><path d="M24.23 14.808c0-5.196-4.227-9.423-9.422-9.423-5.196 0-9.423 4.227-9.423 9.423 0 5.195 4.227 9.423 9.423 9.423 5.195 0 9.423-4.228 9.423-9.423zM35 32.308A2.711 2.711 0 0 1 32.308 35a2.64 2.64 0 0 1-1.893-.8L23.2 27.008a14.773 14.773 0 0 1-8.392 2.608C6.626 29.615 0 22.99 0 14.808S6.626 0 14.808 0c8.182 0 14.807 6.626 14.807 14.808 0 2.986-.904 5.931-2.608 8.392l7.215 7.215c.484.483.778 1.178.778 1.893z" fill-rule="evenodd"></path></svg> <form method="get" action="https://www.ltdcommodities.com/browse/" id="basicsearchForm"><input name="_dyncharset" type="hidden" value="ISO-8859-1"><input autocomplete="off" tabindex="6" name="/atg/commerce/endeca/QueryFormHandler.question" id="js-inp-search--id" placeholder="Item# or Keyword" type="text" value="" aria-label="Item# or Keyword" class="search__cont--input legacy_input_override"><input name="_D:/atg/commerce/endeca/QueryFormHandler.question" type="hidden" value=" "><input name="/atg/commerce/endeca/QueryFormHandler.search" type="hidden" value="Search"><input name="_D:/atg/commerce/endeca/QueryFormHandler.search" type="hidden" value=" "> <a data-search-form-id="basicsearchForm" tabindex="21" class="search__cont--righta js-search__btn">Search</a> <input name="_DARGS" type="hidden" value="/common/includes/inc_search_form.jsp.basicsearch"></form></aside></nav>
+</section>
  	
 	      	
 	        <section class="topmenu__gridright no__print">
@@ -248,7 +249,6 @@
 	</script>
 
 
-
 	<ltdc-megamenu id="js-megamenu--id" class="l-megamenu" v-cloak :class="{'hide' : !isOpen, 'stick' : stick}">
 		<section class="mm-grid">
 				<section class="mm-grid__lvl1">
@@ -257,9 +257,9 @@
 						@mouseover="hover_l1( Nav.cat )">
 						{{ Nav.name }}
 						</a>
-						<dsp:include page="/common/includes/inc_content_area.jsp">
-				 <dsp:param name="caName" value="mm_static_links"/>
-			 </dsp:include>           
+<dsp:include page="/common/includes/inc_content_area.jsp">
+<dsp:param name="caName" value="mm_static_links"/>
+</dsp:include>           
 				</section>
 				
 				<section class="mm-grid__lvl2" v-if="bL2" :class="{'hide':!bL2,'mm-grid__lvl2--round': !bL3 && !hasImage}">
@@ -267,9 +267,11 @@
 						 :class="{'lvl2--select': Nav.select}"
 						@mouseover="hover_l2( Nav.cat )">
 						{{ Nav.name }}
-						</a> 
+						</a>
+
 				</section>
-				<section class="mm-grid__lvl3" :class="{'mm-grid__lvl3--empty':!bL3 || !bL2, 'mm-grid__lvl3--round': !hasImage}">
+
+				<section class="mm-grid__lvl3" :classQQQQ="{'mm-grid__lvl3--round': !hasImage}">
 						 <a v-if="bL3" v-for="(Nav, I ) in cat_lvl2.children" :data-cat="Nav.cat" :href="Nav.href"
 						 @mouseover="hover_l3( Nav.cat )">
 						 {{ Nav.name }}
@@ -277,19 +279,38 @@
 				</section>
 				
 				<section class="mm-grid__ugc1 mm-grid__ugc1--hide" v-if="!bL2">
-					<dsp:include page="/common/includes/inc_content_area.jsp">
-				 <dsp:param name="caName" value="popular_categories"/>
-			 </dsp:include>          
+<dsp:include page="/common/includes/inc_content_area.jsp">
+<dsp:param name="caName" value="popular_categories"/>
+</dsp:include>          
 				</section>
 				
 				<section id="js-ugc2--id" class="mm-grid__ugc2 mm-grid__ugc2--hide">
-			 <dsp:include page="/common/includes/inc_content_area.jsp">
-				 <dsp:param name="caName" value="cat_promo_banner"/>
-			 </dsp:include>
-		</section>
+<dsp:include page="/common/includes/inc_content_area.jsp">
+<dsp:param name="caName" value="cat_promo_banner"/>
+</dsp:include>
+
+<!-- Hardcoded -->
+<div data-ugc2-cat="cat51851" class="ugc2__mutex"><img src="https://www.ltdcommodities.com/images/LTD-SE-flyout-Home-Decor.jpg" alt="Home-Decor"></div> 
+<div data-ugc2-cat="cat1920006" class="ugc2__mutex ugc2__mutex--hide"><img src="https://www.ltdcommodities.com/images/LTD-SE-flyout-Garden.jpg" alt="Garden-Outdoors"></div> 
+<div data-ugc2-cat="cat51940" class="ugc2__mutex ugc2__mutex--hide"><img src="https://www.ltdcommodities.com/images/LTD-SE-flyout-Home-Improvement.jpg" alt="Home-Improvement"></div> 
+<div data-ugc2-cat="cat51542" class="ugc2__mutex ugc2__mutex--hide"><img src="https://www.ltdcommodities.com/images/LTD-SE-flyout-Clothing.jpg" alt="Clothing-Accessories"></div> 
+<div data-ugc2-cat="cat51997" class="ugc2__mutex ugc2__mutex--hide"><img src="https://www.ltdcommodities.com/images/LTD-SE-flyout-Toys.jpg" alt="Toys-Games"></div>
+<div data-ugc2-cat="cat51951" class="ugc2__mutex ugc2__mutex--hide"><img src="https://www.ltdcommodities.com/images/LTD-SE-flyout-Kitchen.jpg" alt="Kitchen-Dining"></div>
+<div data-ugc2-cat="cat51761" class="ugc2__mutex ugc2__mutex--hide"><img src="https://www.ltdcommodities.com/images/LTD-SE-flyout-Bed-Bath.jpg" alt="Bed-Bath"></div>
+<div data-ugc2-cat="cat51825" class="ugc2__mutex ugc2__mutex--hide"><img src="https://www.ltdcommodities.com/images/LTD-SE-flyout-Books.jpg" alt="Books-Crafts-Office-Supplies"></div>
+<div data-ugc2-cat="cat51972" class="ugc2__mutex ugc2__mutex--hide"><img src="https://www.ltdcommodities.com/images/LTD-SE-flyout-Pets.jpg" alt="Pets"></div> 
+<div data-ugc2-cat="cat1202359" class="ugc2__mutex ugc2__mutex--hide"><img src="https://www.ltdcommodities.com/images/LTD-SE-flyout-Sports.jpg" alt="NFL-Sporting-Goods"></div> 
+<div data-ugc2-cat="cat51933" class="ugc2__mutex ugc2__mutex--hide"><img src="https://www.ltdcommodities.com/images/LTD-SE-flyout-Gift.jpg" alt="Gift-Ideas-Personalized"></div> 
+<div data-ugc2-cat="cat2470018" class="ugc2__mutex ugc2__mutex--hide"><img src="https://www.ltdcommodities.com/images/LTD-SE-flyout-Holiday.jpg" alt="Holiday"></div>
+<!-- Hardcoded -->
+
+				</section>
 			
 		</section>
-</ltdc-megamenu>
+	</ltdc-megamenu>
+
+
+
 	
 
 
@@ -2015,7 +2036,7 @@ function updateQVGiftContents(){
 </ltdc-reveal> 		
 		<link rel="stylesheet" href="./numega_files/topsearch_skin.min.css" as="style" onload="this.rel='stylesheet'">
 		
-		<link rel="stylesheet" href="./numega_files/megamenu_skin.min.css" as="style" onload="this.rel='stylesheet'">
+		<link rel="stylesheet" href="./../megamenu_skin.css" as="style" onload="this.rel='stylesheet'">
 		
 		<link rel="stylesheet" href="./numega_files/leftnav_menu_skin.min.css" as="style" onload="this.rel='stylesheet'">
 		
@@ -2041,7 +2062,7 @@ function updateQVGiftContents(){
 		<script src="./numega_files/topmenu.min.js.download"></script>		
 		<script src="./numega_files/toplogo.min.js.download"></script>		
 		<script src="./numega_files/topsearch.min.js.download" async=""></script>
-		<script src="./numega_files/megamenu.min.js.download" async=""></script>
+		<script src="./../megamenu.js" async=""></script>
 		<script src="./numega_files/leftnav_menu.min.js.download" async=""></script>
 		<script src="./numega_files/flymyaccount.min.js.download" async=""></script>
 		<script src="./numega_files/pagebread.min.js.download" defer=""></script>

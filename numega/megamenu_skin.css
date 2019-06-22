@@ -35,7 +35,7 @@
 	color: #000;
 }
 .mm-grid .mm-grid__lvl1 {
-min-width: 300px;
+min-width: 270px;
 min-height: 498px;
 border-radius: 0 0 0 24px;
 }
@@ -47,7 +47,7 @@ color: #000;
 border-radius: 10px 0 0 10px;
 }
 .mm-grid .mm-grid__lvl2 {
-min-width: 300px;
+min-width: 660px;
 min-height: 498px;
 }
 .mm-grid .mm-grid__lvl2--round {
@@ -57,9 +57,10 @@ border-radius: 0 0 24px 0;
 display: block;
 margin: 8px 0 8px 8px;padding: 4px 14px 4px 4px;
 text-decoration: none;
+border: solid 1px #666;
 }
 .mm-grid .mm-grid__lvl3 {
-min-width: 300px;
+min-width: 1px;
 background-color: #000;
 }
 .mm-grid .mm-grid__lvl3 a {
@@ -71,7 +72,7 @@ color: #fff;
 .mm-grid .mm-grid__lvl3 a:hover {
 	text-decoration: underline;
 }
-.mm-grid .mm-grid__lvl3--empty { display: none; }
+.QQQQmm-grid .mm-grid__lvl3--empty { display: none; }
 .mm-grid .mm-grid__lvl3--round {
 border-radius: 0 0 24px 0;
 }
