@@ -30,8 +30,8 @@
 
     align-items: stretch; /*test in ios*/
 
-	font-size: 17px;
-	font-weight: 400;
+	font-size: 16px;
+	font-weight: 600;
 	color: #000;
 }
 .mm-grid .mm-grid__lvl1 {
@@ -69,11 +69,6 @@ margin: -8px 0 12px 16px;
 .mm-grid .mm-grid__lvl3 a:hover {
 	text-decoration: underline;
 }
-.QQQQmm-grid .mm-grid__lvl3--empty { display: none; }
-.mm-grid .mm-grid__lvl3--round {
-border-radius: 0 0 24px 0;
-}
-
 .mm-grid .mm-grid__link--static:hover {
 	border-radius: 10px;
     margin: 8px;
@@ -108,7 +103,7 @@ body[data-brand="LTD"] .mm-grid .mm-grid__lvl3 { background-color: #ededed; }
 
 body[data-brand="LS"]  .mm-grid .mm-grid__lvl2 a.link__l2 { color: #000; }
 body[data-brand="LTD"] .mm-grid .mm-grid__lvl2 a.link__l2 { color: #000; }
-body[data-brand="LS"]  .mm-grid .mm-grid__lvl2 a.link__l3 { color: #d0021b; }
+body[data-brand="LS"]  .mm-grid .mm-grid__lvl2 a.link__l3 { color: #000; }
 body[data-brand="LTD"] .mm-grid .mm-grid__lvl2 a.link__l3 { color: #254b77; }
 body[data-brand="LS"]  .mm-grid .mm-grid__lvl1 a:hover { text-decoration: underline; background-color: #f8f8f8; }
 body[data-brand="LTD"] .mm-grid .mm-grid__lvl1 a:hover { text-decoration: underline; background-color: #f8f8f8; }
