@@ -1,0 +1,70 @@
+/*  CSS category State    */ /*  color display font visibility ...  */
+.c-flyoutcart {
+  align-items: left;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px #ccc;
+  display: flex;
+  flex-flow: column nowrap; /* Shorthand for flex-direction and flex-wrap */
+  justify-content: space-between;
+  padding: 8px;
+  position: fixed;
+  right: 341px;
+  width: 264px;
+  z-index: 256;
+}
+.c-flyoutcart h4 {
+  color: #222;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  margin: 4px 4px 8px 4px;
+  width: 100%;
+}
+.c-flyoutcart .flyoutcart__prod--contain {
+  width: 100%;
+}
+.c-flyoutcart .flyoutcart__prod--grid {
+  align-items: left;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  margin-bottom: 2px;
+}
+.c-flyoutcart .flyoutcart__foot p {
+  text-align: left;
+}
+.c-flyoutcart .flyoutcart__prod--grid img {
+  margin: 4px;
+  width: 89px;
+}
+.c-flyoutcart p, .c-flyoutcart a {
+  color: #222;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+  margin: 4px;
+  text-align: left;
+}
+.c-flyoutcart a {
+  color: #222;
+  cursor: pointer;
+  font-size: 12px;
+}
+@media only screen and (max-width:61.1875em){
+/* small and medium */
+  .c-flyoutcart {
+
+  }
+}
+/*  CSS category Theme    */ /*  color background hover ...  */
+body[data-brand="LS"] .c-flyoutcart { border: solid 1px #35424a; }
+body[data-brand="LTD"] .c-flyoutcart { border: solid 1px #30619a; }
+body[data-brand="LS"] .c-flyoutcart { background-color: #fff; }
+body[data-brand="LTD"] .c-flyoutcart { background-color: #fff; }
+body[data-brand="LS"] .c-flyoutcart { top: 80px; }
+body[data-brand="LTD"] .c-flyoutcart { top: 70px; }
+body[data-brand="LS"] .c-flyoutcart a  { color: #7e2d3e; }
+body[data-brand="LTD"] .c-flyoutcart a  { color: #2ba6cb; }

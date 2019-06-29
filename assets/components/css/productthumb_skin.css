@@ -1,0 +1,15 @@
+/* skin */
+body[data-brand="LS"] .l-productthumb .prod-exclusive { background-color: #677b88; }
+body[data-brand="LTD"] .l-productthumb .prod-exclusive { background-color: #30619a; }
+
+body[data-brand="LS"]  .l-productthumb .prod-c2a--add { background-color: #d0021b; }
+body[data-brand="LTD"] .l-productthumb .prod-c2a--add { background-color: #27ae60; }
+
+body[data-brand="LS"]  .l-productthumb .prod-c2a--more { background-color: #d0021b; }
+body[data-brand="LTD"] .l-productthumb .prod-c2a--more { background-color: #27ae60; }
+
+body[data-brand="LS"]  .l-productthumb .prod-c2a--pers { background-color: #d0021b; }
+body[data-brand="LTD"] .l-productthumb .prod-c2a--pers { background-color: #27ae60; }
+
+body[data-brand="LS"]  .prod-par__vm { color: #343a40; }
+body[data-brand="LTD"] .prod-par__vm { color: #30619a; }

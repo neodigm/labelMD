@@ -1,0 +1,10 @@
+body[data-brand="LS"] .l-topmenu { background-color: #343a40; }
+body[data-brand="LTD"] .l-topmenu { background-color: #30619a; }
+body[data-brand="LS"] .l-topmenu .l-grid { background-color: #343a40; }
+body[data-brand="LTD"] .l-topmenu .l-grid { background-color: #30619a; }
+body[data-brand="LS"] .l-topmenu .topmenu__link--items { background-color: #d0021b; color: #fff;}
+body[data-brand="LTD"] .l-topmenu .topmenu__link--items { background-color: #cae3ff; color: #275f9b;}
+body[data-brand="LS"] .l-topmenu .search__cont--vect   { fill: #D0021B;}
+body[data-brand="LTD"] .l-topmenu .search__cont--vect   { fill: #4a90e2;}
+body[data-brand="LS"]  .l-topmenu .search__cont--righta { background-color: rgba(256, 256, 256, 0); color: #D0021B;}
+body[data-brand="LTD"] .l-topmenu .search__cont--righta { background-color: rgba(256, 256, 256, 0); color: #30619a;}

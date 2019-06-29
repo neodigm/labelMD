@@ -27,13 +27,452 @@
 	<link rel="stylesheet" href="./numega_files/topmessage_skin.min.css" as="style" onload="this.rel='stylesheet'">
 	<!--/*____ Component: topmessage   ________________ end   */-->			
 	<!--/*____ Component: toplogo   ________________ begin */-->
-	<style type="text/css">@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none){.l-toplogo{font-size:14px}}.l-toplogo{display:block;height:70px;margin:0}.l-toplogo :focus{outline:0}.l-toplogo .l-grid{align-items:flex-start;display:flex;justify-content:space-between;height:42px;margin:0 auto;max-width:1920px}.toplogo__gridright{margin:4px 10px 4px 0}.toplogo__slide{border-radius:6px;display:inline-block;padding:2px 0;position:relative;margin:2px -1px -1px -1px;height:32px;width:132px;-webkit-box-sizing:content-box!important;box-sizing:content-box!important;transition:width .8s,background-color .8s}.toplogo__slide .slide-init__hide{display:none}.toplogo__slide--opened{background-color:#fff;border:1px solid #5ea3c3;margin:6px -1px -1px -1px;padding:2px 0 0 8px;width:324px;transition:width .8s,background-color .8s}.toplogo__slide--opened svg{top:-6px;cursor:default}.toplogo__slide--opened .slide-opened__hide{display:none!important}.toplogo__slide--opened .slide-init__hide{display:initial!important}.toplogo-email__input{background-color:#fff!important;border:0!important;border-color:#fff!important;box-shadow:none!important;box-sizing:border-box!important;display:inline;font-size:14px!important;height:22px!important;left:2px;margin:6px 8px 0 36px!important;outline:0!important;padding:2px!important;position:absolute;width:204px!important;transition:width .8s!important}.toplogo-email__input:focus{background-color:#fff!important;border:0!important;border-color:#fff!important;box-shadow:none!important;box-sizing:border-box!important;display:inline;font-size:14px!important;height:22px!important;left:2px;margin:6px 8px 0 36px!important;outline:0!important;padding:2px!important;position:absolute;width:204px!important;transition:width .8s!important}.toplogo-email__btn--submit{border-radius:0 6px 6px 0;cursor:pointer;float:right;font-size:17px;height:100%;line-height:2.2;margin:0;padding:0 12px;position:absolute;top:0;right:0;bottom:0}.toplogo__slide--offset{position:relative;top:-5px}.toplogo__link--text{font-size:15px;user-select:none}.l-toplogo a{text-decoration:none}.space-betw{justify-content:space-between}.l-grid .toplogo__gridleft--link{cursor:pointer}.l-grid .toplogo__gridright--link{color:#fff;cursor:pointer;line-height:3.2;margin:0 8px 0 2px}.toplogo__home--image-lsc{width:375px;height:auto;margin:14px 16px 6px 16px}.toplogo__home--image-ltd{width:375px;height:auto;margin:10px 16px}.l-grid .toplogo__gridright--vect{fill:#ccc}@media only screen and (max-width:48em){.l-toplogo .l-grid{display:block;text-align:center;margin:0 auto;max-width:1920px}.l-toplogo .toplogo__gridright{display:none}.toplogo__home--image-lsc{width:286px}.toplogo__home--image-ltd{width:286px}}@media only screen and (min-width:767px) and (max-width:1064px){#js-toplogo-slide__email--id{display:none}}</style>
+<style type="text/css">
+	@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  /*ms*/
+		.l-toplogo {
+			font-size: 14px;
+		}
+	}
+	
+	.l-toplogo {
+	display: block;
+	height: 70px;
+	margin: 0;
+	}
+	.l-toplogo *:focus {
+		outline: none;
+	}
+	.l-toplogo .l-grid {
+		align-items: flex-start;
+		display: flex;
+		justify-content: space-between;
+		height: 42px;
+		margin: 0 auto;
+		max-width: 1920px;
+	}
+	.toplogo__gridright {
+		margin: 4px 10px 4px 0;
+	}
+	.toplogo__slide {
+	border-radius: 6px;
+	display: inline-block;
+	padding: 2px 0;
+	position: relative;
+	margin: 2px -1px -1px -1px;
+	height: 32px; width: 132px;
+	
+	-webkit-box-sizing: content-box !important;
+	box-sizing: content-box !important;
+	
+	transition: width .8s, background-color .8s;
+	}
+	.toplogo__slide .slide-init__hide {
+		display: none;
+	}
+	.toplogo__slide--opened {
+	background-color: #fff;
+	border: 1px solid #5EA3C3;
+	margin: 6px -1px -1px -1px;
+	padding: 2px 0 0 8px;
+	width: 324px;
+	transition: width .8s, background-color .8s;
+	}
+	.toplogo__slide--opened svg {
+	top: -6px;
+	cursor: default;
+	}
+	.toplogo__slide--opened .slide-opened__hide {
+		display: none !important;
+	}
+	.toplogo__slide--opened .slide-init__hide {
+		display: initial !important;
+	}
+	.toplogo-email__input { /* legacy reset */
+	background-color: #fff !important;
+	border: 0 !important;
+	border-color: #fff !important;
+	box-shadow: none !important;
+	box-sizing: border-box !important;
+	display: inline;
+	font-size: 14px !important;
+	height: 22px !important;
+	left: 2px;
+	margin: 6px 8px 0 36px !important;
+	outline: 0 !important;
+	padding: 2px !important;
+	position: absolute;
+	width: 204px !important;
+	transition: width .8s !important;
+	}
+	.toplogo-email__input:focus { /* legacy reset */
+	background-color: #fff !important;
+	border: 0 !important;
+	border-color: #fff !important;
+	box-shadow: none !important;
+	box-sizing: border-box !important;
+	display: inline;
+	font-size: 14px !important;
+	height: 22px !important;
+	left: 2px;
+	margin: 6px 8px 0 36px !important;
+	outline: 0 !important;
+	padding: 2px !important;
+	position: absolute;
+	width: 204px !important;
+	transition: width .8s !important;
+	}
+	.toplogo-email__btn--submit {
+	border-radius: 0 6px 6px 0;
+	cursor: pointer;
+	float: right;
+	font-size: 17px;
+	height: 100%;
+	line-height: 2.20;
+	margin: 0;
+	padding: 0 12px;
+	position: absolute;
+	top: 0; right: 0; bottom: 0;
+	}
+	
+	.toplogo__slide--offset {
+		position: relative;
+		top: -5px;
+	}
+	
+	.toplogo__link--text {
+		font-size: 15px;
+		user-select: none;
+	}
+	
+	.l-toplogo a {
+		text-decoration: none;
+	}
+	.space-betw {
+		justify-content: space-between;
+	}
+	
+	.l-grid .toplogo__gridleft--link {
+		cursor: pointer;
+	}
+	.l-grid .toplogo__gridright--link {
+		color: #fff;
+		cursor: pointer;
+		line-height: 3.2;
+		margin: 0 8px 0 2px;
+	}
+	.toplogo__home--image-lsc {
+		width: 375px;
+		height: auto;
+		margin: 14px 16px 6px 16px;
+	}
+	.toplogo__home--image-ltd {
+		width: 375px;
+		height: auto;
+		margin: 10px 16px;
+	}
+	.l-grid .toplogo__gridright--vect {
+		fill: #ccc;
+	}
+	
+	@media only screen and (max-width: 48em){  /* small */
+		.l-toplogo {
+			display: none;
+		}
+		.l-toplogo .l-grid {
+			display: block;
+			text-align: center;
+			margin: 0 auto;
+			max-width: 1920px;
+		}
+		.l-toplogo .toplogo__gridright {
+			display: none;
+		}
+		.toplogo__home--image-lsc {
+			width: 286px;
+		}
+		.toplogo__home--image-ltd {
+			width: 286px;
+		}
+	}
+	
+	@media only screen and (min-width: 767px) and (max-width: 1064px) {  /* med landscape */
+		#js-toplogo-slide__email--id { display: none; }
+	}
+</style>
 	<link rel="stylesheet" href="./numega_files/toplogo_skin.min.css" as="style" onload="this.rel='stylesheet'">
 	<!--/*____ Component: toplogo   ________________ end   */-->	
+
+
 	<!--/*____ Component: topmenu   ________________ begin */-->
-	<style type="text/css">.l-topmenu{display:block;height:60px;margin:0;box-shadow:4px 4px 4px #ddd;overflow:hidden;z-index:256}.l-topmenu :focus{outline:0}.l-topmenu .l-grid{align-items:flex-start;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-webkit-box-pack:justify;-moz-box-pack:justify;-ms-flex-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;margin:0 auto;max-width:1920px}.l-topmenu a{text-decoration:none}.l-topmenu .topmenu__gridleft{align-items:flex-start;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-webkit-box-pack:justify;-moz-box-pack:justify;-ms-flex-pack:justify;-webkit-justify-content:space-between;justify-content:space-between}.l-topmenu .topmenu__gridright{align-items:flex-start;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-webkit-box-pack:justify;-moz-box-pack:justify;-ms-flex-pack:justify;-webkit-justify-content:space-between;justify-content:space-between}.l-topmenu .topmenu__link{color:#fff;cursor:pointer;line-height:3;margin:2px 14px}.l-topmenu .topmenu__link--vect{fill:#fff}.vect__toggle--primary{display:inline}.vect__toggle--alternate{display:none}.megamenu .vect__toggle--primary{display:none}.megamenu .vect__toggle--alternate{display:inline}.l-topmenu .topmenu__link--text{font-size:18px;margin-left:16px}.l-topmenu .topmenu__link--textmobl{font-size:18px;margin-left:16px}.l-topmenu .topmenu__link--items{padding:2px 8px;margin:10px 0 0 0;border-radius:44px;display:inline;font-size:18px;margin-left:6px}.l-topmenu .svg-icon svg{height:1.6em;width:1.6em}.l-topmenu .search__cont{margin:10px 4vw 8px;background-color:#fff;border-radius:6px;height:40px;flex-grow:2;flex-shrink:0}.l-topmenu .search__cont--vect{margin:8px 0 0 6px;position:absolute}.l-topmenu .search__cont--input{outline:0;border:0;height:32px;padding:2px;margin:4px 8px 0 36px;font-size:18px;box-sizing:border-box;width:calc(100% - 140px)}.l-topmenu .search__cont--righta{cursor:pointer;float:right;height:100%;margin:0;font-size:18px;border-radius:0 6px 6px 0;line-height:2.24;padding:0 12px}.l-topmenu .topmenu__deskt--hide{display:none}.ever-present__menu{position:fixed;top:0;width:100%;box-shadow:none}.ever-present__menu .sticky-home{display:inline}.sticky-home{display:none}.l-topmenu .topmenu__link--wish{color:#fff;font-size:11px;position:relative;top:-46px;right:-24px}.drawerleft__menu{box-shadow:2px 2px 2px #868686;background-color:#fff;overflow-y:scroll;position:fixed;top:0;bottom:0;left:-400px;transition:all .3s;width:0;z-index:262}.drawerleft__menu::-webkit-scrollbar{width:8px}.drawerleft__menu::-webkit-scrollbar-track{background:rgba(0,0,0,.1)}.drawerleft__scrim{display:none;background-color:#000;opacity:.4;position:fixed;top:0;right:0;bottom:0;left:0;z-index:260;cursor:pointer}.isOpen__menu{left:0}.isOpen__scrim{display:block}body[data-brand=LS] .drawerleft__menu::-webkit-scrollbar-thumb{background:rgba(126,45,62,.5)}body[data-brand=LTD] .drawerleft__menu::-webkit-scrollbar-thumb{background:rgba(41,127,184,.5)}@media only screen and (max-width:1064px){.isOpen__menu{width:300px}.l-topmenu .topmenu__mobl--hide{display:none}.l-topmenu .topmenu__deskt--hide{display:inline}.l-topmenu .topmenu__link--text{display:none}.l-topmenu .topmenu__link--vectmargin{margin-top:4px}.l-topmenu .topmenu__link--items{padding:1px 3px}.c_headnavtype .headnavtype{width:308px}}.c_headnavtype .headnavtype{width:400px;padding:2px;border:solid 1px #aaa;-webkit-transition:-webkit-transform .15s linear;-webkit-box-shadow:0 3px 6px rgba(0,0,0,.25);-moz-box-shadow:0 3px 6px rgba(0,0,0,.25);position:fixed;background-color:#fff;z-index:14}.c_headnavtype ul{padding:1px}.c_headnavtype .headnavtype__type--ul{margin:6px 0;padding:0 14px}.c_headnavtype .headnavtype__type--li{color:#222;background-color:#fff;font-family:sans-serif;font-size:10px;line-height:1.4;cursor:pointer;margin-left:8px;list-style:none}.c_headnavtype .headnavtype__type--grid{align-items:center;display:flex;flex-flow:row nowrap;height:32px;justify-content:flex-start;cursor:pointer;user-select:none;text-decoration:none}.c_headnavtype .headnavtype__type--grid p{font-family:sans-serif;font-size:11px;font-weight:600;white-space:nowrap}.c_headnavtype .headnavtype__type--grid p:nth-of-type(2){padding-left:8px;font-size:12px;font-weight:400;white-space:normal}body[data-brand=LS] .c_headnavtype .headnavtype__type--li:hover{background-color:#fffaff}body[data-brand=LTD] .c_headnavtype .headnavtype__type--li:hover{background-color:#f2faff}</style>	
-	<link rel="stylesheet" href="./numega_files/topmenu_skin.min.css" as="style" onload="this.rel='stylesheet'">
-	<!--/*____ Component: topmenu   ________________ end   */-->			
+	<style type="text/css">
+		.l-topmenu {
+		display: block;
+		height: 60px;
+		margin: 0;
+		box-shadow: 4px 4px 4px #ddd;
+		overflow: hidden;
+		z-index: 256;
+		}
+		.l-topmenu *:focus {
+			outline: none;
+		}
+		.l-topmenu .l-grid {
+			align-items: flex-start;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: horizontal;
+			-webkit-box-direction: normal;
+				-ms-flex-flow: row nowrap;
+					flex-flow: row nowrap;
+			-webkit-box-pack: justify;
+			-moz-box-pack: justify;
+			-ms-flex-pack: justify;
+			-webkit-justify-content: space-between;
+			justify-content: space-between;
+				margin: 0 auto;
+				max-width: 1920px;
+		}
+		.l-topmenu a {
+			text-decoration: none;
+		}
+		.l-topmenu .topmenu__gridleft {
+			align-items: flex-start;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: horizontal;
+			-webkit-box-direction: normal;
+				-ms-flex-flow: row nowrap;
+					flex-flow: row nowrap;
+			-webkit-box-pack: justify;
+			-moz-box-pack: justify;
+			-ms-flex-pack: justify;
+			-webkit-justify-content: space-between;
+			justify-content: space-between;
+		}
+		.l-topmenu .topmenu__gridright {
+			align-items: flex-start;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: horizontal;
+			-webkit-box-direction: normal;
+				-ms-flex-flow: row nowrap;
+					flex-flow: row nowrap;
+			-webkit-box-pack: justify;
+			-moz-box-pack: justify;
+			-ms-flex-pack: justify;
+			-webkit-justify-content: space-between;
+			justify-content: space-between;
+		}
+		.l-topmenu .topmenu__link {
+		color: #fff;
+		cursor: pointer;
+		line-height: 3;
+		margin: 2px 14px;
+		}
+		.l-topmenu .topmenu__link--vect {
+		fill: #fff;
+		}
+		.vect__toggle--primary {
+			display: inline;
+		}
+		.vect__toggle--alternate {
+			display: none;
+		}
+		.megamenu .vect__toggle--primary {
+			display: none;
+		}
+		.megamenu .vect__toggle--alternate {
+			display: inline;
+		}
+		
+		.l-topmenu .topmenu__link--text {
+		font-size: 18px;
+		margin-left: 16px;
+		}
+		.l-topmenu .topmenu__link--textmobl {
+		font-size: 18px;
+		margin-left: 16px;
+		}
+		.l-topmenu .topmenu__link--items  {
+		padding: 2px 8px;
+		margin: 10px 0 0 0;
+		border-radius: 44px;    
+		display: inline;
+		font-size: 18px;
+		margin-left: 6px;
+		}
+		.l-topmenu .svg-icon svg {
+		height:1.6em;
+		width:1.6em;
+		}
+		.l-topmenu .search__cont {
+		margin: 10px 5vw 8px;
+		background-color: #fff;
+		border-radius: 50px;
+		height: 40px;
+		flex-grow: 2;
+		flex-shrink: 0;
+		}
+		.l-topmenu .search__cont--vect {
+		margin: 8px 0 0 6px;
+		position: relative;
+		}
+		.l-topmenu .search__cont--input {
+		outline:none;
+		border: 0;
+		height: 32px;
+		padding: 2px;
+		margin: 4px 8px 0 16px;
+		font-size: 18px;
+		box-sizing: border-box;
+		width: calc(100% - 140px);
+		}
+		.l-topmenu .search__cont--righta {
+		cursor: pointer;
+		float: right;
+		height: 100%;
+		margin: 0;
+		}
+		.l-topmenu .topmenu__deskt--hide {
+		display: none;
+		}
+		.ever-present__menu {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		box-shadow: none;
+		}
+		.ever-present__menu .sticky-home{
+		display: inline;
+		}
+		.sticky-home{
+		display: none;
+		}
+		
+		.l-topmenu .topmenu__link--wish {
+		color: #fff;
+		font-size: 11px;
+		position: relative;
+		top: -46px;
+		right: -24px;
+		}
+		
+		/* left drawer begin */
+		.drawerleft__menu {
+		box-shadow: 2px 2px 2px #868686;
+		background-color: #fff;
+		overflow-y: scroll;
+		position: fixed;
+		top: 0; bottom: 0; left: -400px;
+		transition: all 0.3s;
+		width: 0;
+		z-index: 262;
+		}
+		.drawerleft__menu::-webkit-scrollbar { width: 8px; }
+		.drawerleft__menu::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); }
+		.drawerleft__scrim {
+		  display: none;
+		  background-color: #000;
+		  opacity: .4;
+		  position: fixed;
+		  top: 0; right: 0; bottom: 0; left: 0;
+		  z-index: 260;
+		  cursor: pointer;
+		}
+		.isOpen__menu {
+		  left: 0;
+		}
+		.isOpen__scrim {
+		  display: block;
+		}
+		/* left drawer end */
+		
+		body[data-brand="LS"] .drawerleft__menu::-webkit-scrollbar-thumb { background: rgba(126, 45, 62, 0.5); }
+		body[data-brand="LTD"] .drawerleft__menu::-webkit-scrollbar-thumb { background: rgba(41, 127, 184, 0.5); }
+		@media only screen and (max-width: 1064px){  /* small */
+			.isOpen__menu {
+				width: 300px;
+			}
+			.l-topmenu .topmenu__mobl--hide {
+				display: none;
+			}
+			.l-topmenu .topmenu__deskt--hide {
+				display: inline;
+			}
+			.l-topmenu .topmenu__link--text {
+				display: none;
+			}
+			.l-topmenu .topmenu__link--vectmargin {
+				margin-top: 4px;
+			}
+			.l-topmenu .topmenu__link--items  {
+				padding: 1px 3px;
+			}
+			.c_headnavtype .headnavtype {
+				width: 308px;
+			}
+		}
+		/*  Type Ahead begin */
+		.c_headnavtype .headnavtype {
+		width: 400px;
+		padding: 2px;
+		border: solid 1px #aaa;
+		-webkit-transition: -webkit-transform .15s linear;
+		-webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+		-moz-box-shadow:    0 3px 6px rgba(0,0,0,.25); 
+		position: fixed;
+		background-color: #fff;
+		z-index: 14;
+		}
+		.c_headnavtype ul { padding: 1px; }
+		.c_headnavtype .headnavtype__type--ul {
+		margin: 6px 0;
+		padding: 0 14px;
+		}
+		.c_headnavtype .headnavtype__type--ul:hover {}
+		.c_headnavtype .headnavtype__type--li {
+		color: #222;
+		background-color:  #FFF;
+		font-family: sans-serif;
+		font-size: 10px;
+		line-height: 1.4;
+		cursor: pointer; 
+		margin-left: 8px;
+		list-style: none;
+		}
+		.c_headnavtype .headnavtype__type--grid {
+		align-items: center;
+		display: flex;
+		flex-flow: row nowrap; /* Shorthand for flex-direction and flex-wrap */
+		height: 32px;
+		justify-content: flex-start;
+		cursor: pointer;
+		user-select: none;
+		text-decoration: none;
+		}
+		.c_headnavtype .headnavtype__type--grid p {
+		font-family: sans-serif;
+		font-size: 11px;
+		font-weight: 600;
+		white-space: nowrap;
+		}
+		.c_headnavtype .headnavtype__type--grid p:nth-of-type(2) {
+		padding-left: 8px;
+		font-size: 12px;
+		font-weight: 400;
+		white-space: normal;
+		}
+		body[data-brand="LS"] .c_headnavtype .headnavtype__type--li:hover { background-color: #fffaff; }
+		body[data-brand="LTD"] .c_headnavtype .headnavtype__type--li:hover { background-color: #f2faff; }
+		/*  Type Ahead end */
+		</style>
+	<link rel="stylesheet" href="topmenu_skin.css" as="style" onload="this.rel='stylesheet'">
+	<!--/*____ Component: topmenu   ________________ end   */-->	
+	
+	
 	<!--/*____ Component: generic_grid   ________________ begin */-->
 	<style type="text/css">@media screen and (-ms-high-contrast:active),screen and (-ms-high-contrast:none){.grd100 .img-fluid,.grd25_25_25_25 .img-fluid,.grd25_25_50 .img-fluid,.grd25_50_25 .img-fluid,.grd25_75 .img-fluid,.grd33_33_33 .img-fluid,.grd33_66 .img-fluid,.grd50_25_25 .img-fluid,.grd50_50 .img-fluid,.grd66_33 .img-fluid,.grd75_25 .img-fluid{max-width:100%;height:auto;width:96%}.grd33_66 .grdItem--center:nth-child(1){order:0;flex:34 1 auto;padding:12px 12px 12px 0}.grd33_66 .grdItem--center:nth-child(2){order:1;flex:66 1 auto;padding:12px 0 12px 12px}}.grd100,.grd25_25_25_25,.grd25_25_50,.grd25_50_25,.grd25_75,.grd33_33_33,.grd33_66,.grd50_25_25,.grd50_50,.grd66_33,.grd75_25{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-start;align-content:center;align-items:flex-start;margin:0 auto;max-width:1920px}.grd100 .img-fluid,.grd25_25_25_25 .img-fluid,.grd25_25_50 .img-fluid,.grd25_50_25 .img-fluid,.grd25_75 .img-fluid,.grd33_33_33 .img-fluid,.grd33_66 .img-fluid,.grd50_25_25 .img-fluid,.grd50_50 .img-fluid,.grd66_33 .img-fluid,.grd75_25 .img-fluid{max-width:100%;height:auto}.grd-stretch{align-items:stretch!important}.grdItem--center{align-self:stretch}.grd100 .grdItem--center:nth-child(1){order:0;flex:1 1 auto;padding:12px 0 12px 0}.grd50_50 .grdItem--center:nth-child(1){order:0;flex:1 1 auto;padding:12px 12px 12px 0}.grd50_50 .grdItem--center:nth-child(2){order:1;flex:1 1 auto;padding:12px 0 12px 12px}.grd75_25 .grdItem--center:nth-child(1){order:0;flex:2 1 auto;padding:12px 12px 12px 0}.grd75_25 .grdItem--center:nth-child(2){order:1;flex:1 1 auto;padding:12px 0 12px 12px}.grd25_75 .grdItem--center:nth-child(1){order:0;flex:1 1 auto;padding:12px 12px 12px 0}.grd25_75 .grdItem--center:nth-child(2){order:1;flex:2 1 auto;padding:12px 0 12px 12px}.grd33_33_33 .grdItem--center:nth-child(1){order:0;flex:1 1 auto;padding:12px 12px 12px 0}.grd33_33_33 .grdItem--center:nth-child(2){order:1;flex:1 1 auto;padding:12px}.grd33_33_33 .grdItem--center:nth-child(3){order:2;flex:1 1 auto;padding:12px 0 12px 12px}.grd25_25_25_25 .grdItem--center:nth-child(1){order:0;flex:1 1 auto;padding:12px 12px 12px 0}.grd25_25_25_25 .grdItem--center:nth-child(2){order:1;flex:1 1 auto;padding:12px}.grd25_25_25_25 .grdItem--center:nth-child(3){order:2;flex:1 1 auto;padding:12px}.grd25_25_25_25 .grdItem--center:nth-child(3){order:3;flex:1 1 auto;padding:12px 0 12px 12px}.grd25_25_50 .grdItem--center:nth-child(1){order:0;flex:1 1 auto;padding:12px 12px 12px 0}.grd25_25_50 .grdItem--center:nth-child(2){order:1;flex:1 1 auto;padding:12px}.grd25_25_50 .grdItem--center:nth-child(3){order:2;flex:2 1 auto;padding:12px 0 12px 12px}.grd50_25_25 .grdItem--center:nth-child(1){order:0;flex:2 1 auto;padding:12px 12px 12px 0}.grd50_25_25 .grdItem--center:nth-child(2){order:1;flex:1 1 auto;padding:12px}.grd50_25_25 .grdItem--center:nth-child(3){order:2;flex:1 1 auto;padding:12px 0 12px 12px}.grd25_50_25 .grdItem--center:nth-child(1){order:0;flex:1 1 auto;padding:12px 12px 12px 0}.grd25_50_25 .grdItem--center:nth-child(2){order:1;flex:2 1 auto;padding:12px}.grd25_50_25 .grdItem--center:nth-child(3){order:2;flex:1 1 auto;padding:12px 0 12px 12px}.grd33_66 .grdItem--center:nth-child(1){order:0;flex:34 1 34vw;padding:12px 12px 12px 0}.grd33_66 .grdItem--center:nth-child(2){order:1;flex:66 1 66vw;padding:12px 0 12px 12px}.grd66_33 .grdItem--center:nth-child(1){order:0;flex:66 1 66vw;padding:12px 12px 12px 0}.grd66_33 .grdItem--center:nth-child(2){order:1;flex:34 1 34vw;padding:12px 0 12px 12px}.grdHeight_100{max-height:100px}.grdHeight_200{max-height:200px}.grdHeight_300{max-height:300px}.grdHeight_400{max-height:400px}.grdHeight_500{max-height:500px}.grdHeight_600{max-height:600px}@media only screen and (max-width:48em){.grdWrap{flex-wrap:wrap}.grd100 .grdItem--center,.grd25_25_25_25 .grdItem--center,.grd25_25_50 .grdItem--center,.grd25_50_25 .grdItem--center,.grd25_75 .grdItem--center,.grd33_33_33 .grdItem--center,.grd33_66 .grdItem--center,.grd50_25_25 .grdItem--center,.grd50_50 .grdItem--center,.grd66_33 .grdItem--center,.grd75_25 .grdItem--center{padding:8px!important}}</style>
 	<!--/*____ Component: generic_grid ________________ end */-->	<!-- For thumbnail page only -->	
@@ -125,6 +564,11 @@
 </ltdc-toplogo>
 
 	<section id="js-topmenu__placeholder--id" class="topmenu__placeholder" style="height: 0px;"></section>
+
+
+
+
+
 	<ltdc-topmenu id="js-topmenu--id" class="l-topmenu">
 	    <nav id="js-topmenu-grid--id" class="l-grid">
 	        <section class="topmenu__gridleft no__print">
@@ -136,7 +580,8 @@
 	                	<svg class="topmenu__link--vect vect__toggle--alternate" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
 						<path d="M35 28.165c0-.737-.295-1.473-.825-2.003L25.513 17.5l8.662-8.662c.53-.53.825-1.266.825-2.003 0-.737-.295-1.473-.825-2.003L30.168.825A2.857 2.857 0 0 0 28.165 0c-.737 0-1.473.295-2.003.825L17.5 9.487 8.838.825A2.857 2.857 0 0 0 6.835 0c-.737 0-1.473.295-2.003.825L.825 4.832A2.857 2.857 0 0 0 0 6.835c0 .737.295 1.473.825 2.003L9.487 17.5.825 26.162A2.857 2.857 0 0 0 0 28.165c0 .737.295 1.473.825 2.003l4.007 4.007c.53.53 1.266.825 2.003.825.737 0 1.473-.295 2.003-.825l8.662-8.662 8.662 8.662c.53.53 1.266.825 2.003.825.737 0 1.473-.295 2.003-.825l4.007-4.007c.53-.53.825-1.266.825-2.003z" fill="#fff" fill-rule="evenodd"></path></svg>
 	                             
-	                	</div><span class="topmenu__link--textmobl">Shop Departments</span>
+						</div><span class="topmenu__link--textmobl">Shop Departments</span>
+<svg xmlns="http://www.w3.org/2000/svg" width="183" height="20"><defs><clipPath id="a"><path d="M0 0h183v20H0z"/></clipPath></defs><g clip-path="url(#a)"><path d="M13.535 13.857l.387.082-1.36 4.313H.257v-.434h.6a1.6 1.6 0 0 0 1.44-.656 3.783 3.783 0 0 0 .246-1.734V5.174a3.28 3.28 0 0 0-.328-1.863 1.722 1.722 0 0 0-1.359-.516H.257v-.434h7.2v.434a4.39 4.39 0 0 0-1.775.234 1.433 1.433 0 0 0-.7.621 5.113 5.113 0 0 0-.187 1.793v9.984a3.248 3.248 0 0 0 .182 1.337.837.837 0 0 0 .434.363 7.607 7.607 0 0 0 1.828.117h1.16a8.406 8.406 0 0 0 2.566-.27 3.342 3.342 0 0 0 1.348-.955 7.827 7.827 0 0 0 1.222-2.162zM25.877 2.361l.176 3.727h-.445a4.5 4.5 0 0 0-.352-1.406 2.352 2.352 0 0 0-.967-1 3.371 3.371 0 0 0-1.588-.322h-2.234v12.138a3.251 3.251 0 0 0 .316 1.828 1.759 1.759 0 0 0 1.371.492h.551v.434h-6.738v-.434h.563a1.614 1.614 0 0 0 1.43-.609 3.556 3.556 0 0 0 .258-1.711V3.357h-1.911a5.326 5.326 0 0 0-1.582.164 2.172 2.172 0 0 0-1.043.855 3.463 3.463 0 0 0-.516 1.711h-.445l.188-3.727zm.947 15.891v-.434h.6a1.578 1.578 0 0 0 1.43-.645 3.673 3.673 0 0 0 .258-1.734V5.174a3.28 3.28 0 0 0-.335-1.863 1.722 1.722 0 0 0-1.359-.516h-.6v-.434h6.469a14.126 14.126 0 0 1 5.42.809 6.448 6.448 0 0 1 2.988 2.7 8.315 8.315 0 0 1 1.131 4.359 7.951 7.951 0 0 1-2.009 5.539q-2.262 2.484-6.891 2.484zm4.535-1.148a11.969 11.969 0 0 0 2.5.328 5.926 5.926 0 0 0 4.508-1.91 7.264 7.264 0 0 0 1.793-5.18 7.255 7.255 0 0 0-1.793-5.19 6.053 6.053 0 0 0-4.605-1.9 9.951 9.951 0 0 0-2.4.34zM63.715 1.998l.363 5.4h-.363a6.8 6.8 0 0 0-2.074-3.492 5.053 5.053 0 0 0-3.234-1.064 5.263 5.263 0 0 0-2.859.8 5.31 5.31 0 0 0-2.01 2.561 11.4 11.4 0 0 0-.732 4.371 9.282 9.282 0 0 0 .691 3.738 5.18 5.18 0 0 0 2.08 2.428 5.982 5.982 0 0 0 3.17.844 5.5 5.5 0 0 0 2.73-.662 9 9 0 0 0 2.6-2.631l.363.234a8.343 8.343 0 0 1-2.787 3.106 7.059 7.059 0 0 1-3.785.984 7.165 7.165 0 0 1-6.117-2.93 8.376 8.376 0 0 1-1.618-5.133 9.115 9.115 0 0 1 1.066-4.371 7.716 7.716 0 0 1 2.936-3.088 7.931 7.931 0 0 1 4.084-1.1 7.485 7.485 0 0 1 3.4.844 1.844 1.844 0 0 0 .7.258.774.774 0 0 0 .551-.223 1.826 1.826 0 0 0 .434-.879zm7.319 5.2a4.757 4.757 0 0 1 3.914 1.854 5.686 5.686 0 0 1 1.254 3.633 6.841 6.841 0 0 1-.691 2.918 5.044 5.044 0 0 1-1.9 2.227 5.033 5.033 0 0 1-2.7.75 4.549 4.549 0 0 1-3.855-1.934 5.991 5.991 0 0 1-1.207-3.656 6.487 6.487 0 0 1 .728-2.938 5 5 0 0 1 1.928-2.156 4.946 4.946 0 0 1 2.529-.695zm-.363.762a2.444 2.444 0 0 0-1.248.369 2.588 2.588 0 0 0-1.014 1.295 6.231 6.231 0 0 0-.387 2.379 8.288 8.288 0 0 0 .932 4.049 2.773 2.773 0 0 0 2.455 1.7 2.288 2.288 0 0 0 1.875-.937 5.329 5.329 0 0 0 .738-3.223 7.346 7.346 0 0 0-1.23-4.5 2.536 2.536 0 0 0-2.121-1.129zm10.061 1.526q1.172-1.172 1.383-1.348a4.185 4.185 0 0 1 1.137-.691 3.205 3.205 0 0 1 1.207-.246 2.677 2.677 0 0 1 1.734.586 2.9 2.9 0 0 1 .973 1.7 7.962 7.962 0 0 1 2.039-1.846 3.621 3.621 0 0 1 1.711-.439 2.681 2.681 0 0 1 1.518.439 2.921 2.921 0 0 1 1.043 1.435 6.468 6.468 0 0 1 .258 2.133v4.617a4.2 4.2 0 0 0 .152 1.383 1 1 0 0 0 .434.439 2.178 2.178 0 0 0 1.031.182v.422h-5.3v-.422h.223a1.864 1.864 0 0 0 1.078-.27 1.044 1.044 0 0 0 .387-.6 7.513 7.513 0 0 0 .047-1.137v-4.614a3.907 3.907 0 0 0-.31-1.852 1.586 1.586 0 0 0-1.465-.75 2.792 2.792 0 0 0-1.248.311 6.766 6.766 0 0 0-1.517 1.154l-.023.129.023.5v5.121a4.417 4.417 0 0 0 .123 1.371 1 1 0 0 0 .463.451 2.653 2.653 0 0 0 1.16.182v.426h-5.426v-.422a2.486 2.486 0 0 0 1.225-.211 1.1 1.1 0 0 0 .463-.633 6.234 6.234 0 0 0 .059-1.16v-4.617a3.489 3.489 0 0 0-.387-1.887 1.651 1.651 0 0 0-1.441-.75 2.588 2.588 0 0 0-1.254.34 4.825 4.825 0 0 0-1.5 1.16v5.754a3.987 3.987 0 0 0 .145 1.371 1.008 1.008 0 0 0 .434.475 2.794 2.794 0 0 0 1.166.158v.422h-5.308v-.422a2.364 2.364 0 0 0 1.031-.158 1.013 1.013 0 0 0 .445-.5 3.868 3.868 0 0 0 .152-1.342v-4.1a14.867 14.867 0 0 0-.105-2.285.932.932 0 0 0-.258-.533.728.728 0 0 0-.48-.146 2.252 2.252 0 0 0-.785.176l-.176-.422 3.234-1.312h.5zm18.428 0q1.172-1.172 1.383-1.348a4.185 4.185 0 0 1 1.134-.686 3.205 3.205 0 0 1 1.207-.246 2.677 2.677 0 0 1 1.734.586 2.9 2.9 0 0 1 .973 1.7 7.962 7.962 0 0 1 2.039-1.846 3.621 3.621 0 0 1 1.711-.439 2.681 2.681 0 0 1 1.518.439 2.921 2.921 0 0 1 1.049 1.436 6.468 6.468 0 0 1 .258 2.133v4.617a4.2 4.2 0 0 0 .152 1.383 1 1 0 0 0 .434.439 2.178 2.178 0 0 0 1.031.182v.416h-5.3v-.422h.223a1.864 1.864 0 0 0 1.078-.27 1.044 1.044 0 0 0 .387-.6 7.513 7.513 0 0 0 .047-1.137v-4.614a3.907 3.907 0 0 0-.316-1.852 1.586 1.586 0 0 0-1.465-.75 2.792 2.792 0 0 0-1.248.311 6.766 6.766 0 0 0-1.512 1.154l-.023.129.023.5v5.121a4.417 4.417 0 0 0 .123 1.371 1 1 0 0 0 .463.451 2.653 2.653 0 0 0 1.16.182v.426h-5.426v-.422a2.486 2.486 0 0 0 1.225-.211 1.1 1.1 0 0 0 .463-.633 6.234 6.234 0 0 0 .059-1.16v-4.617a3.489 3.489 0 0 0-.387-1.887 1.651 1.651 0 0 0-1.441-.75 2.588 2.588 0 0 0-1.254.34 4.825 4.825 0 0 0-1.5 1.16v5.754a3.987 3.987 0 0 0 .146 1.371 1.008 1.008 0 0 0 .434.475 2.794 2.794 0 0 0 1.166.158v.422h-5.311v-.422a2.364 2.364 0 0 0 1.031-.158 1.013 1.013 0 0 0 .445-.5 3.868 3.868 0 0 0 .152-1.342v-4.1a14.867 14.867 0 0 0-.105-2.285.932.932 0 0 0-.258-.533.728.728 0 0 0-.48-.146 2.252 2.252 0 0 0-.785.176l-.176-.422 3.234-1.312h.5zm20.49-2.285a4.757 4.757 0 0 1 3.914 1.851 5.686 5.686 0 0 1 1.254 3.633 6.841 6.841 0 0 1-.691 2.918 5.044 5.044 0 0 1-1.9 2.227 5.033 5.033 0 0 1-2.7.75 4.549 4.549 0 0 1-3.855-1.934 5.991 5.991 0 0 1-1.207-3.656 6.487 6.487 0 0 1 .732-2.936 5 5 0 0 1 1.928-2.156 4.946 4.946 0 0 1 2.525-.697zm-.363.762a2.444 2.444 0 0 0-1.248.369 2.588 2.588 0 0 0-1.014 1.295 6.231 6.231 0 0 0-.387 2.379 8.288 8.288 0 0 0 .932 4.043 2.773 2.773 0 0 0 2.455 1.7 2.288 2.288 0 0 0 1.875-.937 5.329 5.329 0 0 0 .738-3.223 7.346 7.346 0 0 0-1.23-4.5 2.536 2.536 0 0 0-2.121-1.126zm14.455 9.082a5.421 5.421 0 0 1-1.535 1.178 3.711 3.711 0 0 1-1.617.357 4 4 0 0 1-3.07-1.471 5.463 5.463 0 0 1-1.312-3.779 6.832 6.832 0 0 1 1.453-4.225 4.492 4.492 0 0 1 3.738-1.916 3.22 3.22 0 0 1 2.344.9v-1.98a16.2 16.2 0 0 0-.088-2.262.985.985 0 0 0-.275-.574.719.719 0 0 0-.469-.152 2.47 2.47 0 0 0-.809.188l-.152-.41 3.2-1.312h.527v12.41a16.6 16.6 0 0 0 .088 2.3 1.021 1.021 0 0 0 .281.58.676.676 0 0 0 .451.164 2.549 2.549 0 0 0 .844-.2l.129.41-3.193 1.329h-.539zm0-.82v-5.532a3.739 3.739 0 0 0-.422-1.453 2.433 2.433 0 0 0-.932-.99 2.261 2.261 0 0 0-1.131-.334 2.4 2.4 0 0 0-1.84.926 5.26 5.26 0 0 0-1.066 3.563 5.6 5.6 0 0 0 1.031 3.627 2.956 2.956 0 0 0 2.3 1.26 2.853 2.853 0 0 0 2.06-1.067zm6.908-14.637a1.141 1.141 0 0 1 .838.346 1.141 1.141 0 0 1 .346.838 1.161 1.161 0 0 1-.346.844 1.132 1.132 0 0 1-.838.352 1.151 1.151 0 0 1-.844-.352 1.151 1.151 0 0 1-.352-.844 1.141 1.141 0 0 1 .346-.838 1.155 1.155 0 0 1 .85-.346zm.973 5.613v8.625a3.951 3.951 0 0 0 .146 1.342 1.028 1.028 0 0 0 .434.5 2.321 2.321 0 0 0 1.049.164v.42h-5.215v-.422a2.427 2.427 0 0 0 1.055-.152 1.045 1.045 0 0 0 .428-.5 3.788 3.788 0 0 0 .158-1.348v-4.14a14.629 14.629 0 0 0-.105-2.262.919.919 0 0 0-.258-.521.728.728 0 0 0-.48-.146 2.346 2.346 0 0 0-.8.176l-.164-.422 3.234-1.312zm5.842-3.211v3.527h2.512v.82h-2.508v6.961a2.338 2.338 0 0 0 .3 1.406.949.949 0 0 0 .768.363 1.343 1.343 0 0 0 .75-.24 1.545 1.545 0 0 0 .563-.709h.457a3.677 3.677 0 0 1-1.166 1.734 2.5 2.5 0 0 1-1.547.58 2.08 2.08 0 0 1-1.055-.3 1.807 1.807 0 0 1-.762-.859 4.491 4.491 0 0 1-.246-1.717V8.338h-1.7v-.386a4.45 4.45 0 0 0 1.318-.873 6.941 6.941 0 0 0 1.2-1.459 13.125 13.125 0 0 0 .75-1.629zm6.041-2.4a1.141 1.141 0 0 1 .838.346 1.141 1.141 0 0 1 .346.838 1.161 1.161 0 0 1-.346.844 1.132 1.132 0 0 1-.838.352 1.151 1.151 0 0 1-.844-.352 1.151 1.151 0 0 1-.352-.844 1.141 1.141 0 0 1 .346-.838 1.155 1.155 0 0 1 .85-.348zm.973 5.613v8.625a3.951 3.951 0 0 0 .146 1.342 1.028 1.028 0 0 0 .434.5 2.321 2.321 0 0 0 1.049.164v.418h-5.215v-.422a2.427 2.427 0 0 0 1.055-.152 1.045 1.045 0 0 0 .428-.5 3.788 3.788 0 0 0 .158-1.348v-4.14a14.629 14.629 0 0 0-.105-2.262.919.919 0 0 0-.258-.521.728.728 0 0 0-.48-.146 2.346 2.346 0 0 0-.8.176l-.164-.422 3.234-1.312zm4.53 4.359a5.513 5.513 0 0 0 1.16 3.75 3.538 3.538 0 0 0 2.754 1.359 2.986 2.986 0 0 0 1.834-.58 4.281 4.281 0 0 0 1.307-1.986l.363.234a5.588 5.588 0 0 1-1.43 2.923 3.818 3.818 0 0 1-2.965 1.318 4.33 4.33 0 0 1-3.311-1.506 5.768 5.768 0 0 1-1.377-4.049 6.122 6.122 0 0 1 1.412-4.295 4.605 4.605 0 0 1 3.545-1.541 3.963 3.963 0 0 1 2.965 1.189 4.361 4.361 0 0 1 1.16 3.182zm0-.68h4.968a4.593 4.593 0 0 0-.246-1.453 2.327 2.327 0 0 0-.873-1.031 2.2 2.2 0 0 0-1.213-.375 2.417 2.417 0 0 0-1.74.756 3.28 3.28 0 0 0-.896 2.102zm15.545-3.68v3.656h-.387a4.751 4.751 0 0 0-1.143-2.344 2.569 2.569 0 0 0-1.775-.621 1.959 1.959 0 0 0-1.324.434 1.258 1.258 0 0 0-.5.961 1.745 1.745 0 0 0 .375 1.125 4.17 4.17 0 0 0 1.477 1.019l1.711.832q2.379 1.16 2.379 3.059a2.889 2.889 0 0 1-1.107 2.361 3.84 3.84 0 0 1-2.479.9 8.525 8.525 0 0 1-2.25-.352 2.287 2.287 0 0 0-.633-.117.466.466 0 0 0-.422.3h-.387v-3.831h.387a4.362 4.362 0 0 0 1.25 2.468 3.026 3.026 0 0 0 2.074.832 1.858 1.858 0 0 0 1.318-.475 1.506 1.506 0 0 0 .51-1.143 1.818 1.818 0 0 0-.568-1.359 9.927 9.927 0 0 0-2.268-1.395 6.719 6.719 0 0 1-2.227-1.523 2.64 2.64 0 0 1-.527-1.687 2.977 2.977 0 0 1 .908-2.215 3.214 3.214 0 0 1 2.35-.891 5.522 5.522 0 0 1 1.535.27 3.626 3.626 0 0 0 .8.176.467.467 0 0 0 .293-.082 1.125 1.125 0 0 0 .246-.363zM178.488 1.579a3.4 3.4 0 0 1 1.521.363 2.75 2.75 0 0 1 1.157 1.049 2.688 2.688 0 0 1 .416 1.421 2.682 2.682 0 0 1-.41 1.411 2.778 2.778 0 0 1-1.146 1.049 3.356 3.356 0 0 1-1.538.37 3.343 3.343 0 0 1-1.536-.37 2.781 2.781 0 0 1-1.143-1.049 2.682 2.682 0 0 1-.412-1.411 2.688 2.688 0 0 1 .418-1.421 2.75 2.75 0 0 1 1.157-1.049 3.389 3.389 0 0 1 1.516-.363zm0 .244a3.079 3.079 0 0 0-1.386.336 2.52 2.52 0 0 0-1.054.957 2.455 2.455 0 0 0-.379 1.3 2.449 2.449 0 0 0 .373 1.283 2.548 2.548 0 0 0 1.044.959 3.038 3.038 0 0 0 1.4.344 3.051 3.051 0 0 0 1.411-.344 2.545 2.545 0 0 0 1.042-.959 2.449 2.449 0 0 0 .373-1.287 2.455 2.455 0 0 0-.379-1.3 2.52 2.52 0 0 0-1.054-.957 3.088 3.088 0 0 0-1.391-.333zm-1.708.847h1.682a1.526 1.526 0 0 1 .963.262.784.784 0 0 1 .331.633.741.741 0 0 1-.224.534 1.526 1.526 0 0 1-.743.354l.908 1.189a1.228 1.228 0 0 0 .3.292.555.555 0 0 0 .231.06v.133h-.8l-1.284-1.619h-.331v1.234a.274.274 0 0 0 .124.193.843.843 0 0 0 .39.06v.132h-1.6v-.132a.684.684 0 0 0 .3-.046.274.274 0 0 0 .124-.134 1.246 1.246 0 0 0 .03-.373v-2.09a2.4 2.4 0 0 0-.013-.348.257.257 0 0 0-.111-.142.557.557 0 0 0-.277-.05zm1.033 1.666a2.244 2.244 0 0 0 .752-.094.811.811 0 0 0 .364-.258.607.607 0 0 0 .126-.378.7.7 0 0 0-.246-.544.91.91 0 0 0-.63-.22 1.214 1.214 0 0 0-.366.064z" fill="#fff"/></g></svg>
 	            </a>
 	            <a id="js-topmenu__catalogs--id" class="topmenu__link topmenu__mobl--hide" href="https://www.ltdcommodities.com/shopCatalogs" tabindex="5">
 	                <div class="svg-icon svg-baseline">
@@ -152,19 +597,31 @@
 	               	
 		    	
 	
-<section id="c_headnavtype__search--id" class="search__cont topmenu__mobl--hide c_headnavtype headnav__search no__print"><nav><aside><svg height="36" width="36" viewBox="0 0 55 55" xmlns="http://www.w3.org/2000/svg" class="search__cont--vect"><path d="M24.23 14.808c0-5.196-4.227-9.423-9.422-9.423-5.196 0-9.423 4.227-9.423 9.423 0 5.195 4.227 9.423 9.423 9.423 5.195 0 9.423-4.228 9.423-9.423zM35 32.308A2.711 2.711 0 0 1 32.308 35a2.64 2.64 0 0 1-1.893-.8L23.2 27.008a14.773 14.773 0 0 1-8.392 2.608C6.626 29.615 0 22.99 0 14.808S6.626 0 14.808 0c8.182 0 14.807 6.626 14.807 14.808 0 2.986-.904 5.931-2.608 8.392l7.215 7.215c.484.483.778 1.178.778 1.893z" fill-rule="evenodd"></path></svg> <form method="get" action="https://www.ltdcommodities.com/browse/" id="basicsearchForm"><input name="_dyncharset" type="hidden" value="ISO-8859-1"><input autocomplete="off" tabindex="6" name="/atg/commerce/endeca/QueryFormHandler.question" id="js-inp-search--id" placeholder="Item# or Keyword" type="text" value="" aria-label="Item# or Keyword" class="search__cont--input legacy_input_override"><input name="_D:/atg/commerce/endeca/QueryFormHandler.question" type="hidden" value=" "><input name="/atg/commerce/endeca/QueryFormHandler.search" type="hidden" value="Search"><input name="_D:/atg/commerce/endeca/QueryFormHandler.search" type="hidden" value=" "> <a data-search-form-id="basicsearchForm" tabindex="21" class="search__cont--righta js-search__btn">Search</a> <input name="_DARGS" type="hidden" value="/common/includes/inc_search_form.jsp.basicsearch"></form></aside></nav>
+<section id="c_headnavtype__search--id" class="search__cont topmenu__mobl--hide c_headnavtype headnav__search no__print">
+	<nav>
+		<aside>
+
+			<form method="get" action="https://www.ltdcommodities.com/browse/" id="basicsearchForm">
+				<input name="_dyncharset" type="hidden" value="ISO-8859-1">
+				<input autocomplete="off" tabindex="6" name="/atg/commerce/endeca/QueryFormHandler.question" id="js-inp-search--id" placeholder="Search Item# or Keyword" type="text" value="" aria-label="Item# or Keyword" class="search__cont--input legacy_input_override">
+				<input name="_D:/atg/commerce/endeca/QueryFormHandler.question" type="hidden" value=" ">
+				<input name="/atg/commerce/endeca/QueryFormHandler.search" type="hidden" value="Search">
+				<input name="_D:/atg/commerce/endeca/QueryFormHandler.search" type="hidden" value=" ">
+				<a data-search-form-id="basicsearchForm" tabindex="21" class="search__cont--righta js-search__btn">
+<svg height="36" width="36" viewBox="0 0 55 55" xmlns="http://www.w3.org/2000/svg" class="search__cont--vect">
+	<path d="M24.23 14.808c0-5.196-4.227-9.423-9.422-9.423-5.196 0-9.423 4.227-9.423 9.423 0 5.195 4.227 9.423 9.423 9.423 5.195 0 9.423-4.228 9.423-9.423zM35 32.308A2.711 2.711 0 0 1 32.308 35a2.64 2.64 0 0 1-1.893-.8L23.2 27.008a14.773 14.773 0 0 1-8.392 2.608C6.626 29.615 0 22.99 0 14.808S6.626 0 14.808 0c8.182 0 14.807 6.626 14.807 14.808 0 2.986-.904 5.931-2.608 8.392l7.215 7.215c.484.483.778 1.178.778 1.893z" fill-rule="evenodd">
+	</path>
+</svg>					
+				</a>
+				<input name="_DARGS" type="hidden" value="/common/includes/inc_search_form.jsp.basicsearch">
+			</form>
+		</aside>
+	</nav>
 </section>
  	
 	      	
 	        <section class="topmenu__gridright no__print">
-<!--
-	            <a id="js-topmenu__search-icon--id" class="topmenu__link topmenu__deskt--hide">
-	                <div class="svg-icon svg-baseline">
-						<svg class="topmenu__link--vect topmenu__link--vectmargin" viewBox="0 0 39 39" xmlns="http://www.w3.org/2000/svg">
-						<path d="M24.23 14.808c0-5.196-4.227-9.423-9.422-9.423-5.196 0-9.423 4.227-9.423 9.423 0 5.195 4.227 9.423 9.423 9.423 5.195 0 9.423-4.228 9.423-9.423zM35 32.308A2.711 2.711 0 0 1 32.308 35a2.64 2.64 0 0 1-1.893-.8L23.2 27.008a14.773 14.773 0 0 1-8.392 2.608C6.626 29.615 0 22.99 0 14.808S6.626 0 14.808 0c8.182 0 14.807 6.626 14.807 14.808 0 2.986-.904 5.931-2.608 8.392l7.215 7.215c.484.483.778 1.178.778 1.893z" fill="#fff" fill-rule="evenodd"/></svg>
-	                </div>
-				</a>
--->
+
 	            <a id="js-topmenu__myaccount--id" class="topmenu__link" tabindex="22">
 	                <div id="js-topmenu__myaccount-vect--id" class="svg-icon svg-baseline">
 						<svg class="topmenu__link--vect topmenu__link--vectmargin" viewBox="0 0 39 39" xmlns="http://www.w3.org/2000/svg">
@@ -191,11 +648,11 @@
 	    </nav>
 	</ltdc-topmenu>
 	
-	<ltdc-topsearch id="js-topsearch--id" class="l-topsearch hide">
-	   	
-	
-	<section id="c_headnavtype__topsearch--id" class="topsearch__cont topmenu__mobl--hide c_headnavtype headnav__search no__print"><nav><aside><svg height="36" width="36" viewBox="0 0 55 55" xmlns="http://www.w3.org/2000/svg" class="topsearch__cont--vect"><path d="M24.23 14.808c0-5.196-4.227-9.423-9.422-9.423-5.196 0-9.423 4.227-9.423 9.423 0 5.195 4.227 9.423 9.423 9.423 5.195 0 9.423-4.228 9.423-9.423zM35 32.308A2.711 2.711 0 0 1 32.308 35a2.64 2.64 0 0 1-1.893-.8L23.2 27.008a14.773 14.773 0 0 1-8.392 2.608C6.626 29.615 0 22.99 0 14.808S6.626 0 14.808 0c8.182 0 14.807 6.626 14.807 14.808 0 2.986-.904 5.931-2.608 8.392l7.215 7.215c.484.483.778 1.178.778 1.893z" fill-rule="evenodd"></path></svg> <form method="get" action="https://www.ltdcommodities.com/browse/" id="basictopsearchForm"><input name="_dyncharset" type="hidden" value="ISO-8859-1"><input autocomplete="off" tabindex="6" name="/atg/commerce/endeca/QueryFormHandler.question" id="js-inp-topsearch--id" placeholder="Item# or Keyword" type="text" value="" aria-label="Item# or Keyword" class="topsearch__cont--input legacy_input_override"><input name="_D:/atg/commerce/endeca/QueryFormHandler.question" type="hidden" value=" "><input name="/atg/commerce/endeca/QueryFormHandler.search" type="hidden" value="Search"><input name="_D:/atg/commerce/endeca/QueryFormHandler.search" type="hidden" value=" "> <a data-search-form-id="basictopsearchForm" tabindex="21" class="topsearch__cont--righta js-topsearch__btn">Search</a> <input name="_DARGS" type="hidden" value="/common/includes/inc_search_form.jsp.basictopsearch"></form></aside></nav> <aside id="js-headnavtype__topsearch--id" class="headnavtype hidden"><ul></ul></aside></section>
 
+
+
+	<ltdc-topsearch id="js-topsearch--id" class="l-topsearch hide">
+		<section id="c_headnavtype__topsearch--id" class="topsearch__cont topmenu__mobl--hide c_headnavtype headnav__search no__print"><nav><aside><svg height="36" width="36" viewBox="0 0 55 55" xmlns="http://www.w3.org/2000/svg" class="topsearch__cont--vect"><path d="M24.23 14.808c0-5.196-4.227-9.423-9.422-9.423-5.196 0-9.423 4.227-9.423 9.423 0 5.195 4.227 9.423 9.423 9.423 5.195 0 9.423-4.228 9.423-9.423zM35 32.308A2.711 2.711 0 0 1 32.308 35a2.64 2.64 0 0 1-1.893-.8L23.2 27.008a14.773 14.773 0 0 1-8.392 2.608C6.626 29.615 0 22.99 0 14.808S6.626 0 14.808 0c8.182 0 14.807 6.626 14.807 14.808 0 2.986-.904 5.931-2.608 8.392l7.215 7.215c.484.483.778 1.178.778 1.893z" fill-rule="evenodd"></path></svg> <form method="get" action="https://www.ltdcommodities.com/browse/" id="basictopsearchForm"><input name="_dyncharset" type="hidden" value="ISO-8859-1"><input autocomplete="off" tabindex="6" name="/atg/commerce/endeca/QueryFormHandler.question" id="js-inp-topsearch--id" placeholder="Search Item# or Keyword" type="text" value="" aria-label="Item# or Keyword" class="topsearch__cont--input legacy_input_override"><input name="_D:/atg/commerce/endeca/QueryFormHandler.question" type="hidden" value=" "><input name="/atg/commerce/endeca/QueryFormHandler.search" type="hidden" value="Search"><input name="_D:/atg/commerce/endeca/QueryFormHandler.search" type="hidden" value=" "> <a data-search-form-id="basictopsearchForm" tabindex="21" class="topsearch__cont--righta js-topsearch__btn">Search</a> <input name="_DARGS" type="hidden" value="/common/includes/inc_search_form.jsp.basictopsearch"></form></aside></nav> <aside id="js-headnavtype__topsearch--id" class="headnavtype hidden"><ul></ul></aside></section>
 	</ltdc-topsearch>
 
 	<ltdc-flyoutwish id="js-flyoutwish__id" class="c-flyoutwish hidden" style="right: 553.5px;"><!--  Component Begin  -->
@@ -2067,7 +2524,7 @@ function updateQVGiftContents(){
 		<script src="./numega_files/axios.min.js.download"></script>
 		<script src="./numega_files/flickity.pkgd.min.js.download"></script>
 		<script src="./numega_files/snackbar.min.js.download" async=""></script>
-		<script src="./numega_files/topmenu.min.js.download"></script>		
+		<script src="topmenu.js"></script>		
 		<script src="./numega_files/toplogo.min.js.download"></script>		
 		<script src="./numega_files/topsearch.min.js.download" async=""></script>
 		<script src="megamenu.js" async=""></script>

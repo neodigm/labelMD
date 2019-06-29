@@ -1,0 +1,34 @@
+<style type="text/css">
+.l-featured-caros { max-width: 1920px;margin: 0 auto;}
+.l-featured-caros .fetr-caption { margin: 6px 0 0 0;padding: 2px;font-size: 32px;font-weight:300;line-height: 1.1;text-align: center; }
+.l-featured-caros .fetr-sub { margin: 2px;padding: 12px;font-size: 14px;font-weight:300;line-height: 1;text-align: center; }
+.l-featured-caros .fetr-lineBottom { border-bottom: 2px dashed #ccc; }
+
+.l-featured-caros .prod-price {
+    color: #d0021b;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 2px;
+}
+.l-featured-caros .prod-price--strike {
+    color: #5a5a5a;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 2px;
+    text-decoration: line-through;
+}
+.l-featured-caros .prod-price--compare {
+    color: #b8b8b8;
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+body[data-brand="LS"] .l-featured-caros .fetr-caption, .l-featured-caros .fetr-sub { color: #677b88; }
+body[data-brand="LTD"] .l-featured-caros .fetr-caption, .l-featured-caros .fetr-sub { color: #30619a; }
+
+.l-catcard { margin: 12px; text-align: center; }
+.l-catcard a { display: block;margin: 18px; text-decoration: none; }
+.l-catcard img { width: 256px; height: auto; box-shadow: 3px 3px 5px rgba(76, 76, 76, 0.5); }
+.l-catcard p { color:#444; font-size: 16px;margin: 4px;padding: 2px; }
+</style>

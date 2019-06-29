@@ -1,0 +1,111 @@
+<style type="text/css">
+
+.l-footemail {
+display: block;
+margin: 0 auto;padding: 16px 0;
+}
+.l-footemail .footemlsms__grd{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+.l-footemail .footemlsms__grd aside {
+    /*
+    flex: 1 1 50%;
+    align-self: auto;
+    */
+    width: 50%;
+}
+
+/*  Toggle Card Feature via dataset  */
+.l-footemail[data-email=false].l-footemail[data-sms=false] { display: none; }
+.l-footemail[data-email=false] .footemlsms__grd,
+.l-footemail[data-sms=false] .footemlsms__grd {display: block;}
+.l-footemail[data-email=false] .footemlsms__grd aside,
+.l-footemail[data-sms=false] .footemlsms__grd aside {width: 100%;}
+
+.l-footemail .footemail__cont {
+margin: 0 auto;
+background-color: #fff;
+border-radius: 6px;
+height: 39px;
+width: 380px;
+}
+.l-footemail .footemail__cont--vect{
+margin: 10px 0 0 4px;
+position: absolute;
+}
+.l-footemail .footemail__cont--input{
+outline:none;
+border: 0;
+height: 32px;
+padding: 2px;
+margin: 2px 8px 0 36px;
+font-size: 14px;
+box-sizing: border-box;
+width: calc(100% - 150px);
+}
+.l-footemail .footemail__cont--righta{
+cursor: pointer;
+float: right;
+height: 100%;
+margin: 0;
+font-size: 16px;
+border-radius: 0 6px 6px 0;
+line-height: 2.4;
+padding: 0 12px;
+}
+
+.l-footemail .promo__msg {
+color: #fff;
+font-size: 16px;
+font-weight: 300;
+margin: 6px 20% 6px;
+text-align: center;
+}
+
+.l-footemail .promo__msg a { cursor: pointer; color: #fff !important; text-decoration: underline;}
+.l-footemail .promo__msg a:link { color: #fff !important; }
+.l-footemail .promo__msg a:visited { color: #fff !important; }
+.l-footemail .promo__msg a:hover { color: #fff !important; }
+.l-footemail .promo__msg a:active { color: #fff !important; }
+
+body[data-brand="LS"] .l-footemail .promo__msg {color: #b8b8b8;}
+body[data-brand="LTD"] .l-footemail .promo__msg {color: #cae3ff;}
+body[data-brand="LS"]  .l-footemail .footemail__cont--vect { fill: #343a40;}
+body[data-brand="LTD"] .l-footemail .footemail__cont--vect { fill: #30619a;}
+body[data-brand="LS"]  .l-footemail { background-color: #343a40; border-bottom: 2px dashed #b8b8b8; }
+body[data-brand="LTD"] .l-footemail { background-color: #30619a; border-bottom: 2px dashed #cae3ff; }
+body[data-brand="LS"]  .l-footemail .footemail__cont--righta { background-color: #d0021b; color: #fff; }
+body[data-brand="LTD"] .l-footemail .footemail__cont--righta { background-color: #cae3ff; color: #275f9b; }
+
+@media only screen and (max-width: 63.9em) {  /* small */
+    .l-footemail .footemail__cont {
+    margin: 0 6%;
+    }
+    .l-footemail .footemail__cont {
+    width: 88%
+    }
+    .l-footemail .footemail__cont--input{
+    width: calc(100% - 150px);
+    }
+        
+    .l-footemail .footemlsms__grd{
+    display: inherit;
+    }
+    .l-footemail .footemlsms__grd aside {
+        margin-top: 16px;
+        width: inherit;
+    }
+    .l-footemail .footemlsms__grd aside:nth-of-type(2) {
+    border-left: 0px;
+    }
+    .l-footemail .promo__msg {
+        margin: 6px 12% 18px;
+    }
+}
+
+</style>

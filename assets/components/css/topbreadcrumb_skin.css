@@ -1,0 +1,16 @@
+body[data-brand="LS"] .l-topbreadcrumb { background-color: #f5f5f5; }
+body[data-brand="LTD"] .l-topbreadcrumb { background-color: #f5f5f5; }
+body[data-brand="LS"] .topbc__grid .topbc__vect { fill: #343a40; }
+body[data-brand="LTD"] .topbc__grid .topbc__vect { fill: #30619a; }
+body[data-brand="LS"] .topbc__grid .topbc__vect:hover { fill: #8195a2; }
+body[data-brand="LTD"] .topbc__grid .topbc__vect:hover { fill: #4a90e2; }
+body[data-brand="LS"] .topbc__grid .topbc__text { color: #35424A; }
+body[data-brand="LTD"] .topbc__grid .topbc__text { color: #30619a; }
+body[data-brand="LS"] .topbc__link { color: #35424A; }
+body[data-brand="LTD"] .topbc__link { color: #30619a; }
+body[data-brand="LS"] .topbc__link:visited { color: #35424A; }
+body[data-brand="LTD"] .topbc__link:visited { color: #30619a; }
+body[data-brand="LS"] .topbc__link:hover { color: #35424A; }
+body[data-brand="LTD"] .topbc__link:hover { color: #30619a; }
+body[data-brand="LS"] .topbc__link:active { color: #35424A; }
+body[data-brand="LTD"] .topbc__link:active { color: #30619a; }
