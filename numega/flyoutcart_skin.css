@@ -82,6 +82,29 @@
 .carsl_card.is-selected {
   background: #fff;
 }
+
+.carsl__desc {
+  color: #222;
+  font-size: .92em;
+  font-weight: 300;
+  text-align: left;
+}
+.carsl__desc p {
+  margin: 6px 0;
+}
+.carsl__desc .carsl-desc__price {
+  text-align: center;
+}
+.carsl__desc .carsl-desc__price--strike {
+  color: #333;
+  font-weight: 500;
+  text-decoration: line-through;
+
+}
+.carsl__desc .carsl-desc__price--red {
+  color: #d0021b;
+  font-weight: 600;
+}
 /*  Carousel end  */
 
 /*  branded buttons begin  */
@@ -136,7 +159,7 @@
     display: block;
   }
   .flyoutcart_reveal_percent {
-    width: 60% !important;
+    width: 68% !important;
   }
 }
 

@@ -1,7 +1,7 @@
 "use strict";
 console.log("-------------------flyoutcart")
 var ltdc_flyoutcart = (function( doc, eID, eRevID ) {
-  var  oFlick = new Flickity('.carsl', {"freeScroll": true, "groupCells": 4,
+  var  oFlick = new Flickity('.carsl', {"freeScroll": true, "groupCells": 3,
   "autoPlay": false, "initialIndex": 2, "cellAlign": "left", "wrapAround": true, "pageDots": false
 });
   return {
@@ -12,7 +12,7 @@ var ltdc_flyoutcart = (function( doc, eID, eRevID ) {
       setTimeout( function(){
         oFlick.reloadCells();
         oFlick.resize();
-       }, 800 );
+       }, 400 );
     },
     close: function(){
       if( window.location.href.indexOf( "shopping_cart.jsp" ) != -1 || window.location.href.indexOf( "wishlist" ) != -1){
