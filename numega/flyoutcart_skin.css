@@ -10,7 +10,7 @@
   cursor: pointer;
 }
 .flyoutcart_reveal_percent {
-    width: 42% !important;
+    width: 686px !important;
 }
 .l-flyoutcart .fcart-grd__top {
   align-items: left;
@@ -159,7 +159,7 @@
     display: block;
   }
   .flyoutcart_reveal_percent {
-    width: 68% !important;
+    width: 686px !important;
   }
 }
 

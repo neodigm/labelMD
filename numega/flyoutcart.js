@@ -1,7 +1,7 @@
 "use strict";
 console.log("-------------------flyoutcart")
 var ltdc_flyoutcart = (function( doc, eID, eRevID ) {
-  var  oFlick = new Flickity('.carsl', {"freeScroll": true, "groupCells": 3,
+  var  oFlick = new Flickity('.carsl', {"freeScroll": true, "groupCells": 4,
   "autoPlay": false, "initialIndex": 2, "cellAlign": "left", "wrapAround": true, "pageDots": false
 });
   return {
