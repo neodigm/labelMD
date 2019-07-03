@@ -99,11 +99,14 @@
   color: #333;
   font-weight: 500;
   text-decoration: line-through;
-
 }
 .carsl__desc .carsl-desc__price--red {
   color: #d0021b;
   font-weight: 600;
+}
+.carsl__desc .carsl-desc__desc {
+  height: 54px;
+  overflow: hidden;
 }
 /*  Carousel end  */
 
