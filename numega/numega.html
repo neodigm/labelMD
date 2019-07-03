@@ -444,7 +444,7 @@
 				width: 308px;
 			}
 			.l-topmenu .link-svg__lgo {
-				margin: 0 4px 14px 8px;
+				margin: 0 4px 14px -1px;
 			}
 			.l-topmenu .svg-lgo {
 				display: block;
@@ -458,7 +458,7 @@
 		}
 		@media only screen and (min-width: 48.1em) and (max-width: 61em) {  /* med */
 			.l-topmenu .link-svg__lgo {
-				margin: 0 2px 14px 2px;
+				margin: 0 2px 14px -1px;
 			}
 			.l-topmenu .svg-lgo {
 				display: block;
@@ -705,7 +705,28 @@
 
 
 	<ltdc-topsearch id="js-topsearch--id" class="l-topsearch hide">
-		<section id="c_headnavtype__topsearch--id" class="topsearch__cont topmenu__mobl--hide c_headnavtype headnav__search no__print"><nav><aside><svg height="36" width="36" viewBox="0 0 55 55" xmlns="http://www.w3.org/2000/svg" class="topsearch__cont--vect"><path d="M24.23 14.808c0-5.196-4.227-9.423-9.422-9.423-5.196 0-9.423 4.227-9.423 9.423 0 5.195 4.227 9.423 9.423 9.423 5.195 0 9.423-4.228 9.423-9.423zM35 32.308A2.711 2.711 0 0 1 32.308 35a2.64 2.64 0 0 1-1.893-.8L23.2 27.008a14.773 14.773 0 0 1-8.392 2.608C6.626 29.615 0 22.99 0 14.808S6.626 0 14.808 0c8.182 0 14.807 6.626 14.807 14.808 0 2.986-.904 5.931-2.608 8.392l7.215 7.215c.484.483.778 1.178.778 1.893z" fill-rule="evenodd"></path></svg> <form method="get" action="https://www.ltdcommodities.com/browse/" id="basictopsearchForm"><input name="_dyncharset" type="hidden" value="ISO-8859-1"><input autocomplete="off" tabindex="6" name="/atg/commerce/endeca/QueryFormHandler.question" id="js-inp-topsearch--id" placeholder="Search Item# or Keyword" type="text" value="" aria-label="Item# or Keyword" class="topsearch__cont--input legacy_input_override"><input name="_D:/atg/commerce/endeca/QueryFormHandler.question" type="hidden" value=" "><input name="/atg/commerce/endeca/QueryFormHandler.search" type="hidden" value="Search"><input name="_D:/atg/commerce/endeca/QueryFormHandler.search" type="hidden" value=" "> <a data-search-form-id="basictopsearchForm" tabindex="21" class="topsearch__cont--righta js-topsearch__btn">Search</a> <input name="_DARGS" type="hidden" value="/common/includes/inc_search_form.jsp.basictopsearch"></form></aside></nav></section>
+		<section id="c_headnavtype__topsearch--id" class="topsearch__cont topmenu__mobl--hide c_headnavtype headnav__search no__print">
+			<nav>
+				<aside>
+
+					<form method="get" action="https://www.ltdcommodities.com/browse/" id="basictopsearchForm">
+					<input name="_dyncharset" type="hidden" value="ISO-8859-1">
+					<input autocomplete="off" tabindex="6" name="/atg/commerce/endeca/QueryFormHandler.question" id="js-inp-topsearch--id" placeholder="Search Item# or Keyword" type="text" value="" aria-label="Item# or Keyword" class="topsearch__cont--input legacy_input_override">
+					<input name="_D:/atg/commerce/endeca/QueryFormHandler.question" type="hidden" value=" ">
+					<input name="/atg/commerce/endeca/QueryFormHandler.search" type="hidden" value="Search">
+					<input name="_D:/atg/commerce/endeca/QueryFormHandler.search" type="hidden" value=" ">
+					<a data-search-form-id="basictopsearchForm" tabindex="21" class="topsearch__cont--righta js-topsearch__btn">
+						
+						<svg height="36" width="36" viewBox="0 0 55 55" xmlns="http://www.w3.org/2000/svg" class="topsearch__cont--vect">
+						<path d="M24.23 14.808c0-5.196-4.227-9.423-9.422-9.423-5.196 0-9.423 4.227-9.423 9.423 0 5.195 4.227 9.423 9.423 9.423 5.195 0 9.423-4.228 9.423-9.423zM35 32.308A2.711 2.711 0 0 1 32.308 35a2.64 2.64 0 0 1-1.893-.8L23.2 27.008a14.773 14.773 0 0 1-8.392 2.608C6.626 29.615 0 22.99 0 14.808S6.626 0 14.808 0c8.182 0 14.807 6.626 14.807 14.808 0 2.986-.904 5.931-2.608 8.392l7.215 7.215c.484.483.778 1.178.778 1.893z" fill-rule="evenodd"></path>
+						</svg>
+
+					</a>
+					<input name="_DARGS" type="hidden" value="/common/includes/inc_search_form.jsp.basictopsearch">
+					</form>
+				</aside>
+			</nav>
+		</section>
 	</ltdc-topsearch>
 
 	<ltdc-flyoutwish id="js-flyoutwish__id" class="c-flyoutwish hidden" style="right: 553.5px;"><!--  Component Begin  -->
@@ -2723,7 +2744,7 @@ function updateQVGiftContents(){
 </div> 
 </section> 
 </ltdc-reveal> 		
-		<link rel="stylesheet" href="./numega_files/topsearch_skin.min.css" as="style" onload="this.rel='stylesheet'">
+		<link rel="stylesheet" href="topsearch_skin.css" as="style" onload="this.rel='stylesheet'">
 		
 		<link rel="stylesheet" href="megamenu_skin.css" as="style" onload="this.rel='stylesheet'">
 		

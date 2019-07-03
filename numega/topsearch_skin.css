@@ -1,0 +1,63 @@
+.l-topsearch {
+display: none;
+height: 68px;
+margin: 0;
+overflow: hidden;
+z-index: 254;
+}
+.l-topsearch .topsearch__cont{
+    margin: 10px 5vw 8px;
+    background-color: #fff;
+    border: solid 1px #9a9a9a;
+    border-radius: 50px;
+    height: 40px;
+    flex-grow: 2;
+    flex-shrink: 0;
+}
+.l-topsearch .topsearch__cont--vect{
+    margin: 8px 0 0 6px;
+    position: relative;
+}
+.l-topsearch .topsearch__cont--input{
+    outline:none;
+    border: 0;
+    height: 32px;
+    padding: 2px;
+    margin: 4px 8px 0 16px;
+    font-size: 18px;
+    box-sizing: border-box;
+    width: calc(100% - 140px);
+}
+.l-topsearch .topsearch__cont--righta{
+    cursor: pointer;
+    float: right;
+    height: 100%;
+    margin: 0;
+}
+.l-topsearch .topsearch__deskt--hide {
+display: none;
+}
+.ever-present__search {
+position: fixed;
+top: 60px;
+width: 100%;
+}
+@media only screen and (max-width: 1064px){  /* small */
+    .l-topsearch {
+        display: block;
+    }
+    .l-topsearch .topsearch__deskt--hide {
+        display: block;
+    }
+    .l-topsearch .topsearch__cont--input{
+        width: calc(100% - 160px);
+    }
+}
+
+body[data-brand="LS"]  .l-topsearch { background-color: #677B88; }
+body[data-brand="LTD"] .l-topsearch { background-color: #efefef; }
+
+body[data-brand="LS"]  .l-topsearch .topsearch__cont--vect   { fill: #D0021B;}
+body[data-brand="LTD"] .l-topsearch .topsearch__cont--vect   { fill: #4a90e2;}
+body[data-brand="LS"]  .l-topsearch .search__cont--righta { background-color: rgba(256, 256, 256, 0); color: #D0021B;}
+body[data-brand="LTD"] .l-topsearch .search__cont--righta { background-color: rgba(256, 256, 256, 0); color: #30619a;}
