@@ -1,4 +1,5 @@
 .l-topsearch {
+background-color: #FDFDFD;
 display: none;
 height: 68px;
 margin: 0;
@@ -50,12 +51,9 @@ width: 100%;
         display: block;
     }
     .l-topsearch .topsearch__cont--input{
-        width: calc(100% - 160px);
+        width: calc(100% - 112px);
     }
 }
-
-body[data-brand="LS"]  .l-topsearch { background-color: #677B88; }
-body[data-brand="LTD"] .l-topsearch { background-color: #efefef; }
 
 body[data-brand="LS"]  .l-topsearch .topsearch__cont--vect   { fill: #D0021B;}
 body[data-brand="LTD"] .l-topsearch .topsearch__cont--vect   { fill: #4a90e2;}
