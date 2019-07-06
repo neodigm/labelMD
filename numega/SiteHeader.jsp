@@ -147,7 +147,7 @@
 	                	<svg class="topmenu__link--vect vect__toggle--alternate" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
 						<path d="M35 28.165c0-.737-.295-1.473-.825-2.003L25.513 17.5l8.662-8.662c.53-.53.825-1.266.825-2.003 0-.737-.295-1.473-.825-2.003L30.168.825A2.857 2.857 0 0 0 28.165 0c-.737 0-1.473.295-2.003.825L17.5 9.487 8.838.825A2.857 2.857 0 0 0 6.835 0c-.737 0-1.473.295-2.003.825L.825 4.832A2.857 2.857 0 0 0 0 6.835c0 .737.295 1.473.825 2.003L9.487 17.5.825 26.162A2.857 2.857 0 0 0 0 28.165c0 .737.295 1.473.825 2.003l4.007 4.007c.53.53 1.266.825 2.003.825.737 0 1.473-.295 2.003-.825l8.662-8.662 8.662 8.662c.53.53 1.266.825 2.003.825.737 0 1.473-.295 2.003-.825l4.007-4.007c.53-.53.825-1.266.825-2.003z" fill="#fff" fill-rule="evenodd"/></svg>
 	                             
-	                	</div><span class="topmenu__link--textmobl">Shop Departments</span>
+	                	</div><span class="topmenu__link--textmobl topmenu__tabl-up--show">Shop Departments</span>
 	            </a>
 	            <a id="js-topmenu__catalogs--id" class="topmenu__link topmenu__mobl--hide" href="/shopCatalogs" tabindex="5">
 	                <div class="svg-icon svg-baseline">

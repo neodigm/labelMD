@@ -1,8 +1,8 @@
 <style type="text/css">
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  /*ms*/
-    .l-toplogo {
-        font-size: 14px;
-    }
+	.l-toplogo {
+		font-size: 14px;
+	}
 }
 
 .l-toplogo {
@@ -11,18 +11,18 @@ height: 70px;
 margin: 0;
 }
 .l-toplogo *:focus {
-    outline: none;
+	outline: none;
 }
 .l-toplogo .l-grid {
-    align-items: flex-start;
-    display: flex;
-    justify-content: space-between;
-    height: 42px;
-    margin: 0 auto;
-    max-width: 1920px;
+	align-items: flex-start;
+	display: flex;
+	justify-content: space-between;
+	height: 42px;
+	margin: 0 auto;
+	max-width: 1920px;
 }
 .toplogo__gridright {
-    margin: 4px 10px 4px 0;
+	margin: 4px 10px 4px 0;
 }
 .toplogo__slide {
 border-radius: 6px;
@@ -38,7 +38,7 @@ box-sizing: content-box !important;
 transition: width .8s, background-color .8s;
 }
 .toplogo__slide .slide-init__hide {
-    display: none;
+	display: none;
 }
 .toplogo__slide--opened {
 background-color: #fff;
@@ -53,10 +53,10 @@ top: -6px;
 cursor: default;
 }
 .toplogo__slide--opened .slide-opened__hide {
-    display: none !important;
+	display: none !important;
 }
 .toplogo__slide--opened .slide-init__hide {
-    display: initial !important;
+	display: initial !important;
 }
 .toplogo-email__input { /* legacy reset */
 background-color: #fff !important;
@@ -106,68 +106,74 @@ top: 0; right: 0; bottom: 0;
 }
 
 .toplogo__slide--offset {
-    position: relative;
-    top: -5px;
+	position: relative;
+	top: -5px;
 }
 
 .toplogo__link--text {
-    font-size: 15px;
-    user-select: none;
+	font-size: 15px;
+	user-select: none;
 }
 
 .l-toplogo a {
-    text-decoration: none;
+	text-decoration: none;
 }
 .space-betw {
-  justify-content: space-between;
+	justify-content: space-between;
 }
 
 .l-grid .toplogo__gridleft--link {
-    cursor: pointer;
+	cursor: pointer;
 }
 .l-grid .toplogo__gridright--link {
-    color: #fff;
-    cursor: pointer;
-    line-height: 3.2;
-    margin: 0 8px 0 2px;
+	color: #fff;
+	cursor: pointer;
+	line-height: 3.2;
+	margin: 0 8px 0 2px;
 }
 .toplogo__home--image-lsc {
-    width: 375px;
-    height: auto;
-    margin: 14px 16px 6px 16px;
+	width: 375px;
+	height: auto;
+	margin: 14px 16px 6px 16px;
 }
 .toplogo__home--image-ltd {
-    width: 375px;
-    height: auto;
-    margin: 10px 16px;
+	width: 375px;
+	height: auto;
+	margin: 10px 16px;
 }
 .l-grid .toplogo__gridright--vect {
-    fill: #ccc;
+	fill: #ccc;
 }
 
 @media only screen and (max-width: 48em){  /* small */
-    .l-toplogo {
-        display: none;
-    }
-    .l-toplogo .l-grid {
-        display: block;
-        text-align: center;
-        margin: 0 auto;
-        max-width: 1920px;
-    }
-    .l-toplogo .toplogo__gridright {
-        display: none;
-    }
-    .toplogo__home--image-lsc {
-        width: 286px;
-    }
-    .toplogo__home--image-ltd {
-        width: 286px;
-    }
+	.l-toplogo {
+		display: none;
+	}
+	.l-toplogo .l-grid {
+		display: block;
+		text-align: center;
+		margin: 0 auto;
+		max-width: 1920px;
+	}
+	.l-toplogo .toplogo__gridright {
+		display: none;
+	}
+	.toplogo__home--image-lsc {
+		width: 286px;
+	}
+	.toplogo__home--image-ltd {
+		width: 286px;
+	}
+}
+	@media only screen 
+		and (min-width: 719px)
+		and (max-width: 1064px){  /* medium *//* tablet 47.750em */
+	.l-toplogo {
+		display: none;
+	}
 }
 
 @media only screen and (min-width: 767px) and (max-width: 1064px) {  /* med landscape */
-    #js-toplogo-slide__email--id { display: none; }
+	#js-toplogo-slide__email--id { display: none; }
 }
-
 </style>
