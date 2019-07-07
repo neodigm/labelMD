@@ -44,13 +44,13 @@ border: solid 1px #000;
 .evoCart__content-grd
 .evoCartLeft,
 .evoCartRight {margin: 0; padding: 0;}
-.evoCart__content
+.evoCart__content {}
 
 /*  Sub-Components Begin  */
-.l-evoCartLeft__items   {display:block; margin: 0; padding: 0;}
-.l-evoCartLeft__recom   {display:block; margin: 0; padding: 0;}
-.l-evoCartLeft__wishes  {display:block; margin: 0; padding: 0;}
-.l-evoCartRight__totals {display:block; margin: 0; padding: 0;}
+.l-evoCartLeft__items   {display:block; margin: 0; padding: 0}
+.l-evoCartLeft__recom   {display:block; margin: 0; padding: 0}
+.l-evoCartLeft__wishes  {display:block; margin: 0; padding: 0}
+.l-evoCartRight__totals {display:block; margin: 0; padding: 0}
 /*  Sub-Components End  */
 
 @media only screen
@@ -61,10 +61,41 @@ border: solid 1px #000;
 @media only screen 
     and (min-width: 719px)
     and (max-width: 1064px){  /* medium *//* tablet 47.750em */
+        .evoCart__content-grd {
+            display: flex;
+            flex-flow: column nowrap; /* Shorthand for flex-direction and flex-wrap */
+            justify-content: flex-start;
+        }
+        .evoCart__column-grd {
+            display: flex;
+            flex-flow: row nowrap; /* Shorthand for flex-direction and flex-wrap */
+            justify-content: flex-start;
+        }
+        .evoCartLeft {
+            width: 100%;
+        }
+        .evoCartRight {
+            width: 100%;            
+        }
 }
 @media only screen 
     and (min-width: 1065px){  /* large *//* laptop 66.563em */
-
+        .evoCart__content-grd {
+            display: flex;
+            flex-flow: column nowrap; /* Shorthand for flex-direction and flex-wrap */
+            justify-content: flex-start;
+        }
+        .evoCart__column-grd {
+            display: flex;
+            flex-flow: row nowrap; /* Shorthand for flex-direction and flex-wrap */
+            justify-content: flex-start;
+        }
+        .evoCartLeft {
+            width: 100%;
+        }
+        .evoCartRight {
+            width: 100%;            
+        }
 }   
 </style>
 	<!-- ____ Component: evoCart layout CSS > JSPF End -->
@@ -75,26 +106,41 @@ border: solid 1px #000;
 
 <ltdc-evoCart class="l-evoCart" role="main">
     <section class="evoCart__content-grd">
-        <div>
+        <div class="evoCart__column-grd">
             <article class="evoCartLeft">
-                <section class="js-evoCartLeft__items l-evoCartLeft__items">
-
-                </section>
-                <section class="js-evoCartLeft__recom l-evoCartLeft__recom">
-
-                </section>
-                <section class="js-evoCartLeft__wishes l-evoCartLeft__wishes">
-
-                </section>
+                <!--  Content Areas Begin  -->
+                <div style="
+                background-color: #777;
+                border: solid 1px #444;
+                margin: 8px auto;
+                text-align: center;
+                width: 98%;
+                "><h6>Content Area: evocart_signin_summary</h6></div>
+                <!--  Content Areas End -->
+                <section class="js-evoCartLeft__items l-evoCartLeft__items"></section>
+                <section class="js-evoCartLeft__recom l-evoCartLeft__recom"></section>
+                <section class="js-evoCartLeft__wishes l-evoCartLeft__wishes"></section>
             </article>
             <article class="evoCartRight">
-                <section class="js-evoCartRight__totals l-evoCartRight__totals">
-
-                </section>
+                <section class="js-evoCartRight__totals l-evoCartRight__totals"></section>
             </article>
         </div>
         <aside class="evoCart__content">
             <!--  Content Areas Begin  -->
+                <div style="
+                background-color: #777;
+                border: solid 1px #444;
+                margin: 8px auto;
+                text-align: center;
+                width: 98%;
+                "><h6>Content Area: evocart_footer_1</h6></div>
+                <div style="
+                background-color: #777;
+                border: solid 1px #444;
+                margin: 8px auto;
+                text-align: center;
+                width: 98%;
+                "><h6>Content Area: evocart_footer_2</h6></div>
             <!--  Content Areas End -->
         </aside>
     </section>
@@ -111,7 +157,7 @@ var oEvoCart_config = {  //  Configuration Object
     {ID:"totals",elID:"js-evoCartRight__totals",url:"evoCartRight__totals.html"}]
 };
 var oEvoCart = (function( doc, oConf ){
-    oConf.aSections.forEach( function( e ){
+    oConf.aSections.forEach( function( e ){ // Populate NodeArray
         e.elSection = doc.querySelectorAll( "." + e.elID );
     });
     return {
@@ -135,12 +181,10 @@ var oEvoCart = (function( doc, oConf ){
 }
 )(document, oEvoCart_config);
 
-
 oEvoCart.updateSection( "items" );
 oEvoCart.updateSection( "recom" );
 oEvoCart.updateSection( "wishes" );
 oEvoCart.updateSection( "totals" );
-//oEvoCart.fAsyncGet(0, function( txt ){ alert( txt ); });
 
 </script>
   </body>
