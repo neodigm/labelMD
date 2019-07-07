@@ -30,49 +30,116 @@
     @media screen{.no__screen,.no__screen *{display:none!important;height:0}}
     </style>
     <!-- ____ Component: Brand layout CSS > JSPF End -->
+
     <!-- ____ Component: evoCart layout CSS > JSPF Begin -->
 <style>
-    .l-evoCart {
-        display: block;
-        margin: 0 auto;
-        max-width: 1920px;
-        padding: 0;
+.l-evoCart {
+    display: block;
+    margin: 0 auto;
+    max-width: 1920px;
+    padding: 0;
 border: solid 1px #000;
-    }
+
+}
+.evoCart__content-grd
+.evoCartLeft,
+.evoCartRight {margin: 0; padding: 0;}
+.evoCart__content
+
+/*  Sub-Components Begin  */
+.l-evoCartLeft__items   {display:block; margin: 0; padding: 0;}
+.l-evoCartLeft__recom   {display:block; margin: 0; padding: 0;}
+.l-evoCartLeft__wishes  {display:block; margin: 0; padding: 0;}
+.l-evoCartRight__totals {display:block; margin: 0; padding: 0;}
+/*  Sub-Components End  */
+
+@media only screen
+    and (min-width: 569px)
+    and (max-width: 718px){  /* small *//* mobile 44.875em */
+
+}
+@media only screen 
+    and (min-width: 719px)
+    and (max-width: 1064px){  /* medium *//* tablet 47.750em */
+}
+@media only screen 
+    and (min-width: 1065px){  /* large *//* laptop 66.563em */
+
+}   
 </style>
 	<!-- ____ Component: evoCart layout CSS > JSPF End -->
 
   </head>
 
   <body brand="LTD">
-      <ltdc-evoCart class="l-evoCart">
-          <br><hr>
-          <br><hr>
-          <br><hr>
-          <br><hr>
-          <br><hr>
-          <br><hr>
-          <br><hr>
-          <br><hr>
-      </ltdc-evoCart>
-<!--
-ltdc-evoCart
 
-evoCartLeft__grid
-	evoCartLeft__items
-	evoCartLeft__wishes
-	evoCartLeft__recom
-evoCartRight__grid
-	evoCartRight__totals
+<ltdc-evoCart class="l-evoCart" role="main">
+    <section class="evoCart__content-grd">
+        <div>
+            <article class="evoCartLeft">
+                <section class="js-evoCartLeft__items l-evoCartLeft__items">
 
+                </section>
+                <section class="js-evoCartLeft__recom l-evoCartLeft__recom">
 
--->
+                </section>
+                <section class="js-evoCartLeft__wishes l-evoCartLeft__wishes">
+
+                </section>
+            </article>
+            <article class="evoCartRight">
+                <section class="js-evoCartRight__totals l-evoCartRight__totals">
+
+                </section>
+            </article>
+        </div>
+        <aside class="evoCart__content">
+            <!--  Content Areas Begin  -->
+            <!--  Content Areas End -->
+        </aside>
+    </section>
+</ltdc-evoCart>
+
 <script>
 "use strict";
-var oEvoCart = (function( doc ){
-
+// mock oTopmenu.isMobile()
+var oEvoCart_config = {  //  Configuration Object
+    aSections: [
+    {ID:"items" ,elID:"js-evoCartLeft__items", url:"evoCartLeft__items.html"},
+    {ID:"recom" ,elID:"js-evoCartLeft__recom", url:"evoCartLeft__recom.html"},
+    {ID:"wishes",elID:"js-evoCartLeft__wishes",url:"evoCartLeft__wishes.html"},
+    {ID:"totals",elID:"js-evoCartRight__totals",url:"evoCartRight__totals.html"}]
+};
+var oEvoCart = (function( doc, oConf ){
+    oConf.aSections.forEach( function( e ){
+        e.elSection = doc.querySelectorAll( "." + e.elID );
+    });
+    return {
+        updateSection: function( sSect ){
+            var self = this, nCnt = 0;
+            oConf.aSections.forEach( function( e ){
+                if( e.ID === sSect ){
+                    self.fAsyncGet(nCnt, function( sRespn ){ e.elSection[0].innerHTML = sRespn; });
+                }
+                nCnt++;
+            } );
+        },
+        fAsyncGet: function( iSect, fCB ){ // Given an index and a callback
+            var oX = new XMLHttpRequest();
+            var sURI = oConf.aSections[ iSect ].url;
+            oX.onreadystatechange = function(){ if (oX.readyState==4 && oX.status==200) fCB(oX.responseText); };
+            oX.open("GET", sURI, true); // true asynchronous 
+            oX.send( null );
+        }
+    };
 }
-)(document)
+)(document, oEvoCart_config);
+
+
+oEvoCart.updateSection( "items" );
+oEvoCart.updateSection( "recom" );
+//oEvoCart.fAsyncGet(0, function( txt ){ alert( txt ); });
+
 </script>
   </body>
 </html>
