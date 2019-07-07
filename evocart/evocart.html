@@ -40,11 +40,85 @@
 }
 .evoCart__content-grd
 .evoCartLeft,
-.evoCartRight {margin: 0; padding: 0;}
+.evoCartRight {margin: 4px; padding: 4px;}
 .evoCart__content {}
 
 /*  Sub-Components Begin  */
-.l-evoCartLeft__items   {display:block; margin: 0; padding: 0}
+.l-evoCartLeft__items {display:block; margin: 0; padding: 0}
+.l-prd-card__grd {
+    border-bottom: solid 1px #BFBFBF;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 8px 0;
+}
+.l-prd-card__grd .prd_card__pic > img { height: auto; width: 76px; }
+.l-prd-card__grd .prd-card__dets,
+.l-prd-card__grd .prd-card__dets p {
+    color: #000;
+    margin: 2px; padding: 2px;
+    text-align: left;
+}
+.l-prd-card__grd .prd-card__dets p.prd-card__dets--desc {
+font-weight: 500;
+font-size: 15px;
+}
+.l-prd-card__grd .prd-card__dets p.prd-card__dets--price {
+color: #E01D1D;
+font-weight: 500;
+font-size: 20px;
+}
+.l-prd-card__grd .prd-card__dets p.prd-card__dets--sku {
+font-size: 13px;
+}
+.l-prd-card__grd .prd-card__dets p.prd-card__dets--save {
+font-size: 13px;
+}
+.l-prd-card__grd p.prd-card__dets--save span.prd-card__save--strike {
+font-size: 14px;
+text-decoration: line-through;
+}
+.l-prd-card__grd p.prd-card__dets--save span.prd-card__save--red {
+font-size: 14px;
+color: #E01D1D;
+}
+.l-prd-card__grd .prd-card__dets p.prd-card__dets--stock {
+font-weight: 500;
+font-size: 13px;
+font-style: italic;
+}
+.l-prd-card__grd .prd-card__dets p.prd-card__dets--drop {
+color: #555;
+fill: #555;
+font-size: 12px;
+}
+.l-prd-card__grd .prd-card__dets .l-grid-qty-step {
+display: flex;
+align-items: center;
+text-align: center;
+margin: 2px; padding: 2px;
+user-select: none;
+}
+.l-grid-qty-step .qty-step__action--input {
+border: solid 1px #BFBFBF;
+border-radius: 3px;
+font-size: 18px;
+font-weight: 500;
+height: 40px; width: 60px;
+margin: 6px 10px;
+text-align: center;
+}
+.l-prd-card__grd a.prd-card__dets--link {
+color: #000;
+cursor:pointer;
+font-size: 13px;
+margin: 4px 16px 2px 0;
+text-decoration: underline;
+}
+.l-grid-qty-step .qty-step__action { cursor: pointer; }
+
 .l-evoCartLeft__recom   {display:block; margin: 0; padding: 0}
 .l-evoCartLeft__wishes  {display:block; margin: 0; padding: 0}
 .l-evoCartRight__totals {display:block; margin: 0; padding: 0}
@@ -53,7 +127,7 @@
 @media only screen
     and (min-width: 569px)
     and (max-width: 718px){  /* small *//* mobile 44.875em */
-
+        .l-evoCartLeft__items .prd_card__pic > img{ height: auto; width: 125px; }
 }
 @media only screen 
     and (min-width: 719px)
@@ -65,15 +139,28 @@
         }
         .evoCart__column-grd {
             display: flex;
-            flex-flow: row nowrap; /* Shorthand for flex-direction and flex-wrap */
+            flex-direction: row;
+            flex-wrap: nowrap;
             justify-content: flex-start;
+            align-content: flex-end;
+            align-items: center;
         }
         .evoCartLeft {
-            width: 100%;
+            order: 0;
+            flex: 0 1 50%;
+            align-self: stretch;
         }
         .evoCartRight {
-            width: 100%;            
+            order: 0;
+            flex: 0 1 50%;
+            align-self: stretch;        
         }
+        .l-evoCartRight__totals {
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+        }
+        .l-evoCartLeft__items .prd_card__pic > img{ height: auto; width: 125px; }
 }
 @media only screen 
     and (min-width: 1065px){  /* large *//* laptop 66.563em */
@@ -84,15 +171,28 @@
         }
         .evoCart__column-grd {
             display: flex;
-            flex-flow: row nowrap; /* Shorthand for flex-direction and flex-wrap */
+            flex-direction: row;
+            flex-wrap: nowrap;
             justify-content: flex-start;
+            align-content: flex-end;
+            align-items: center;
         }
         .evoCartLeft {
-            width: 100%;
+            order: 0;
+            flex: 1.1 1 auto;
+            align-self: stretch;
         }
         .evoCartRight {
-            width: 100%;            
+            order: 0;
+            flex: 1 1 auto;
+            align-self: stretch;        
         }
+        .l-evoCartRight__totals {
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+        }
+        .l-evoCartLeft__items .prd_card__pic > img{ height: auto; width: 200px; }
 }   
 </style>
 	<!-- ____ Component: evoCart layout CSS > JSPF End -->
@@ -109,9 +209,9 @@
                 <div style="
                 background-color: #777;
                 border: solid 1px #444;
-                margin: 8px auto;
+                margin: 8px 0;
                 text-align: center;
-                width: 98%;
+                width: 99%;
                 "><h6>Content Area: evocart_signin_summary</h6></div>
                 <!--  Content Areas End -->
                 <section class="js-evoCartLeft__items l-evoCartLeft__items"></section>
@@ -127,16 +227,16 @@
                 <div style="
                 background-color: #777;
                 border: solid 1px #444;
-                margin: 8px auto;
+                margin: 8px;
                 text-align: center;
-                width: 98%;
+                width: 99%;
                 "><h6>Content Area: evocart_footer_1</h6></div>
                 <div style="
                 background-color: #777;
                 border: solid 1px #444;
-                margin: 8px auto;
+                margin: 8px;
                 text-align: center;
-                width: 98%;
+                width: 99%;
                 "><h6>Content Area: evocart_footer_2</h6></div>
             <!--  Content Areas End -->
         </aside>
