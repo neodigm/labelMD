@@ -129,7 +129,6 @@ text-decoration: underline;
 }
 .pers__view a {
     float: right;
-    color: #000;
     cursor: pointer;
     font-size: 13px;
     margin: 0 16px 2px 0;
@@ -212,11 +211,22 @@ text-decoration: underline;
         .l-evoCartLeft__items .prd_card__pic > img{ height: auto; width: 200px; }
 }   
 </style>
-	<!-- ____ Component: evoCart layout CSS > JSPF End -->
+    <!-- ____ Component: evoCart layout CSS > JSPF End -->
+    
+<style>
+/*  CSS category State    */ /*  color display font visibility ...  */
+
+/*  CSS category Theme    */ /*  color background hover ...  */
+body[data-brand=LS]  .pers__view a { color: #D0021B; }
+body[data-brand=LTD] .pers__view a { color: #000; }
+
+
+
+</style>
 
   </head>
 
-  <body brand="LTD">
+  <body data-brand="LS">
 
 <ltdc-evoCart class="l-evoCart" role="main">
     <section class="evoCart__content-grd">
@@ -279,7 +289,9 @@ var oEvoCart = (function( doc, oConf ){
             var self = this, nCnt = 0;
             oConf.aSections.forEach( function( e ){
                 if( e.ID === sSect ){
-                    self.fAsyncGet(nCnt, function( sRespn ){ e.elSection[0].innerHTML = sRespn; });
+                    self.fAsyncGet(nCnt, function( sRespn ){
+                        //sRespn = sRespn.split("<!---->")[1];
+                        e.elSection[0].innerHTML = sRespn; });
                 }
                 nCnt++;
             } );
