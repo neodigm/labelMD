@@ -4,6 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Evo Cart</title>
+    <!--/*____ Component: flickity   ________________ begin */-->
+    <link rel="stylesheet" href="./evocart_files/flickity.min.css" as="style" onload="this.rel='stylesheet'">
+    <!--/*____ Component: flickity   ________________ end   */-->
     <!-- ____ Component: Brand layout CSS > JSPF Begin -->
     <style type="text/css">
     [v-cloak],[v-cloak] .v-cloak--hide{display:none}
@@ -36,7 +39,7 @@
 .l-evoCart {
     display: block;
     margin: 0 auto; padding: 0;
-    max-width: 1920px;
+    max-width: 1260px;
 }
 .evoCart__content-grd
 .evoCartLeft,
@@ -144,6 +147,23 @@ text-decoration: underline;
     and (min-width: 569px)
     and (max-width: 718px){  /* small *//* mobile 44.875em */
         .l-evoCartLeft__items .prd_card__pic > img{ height: auto; width: 125px; }
+        /*  Recommendations Begin  */
+        .l-evoCart .fcart-grd__top img {
+            width: 76px;
+            }
+            .l-evoCart .fcart-grd__top p {
+            font-size: .64em;
+            }
+            .l-evoCart .fcart-grd__mid {
+            flex-flow: column nowrap; /* Shorthand for flex-direction and flex-wrap */
+            }
+            .l-evoCart .fcart-grd__bottom {
+            display: none;
+            }
+            .recom_width_pixels {
+            width: 84% !important;
+            }
+        /*  Recommendations End  */
 }
 @media only screen 
     and (min-width: 719px)
@@ -177,6 +197,18 @@ text-decoration: underline;
             top: 0;
         }
         .l-evoCartLeft__items .prd_card__pic > img{ height: auto; width: 125px; }
+
+        /*  Recommendations Begin  */
+        .l-evoCart .fcart-grd__mid {
+        flex-flow: row nowrap; /* Shorthand for flex-direction and flex-wrap */
+        }
+        .l-evoCart .fcart-grd__bottom {
+        display: block;
+        }
+        .recom_width_pixels {
+        width: 686px !important;
+        }
+        /*  Recommendations End  */
 }
 @media only screen 
     and (min-width: 1065px){  /* large *//* laptop 66.563em */
@@ -195,12 +227,12 @@ text-decoration: underline;
         }
         .evoCartLeft {
             order: 0;
-            flex: 1.1 1 auto;
+            flex: 1 1 56%;
             align-self: stretch;
         }
         .evoCartRight {
             order: 0;
-            flex: 1 1 auto;
+            flex: 1 1 44%;
             align-self: stretch;        
         }
         .l-evoCartRight__totals {
@@ -209,6 +241,147 @@ text-decoration: underline;
             top: 0;
         }
         .l-evoCartLeft__items .prd_card__pic > img{ height: auto; width: 200px; }
+
+        /*  Recommendations Begin  */
+        .l-evoCart .svg__x {
+        cursor: pointer;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        }
+        .l-evoCart .svg__x img {
+        cursor: pointer;
+        }
+        .recom_width_pixels {
+        width: 686px !important;
+        }
+        .l-evoCart .fcart-grd__top {
+        align-items: left;
+        display: flex;
+        flex-flow: row nowrap; /* Shorthand for flex-direction and flex-wrap */
+        justify-content: flex-start;
+        }
+        .l-evoCart .fcart-grd__top img {
+        width: 150px;
+        }
+        .l-evoCart h4,
+        .l-evoCart h5 {
+        background-color: rgba(256,256,256,0);
+        color: #111;
+        font-family: sans-serif;
+        font-size: 1.4em;
+        font-style: normal;
+        font-weight: 100;
+        text-align: left;
+        margin: 0 6px 6px 6px;
+        }
+        .l-evoCart h5 {
+        font-size: 1.2em;
+        text-align: center;
+        }
+        .l-evoCart .fcart-grd__top p {
+        color: #111;
+        font-family: sans-serif;
+        font-size: .98em;
+        text-align: left;
+        margin: 6px;
+        }
+        .l-evoCart .fcart-grd__top .fcart__text--instock {
+        color: #000;
+        font-family: sans-serif;
+        font-size: .9em;
+        font-weight: 600;
+        font-style: italic;
+        text-align: left;
+        margin: 6px;
+        }
+        .l-evoCart .fcart-grd__top .fcart__text--ad {
+        color: #111;
+        fill: #111;
+        font-family: sans-serif;
+        font-size: .9em;
+        text-align: left;
+        margin: 6px;
+        }
+
+        .l-evoCart .fcart-grd__mid {
+        align-items: left;
+        display: flex;
+        flex-flow: row nowrap; /* Shorthand for flex-direction and flex-wrap */
+        justify-content: center;
+        }
+
+        /*  Carousel begin  */
+        .carsl_card {
+        width: 150px;
+        margin: 2px 11px;
+        border-radius: 4px;
+        }
+        .carsl_card img {
+        width: 150px;
+        height: auto;
+        }
+
+        .carsl_card.is-selected {
+        background: #fff;
+        }
+
+        .carsl__desc {
+        color: #222;
+        font-size: .92em;
+        font-weight: 300;
+        text-align: left;
+        }
+        .carsl__desc p {
+        margin: 6px 0;
+        }
+        .carsl__desc .carsl-desc__price {
+        text-align: center;
+        }
+        .carsl__desc .carsl-desc__price--strike {
+        color: #333;
+        font-weight: 500;
+        text-decoration: line-through;
+        }
+        .carsl__desc .carsl-desc__price--red {
+        color: #d0021b;
+        font-weight: 600;
+        }
+        .carsl__desc .carsl-desc__desc {
+        height: 54px;
+        overflow: hidden;
+        }
+        /*  Carousel end  */
+
+        /*  branded buttons begin  */
+        .l-evoCart .brand__button--primary,
+        .l-evoCart .brand__button--secondary {
+        display: inline;
+        border: solid 2px;
+        border-radius: 3px;
+        font-family: sans-serif;
+        font-size: 1.1em;
+        text-align: center;
+        padding: 10px;
+        margin: 4px;
+        text-decoration: none;
+        width: 98%;
+        }
+        .l-evoCart .brand__button-sm--primary,
+        .l-evoCart .brand__button-sm--secondary {
+        display: block;
+        border-radius: 3px;
+        font-family: sans-serif;
+        font-size: .95em;
+        text-align: center;
+        padding: 6px;
+        margin: 3px 0;
+        text-decoration: none;
+        min-width: 100%;
+        }
+        /*  branded buttons end  */
+        /*  Recommendations End  */
+
 }   
 </style>
     <!-- ____ Component: evoCart layout CSS > JSPF End -->
@@ -220,7 +393,27 @@ text-decoration: underline;
 body[data-brand=LS]  .pers__view a { color: #D0021B; }
 body[data-brand=LTD] .pers__view a { color: #000; }
 
-
+/*  CSS category Theme    */ /*  color background hover ...  */
+body[data-brand="LS"]  .l-evoCart .brand__button--primary,
+body[data-brand="LS"]  .l-evoCart .brand__button-sm--primary,
+body[data-brand="LS"]  .l-evoCart .brand__button--primary:visited,
+body[data-brand="LS"]  .l-evoCart .brand__button-sm--primary:visited    
+{ color: #ffffff; background-color: #D0021B; border-color: #D0021B; }
+body[data-brand="LTD"] .l-evoCart .brand__button--primary,
+body[data-brand="LTD"] .l-evoCart .brand__button-sm--primary,
+body[data-brand="LTD"] .l-evoCart .brand__button--primary:visited,
+body[data-brand="LTD"] .l-evoCart .brand__button-sm--primary:visited 
+{ color: #ffffff; background-color: #30609A; border-color: #30609A; }
+body[data-brand="LS"]  .l-evoCart .brand__button--secondary,
+body[data-brand="LS"]  .l-evoCart .brand__button-sm--secondary,
+body[data-brand="LS"]  .l-evoCart .brand__button--secondary:visited,
+body[data-brand="LS"]  .l-evoCart .brand__button-sm--secondary:visited
+{ color: #D0021B; background-color: #ffffff; border-color: #D0021B; }
+body[data-brand="LTD"] .l-evoCart .brand__button--secondary,
+body[data-brand="LTD"] .l-evoCart .brand__button-sm--secondary,
+body[data-brand="LTD"] .l-evoCart .brand__button--secondary:visited,
+body[data-brand="LTD"] .l-evoCart .brand__button-sm--secondary:visited
+{ color: #30609A; background-color: #ffffff; border-color: #30619a; }
 
 </style>
 
@@ -270,9 +463,13 @@ body[data-brand=LTD] .pers__view a { color: #000; }
     </section>
 </ltdc-evoCart>
 
+<script src="./evocart_files/flickity.pkgd.min.js.download"></script>
+
 <script>
 "use strict";
 // mock oTopmenu.isMobile()
+var oTopmenu = {"isMobile": function(){ return ( document.body.clientWidth <= 1064 ) ? true : false; }};
+
 var oEvoCart_config = {  //  Configuration Object
     aSections: [
     {ID:"items" ,elID:"js-evoCartLeft__items", url:"evoCartLeft__items.html"},
@@ -292,9 +489,31 @@ var oEvoCart = (function( doc, oConf ){
                     self.fAsyncGet(nCnt, function( sRespn ){
                         //sRespn = sRespn.split("<!---->")[1];
                         e.elSection[0].innerHTML = sRespn; });
+                        setTimeout( function(){self.bind( sSect );}, 200 );
                 }
                 nCnt++;
             } );
+        },
+        bind: function( sSect ){  //  Init the newly loaded section
+            switch( sSect ){
+                case "recom":
+                    if( typeof Flickity != "undefined" ){
+                        var nCells = oTopmenu.isMobile() ? 2 : 4;
+                        var oFlick = new Flickity('.carsl', {
+                            "freeScroll": true,
+                            "groupCells": 4,
+                            "autoPlay": false,
+                            "initialIndex": 2,
+                            "cellAlign": "left",
+                            "wrapAround": true,
+                            "pageDots": false});
+                    }
+                    setTimeout( function(){
+                        oFlick.reloadCells();
+                        oFlick.resize();
+                    }, 400 );
+                break;
+            }
         },
         fAsyncGet: function( iSect, fCB ){ // Given an index and a callback
             var oX = new XMLHttpRequest();
