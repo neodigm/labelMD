@@ -23,6 +23,7 @@
     ::selection{background:#cae3ff;text-shadow:none}
     .h-desktop__only--block{display:block}
     .h-mobile__only--block{display:none}
+    .h-txt__align--center{text-align: center}
     @media only screen and (min-width:48.1em) and (max-width:61em){
         .h-desktop__only--block{display:none!important} .h-mobile__only--block{display:block}
     }
@@ -57,12 +58,29 @@
     align-items: flex-start;
     margin: 8px 0;
 }
+.l-prd-card {
+    border-bottom: solid 1px #BFBFBF;
+    margin: 8px 0;
+}
 .l-prd-card__grd .prd_card__pic > img { height: auto; width: 76px; }
 .l-prd-card__grd .prd-card__dets,
 .l-prd-card__grd .prd-card__dets p {
     color: #000;
     margin: 2px; padding: 2px;
     text-align: left;
+}
+/* wisth list stuff */
+.l-prd-card .wish-list__caption {
+    color: #000;
+    font-size: 23px;
+    margin: 8px;
+}
+.btn-cta__wish {
+    margin: 6px 0; padding: 6px 0;
+}
+.btn-cta__wish a {
+    min-width: 150px !important;
+    width: 150px !important;
 }
 .l-prd-card__grd .prd-card__dets p.prd-card__dets--desc {
 font-weight: 500;
@@ -144,19 +162,20 @@ text-decoration: underline;
 /*  Sub-Components End  */
 
 @media only screen
-    and (min-width: 569px)
-    and (max-width: 718px){  /* small *//* mobile 44.875em */
+    and (min-width: 375px)
+    and (max-width: 667px){  /* small *//* mobile 44.875em */
         .l-evoCartLeft__items .prd_card__pic > img{ height: auto; width: 125px; }
         /*  Recommendations Begin  */
-        .l-evoCart .fcart-grd__top p {
-        font-size: .64em;
-        }
-        .l-evoCart .fcart-grd__bottom {
-        display: none;
-        }
         .recom_width_pixels {
-        width: 416px !important;
+            width: 332px !important;
+            margin: 0 auto;
         }
+        /*  Carousel begin  */
+        .l-evoCart .carsl_card,
+        .l-evoCart .carsl_card img {
+        width: 148px;
+        }
+        /*  Carousel End  */
         /*  Recommendations End  */
 }
 @media only screen 
@@ -194,11 +213,17 @@ text-decoration: underline;
 
         /*  Recommendations Begin  */
         .l-evoCart .fcart-grd__bottom {
-        display: block;
+            display: block;
         }
         .recom_width_pixels {
-        width: 362px !important;
+            width: 362px !important;
         }
+        /*  Carousel begin  */
+        .l-evoCart .carsl_card,
+        .l-evoCart .carsl_card img {
+        width: 105px;
+        }
+        /*  Carousel End  */
         /*  Recommendations End  */
 }
 @media only screen 
@@ -232,6 +257,12 @@ text-decoration: underline;
             top: 0;
         }
         .l-evoCartLeft__items .prd_card__pic > img{ height: auto; width: 200px; }
+        /*  Carousel begin  */
+            .l-evoCart .carsl_card,
+            .l-evoCart .carsl_card img {
+            width: 150px;
+            }
+        /*  Carousel End  */
 
 }   /* large *//* laptop 66.563em */
 
@@ -285,12 +316,12 @@ text-decoration: underline;
 
         /*  Carousel begin  */
         .carsl_card {
-        width: 150px;
+        width: 132px;
         margin: 2px 11px;
         border-radius: 4px;
         }
         .carsl_card img {
-        width: 150px;
+        width: 132px;
         height: auto;
         }
 
@@ -449,7 +480,7 @@ var oEvoCart_config = {  //  Configuration Object
 };
 var oEvoCart = (function( doc, oConf ){
     oConf.aSections.forEach( function( e ){ // Populate NodeArray
-        e.elSection = doc.querySelectorAll( "." + e.elID );
+        e.elSection = doc.querySelectorAll( "." + e.elID ); // js-class
     });
     return {
         updateSection: function( sSect ){
@@ -468,7 +499,7 @@ var oEvoCart = (function( doc, oConf ){
             switch( sSect ){
                 case "recom":
                     if( typeof Flickity != "undefined" ){
-                        var nCells = oTopmenu.isMobile() ? 2 : 4;
+                        //var nCells = oTopmenu.isMobile() ? 2 : 4;
                         var oFlick = new Flickity('.carsl', {
                             "freeScroll": true,
                             "groupCells": 4,
@@ -487,7 +518,7 @@ var oEvoCart = (function( doc, oConf ){
         },
         fAsyncGet: function( iSect, fCB ){ // Given an index and a callback
             var oX = new XMLHttpRequest();
-            var sURI = oConf.aSections[ iSect ].url;
+            var sURI = oConf.aSections[ iSect ].url + "?dfdfasd";
             oX.onreadystatechange = function(){ if (oX.readyState==4 && oX.status==200) fCB(oX.responseText); };
             oX.open("GET", sURI, true); // true asynchronous 
             oX.send( null );
