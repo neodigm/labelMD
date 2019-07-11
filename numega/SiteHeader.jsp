@@ -174,15 +174,16 @@
 	                </div><span class="topmenu__link--text">My Account</span>
 				</a>
 				
-				<c:if test="${wishListEnabled}"> 	
-		            <a id="js-topmenu__wish--id" class="topmenu__link" href="/wishlist" tabindex="23">
-		                <div class="svg-icon svg-baseline">
-							<svg class="heart" viewBox="0 -5 32 29.6" fill="#d0021b">
-							<path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
-							c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
-							</svg> 
-		                </div> &nbsp; <div class="topmenu__link--wish"><c:out value="${giftItemsSize}" /></div>
-		            </a>
+				<c:if test="${wishListEnabled}">
+
+					<a id="js-topmenu__wish--id" class="topmenu__link--num" href="https://www.ltdcommodities.com/wishlist">
+						<svg viewBox="0 0 35 35" width="38" height="38" fill="#ffffff">
+						<path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+						c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"></path>
+						</svg>
+						<div class="topmenu__link--wish">${giftItemsSize}</div>
+					</a>
+
 	            </c:if>
 
 	            <a id="js-topmenu__cart--id" class="topmenu__link" href="/checkout/shopping_cart.jsp" tabindex="24">
