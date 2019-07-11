@@ -69,7 +69,7 @@
     margin: 2px; padding: 2px;
     text-align: left;
 }
-/* wisth list stuff */
+/*  wisth list Begin  */
 .l-prd-card .wish-list__caption {
     color: #000;
     font-size: 23px;
@@ -82,6 +82,8 @@
     min-width: 150px !important;
     width: 150px !important;
 }
+/*  wisth list End  */
+
 .l-prd-card__grd .prd-card__dets p.prd-card__dets--desc {
 font-weight: 500;
 font-size: 15px;
@@ -159,12 +161,27 @@ text-decoration: underline;
 .l-evoCartLeft__recom   {display:block; margin: 0; padding: 0}
 .l-evoCartLeft__wishes  {display:block; margin: 0; padding: 0}
 .l-evoCartRight__totals {display:block; margin: 0; padding: 0}
+
+.totals-promo {
+    margin: 0; padding: 0;
+}
+
+.totals-promo > input {
+    border: solid 1px #BFBFBF;
+    border-radius: 3px;
+    font-size: 18px;
+    font-weight: 500;
+    height: 40px;
+    width: 80%;
+    margin: 6px 0; padding: 0 4px;
+}
 /*  Sub-Components End  */
 
 @media only screen
     and (min-width: 375px)
     and (max-width: 667px){  /* small *//* mobile 44.875em */
-        .l-evoCartLeft__items .prd_card__pic > img{ height: auto; width: 125px; }
+        .l-evoCartLeft__items .prd_card__pic > img,
+        .l-evoCartLeft__wishes .prd_card__pic > img{ height: auto; width: 125px; }
         /*  Recommendations Begin  */
         .recom_width_pixels {
             width: 332px !important;
@@ -209,7 +226,8 @@ text-decoration: underline;
             position: sticky;
             top: 0;
         }
-        .l-evoCartLeft__items .prd_card__pic > img{ height: auto; width: 125px; }
+        .l-evoCartLeft__items .prd_card__pic > img,
+        .l-evoCartLeft__wishes .prd_card__pic > img{ height: auto; width: 125px; }
 
         /*  Recommendations Begin  */
         .l-evoCart .fcart-grd__bottom {
@@ -256,7 +274,8 @@ text-decoration: underline;
             position: sticky;
             top: 0;
         }
-        .l-evoCartLeft__items .prd_card__pic > img{ height: auto; width: 200px; }
+        .l-evoCartLeft__items .prd_card__pic > img,
+        .l-evoCartLeft__wishes .prd_card__pic > img{ height: auto; width: 200px; }
         /*  Carousel begin  */
             .l-evoCart .carsl_card,
             .l-evoCart .carsl_card img {
@@ -357,8 +376,8 @@ text-decoration: underline;
         /*  Carousel end  */
 
         /*  branded buttons begin  */
-        .l-evoCart .brand__button--primary,
-        .l-evoCart .brand__button--secondary {
+        .brand__button--primary,
+        .brand__button--secondary {
         display: inline;
         border: solid 2px;
         border-radius: 3px;
@@ -370,8 +389,8 @@ text-decoration: underline;
         text-decoration: none;
         width: 98%;
         }
-        .l-evoCart .brand__button-sm--primary,
-        .l-evoCart .brand__button-sm--secondary {
+        .brand__button-sm--primary,
+        .brand__button-sm--secondary {
         display: block;
         border-radius: 3px;
         font-family: sans-serif;
@@ -384,6 +403,17 @@ text-decoration: underline;
         }
         /*  branded buttons end  */
         /*  Recommendations End  */
+        /*  Review Stars  */
+        .four-half-star {
+        background-position: -1px -145px;
+        }
+        .review-stars {
+        background: url(/evocart_files/review-stars-sprite.png) no-repeat;
+        background-size: 80px;
+        height: 15px;
+        margin: 0 auto 6px 0;
+        width: 77px;
+        }
 </style>
     <!-- ____ Component: evoCart layout CSS > JSPF End -->
     
@@ -395,25 +425,25 @@ body[data-brand=LS]  .pers__view a { color: #D0021B; }
 body[data-brand=LTD] .pers__view a { color: #000; }
 
 /*  CSS category Theme    */ /*  color background hover ...  */
-body[data-brand="LS"]  .l-evoCart .brand__button--primary,
-body[data-brand="LS"]  .l-evoCart .brand__button-sm--primary,
-body[data-brand="LS"]  .l-evoCart .brand__button--primary:visited,
-body[data-brand="LS"]  .l-evoCart .brand__button-sm--primary:visited    
+body[data-brand="LS"]  .brand__button--primary,
+body[data-brand="LS"]  .brand__button-sm--primary,
+body[data-brand="LS"]  .brand__button--primary:visited,
+body[data-brand="LS"]  .brand__button-sm--primary:visited    
 { color: #ffffff; background-color: #D0021B; border-color: #D0021B; }
-body[data-brand="LTD"] .l-evoCart .brand__button--primary,
-body[data-brand="LTD"] .l-evoCart .brand__button-sm--primary,
-body[data-brand="LTD"] .l-evoCart .brand__button--primary:visited,
-body[data-brand="LTD"] .l-evoCart .brand__button-sm--primary:visited 
+body[data-brand="LTD"] .brand__button--primary,
+body[data-brand="LTD"] .brand__button-sm--primary,
+body[data-brand="LTD"] .brand__button--primary:visited,
+body[data-brand="LTD"] .brand__button-sm--primary:visited 
 { color: #ffffff; background-color: #30609A; border-color: #30609A; }
-body[data-brand="LS"]  .l-evoCart .brand__button--secondary,
-body[data-brand="LS"]  .l-evoCart .brand__button-sm--secondary,
-body[data-brand="LS"]  .l-evoCart .brand__button--secondary:visited,
-body[data-brand="LS"]  .l-evoCart .brand__button-sm--secondary:visited
+body[data-brand="LS"]  .brand__button--secondary,
+body[data-brand="LS"]  .brand__button-sm--secondary,
+body[data-brand="LS"]  .brand__button--secondary:visited,
+body[data-brand="LS"]  .brand__button-sm--secondary:visited
 { color: #D0021B; background-color: #ffffff; border-color: #D0021B; }
-body[data-brand="LTD"] .l-evoCart .brand__button--secondary,
-body[data-brand="LTD"] .l-evoCart .brand__button-sm--secondary,
-body[data-brand="LTD"] .l-evoCart .brand__button--secondary:visited,
-body[data-brand="LTD"] .l-evoCart .brand__button-sm--secondary:visited
+body[data-brand="LTD"] .brand__button--secondary,
+body[data-brand="LTD"] .brand__button-sm--secondary,
+body[data-brand="LTD"] .brand__button--secondary:visited,
+body[data-brand="LTD"] .brand__button-sm--secondary:visited
 { color: #30609A; background-color: #ffffff; border-color: #30619a; }
 
 </style>
@@ -428,8 +458,8 @@ body[data-brand="LTD"] .l-evoCart .brand__button-sm--secondary:visited
             <article class="evoCartLeft">
                 <!--  Content Areas Begin  -->
                 <div style="
-                background-color: #777;
-                border: solid 1px #444;
+                background-color: #ccc;
+                border: solid 1px #aaa;
                 margin: 8px 0;
                 text-align: center;
                 width: 99%;
@@ -440,21 +470,30 @@ body[data-brand="LTD"] .l-evoCart .brand__button-sm--secondary:visited
                 <section class="js-evoCartLeft__wishes l-evoCartLeft__wishes"></section>
             </article>
             <article class="evoCartRight">
+                <!--  Content Areas Begin  -->
+                <div style="
+                background-color: #ccc;
+                border: solid 1px #aaa;
+                margin: 8px 0;
+                text-align: center;
+                width: 99%;
+                "><h6>Content Area: evocart_promotion</h6></div>
+                <!--  Content Areas End -->
                 <section class="js-evoCartRight__totals l-evoCartRight__totals"></section>
             </article>
         </div>
         <aside class="evoCart__content">
             <!--  Content Areas Begin  -->
                 <div style="
-                background-color: #777;
-                border: solid 1px #444;
+                background-color: #ccc;
+                border: solid 1px #aaa;
                 margin: 8px;
                 text-align: center;
                 width: 99%;
                 "><h6>Content Area: evocart_footer_1</h6></div>
                 <div style="
-                background-color: #777;
-                border: solid 1px #444;
+                background-color: #ccc;
+                border: solid 1px #aaa;
                 margin: 8px;
                 text-align: center;
                 width: 99%;
@@ -490,7 +529,7 @@ var oEvoCart = (function( doc, oConf ){
                     self.fAsyncGet(nCnt, function( sRespn ){
                         //sRespn = sRespn.split("<!---->")[1];
                         e.elSection[0].innerHTML = sRespn; });
-                        setTimeout( function(){self.bind( sSect );}, 200 );
+                        setTimeout( function(){self.bind( sSect );}, 400 );
                 }
                 nCnt++;
             } );
@@ -518,7 +557,7 @@ var oEvoCart = (function( doc, oConf ){
         },
         fAsyncGet: function( iSect, fCB ){ // Given an index and a callback
             var oX = new XMLHttpRequest();
-            var sURI = oConf.aSections[ iSect ].url + "?dfdfasd";
+            var sURI = oConf.aSections[ iSect ].url;
             oX.onreadystatechange = function(){ if (oX.readyState==4 && oX.status==200) fCB(oX.responseText); };
             oX.open("GET", sURI, true); // true asynchronous 
             oX.send( null );
