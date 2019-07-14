@@ -168,12 +168,40 @@ text-decoration: underline;
 
 .totals-promo > input {
     border: solid 1px #BFBFBF;
-    border-radius: 3px;
     font-size: 18px;
     font-weight: 500;
-    height: 40px;
-    width: 80%;
+    height: 41px;
+    width: calc(100% - 118px);
     margin: 6px 0; padding: 0 4px;
+}
+.totals-promo > a {
+    padding: 10px 22px;
+}
+.order-sum__caption {
+    margin: 0; padding: 0;
+    text-align: center;
+}
+.order-sum__caption > p {
+    font-size: 14px;
+    margin: 8px; padding: 4px;
+}
+.order-sum__cont {
+    border: solid 1px #BFBFBF;
+}
+.order-sum__tab p {
+    font-size: 16px;
+    margin: 12px;
+}
+.order-sum__tab span {
+    float: right;
+}
+.order-sum__link {
+    cursor: pointer;
+}
+.order-sum__expand {
+    cursor: pointer;
+    font-size: 18px;
+    color: #30619a; fill: #30619a;
 }
 /*  Sub-Components End  */
 
@@ -182,6 +210,12 @@ text-decoration: underline;
     and (max-width: 667px){  /* small *//* mobile 44.875em */
         .l-evoCartLeft__items .prd_card__pic > img,
         .l-evoCartLeft__wishes .prd_card__pic > img{ height: auto; width: 125px; }
+        .order-sum__caption > p {
+            font-size: 18px;
+        }
+        .order-sum__tab p {
+            font-size: 20px;
+        }
         /*  Recommendations Begin  */
         .recom_width_pixels {
             width: 332px !important;
@@ -228,6 +262,13 @@ text-decoration: underline;
         }
         .l-evoCartLeft__items .prd_card__pic > img,
         .l-evoCartLeft__wishes .prd_card__pic > img{ height: auto; width: 125px; }
+
+        .order-sum__caption > p {
+            font-size: 18px;
+        }
+        .order-sum__tab p {
+            font-size: 20px;
+        }
 
         /*  Recommendations Begin  */
         .l-evoCart .fcart-grd__bottom {
@@ -276,6 +317,13 @@ text-decoration: underline;
         }
         .l-evoCartLeft__items .prd_card__pic > img,
         .l-evoCartLeft__wishes .prd_card__pic > img{ height: auto; width: 200px; }
+
+        .order-sum__caption > p {
+            font-size: 23px;
+        }
+        .order-sum__tab p {
+            font-size: 20px;
+        }
         /*  Carousel begin  */
             .l-evoCart .carsl_card,
             .l-evoCart .carsl_card img {
@@ -498,8 +546,8 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
 
 <script>
 "use strict";
-// mock oTopmenu.isMobile()
-var oTopmenu = {"isMobile": function(){ return ( document.body.clientWidth <= 1064 ) ? true : false; }};
+// mock oTopmenu.isMobile() and oTopmenu.getTopmenuLoc()
+//var oTopmenu = {"isMobile": function(){ return ( document.body.clientWidth <= 1064 ) ? true : false; },"getTopmenuLoc": function(){ return "60px"; }};
 
 var oEvoCart_config = {  //  Configuration Object
     aSections: [
@@ -513,23 +561,24 @@ var oEvoCart = (function( doc, oConf ){
         e.elSection = doc.querySelectorAll( "." + e.elID ); // js-class
     });
     return {
-        updateSection: function( sSect ){
+        updateSection: function( sSect ){ // Given a section name, fetch then bind
             var self = this, nCnt = 0;
             oConf.aSections.forEach( function( e ){
                 if( e.ID === sSect ){
+                    var elSection = e.elSection; // Node ref
                     self.fAsyncGet(nCnt, function( sRespn ){
                         //sRespn = sRespn.split("<!---->")[1];
                         e.elSection[0].innerHTML = sRespn; });
-                        setTimeout( function(){self.bind( sSect );}, 400 );
+                        setTimeout( function(){self.bind( sSect, elSection );}, 400 );
                 }
                 nCnt++;
             } );
         },
-        bind: function( sSect ){  //  Init the newly loaded section
+        bind: function( sSect, elSection ){  //  Init the newly loaded section
             switch( sSect ){
                 case "recom":
                     if( typeof Flickity != "undefined" ){
-                        //var nCells = oTopmenu.isMobile() ? 2 : 4;
+                        //var nCells = oTopmenu.isMobile() ? 2 : 4; // Lay out Flick different if mobile
                         var oFlick = new Flickity('.carsl', {
                             "freeScroll": true,
                             "groupCells": 4,
@@ -543,6 +592,11 @@ var oEvoCart = (function( doc, oConf ){
                         oFlick.reloadCells();
                         oFlick.resize();
                     }, 400 );
+                break;
+                case "totals":
+                    if( typeof oTopmenu != "undefined" ){
+                        elSection[0].style.top = oTopmenu.getTopmenuLoc();
+                    }
                 break;
             }
         },
