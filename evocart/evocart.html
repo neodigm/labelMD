@@ -144,7 +144,7 @@ text-decoration: underline;
 .pers__view{
     border: solid 1px #BFBFBF;
     margin: 1px; padding: 12px 0 0 10px;
-    height: 40px; width: 220px;
+    min-height: 40px; width: 220px;
 }
 .pers__view p {
     font-size: 13px;
@@ -156,6 +156,13 @@ text-decoration: underline;
     font-size: 13px;
     margin: 0 16px 2px 0;
     text-decoration: underline;
+}
+.pers__view nav {
+    margin: 12px 0 14px;
+    text-align: center;
+}
+.pers__view nav a {
+    float: none;
 }
 
 .l-evoCartLeft__recom   {display:block; margin: 0; padding: 0}
@@ -201,9 +208,10 @@ text-decoration: underline;
     cursor: pointer;
 }
 .order-sum__zip--expand {
+    color: #30619a; fill: #30619a;
     cursor: pointer;
     font-size: 16px;
-    color: #30619a; fill: #30619a;
+    user-select: none;
 }
 .order-sum__zip--open svg {
     transform: rotate(180deg);
@@ -584,7 +592,7 @@ var oSimpleExpand = (function( doc ){ // Simple expand / collapse
                 }
             });
         },
-        "click": function( eV ){
+        "click": function( eV ){ // hide or show
             var eDet = this.eDet;
             var aDecl = this.aDecl;
             if( eDet.classList.contains("hide") ){
@@ -597,7 +605,7 @@ var oSimpleExpand = (function( doc ){ // Simple expand / collapse
             }else{
                 eDet.classList.add("hide");
                 if( aDecl[1] ) this.classList.remove( aDecl[1] );
-                if( aDecl[3] ) this.innerHTML = aDecl[3]; // replace
+                if( aDecl[3] ) this.innerHTML = aDecl[3]; // undo
             }
         }
     }
