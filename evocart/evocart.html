@@ -219,7 +219,6 @@ text-decoration: underline;
 .order-sum__zip {
     margin: 6px; padding: 0;
 }
-
 .order-sum__zip > input {
     border: solid 1px #BFBFBF;
     font-size: 18px;
@@ -231,6 +230,24 @@ text-decoration: underline;
 .order-sum__zip > a {
     padding: 10px 22px;
 }
+.order-sum__tab .you-saved {
+    border: solid 1px #E01D1D;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    display: block;
+    margin: 2px 48px;
+    text-align: center;
+}
+.order-sum__tab .c2a-continue {
+    margin: 12px 48px;
+}
+.order-sum__tab .c2a-paypal {
+    margin: 2px 48px 12px;
+    text-align: center;
+}
+.order-sum__tab .c2a-paypal img {
+    width: 125px; height: auto;
+}
+
 /*  Sub-Components End  */
 
 @media only screen
@@ -454,6 +471,7 @@ text-decoration: underline;
         /*  branded buttons begin  */
         .brand__button--primary,
         .brand__button--secondary {
+        cursor: pointer;
         display: inline;
         border: solid 2px;
         border-radius: 3px;
@@ -467,6 +485,7 @@ text-decoration: underline;
         }
         .brand__button-sm--primary,
         .brand__button-sm--secondary {
+        cursor: pointer;
         display: block;
         border-radius: 3px;
         font-family: sans-serif;
