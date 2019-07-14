@@ -178,6 +178,7 @@ text-decoration: underline;
     padding: 10px 22px;
 }
 .order-sum__caption {
+    line-height: .9;
     margin: 0; padding: 0;
     text-align: center;
 }
@@ -189,6 +190,7 @@ text-decoration: underline;
     border: solid 1px #BFBFBF;
 }
 .order-sum__tab p {
+    fill: #555;
     font-size: 16px;
     margin: 12px;
 }
@@ -198,10 +200,28 @@ text-decoration: underline;
 .order-sum__link {
     cursor: pointer;
 }
-.order-sum__expand {
+.order-sum__zip--expand {
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
     color: #30619a; fill: #30619a;
+}
+.order-sum__zip--open svg {
+    transform: rotate(180deg);
+}
+.order-sum__zip {
+    margin: 6px; padding: 0;
+}
+
+.order-sum__zip > input {
+    border: solid 1px #BFBFBF;
+    font-size: 18px;
+    font-weight: 500;
+    height: 41px;
+    width: calc(100% - 144px);
+    margin: 6px 0; padding: 0 4px;
+}
+.order-sum__zip > a {
+    padding: 10px 22px;
 }
 /*  Sub-Components End  */
 
@@ -546,6 +566,42 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
 
 <script>
 "use strict";
+var oSimpleExpand = (function( doc ){ // Simple expand / collapse
+    var aSum, aDet; // Summary and Details paired elements 1:1
+    return {
+        "rebind": function(){
+            aSum = [].slice.call( doc.querySelectorAll("[data-expand-summary]") );
+            aDet = [].slice.call( doc.querySelectorAll("[data-expand-details]") );
+            aSum.forEach( function( aE ){
+                var aDecl = aE.dataset.expandSummary.split("|");
+                if(  aDecl.length > 0 ){
+                    aE.aDecl = aDecl;
+                    aE.eDet = aDet.filter( function( eDet ){ // match
+                        if( eDet.dataset.expandDetails == aDecl[0] ){ return true; }
+                    })[0];
+                    aE.removeEventListener( "click", oSimpleExpand.click );
+                    aE.addEventListener( "click", oSimpleExpand.click );                    
+                }
+            });
+        },
+        "click": function( eV ){
+            var eDet = this.eDet;
+            var aDecl = this.aDecl;
+            if( eDet.classList.contains("hide") ){
+                eDet.classList.remove("hide");
+                if( aDecl[1] ) this.classList.add( aDecl[1] );
+                if( aDecl[2] ) { // swap temp
+                    aDecl[3] = this.innerHTML;
+                    this.innerHTML = aDecl[2];
+                }
+            }else{
+                eDet.classList.add("hide");
+                if( aDecl[1] ) this.classList.remove( aDecl[1] );
+                if( aDecl[3] ) this.innerHTML = aDecl[3]; // replace
+            }
+        }
+    }
+})( document );
 // mock oTopmenu.isMobile() and oTopmenu.getTopmenuLoc()
 //var oTopmenu = {"isMobile": function(){ return ( document.body.clientWidth <= 1064 ) ? true : false; },"getTopmenuLoc": function(){ return "60px"; }};
 
@@ -558,17 +614,17 @@ var oEvoCart_config = {  //  Configuration Object
 };
 var oEvoCart = (function( doc, oConf ){
     oConf.aSections.forEach( function( e ){ // Populate NodeArray
-        e.elSection = doc.querySelectorAll( "." + e.elID ); // js-class
+        e.elSection = doc.querySelectorAll( "." + e.elID )[0]; // js-class
     });
     return {
-        updateSection: function( sSect ){ // Given a section name, fetch then bind
+        updateSection: function( sSect, fCB ){ // Given a section name, fetch then bind
             var self = this, nCnt = 0;
             oConf.aSections.forEach( function( e ){
                 if( e.ID === sSect ){
                     var elSection = e.elSection; // Node ref
                     self.fAsyncGet(nCnt, function( sRespn ){
                         //sRespn = sRespn.split("<!---->")[1];
-                        e.elSection[0].innerHTML = sRespn; });
+                        e.elSection.innerHTML = sRespn; });
                         setTimeout( function(){self.bind( sSect, elSection );}, 400 );
                 }
                 nCnt++;
@@ -595,10 +651,23 @@ var oEvoCart = (function( doc, oConf ){
                 break;
                 case "totals":
                     if( typeof oTopmenu != "undefined" ){
-                        elSection[0].style.top = oTopmenu.getTopmenuLoc();
+                        elSection.style.top = oTopmenu.getTopmenuLoc();
                     }
+                    doc.getElementsByClassName("js-more-info-shipping")[0]
+                    .addEventListener("click", function( e ){
+                        if( typeof ltdc_snackbar != "undefined" ){
+                            ltdc_snackbar.q("More Shipping|information");
+                        };
+                    });
+                    doc.getElementsByClassName("js-more-info-tax")[0]
+                    .addEventListener("click", function( e ){
+                        if( typeof ltdc_snackbar != "undefined" ){
+                            ltdc_snackbar.q("More Tax|information");
+                        };
+                    });
                 break;
             }
+            oSimpleExpand.rebind();
         },
         fAsyncGet: function( iSect, fCB ){ // Given an index and a callback
             var oX = new XMLHttpRequest();
