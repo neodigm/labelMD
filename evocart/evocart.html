@@ -600,6 +600,54 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
 
 <script>
 "use strict";
+var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
+    var aNav, fCall; // Array of elements and a callback function
+    return {
+        "rebind": function( fBack ){ // Call after region is reloaded
+            if( typeof fBack === "function" ){
+                fCall = fBack;
+                aNav = [].slice.call( doc.querySelectorAll("[data-quantity-id]") );
+                if( aNav ){ // Wire events
+                    aNav.forEach( function( eNav ){
+                        eNav.aNavSub = [];
+                        eNav.aNavSub[0] = eNav.querySelectorAll("A")[0];     // -
+                        eNav.aNavSub[1] = eNav.querySelectorAll("INPUT")[0]; // INPUT
+                        eNav.aNavSub[2] = eNav.querySelectorAll("A")[1];     // +
+                        eNav.nQty = Number( eNav.aNavSub[1].value );
+                        eNav.sSKU_id = eNav.dataset.quantityId;
+                        [0,2].forEach( function( nSub ) {
+                            eNav.aNavSub[ nSub ].removeEventListener( "click", oSimpleQty.changeQty );
+                            eNav.aNavSub[ nSub ].addEventListener( "click", oSimpleQty.changeQty );
+                        });
+                        eNav.aNavSub[ 1 ].removeEventListener( "keypress", oSimpleQty.changeQty );
+                        eNav.aNavSub[ 1 ].addEventListener( "keypress", oSimpleQty.changeQty );
+                    } );
+                }
+            }
+        },
+        "changeQty": function( evChange ){
+            var eNav = this.parentElement, nChng = 0; // nav container
+            if( evChange.type == "click"){
+                if( this.classList.contains( "qty-step__action--plus" ) ){ 
+                    nChng = ( eNav.nQty <= 998 ) ? 1 : 0;
+                }
+                if( this.classList.contains( "qty-step__action--minus" ) ){ 
+                    nChng = ( eNav.nQty >= 2 ) ? -1 : 0;
+                }
+                eNav.nQty = eNav.nQty + nChng;
+                eNav.aNavSub[1].value = eNav.nQty;
+            }else{
+                evChange.preventDefault();  
+                evChange.returnValue = false;
+                evChange.cancelBubble = true;
+                return false;
+            }
+
+console.log( evChange, this.classList );
+            if( nChng ) fCall( eNav.sSKU_id, eNav.nQty);
+        }
+    }
+})( document );
 var oSimpleExpand = (function( doc ){ // Simple expand / collapse
     var aSum, aDet; // Summary and Details paired elements 1:1
     return {
@@ -666,6 +714,11 @@ var oEvoCart = (function( doc, oConf ){
         },
         bind: function( sSect, elSection ){  //  Init the newly loaded section
             switch( sSect ){
+                case "items":
+                    oSimpleQty.rebind( function( sSKU_id, nQty ){
+console.log( "--- Submit Asynce Form --- sku= " + sSKU_id.split("|")[0] + " qty= " + nQty );
+                    });
+                break;
                 case "recom":
                     if( typeof Flickity != "undefined" ){
                         //var nCells = oTopmenu.isMobile() ? 2 : 4; // Lay out Flick different if mobile
