@@ -615,8 +615,8 @@ var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
                         eNav.aNavSub[ nSub ].removeEventListener( "click", oSimpleQty.changeQty );
                         eNav.aNavSub[ nSub ].addEventListener( "click", oSimpleQty.changeQty );
                     });
-                    eNav.aNavSub[ 1 ].removeEventListener( "keypress", oSimpleQty.changeQty );
-                    eNav.aNavSub[ 1 ].addEventListener( "keypress", oSimpleQty.changeQty );
+                    eNav.aNavSub[ 1 ].removeEventListener( "keyup", oSimpleQty.changeQty );
+                    eNav.aNavSub[ 1 ].addEventListener( "keyup", oSimpleQty.changeQty );
                 } );
             }
         },
@@ -641,7 +641,7 @@ var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
         },
         "debounce": function( eNav ){ // Delay action is events are too fast
             var nChng, sChng;
-            sChng = eNav.aNavSub[1].value;
+            sChng = eNav.aNavSub[1].value.trim();
             if( oSimpleQty.isValid(sChng) ){
                 eNav.nQty = nChng = Number( sChng );
             }else{
@@ -651,6 +651,7 @@ var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
             bDebounce = false;
         },
         "isValid": function( sChng ){
+console.log( sChng );
             if( sChng !== "" && !isNaN( sChng ) && !(sChng < 1) ){
                 return true;
             }
@@ -725,7 +726,7 @@ var oEvoCart = (function( doc, oConf ){
             switch( sSect ){
                 case "items":
                     oSimpleQty.rebind( function( sSKU_id, nQty ){
-console.log( "--- Submit Asynce Form --- sku= " + sSKU_id.split("|")[0] + " qty= " + nQty );
+console.log( "--- Submit Asynce Form --- sku= " + sSKU_id.split("|")[0] + " qty= " + nQty + " items" );
                     });
                 break;
                 case "recom":
