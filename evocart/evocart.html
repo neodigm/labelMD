@@ -601,28 +601,23 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
 <script>
 "use strict";
 var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
-    var aNav, fCall; // Array of elements and a callback function
+    var aNav, fCall, bDebounce=false; // Array of elements, callback function, and mutex
     return {
         "rebind": function( fBack ){ // Call after region is reloaded
-            if( typeof fBack === "function" ){
-                fCall = fBack;
-                aNav = [].slice.call( doc.querySelectorAll("[data-quantity-id]") );
-                if( aNav ){ // Wire events
-                    aNav.forEach( function( eNav ){
-                        eNav.aNavSub = [];
-                        eNav.aNavSub[0] = eNav.querySelectorAll("A")[0];     // -
-                        eNav.aNavSub[1] = eNav.querySelectorAll("INPUT")[0]; // INPUT
-                        eNav.aNavSub[2] = eNav.querySelectorAll("A")[1];     // +
-                        eNav.nQty = Number( eNav.aNavSub[1].value );
-                        eNav.sSKU_id = eNav.dataset.quantityId;
-                        [0,2].forEach( function( nSub ) {
-                            eNav.aNavSub[ nSub ].removeEventListener( "click", oSimpleQty.changeQty );
-                            eNav.aNavSub[ nSub ].addEventListener( "click", oSimpleQty.changeQty );
-                        });
-                        eNav.aNavSub[ 1 ].removeEventListener( "keypress", oSimpleQty.changeQty );
-                        eNav.aNavSub[ 1 ].addEventListener( "keypress", oSimpleQty.changeQty );
-                    } );
-                }
+            fCall = fBack;
+            aNav = [].slice.call( doc.querySelectorAll("[data-quantity-id]") );
+            if( aNav && (typeof fCall === "function") ){ // Wire events
+                aNav.forEach( function( eNav ){
+                    eNav.aNavSub = eNav.querySelectorAll("A, INPUT");
+                    eNav.nQty = Number( eNav.aNavSub[1].value );
+                    eNav.sSKU_id = eNav.dataset.quantityId;
+                    [0,2].forEach( function( nSub ) {
+                        eNav.aNavSub[ nSub ].removeEventListener( "click", oSimpleQty.changeQty );
+                        eNav.aNavSub[ nSub ].addEventListener( "click", oSimpleQty.changeQty );
+                    });
+                    eNav.aNavSub[ 1 ].removeEventListener( "keypress", oSimpleQty.changeQty );
+                    eNav.aNavSub[ 1 ].addEventListener( "keypress", oSimpleQty.changeQty );
+                } );
             }
         },
         "changeQty": function( evChange ){
@@ -637,14 +632,28 @@ var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
                 eNav.nQty = eNav.nQty + nChng;
                 eNav.aNavSub[1].value = eNav.nQty;
             }else{
-                evChange.preventDefault();  
-                evChange.returnValue = false;
-                evChange.cancelBubble = true;
-                return false;
+                if( !bDebounce ){
+                    bDebounce = true; // Stream Keystrokes
+                    setTimeout( function(){ oSimpleQty.debounce( eNav ) }, 360);
+                }
             }
-
-console.log( evChange, this.classList );
             if( nChng ) fCall( eNav.sSKU_id, eNav.nQty);
+        },
+        "debounce": function( eNav ){ // Delay action is events are too fast
+            var nChng, sChng;
+            sChng = eNav.aNavSub[1].value;
+            if( oSimpleQty.isValid(sChng) ){
+                eNav.nQty = nChng = Number( sChng );
+            }else{
+                eNav.aNavSub[1].value = eNav.nQty; // revert
+            }
+            if( nChng ) fCall( eNav.sSKU_id, eNav.nQty );
+            bDebounce = false;
+        },
+        "isValid": function( sChng ){
+            if( sChng !== "" && !isNaN( sChng ) && !(sChng < 1) ){
+                return true;
+            }
         }
     }
 })( document );
