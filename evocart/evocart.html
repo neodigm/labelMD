@@ -639,7 +639,7 @@ var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
             }
             if( nChng ) fCall( eNav.sSKU_id, eNav.nQty);
         },
-        "debounce": function( eNav ){ // Delay action is events are too fast
+        "debounce": function( eNav ){ // Delay action if events are too fast
             var nChng, sChng;
             sChng = eNav.aNavSub[1].value.trim();
             if( oSimpleQty.isValid(sChng) ){
@@ -647,11 +647,10 @@ var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
             }else{
                 eNav.aNavSub[1].value = eNav.nQty; // revert
             }
-            if( nChng ) fCall( eNav.sSKU_id, eNav.nQty );
+            if( nChng ) fCall( eNav.sSKU_id, eNav.nQty ); // Exe Callback
             bDebounce = false;
         },
         "isValid": function( sChng ){
-console.log( sChng );
             if( sChng !== "" && !isNaN( sChng ) && !(sChng < 1) ){
                 return true;
             }
