@@ -1,0 +1,35 @@
+@media screen and (max-width: 1280px) {
+  .tt-suggestions {
+    flex-grow: 0;
+    flex-shrink: 0;
+    border: none;
+    width: 100%;
+  }
+  .tt-suggestions-list {
+    padding-left: 0;
+  }
+  .tt-suggestion-wrapper, .tt-suggestion-wrapper.tt-suggestion-wrapper-custom {
+    display: flex;
+    flex-direction: column;
+    align-items: inherit;
+    height: 100%;
+    position: relative;
+    color: #636363;
+    border-top: 1px solid #d0d0d0;
+    z-index: 1;
+  }
+  .tt-suggestion-wrapper:last-child, .tt-suggestion-wrapper.tt-suggestion-wrapper-custom:last-child {
+    border-top: 1px solid #d0d0d0;
+    border-bottom: none;
+  }
+  .tt-suggestion-wrapper-link {
+    display: block;
+    margin: 0.9rem 0.8rem;
+  }
+  .tt-recommendations-content {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-evenly;
+  }
+}
