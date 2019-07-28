@@ -8,15 +8,15 @@ body[data-brand=LS] .l-topmenu .search__cont--righta { background-color: #d0021b
 body[data-brand=LTD] .l-topmenu .search__cont--righta { background-color: #cae3ff; color: #275f9b}
 
 /* Visual Search Begin  */
-.tt-recommendation-price.tt-recommendation-price-custom {
+.tt-dropdown .tt-recommendation-price.tt-recommendation-price-custom {
     color: #000;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 100;
     margin: 4px;
     line-height: 20px;
     text-align: left;
-    text-decoration: none !important;
 }
+
 .tt-dropdown .tt-recommendation-name.tt-recommendation-name-custom {
     color: #000;
     background-color: #fff;
@@ -49,6 +49,9 @@ body[data-brand=LTD] .l-topmenu .search__cont--righta { background-color: #cae3f
     font-weight: 300;
     margin: 0 4px; padding: 2px;
     height: auto;
+
+    white-space: nowrap;
+    overflow: hidden;
 }
 .tt-dropdown DIV.tt-suggestion-wrapper.tt-suggestion-wrapper-custom {
     cursor: default;
