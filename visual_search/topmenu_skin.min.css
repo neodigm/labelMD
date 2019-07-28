@@ -8,33 +8,58 @@ body[data-brand=LS] .l-topmenu .search__cont--righta { background-color: #d0021b
 body[data-brand=LTD] .l-topmenu .search__cont--righta { background-color: #cae3ff; color: #275f9b}
 
 /* Visual Search Begin  */
+.tt-recommendation-price.tt-recommendation-price-custom {
+    color: #000;
+    font-size: 14px;
+    font-weight: 100;
+    margin: 4px;
+    line-height: 20px;
+    text-align: left;
+    text-decoration: none !important;
+}
+.tt-dropdown .tt-recommendation-name.tt-recommendation-name-custom {
+    color: #000;
+    background-color: #fff;
+    border: none;
+    font-family: "Roboto",sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    margin: 0 4px; padding: 2px;
+    max-width: 140px;
+    height: auto;
+    text-align: left;
+}
 .c_headnavtype aside.headnavtype{
     width: 802px;
 }
-
 .tt-dropdown.tt-dropdown-custom{
     margin: 0; padding: 4px;
     border: solid 2px #000;
 }
-
+.tt-dropdown .tt-suggestions-title.tt-suggestions-title-custom{
+    display: none;
+}
+.tt-dropdown .tt-suggestion-wrapper.tt-suggestion-wrapper-custom,
 .tt-dropdown .tt-suggestion-text.tt-suggestion-text-custom {
-    color: rgba(0,0,0,.9);
+    color: #000;
+    background-color: #fff;
+    border: none;
     font-family: "Roboto",sans-serif;
     font-size: 12px;
-    font-weight: 400;
-    height: 18px;
-    margin: 1px; padding: 1px;
-    background-color: #fff;
+    font-weight: 300;
+    margin: 0 4px; padding: 2px;
+    height: auto;
 }
-.tt-dropdown .tt-suggestion-text.tt-suggestion-text-custom.tt-active,
-.tt-suggestions-list.tt-suggestions-list-custome.tt-active,
-.tt-suggestions-list .tt-active {
-    background-color: #fff;
+.tt-dropdown DIV.tt-suggestion-wrapper.tt-suggestion-wrapper-custom {
+    cursor: default;
+    text-transform: uppercase;
+}
+.tt-dropdown A.tt-suggestion-wrapper.tt-suggestion-wrapper-custom.tt-active DIV {
+    font-weight: 700;
     text-decoration: underline;
-    font-weight: 500;
-    background-color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
 }
-
 .tt-dropdown .tt-close-button.tt-close-button-custom {
     display: none;
 }
@@ -42,6 +67,11 @@ body[data-brand=LTD] .l-topmenu .search__cont--righta { background-color: #cae3f
     -webkit-flex-wrap: nowrap;
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap
+}
+
+.tt-dropdown .tt-recommendation-wrapper.tt-recommendation-wrapper-custom.tt-active {
+    background-color: #fff;
+    text-decoration: underline;
 }
 
 .tt-dropdown .tt-recommendations-custom {
@@ -87,7 +117,7 @@ body[data-brand=LTD] .l-topmenu .search__cont--righta { background-color: #cae3f
     order: 2;
 }
 
-.tt-dropdown .tt-recommendations-title.tt-recommendations-title-custom,.tt-dropdown .tt-suggestions-title.tt-suggestions-title-custom {
+.tt-dropdown .tt-recommendations-title.tt-recommendations-title-custom {
     display: block;
     margin: 0 0 10px 5px;
     padding: 0;
@@ -104,6 +134,7 @@ body[data-brand=LTD] .l-topmenu .search__cont--righta { background-color: #cae3f
 }
 
 .tt-dropdown .tt-recommendation-wrapper.tt-recommendation-wrapper-custom {
+    border-bottom: none;
     width: auto;
     max-width: 30%;
     height: auto;
@@ -120,20 +151,14 @@ body[data-brand=LTD] .l-topmenu .search__cont--righta { background-color: #cae3f
     width: 100%;
     max-width: 113px;
     height: auto;
+    margin: 0 0 4px 4px;
 }
 
-.tt-dropdown .tt-recommendation-name.tt-recommendation-name-custom {
+.QQQQtt-dropdown .tt-recommendation-name.tt-recommendation-name-custom {
     height: auto;
     color: rgba(0,0,0,.8);
     font-family: "Roboto",sans-serif;
     font-size: 11px;
-}
-
-.tt-dropdown .tt-suggestion-wrapper.tt-suggestion-wrapper-custom {
-    height: auto;
-    padding: 0 12px;
-    border: none;
-    background-color: #fff;
 }
 
 .tt-dropdown .tt-suggestions-list.tt-suggestions-list-custom {
@@ -144,11 +169,6 @@ body[data-brand=LTD] .l-topmenu .search__cont--righta { background-color: #cae3f
     border-left: 0;
 }
 
-.tt-dropdown .tt-suggestion-text.tt-suggestion-text-custom {
-    color: rgba(0,0,0,.9);
-    font-family: "Roboto",sans-serif;
-    font-size: 12px;
-}
 .tt-dropdown .tt-recommendations-list.tt-recommendations-list-custom {
     padding-top: 8px;
     border-top: 0px;
@@ -199,12 +219,6 @@ body[data-brand=LTD] .l-topmenu .search__cont--righta { background-color: #cae3f
         margin-top: 5px;
         padding: 0;
         border: none;
-    }
-
-    .tt-dropdown .tt-suggestion-text.tt-suggestion-text-custom {
-        color: rgba(0,0,0,.85);
-        font-family: "Roboto",sans-serif;
-        font-size: 14px;
     }
 
     .tt-dropdown .tt-suggestions-title.tt-suggestions-title-custom {
