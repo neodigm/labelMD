@@ -779,13 +779,92 @@
 	   </section>
 	</ltdc-flyoutwish><!--  Component End  -->
 
-	<ltdc-editPers id="js-editPers__id" class="c-editPers hidden"><!--  Component Begin  -->
-		<section class="flyoutgift__prod--contain">	 
-				<h4 class="">Item Added to Wish List</h4>
-				<figure class="h-height__half"></figure>
-				<a class="editPers__cmd">View Wish List</a>
+	<ltdc-reveal class="l-reveal reveal__init">
+		<style>
+/*  CSS category State    */ /*  color display font visibility ...  */
+/*  branded buttons begin  */
+.l-editPers .brand__button--primary,
+.l-editPers .brand__button--secondary {
+  display: inline;
+  border: solid 2px;
+  border-radius: 3px;
+  font-family: sans-serif;
+  font-size: 1.1em;
+  text-align: center;
+  padding: 10px;
+  margin: 4px;
+  text-decoration: none;
+  width: 98%;
+}
+.l-editPers .brand__button-sm--primary,
+.l-editPers .brand__button-sm--secondary {
+  display: block;
+  border-radius: 3px;
+  font-family: sans-serif;
+  font-size: .95em;
+  text-align: center;
+  padding: 6px;
+  margin: 3px 0;
+  text-decoration: none;
+  min-width: 100%;
+}
+/*  branded buttons end  */
+.editPers_reveal_percent {
+	width: 310px !important;
+}
+@media only screen
+    and (min-width: 375px)
+    and (max-width: 667px){  /* small *//* mobile 44.875em */
+	.editPers_reveal_percent {
+		width: 340px !important;
+	}
+}
+@media only screen 
+    and (min-width: 719px)
+    and (max-width: 1064px){  /* medium *//* tablet 47.750em */
+	.editPers_reveal_percent {
+		width: 700px !important;
+	}
+}
+@media only screen 
+	and (min-width: 1065px){  /* large *//* laptop 66.563em */
+	.editPers_reveal_percent {
+		width: 884px !important;
+	}		
+}
+/*  CSS category Theme    */ /*  color background hover ...  */
+body[data-brand="LS"]  .l-editPers .brand__button--primary,
+body[data-brand="LS"]  .l-editPers .brand__button-sm--primary,
+body[data-brand="LS"]  .l-editPers .brand__button--primary:visited,
+body[data-brand="LS"]  .l-editPers .brand__button-sm--primary:visited    
+{ color: #ffffff; background-color: #D0021B; border-color: #D0021B; }
+body[data-brand="LTD"] .l-editPers .brand__button--primary,
+body[data-brand="LTD"] .l-editPers .brand__button-sm--primary,
+body[data-brand="LTD"] .l-editPers .brand__button--primary:visited,
+body[data-brand="LTD"] .l-editPers .brand__button-sm--primary:visited 
+{ color: #ffffff; background-color: #30609A; border-color: #30609A; }
+body[data-brand="LS"]  .l-editPers .brand__button--secondary,
+body[data-brand="LS"]  .l-editPers .brand__button-sm--secondary,
+body[data-brand="LS"]  .l-editPers .brand__button--secondary:visited,
+body[data-brand="LS"]  .l-editPers .brand__button-sm--secondary:visited
+{ color: #D0021B; background-color: #ffffff; border-color: #D0021B; }
+body[data-brand="LTD"] .l-editPers .brand__button--secondary,
+body[data-brand="LTD"] .l-editPers .brand__button-sm--secondary,
+body[data-brand="LTD"] .l-editPers .brand__button--secondary:visited,
+body[data-brand="LTD"] .l-editPers .brand__button-sm--secondary:visited
+{ color: #30609A; background-color: #ffffff; border-color: #30619a; }
+		</style>
+		<script>
+		</script>
+		<section id="modal-editPers" class="editPers_reveal_percent" data-reveal> 
+			<figure class="h-height__full"></figure>
+			<ltdc-editPers id="js-editPers__id" class="l-editPers"><!--  Component Begin  -->
+				<a class="js-save brand__button--primary">Save</a> <a class="js-cancel brand__button--secondary">Cancel</a>
+			</ltdc-editPers><!--  Component End  -->
 		</section>
-	</ltdc-editPers><!--  Component End  -->
+	</ltdc-reveal>
+
+
 
 
 	<ltdc-reveal class="l-reveal reveal__init"> 
@@ -3693,7 +3772,11 @@ function updateQVGiftContents(){
 			</script>
 	
 <script>
-	setTimeout( function(){ ltdc_flyoutcart.open(); }, 2000 );
+	setTimeout( function(){ 
+		if( typeof ltdc_reveal != "undefined" ){
+			ltdc_reveal.autoOpen( "modal-editPers" );
+		}
+	 }, 2000 );
 </script>
 
 	</body>
