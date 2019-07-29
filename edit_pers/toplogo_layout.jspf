@@ -1,0 +1,179 @@
+<style type="text/css">
+	@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  /*ms*/
+		.l-toplogo {
+			font-size: 14px;
+		}
+	}
+	
+	.l-toplogo {
+	display: block;
+	height: 70px;
+	margin: 0;
+	}
+	.l-toplogo *:focus {
+		outline: none;
+	}
+	.l-toplogo .l-grid {
+		align-items: flex-start;
+		display: flex;
+		justify-content: space-between;
+		height: 42px;
+		margin: 0 auto;
+		max-width: 1920px;
+	}
+	.toplogo__gridright {
+		margin: 4px 10px 4px 0;
+	}
+	.toplogo__slide {
+	border-radius: 6px;
+	display: inline-block;
+	padding: 2px 0;
+	position: relative;
+	margin: 2px -1px -1px -1px;
+	height: 32px; width: 132px;
+	
+	-webkit-box-sizing: content-box !important;
+	box-sizing: content-box !important;
+	
+	transition: width .8s, background-color .8s;
+	}
+	.toplogo__slide .slide-init__hide {
+		display: none;
+	}
+	.toplogo__slide--opened {
+	background-color: #fff;
+	border: 1px solid #5EA3C3;
+	margin: 6px -1px -1px -1px;
+	padding: 2px 0 0 8px;
+	width: 324px;
+	transition: width .8s, background-color .8s;
+	}
+	.toplogo__slide--opened svg {
+	top: -6px;
+	cursor: default;
+	}
+	.toplogo__slide--opened .slide-opened__hide {
+		display: none !important;
+	}
+	.toplogo__slide--opened .slide-init__hide {
+		display: initial !important;
+	}
+	.toplogo-email__input { /* legacy reset */
+	background-color: #fff !important;
+	border: 0 !important;
+	border-color: #fff !important;
+	box-shadow: none !important;
+	box-sizing: border-box !important;
+	display: inline;
+	font-size: 14px !important;
+	height: 22px !important;
+	left: 2px;
+	margin: 6px 8px 0 36px !important;
+	outline: 0 !important;
+	padding: 2px !important;
+	position: absolute;
+	width: 204px !important;
+	transition: width .8s !important;
+	}
+	.toplogo-email__input:focus { /* legacy reset */
+	background-color: #fff !important;
+	border: 0 !important;
+	border-color: #fff !important;
+	box-shadow: none !important;
+	box-sizing: border-box !important;
+	display: inline;
+	font-size: 14px !important;
+	height: 22px !important;
+	left: 2px;
+	margin: 6px 8px 0 36px !important;
+	outline: 0 !important;
+	padding: 2px !important;
+	position: absolute;
+	width: 204px !important;
+	transition: width .8s !important;
+	}
+	.toplogo-email__btn--submit {
+	border-radius: 0 6px 6px 0;
+	cursor: pointer;
+	float: right;
+	font-size: 17px;
+	height: 100%;
+	line-height: 2.20;
+	margin: 0;
+	padding: 0 12px;
+	position: absolute;
+	top: 0; right: 0; bottom: 0;
+	}
+	
+	.toplogo__slide--offset {
+		position: relative;
+		top: -5px;
+	}
+	
+	.toplogo__link--text {
+		font-size: 15px;
+		user-select: none;
+	}
+	
+	.l-toplogo a {
+		text-decoration: none;
+	}
+	.space-betw {
+		justify-content: space-between;
+	}
+	
+	.l-grid .toplogo__gridleft--link {
+		cursor: pointer;
+	}
+	.l-grid .toplogo__gridright--link {
+		color: #fff;
+		cursor: pointer;
+		line-height: 3.2;
+		margin: 0 8px 0 2px;
+	}
+	.toplogo__home--image-lsc {
+		width: 375px;
+		height: auto;
+		margin: 14px 16px 6px 16px;
+	}
+	.toplogo__home--image-ltd {
+		width: 375px;
+		height: auto;
+		margin: 10px 16px;
+	}
+	.l-grid .toplogo__gridright--vect {
+		fill: #ccc;
+	}
+	
+	@media only screen and (max-width: 48em){  /* small */
+		.l-toplogo {
+			display: none;
+		}
+		.l-toplogo .l-grid {
+			display: block;
+			text-align: center;
+			margin: 0 auto;
+			max-width: 1920px;
+		}
+		.l-toplogo .toplogo__gridright {
+			display: none;
+		}
+		.toplogo__home--image-lsc {
+			width: 286px;
+		}
+		.toplogo__home--image-ltd {
+			width: 286px;
+		}
+	}
+		@media only screen 
+			and (min-width: 719px)
+			and (max-width: 1064px){  /* medium *//* tablet 47.750em */
+		.l-toplogo {
+			display: none;
+		}
+	}
+	
+	@media only screen and (min-width: 767px) and (max-width: 1064px) {  /* med landscape */
+		#js-toplogo-slide__email--id { display: none; }
+	}
+</style>

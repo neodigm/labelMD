@@ -1,0 +1,115 @@
+var eGainVALibrary = function (librarySettings) {
+    var _corsHost = librarySettings.CORSHost;
+    var _fixedParameters = '';
+    if (_corsHost != null) {
+        var index = _corsHost.indexOf('?');
+        if (index != -1) {
+            if (_corsHost.length > (index + 1)) {
+                _fixedParameters = _corsHost.substring(index + 1).trim();
+                if (_fixedParameters.indexOf("&") != 0)
+                    _fixedParameters = '&' + _fixedParameters
+            }
+            _corsHost = _corsHost.substring(0, index);
+        }
+    }
+    this.GetVAHost = function () {
+        return _corsHost;
+    };
+
+    this.SendMessageToVA = function (tenantToken, botName, sessionId, question, action, callback, nodeId) {
+        // Exchange message with VA
+        var queryStr = _corsHost + "/egain/va/v1/bot/"+botName ;
+        if (typeof nodeId !== 'undefined' && nodeId !== null && nodeId !== '' && nodeId !== 'undefined'){
+           queryStr += "/" + nodeId ;
+        }
+        queryStr += '?type=json' + '&sid=' + sessionId + _fixedParameters;
+        if (typeof action !== 'undefined' && action !== null){
+           queryStr += "&.action=" + action;
+        }
+        if (typeof question !== 'undefined' && question !== null) {
+            queryStr += "&ask=" + encodeURIComponent(question);
+        }
+        $.ajax({
+            type: 'GET',
+            url: queryStr,
+            dataType: 'json',
+            xhrFields: {withCredentials: true},
+            headers: {'X-tenant-token': tenantToken},
+            success: function (data) {
+                var eventData = {};
+                eventData.originalMessage = question;
+                eventData.Message = data.text;
+                eventData.avatar = _corsHost + data.emotion;
+                eventData.url = data.url;
+                eventData.escalate = data.escalate;
+                eventData.AgentScreenName = data.botname;
+                eventData.entryPointId = data.entryPointId;
+                eventData.chatServerURL = data.chatServerURL;
+                eventData.sid = data.sid;
+                eventData.customer = data.customer;
+                eventData.slideouttype = data.slideouttype;
+                eventData.slideouturl = data.slideouturl;
+                eventData.nodeId = data.node;
+                if (callback)
+                    callback(eventData);
+            }
+        });
+    };
+    this.GetLaunchImage = function (tenantToken, botName, callback) {
+        // Exchange message with VA
+        $.ajax({
+            type: 'GET',
+            url: _corsHost + "/egain/va/v1/assistant/launchImage/" + botName,
+            dataType: 'json',
+            xhrFields: {withCredentials: true},
+            headers: {'X-tenant-token': tenantToken, "Accept": "application/json"},
+            success: function (data) {
+                var result = {};
+                result.launchImage = data.launchImage;
+                if (callback)
+                    callback(result);
+            }
+        });
+    };
+    this.GetVATranscript = function (tenantToken, sessionId, isVAEscalated, callback) {
+        var transcript = {};
+        transcript.Messages = [];
+        transcript.isVATranscript = true;
+        transcript.isVAEscalated = isVAEscalated;
+        //Get all exchanges is session
+        $.ajax({
+            type: 'GET',
+            url: _corsHost + "/egain/va/v1/exchange/" + sessionId + '/all',
+            dataType: 'json',
+            xhrFields: {withCredentials: true},
+            headers: {'X-tenant-token': tenantToken},
+            success: function (response) {
+                for (var i = 0; i < response.exchange.length; i++) {
+                    var exchange = response.exchange[i];
+                    if (exchange.ask) {
+                        var messageObj = {};
+                        messageObj.Body = exchange.ask;
+                        messageObj.SenderName = '';
+                        messageObj.SenderType = '';
+                        messageObj.Timestamp = exchange.created;
+                        messageObj.OffRecord = false;
+                        transcript.Messages.push(messageObj);
+                    }
+                    if (exchange.response) {
+                        var messageObj = {};
+                        messageObj.Body = exchange.response;
+                        messageObj.SenderName = exchange.bot;
+                        messageObj.SenderType = exchange.bot;
+                        messageObj.Timestamp = exchange.created;
+                        messageObj.OffRecord = false;
+                        transcript.Messages.push(messageObj);
+                    }
+                }
+                if (callback)
+                    callback(transcript);
+            }
+        });
+    };
+};
+window.eGainVALibrary = eGainVALibrary;
+
