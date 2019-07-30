@@ -782,31 +782,86 @@
 	<ltdc-reveal class="l-reveal reveal__init">
 		<style>
 /*  CSS category State    */ /*  color display font visibility ...  */
+.l-editPers .nav-grd {
+  align-items: left;
+  display: flex;
+  flex-flow: column nowrap; /* Shorthand for flex-direction and flex-wrap */
+  justify-content: flex-start;
+}
+.l-editPers h4 {
+	font-size: 18px;
+	font-weight: 400;
+	margin: 2px; padding: 2px;
+	text-align: center;
+}
+.l-editPers p {
+	font-size: 16px;
+	font-weight: 400;
+	margin: 24px; padding: 2px;
+	text-align: left;
+}
+.l-editPers p span {
+	font-weight: 500;
+}
+.l-editPers .input-align {
+	margin: 2px auto;
+	width: 92%;
+}
+.l-editPers .input-pers {
+    border: solid 1px #BFBFBF;
+    font-size: 18px;
+    font-weight: 500;
+    height: 41px;
+    width: 100%;
+    margin: 6px 0;
+    padding: 0 4px;
+}
+.pers-error__feedback {
+    position: relative;
+    margin: -11px 0 0;
+    padding: 0;
+    text-align: left;
+}
+.pers-error__feedback>p {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    height: 36px;
+    margin: 6px 0;
+    padding: 8px 4px 4px;
+}
+
+.pers-error__feedback--red {
+    background-color: #e01d1d;
+    border: solid 1px #e01d1d;
+}
 /*  branded buttons begin  */
 .l-editPers .brand__button--primary,
 .l-editPers .brand__button--secondary {
-  display: inline;
-  border: solid 2px;
-  border-radius: 3px;
-  font-family: sans-serif;
-  font-size: 1.1em;
-  text-align: center;
-  padding: 10px;
-  margin: 4px;
-  text-decoration: none;
-  width: 98%;
+	cursor: pointer;
+	display: inline;
+	border: solid 2px;
+	border-radius: 3px;
+	font-family: sans-serif;
+	font-size: 1.1em;
+	text-align: center;
+	padding: 10px;
+	margin: 4px;
+	text-decoration: none;
+	width: 98%;
 }
 .l-editPers .brand__button-sm--primary,
 .l-editPers .brand__button-sm--secondary {
-  display: block;
-  border-radius: 3px;
-  font-family: sans-serif;
-  font-size: .95em;
-  text-align: center;
-  padding: 6px;
-  margin: 3px 0;
-  text-decoration: none;
-  min-width: 100%;
+	cursor: pointer;
+	display: block;
+	border-radius: 3px;
+	font-family: sans-serif;
+	font-size: .95em;
+	text-align: center;
+	padding: 6px;
+	margin: 3px 0;
+	text-decoration: none;
+	min-width: 100%;
 }
 /*  branded buttons end  */
 .editPers_reveal_percent {
@@ -825,12 +880,18 @@
 	.editPers_reveal_percent {
 		width: 700px !important;
 	}
+	.l-editPers .nav-grd {
+		flex-flow: row nowrap; /* Shorthand for flex-direction and flex-wrap */
+	}
 }
 @media only screen 
 	and (min-width: 1065px){  /* large *//* laptop 66.563em */
 	.editPers_reveal_percent {
 		width: 884px !important;
 	}		
+	.l-editPers .nav-grd {
+		flex-flow: row nowrap; /* Shorthand for flex-direction and flex-wrap */
+	}
 }
 /*  CSS category Theme    */ /*  color background hover ...  */
 body[data-brand="LS"]  .l-editPers .brand__button--primary,
@@ -855,11 +916,157 @@ body[data-brand="LTD"] .l-editPers .brand__button-sm--secondary:visited
 { color: #30609A; background-color: #ffffff; border-color: #30619a; }
 		</style>
 		<script>
+var labelMD_default = {  //  Detault configuration
+    mode: "default",
+    aExcludeID: ["js-qty__input--id","js-inp-search--id","js-toplogo-slide__input--id","js-inp-topsearch--id","quickSearch-query-for-small","emailSubscribeAddressModal","emailAddressFieldId","quickSearch-query"],
+    aExcludeCL: ["js-eml__input--field", "js-sms__input"]
+};
+
+//var labelMD_custom = { mode: "custom" }  //  Custom configuration
+
+var labelMD = ( function( _d, _g ){  //  Dynamic Material Design INPUT Labels
+    var aInp = [], aLab = [], oCnf = {}, sBrand;
+    var oCSS = [
+[".h-vs__hidden", ["visibility", "hidden"]],
+["input.label-md__inp", [
+    ["background-color", "#fff"],
+    ["border-radius", "4px"],
+    ["box-shadow", "none"],
+    ["color", "#343a40"],
+    ["display", "block"],
+    ["font-size", "16px"],
+    ["height", "44px"],
+    ["padding", "6px"],
+    ["z-index", "1"]
+]],
+["label.label-md__lab", [
+    ["background-color", "#fff"],
+    ["cursor", "text"],
+    ["display", "inline"],
+    ["font-family", "sans-serif"],
+    ["font-size", "14px"],
+    ["left", "6px"],
+    ["margin", "0 0 0 8px"],
+    ["padding", "0 6px"],
+    ["position", "relative"],
+    ["top", "10px"],
+]],
+["body[data-brand=LS]  input.label-md__inp", [
+    ["border", "1px solid #a1b5c2"]
+]],
+["body[data-brand=LTD] input.label-md__inp", [
+    ["border", "1px solid #30619a"]
+]],
+["body[data-brand=LS]  input:focus.label-md__inp", [
+    ["border", "1px solid #343a40"]
+]],
+["body[data-brand=LTD] input:focus.label-md__inp", [
+    ["border", "1px solid #4a90e2"]
+]],
+["body[data-brand=LS]  label.label-md__lab", [
+    ["color", "#343a40"]
+]],
+["body[data-brand=LTD] label.label-md__lab", [
+    ["color", "#4a90e2"]
+]],
+];
+    oCnf = ( typeof _g.labelMD_custom === "undefined" ) ? _g.labelMD_default : _g.labelMD_custom; // over-ride
+    function onInpFoc( _el ){
+        if( typeof _el.dataset.labelMd !== "undefined" ){
+            var sPH = _el.getAttribute("placeholder");
+            if( sPH ){
+                _el.dataset.labelMdPh = sPH;
+                _el.placeholder = "";
+                aLab[ _el.dataset.labelMd ].classList.remove( "h-vs__hidden" );                
+            }
+        }
+    }
+    function onInpBlur( _el ){
+        if( typeof _el.dataset.labelMd !== "undefined" ){
+            if( typeof _el.dataset.labelMdPh !== "undefined" ){
+                _el.placeholder = _el.dataset.labelMdPh;
+                aLab[ _el.dataset.labelMd ].classList.add( "h-vs__hidden" );
+            }
+        }
+    }
+    function parsePH( sPH ){
+        return sPH.replace("* ", "");
+    }
+    function addStylesheetRules(rules) {
+        var styleEl = document.createElement("style");
+        document.head.appendChild(styleEl);
+        var styleSheet = styleEl.sheet;
+        for (var i = 0; i < rules.length; i++) {
+            var j = 1, 
+            rule = rules[i], 
+            selector = rule[0], 
+            propStr = "";
+            if (Array.isArray(rule[1][0])) {
+                rule = rule[1];
+                j = 0;
+            }
+            for (var pl = rule.length; j < pl; j++) {
+                var prop = rule[j];
+                propStr += prop[0] + ": " + prop[1] + " !important;\n";
+            }
+            styleSheet.insertRule(selector + "{" + propStr + "}", styleSheet.cssRules.length);
+        }
+    }
+    return {
+        bind: function( _sBrand = "LTD" ){
+            addStylesheetRules( oCSS );
+            sBrand = _sBrand.toLowerCase();
+            aInp = [].slice.call( _d.querySelectorAll("INPUT") ).filter(function( _inp ){
+                var bRet = true;  //  Exclusion logic  //  TODO exclude if no placeholder or len LT 4, or no id
+                if( "checkbox hidden image submit".indexOf( _inp.type ) !== -1 ) return false;
+                oCnf.aExcludeCL.map( function( _cl ){  //  Exclude by Class
+                    if( _inp.classList.toString().indexOf( _cl ) !== -1 ) bRet = false;
+                } );
+                return ( bRet && (oCnf.aExcludeID.indexOf( _inp.id ) === -1) );
+            });
+            aInp.map( function( _inp, _idx ){
+                let eLab = _d.createElement("LABEL");
+                eLab.textContent = parsePH( _inp.placeholder );
+                eLab.setAttribute("for", _inp.id);
+                eLab.classList.add("label-md__lab", "h-vs__hidden");
+                aLab.push( eLab );
+                _inp.before( eLab );  //  TODO test in MS IE & Edge
+                _inp.dataset.labelMd = _idx;
+                _inp.dataset.labelMdCl = _inp.className;
+                _inp.classList.add( "label-md__inp" );  
+                _inp.addEventListener("focus", function( _ev ){ onInpFoc(_ev.currentTarget); });
+                _inp.addEventListener("blur", function( _ev ){ onInpBlur(_ev.currentTarget); });
+            } );
+        },
+        unbind: function( sQuery ){
+            //  remove data attr but leave in data model
+        }
+    };
+} )( document, window );
+
 		</script>
 		<section id="modal-editPers" class="editPers_reveal_percent" data-reveal> 
 			<figure class="h-height__full"></figure>
 			<ltdc-editPers id="js-editPers__id" class="l-editPers"><!--  Component Begin  -->
-				<a class="js-save brand__button--primary">Save</a> <a class="js-cancel brand__button--secondary">Cancel</a>
+				<h4>Change Personalization Instructions</h4>
+				<p><span>Please Note:</span> Monogrammed and personalized items cannot be returned except when due to defect. Once placed, your order for these items cannot be returned. This item cannot be shipped to APO/FPO addresses. An asterisk (*) indicates a required field.</p>
+				<p><span>Your personalized text will appear exactly as you enter it</span>, so please verify spelling, upper/lower-case letters and punctuation. If selecting a monogram, initials should be entered in the order you want them to appear left to right. (Please note that the use of parenthesis cannot be used in embroidered personalization text.)</p>
+				<aside class="input-align">	
+					<input class="input-pers" type="text" placeholder="* Name 1" value="">
+				</aside>
+				<aside class="input-align">	
+					<input class="input-pers" type="text" placeholder="* Name 2" value="">
+					<section class="pers-error__feedback">
+						<p class="pers-error__feedback--red">Please enter required field.</p>
+					</section>
+				</aside>
+				<aside class="input-align">	
+					<input class="input-pers" type="text" placeholder="YYYY" value="">
+				</aside>
+				<p><INPUT type="checkbox"> I HAVE REVIEWED the personalization instructions and CONFIRM my personalization details are correct. I understand I cannot return this item unless it is defective.</p>
+				<nav class="nav-grd">
+					<a class="js-save brand__button--primary">Save</a> <a class="js-cancel brand__button--secondary">Cancel</a>
+				</nav>
 			</ltdc-editPers><!--  Component End  -->
 		</section>
 	</ltdc-reveal>
@@ -3775,6 +3982,7 @@ function updateQVGiftContents(){
 	setTimeout( function(){ 
 		if( typeof ltdc_reveal != "undefined" ){
 			ltdc_reveal.autoOpen( "modal-editPers" );
+			labelMD.bind( document.body.dataset.brand );
 		}
 	 }, 2000 );
 </script>
