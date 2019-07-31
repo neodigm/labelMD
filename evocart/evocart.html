@@ -48,6 +48,29 @@
 .evoCart__content {}
 
 /*  Sub-Components Begin  */
+/*  Sign In Begin  */
+.l-evoCartLeft__signin {
+    border-bottom: solid 1px #BFBFBF;
+    height: 70px;
+    text-align: center;
+}
+.l-evoCartLeft__signin p {
+    font-size: 15px;
+    margin: 2px; padding: 2px;
+}
+.l-evoCartLeft__signin a {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.l-evoCartLeft__signin h6 {
+    font-size: 15px;
+    font-weight: 400;
+    margin: 2px; padding: 2px;
+}
+body[data-brand="LS"] .l-evoCartLeft__signin a  { color: #D0021B; }
+body[data-brand="LTD"] .l-evoCartLeft__signin a { color: #4A90E2; }
+
+/*  Sign In End  */
 .l-evoCartLeft__items {display:block; margin: 0; padding: 0}
 .l-prd-card__grd {
     border-bottom: solid 1px #BFBFBF;
@@ -305,6 +328,14 @@ text-decoration: underline;
 @media only screen
     and (min-width: 375px)
     and (max-width: 667px){  /* small *//* mobile 44.875em */
+        /*  Sign In Begin  */
+            .l-evoCartLeft__signin p {
+                font-size: 17px;
+            }
+            .l-evoCartLeft__signin h6 {
+                font-size: 20px;
+            }
+        /*  Sign In End  */
         .l-evoCartLeft__items .prd_card__pic > img,
         .l-evoCartLeft__wishes .prd_card__pic > img{ height: auto; width: 125px; }
         .order-sum__caption > p {
@@ -327,8 +358,17 @@ text-decoration: underline;
         /*  Recommendations End  */
 }
 @media only screen 
-    and (min-width: 719px)
-    and (max-width: 1064px){  /* medium *//* tablet 47.750em */
+    and (min-width: 668px)
+    and (max-width: 1064px){  /* medium *//* tablet 47.750em TODO FIX 668PX IN SVN*/
+        /*  Sign In Begin  */
+        .l-evoCartLeft__signin p {
+                font-size: 17px;
+            }
+            .l-evoCartLeft__signin h6 {
+                font-size: 20px;
+            }
+        /*  Sign In End  */
+
         .evoCart__content-grd {
             display: flex;
             flex-flow: column nowrap; /* Shorthand for flex-direction and flex-wrap */
@@ -384,6 +424,14 @@ text-decoration: underline;
 }
 @media only screen 
     and (min-width: 1065px){  /* large *//* laptop 66.563em */
+        /*  Sign In Begin  */
+        .l-evoCartLeft__signin p {
+                font-size: 17px;
+            }
+            .l-evoCartLeft__signin h6 {
+                font-size: 20px;
+            }
+        /*  Sign In End  */
         .evoCart__content-grd {
             display: flex;
             flex-flow: column nowrap; /* Shorthand for flex-direction and flex-wrap */
@@ -594,15 +642,10 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
     <section class="evoCart__content-grd">
         <div class="evoCart__column-grd">
             <article class="evoCartLeft">
-                <!--  Content Areas Begin  -->
-                <div style="
-                background-color: #ccc;
-                border: solid 1px #aaa;
-                margin: 8px 0;
-                text-align: center;
-                width: 99%;
-                "><h6>Content Area: evocart_signin_summary</h6></div>
-                <!--  Content Areas End -->
+                <section class="js-evoCartLeft__signin l-evoCartLeft__signin">
+                    <p><a>Sign In</a> to see items that you may have added using another computer or device.</p>
+                    <h6><span class="js-items-count">X</span> Items in your Cart</h6>
+                </section>
                 <section class="js-evoCartLeft__items l-evoCartLeft__items"></section>
                 <section class="js-evoCartLeft__recom l-evoCartLeft__recom"></section>
                 <section class="js-evoCartLeft__wishes l-evoCartLeft__wishes"></section>
