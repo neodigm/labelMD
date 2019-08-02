@@ -722,9 +722,10 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
 
 
 
+<script src="signin_popup.js" async=""></script>
 
 
-<link rel="stylesheet" href="signin_skin.css" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="signin_popup_skin.css" as="style" onload="this.rel='stylesheet'">
 
 
 <ltdc-reveal class="l-reveal reveal__init"> 
@@ -734,10 +735,37 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
             <a class="close-reveal-modal svg__x" aria-label="Close">
                 <img src="closex.png" alt="Close">
             </a>
+            <section class="js-forgot__view">
+                <h5>Please Sign Into Your Account</h5>
+                <aside class="input-align">	
+                    <input class="input-pers" type="text" placeholder="Email Address" value="">
+                </aside>
+                <aside class="input-align">	
+                    <input class="input-pers" type="password" placeholder="Password" value="">
+                </aside>
+                <nav class="nav-grd">
+                    <a class="flex-item js-save brand__button--primary">Sign In</a> <a class="js-forgot__view flex-item signin__link">Forgot your password?</a>
+                </nav>
+                <p>Don't have an account? <span class="signin__link">Create an Account</span></p>                
+            </section>
+            <section class="js-forgot__view hide">
+                <h5>Forgot your password?</h5>
+                <p>Enter your email address below and we will send you instructions to reset your password.</p>      
+                <aside class="input-align">	
+                    <input class="input-pers" type="text" placeholder="Email Address" value="">
+                </aside>
+                <nav class="nav-grd">
+                    <a class="flex-item js-reset brand__button--primary">New Password</a> <div class="flex-item "></div>
+                </nav>
+            </section>
+
         </ltdc-signin><!--  Component End  -->	
 
     </section>
 </ltdc-reveal>
+
+
+
 
 
 
@@ -782,6 +810,7 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
 "use strict";
 document.getElementsByClassName("js-signin__link")[0].addEventListener("click", function(ev){
     ltdc_reveal.autoOpen("modalSignin");
+    if(typeof oSignIn != "undefined" ) oSignIn.signin();
 });
 var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
     var aNav, fCall, bDebounce=false; // Array of elements, callback function, and mutex
