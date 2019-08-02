@@ -48,7 +48,7 @@
 .evoCart__content {}
 
 /*  Sub-Components Begin  */
-/*  Sign In Begin  */
+/*  Sign In - inline prompt Begin  */
 .l-evoCartLeft__signin {
     border-bottom: solid 1px #BFBFBF;
     height: 70px;
@@ -70,7 +70,7 @@
 body[data-brand="LS"] .l-evoCartLeft__signin a  { color: #D0021B; }
 body[data-brand="LTD"] .l-evoCartLeft__signin a { color: #4A90E2; }
 
-/*  Sign In End  */
+/*  Sign In - inline prompt End  */
 .l-evoCartLeft__items {display:block; margin: 0; padding: 0}
 .l-prd-card__grd {
     border-bottom: solid 1px #BFBFBF;
@@ -328,14 +328,14 @@ text-decoration: underline;
 @media only screen
     and (min-width: 375px)
     and (max-width: 667px){  /* small *//* mobile 44.875em */
-        /*  Sign In Begin  */
+        /*  Sign In - inline prompt Begin  */
             .l-evoCartLeft__signin p {
                 font-size: 17px;
             }
             .l-evoCartLeft__signin h6 {
                 font-size: 20px;
             }
-        /*  Sign In End  */
+        /*  Sign In - inline prompt End  */
         .l-evoCartLeft__items .prd_card__pic > img,
         .l-evoCartLeft__wishes .prd_card__pic > img{ height: auto; width: 125px; }
         .order-sum__caption > p {
@@ -360,14 +360,14 @@ text-decoration: underline;
 @media only screen 
     and (min-width: 668px)
     and (max-width: 1064px){  /* medium *//* tablet 47.750em TODO FIX 668PX IN SVN*/
-        /*  Sign In Begin  */
+        /*  Sign In - inline prompt Begin  */
         .l-evoCartLeft__signin p {
                 font-size: 17px;
             }
             .l-evoCartLeft__signin h6 {
                 font-size: 20px;
             }
-        /*  Sign In End  */
+        /*  Sign In - inline prompt End  */
 
         .evoCart__content-grd {
             display: flex;
@@ -424,14 +424,14 @@ text-decoration: underline;
 }
 @media only screen 
     and (min-width: 1065px){  /* large *//* laptop 66.563em */
-        /*  Sign In Begin  */
+        /*  Sign In - inline prompt Begin  */
         .l-evoCartLeft__signin p {
                 font-size: 17px;
             }
             .l-evoCartLeft__signin h6 {
                 font-size: 20px;
             }
-        /*  Sign In End  */
+        /*  Sign In - inline prompt End  */
         .evoCart__content-grd {
             display: flex;
             flex-flow: column nowrap; /* Shorthand for flex-direction and flex-wrap */
@@ -643,8 +643,8 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
         <div class="evoCart__column-grd">
             <article class="evoCartLeft">
                 <section class="js-evoCartLeft__signin l-evoCartLeft__signin">
-                    <p><a>Sign In</a> to see items that you may have added using another computer or device.</p>
-                    <h6><span class="js-items-count">X</span> Items in your Cart</h6>
+                    <p><a class="js-signin__link">Sign In</a> to see items that you may have added using another computer or device.</p>
+                    <h6><span class="js-items-count">3</span> Items in your Cart</h6>
                 </section>
                 <section class="js-evoCartLeft__items l-evoCartLeft__items"></section>
                 <section class="js-evoCartLeft__recom l-evoCartLeft__recom"></section>
@@ -675,10 +675,114 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
     </section>
 </ltdc-evoCart>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="signin_skin.css" as="style" onload="this.rel='stylesheet'">
+
+
+<ltdc-reveal class="l-reveal reveal__init"> 
+    <section id="modalSignin" class="signin_reveal_percent reveal__box" data-reveal aria-hidden="false"> 
+        <figure class="h-height__full"></figure>
+        <ltdc-signin id="js-signin__id" class="l-signin"><!--  Component Begin  -->
+            <a class="close-reveal-modal svg__x" aria-label="Close">
+                <img src="closex.png" alt="Close">
+            </a>
+        </ltdc-signin><!--  Component End  -->	
+
+    </section>
+</ltdc-reveal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ltdc-reveal class="l-reveal"><!--  Component Begin  -->
+    <aside id="id-reveal__scrim" class="close-reveal-modal"></aside>
+</ltdc-reveal><!--  Component End  -->	
+
+<ltdc-snackbar class="l-snackbar">
+    <section id="js-snackbar__id" class="snackbar__cont snackbar__cont--hide" aria-live="polite" aria-atomic="true">
+        <p class="snackbar__msg"></p>
+    </section>
+</ltdc-snackbar>
+
+<link rel="stylesheet" href="./evocart_files/reveal_skin.min.css" as="style" onload="this.rel='stylesheet'">
+<script src="./evocart_files/reveal.min.js.download" async=""></script>
 <script src="./evocart_files/flickity.pkgd.min.js.download"></script>
 
 <script>
 "use strict";
+document.getElementsByClassName("js-signin__link")[0].addEventListener("click", function(ev){
+    ltdc_reveal.autoOpen("modalSignin");
+});
 var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
     var aNav, fCall, bDebounce=false; // Array of elements, callback function, and mutex
     return {
