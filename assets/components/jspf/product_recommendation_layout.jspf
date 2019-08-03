@@ -1,157 +1,180 @@
-<style type="text/css">
-ltdc-prdrec.l-prdrec {
-    display: block;
-    max-width: 1920px;margin: 0 auto;
-}
-.l-prdrec {
-    display: block;
-    max-width: 1920px;margin: 0 auto;
-}
-        .l-prdrec .prod-artc {
-            border: solid 1px #ccc;
-            height: auto;
-            margin: 8px;
-            /*width: 232px;*/
-            /*flex: 1 1 18.4vw;*/
-            max-width: 220px;
-            min-width: 220px;
-         }
-            .l-prdrec .prod-exclusive:not( .is-exclusive ) { 
-                height: 32px;
-                visibility: hidden;
-             }
-            .l-prdrec .prod-exclusive:not( .is-exclusive ) p { 
-                display: none;
-             }
-            .l-prdrec .prod-exclusive { 
-                background-color: #828282;
-                color: #fff;
-                display: inline;
-                font-size: 9px;
-                padding: 4px;
-                position: relative;
-                top: -2px;
-                user-select: none;
-             }
-            .l-prdrec .prod-href__a { text-decoration: none; }
-                .l-prdrec .prod-fig { margin: 8px 8px 0 8px; }
-                    .l-prdrec .prod-pict { 
-                        background-color: #f5f5f5;
-                        cursor: pointer;
-                        display: block;
-                        height: 0;
-                        overflow: hidden;
-                        padding-bottom: 122%;
-                        position: relative;
-						/*width: 208px;*/
-                     }
-                        .l-prdrec .prod-img { 
-                            width: 100%;
-                            background-color: #f5f5f5;
-                            min-width: 202px;
-                            min-height: 246px;
-                        }
-                        [data-add-cart='false']  .l-prdrec .prod-figcap { text-align: center; min-height: 86px; max-height: 86px; overflow: hidden;}
-                        [data-add-cart='true']   .l-prdrec .prod-figcap { text-align: center; min-height: 86px; max-height: 86px; overflow: hidden;}
-						[data-add-cart='false']  .l-prdrec .js__pc--addToCart { display: none; }
-                            .l-prdrec .prod-caption { 
-                                color: #686868;
-                                font-size: 12px;
-                                font-weight: 600;
-                                max-height: 30px;                    
-                                margin: 2px;
-                                text-align: center;
-                                overflow: hidden;
-                             }
-                            .l-prdrec .prod-price { 
-                                color: #d0021b;
-                              display: block;
-                                font-size: 16px;
-                                font-weight: 700;
-                                margin: 2px;
-                             }
-                            .l-prdrec .prod-price--strike { 
-                                color: #5a5a5a;
-                                font-size: 12px;
-                                font-weight: 700;
-                                margin: 2px;
-                                text-decoration: line-through;
-                             }
-                            .l-prdrec .prod-price--compare { 
-                                color: #b8b8b8;
-                                display: block;
-                                font-size: 12px;
-                                font-weight: 500;
-                             }
-                        .l-prdrec .prod-qv__vect {
-                            bottom: 10px;
-                            cursor: pointer;
-                            position: absolute;
-                            right: 8px;
-                            transform: none;
-                            transition: all .4s;
-                        }
-                        .l-prdrec .prod-qv__vect:hover {
-                            transform: rotate( 90deg );
-                            transition: all .4s;
-                        }
-        .review-stars {
-     background: url(/media/global/images/sprites/review-stars-sprite.png) no-repeat;
-            background-size: 80px;
-            height: 15px;
-            margin: 0 auto 6px auto;
-            width: 77px;
-        }
-        section[itemprop='aggregateRating'] {min-height: 26px; }
-
-        .l-prdrec .half-star{background-position:-1px -15px; }
-        .l-prdrec .one-star{background-position:-1px -32px; }
-        .l-prdrec .one-half-star{background-position:-1px -47px; }
-        .l-prdrec .two-star{background-position:-1px -64px; }
-        .l-prdrec .two-half-star{background-position:-1px -81px; }
-        .l-prdrec .three-star{background-position:-1px -97px; }
-        .l-prdrec .three-half-star{background-position:-1px -112px; }
-        .l-prdrec .four-star{background-position:-1px -129px; }
-        .l-prdrec .four-half-star{background-position:-1px -145px; }
-        .l-prdrec .five-star{background-position:-1px -160px; }
-
-        .l-prdrec .prod-c2a  { 
-            border-radius: 6px;
-			color: #fff;
-            cursor: pointer;
+    <style type="text/css">
+        ltdc-prdrec.l-prdrec {
             display: block;
-            font-size: 16px;
-            font-weight: 300;
-            margin: 4px auto 8px auto;
-            padding: 8px 6px;
-            text-align: center;
-            text-decoration: none;
-            width: 60%;
-         }
-		body[data-brand=LS] .l-prdrec .prod-c2a { background-color: #d0021b; }
-		body[data-brand=LS] .l-prdrec .prod-c2a:hover { background-color: #ea0c35; }
-		body[data-brand=LTD] .l-prdrec .prod-c2a { background-color: #4a90e2; }
+            font-family: Roboto,sans-serif;
+            max-width: 1920px;margin: 0 auto;
+        }
+        .l-prdrec {
+            display: block;
+            max-width: 1920px;margin: 0 auto;
+        }
+                .l-prdrec .prod-artc {
+                    height: auto;
+                    margin: 2px 11px;
+                    width: 132px;
+                 }
+                    .l-prdrec .prod-exclusive:not( .is-exclusive ) { 
+                        height: 32px;
+                        visibility: hidden;
+                     }
+                    .l-prdrec .prod-exclusive:not( .is-exclusive ) p { 
+                        display: none;
+                     }
+                    .l-prdrec .prod-exclusive { 
+                        background-color: #828282;
+                        color: #fff;
+                        display: inline;
+                        font-size: 9px;
+                        padding: 4px;
+                        position: relative;
+                        top: -2px;
+                        user-select: none;
+                     }
+                    .l-prdrec .prod-href__a { text-decoration: none; }
+                        .l-prdrec .prod-fig { margin: 0; }
+                            .l-prdrec .prod-pict { 
+                                background-color: #f5f5f5;
+                                cursor: pointer;
+                                display: block;
+                                height: 0;
+                                overflow: hidden;
+                                padding-bottom: 122%;
+                                position: relative;
+                                /*width: 208px;*/
+                             }
+                                .l-prdrec .prod-img { 
+                                    width: 132px;
+                                    background-color: #f5f5f5;
+                                }
+                                [data-add-cart='false']  .l-prdrec .prod-figcap { text-align: center; min-height: 86px; max-height: 86px; overflow: hidden;}
+                                [data-add-cart='true']   .l-prdrec .prod-figcap { text-align: center; min-height: 86px; max-height: 86px; overflow: hidden;}
+                                [data-add-cart='false']  .l-prdrec .js__pc--addToCart { display: none; }
+                                    .l-prdrec .prod-caption { 
+                                        height: 54px;
+                                        overflow: hidden;
+                                        margin: 6px 0;
+                                        color: #222;
+                                        font-size: 12px;
+                                        font-weight: 300;
+                                        text-align: left;
 
-        .l-prdrec-caption {
-			margin: 6px 0 0 0;
-			padding: 2px;
-			font-size: 32px !important;
-			font-weight: 300;
-			line-height: 1.1;
-			text-align: center;
-		}
-		body[data-brand=LS] .l-prdrec-caption { color: #677b88; }
-		body[data-brand=LTD] .l-prdrec-caption { color: #30619a; }
+                                     }
+                                    .l-prdrec .prod-price { 
+                                        color: #d0021b;
+                                      display: block;
+                                        font-size: 14px;
+                                        font-weight: 700;
+                                        margin: 2px;
+                                     }
+                                    .l-prdrec .prod-price--strike { 
+                                        color: #5a5a5a;
+                                        font-size: 12px;
+                                        font-weight: 700;
+                                        margin: 2px;
+                                        text-decoration: line-through;
+                                     }
+                                    .l-prdrec .prod-price--compare { 
+                                        color: #b8b8b8;
+                                        display: block;
+                                        font-size: 12px;
+                                        font-weight: 500;
+                                     }
+                                .l-prdrec .prod-qv__vect {
+                                    bottom: 10px;
+                                    cursor: pointer;
+                                    position: absolute;
+                                    right: 8px;
+                                    transform: none;
+                                    transition: all .4s;
+                                }
+                                .l-prdrec .prod-qv__vect:hover {
+                                    transform: rotate( 90deg );
+                                    transition: all .4s;
+                                }
+                .review-stars {
+             background: url(/media/global/images/sprites/review-stars-sprite.png) no-repeat;
+                    background-size: 80px;
+                    height: 15px;
+                    margin: 0 auto 6px auto;
+                    width: 77px;
+                }
+                section[itemprop='aggregateRating'] {min-height: 26px; }
+        
+                .l-prdrec .half-star{background-position:-1px -15px; }
+                .l-prdrec .one-star{background-position:-1px -32px; }
+                .l-prdrec .one-half-star{background-position:-1px -47px; }
+                .l-prdrec .two-star{background-position:-1px -64px; }
+                .l-prdrec .two-half-star{background-position:-1px -81px; }
+                .l-prdrec .three-star{background-position:-1px -97px; }
+                .l-prdrec .three-half-star{background-position:-1px -112px; }
+                .l-prdrec .four-star{background-position:-1px -129px; }
+                .l-prdrec .four-half-star{background-position:-1px -145px; }
+                .l-prdrec .five-star{background-position:-1px -160px; }
+        
+                .l-prdrec .prod-c2a  { 
+                    color: #fff;
+                    cursor: pointer;
+                    display: block;
+                    border-radius: 3px;
+                    font-family: sans-serif;
+                    font-size: .95em;
+                    text-align: center;
+                    padding: 6px;
+                    margin: 3px 0;
+                    text-decoration: none;
+                    min-width: 100%;n: none;
+                    width: 60%;
+                 }
+                body[data-brand=LS] .l-prdrec .prod-c2a { background-color: #d0021b; }
+                body[data-brand=LS] .l-prdrec .prod-c2a:hover { background-color: #ea0c35; }
+                body[data-brand=LTD] .l-prdrec .prod-c2a { background-color: #4a90e2; }
+        
+                .l-prdrec-caption {
+                    color: #111;
+                    text-align: center;
+                    background-color: rgba(256,256,256,0);
+                    font-family: sans-serif;
+                    font-size: 1.4em;
+                    font-style: normal;
+                    font-weight: 100;
+                    margin: 0 6px 6px 6px;
+                }
+        
+        
+        /*  c2a grid  */
+        .l-prdrec .l-grid-cta {
+        align-items: center;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        width: 100%;
+        }
 
+        
 
-/*  c2a grid  */
-.l-prdrec .l-grid-cta {
-align-items: center;
-display: flex;
-flex-flow: row nowrap;
-justify-content: space-around;
-width: 100%;
+@media only screen
+    and (min-width: 375px)
+    and (max-width: 667px){  /* small *//* mobile 44.875em */
+        /*  Sign In - inline prompt Begin  */
+        .l-prdrec .prod-artc,
+        .l-prdrec .prod-img { width: 148px !important; }
+
 }
+@media only screen 
+    and (min-width: 668px)
+    and (max-width: 1064px){  /* medium *//* tablet 47.750em TODO FIX 668PX IN SVN*/
+        /*  Sign In - inline prompt Begin  */
+        .l-prdrec .prod-artc,
+        .l-prdrec .prod-img { width: 105px !important; }
+
+}
+@media only screen 
+    and (min-width: 1065px){  /* large *//* laptop 66.563em */
+        /*  Sign In - inline prompt Begin  */
+        .l-prdrec .prod-artc,
+        .l-prdrec .prod-img { width: 150px !important; }
+
+}   /* large *//* laptop 66.563em */
 
 @media print
 {
