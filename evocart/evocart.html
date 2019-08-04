@@ -783,13 +783,13 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
             <section class="js-forgot__view">
                 <h5>Please Sign Into Your Account</h5>
                 <aside class="input-align">	
-                    <input class="input-pers" type="text" placeholder="Email Address" value="">
+                    <input id="js-sign-in__email" class="input-pers" type="email" placeholder="Email Address" value="" data-md-page="true">
                 </aside>
                 <aside class="input-align">	
-                    <input class="input-pers" type="password" placeholder="Password" value="">
+                    <input id="js-sign-in__password" class="input-pers" type="password" placeholder="Password" value="" data-md-page="true">
                 </aside>
                 <nav class="nav-grd">
-                    <a class="flex-item js-save brand__button--primary">Sign In</a> <a class="js-forgot__view flex-item signin__link">Forgot your password?</a>
+                    <a id="js-sign-in__save" class="flex-item brand__button--primary">Sign In</a> <a class="js-forgot__view flex-item signin__link">Forgot your password?</a>
                 </nav>
                 <p>Don't have an account? <span class="signin__link">Create an Account</span></p>                
             </section>
@@ -797,10 +797,10 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
                 <h5>Forgot your password?</h5>
                 <p>Enter your email address below and we will send you instructions to reset your password.</p>      
                 <aside class="input-align">	
-                    <input class="input-pers" type="text" placeholder="Email Address" value="">
+                    <input id="js-forgot__email" class="input-pers" type="email" placeholder="Email Address" value="" data-md-page="true">
                 </aside>
                 <nav class="nav-grd">
-                    <a class="flex-item js-reset brand__button--primary">New Password</a> <div class="flex-item "></div>
+                    <a id="js-forgot__reset" class="flex-item brand__button--primary">Reset Password</a> <div class="flex-item "></div>
                 </nav>
             </section>
 
@@ -848,8 +848,11 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
 </ltdc-snackbar>
 
 <link rel="stylesheet" href="./evocart_files/reveal_skin.min.css" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="./evocart_files/snackbar_skin.min.css" as="style" onload="this.rel='stylesheet'">
 <script src="./evocart_files/reveal.min.js.download" async=""></script>
 <script src="./evocart_files/flickity.pkgd.min.js.download"></script>
+<script src="./evocart_files/snackbar.min.js.download"></script>
+<script src="material_design_page.js"></script>
 
 <script>
 "use strict";
