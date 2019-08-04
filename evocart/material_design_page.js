@@ -1,5 +1,5 @@
-var mdPage = ( function( _d ){  //  Material Design INPUT Labels
-    var aInp = [], aLab = [], sBrand;
+var oMDPage = ( function( _d ){  //  Material Design INPUT Labels
+    var aInp = [], aLab = [], sBrand="", bBound = false, nCnt = -1;
     var oCSS = [
 [".h-vs__hidden", ["visibility", "hidden"]],
 ["input.label-md__inp", [
@@ -7,9 +7,9 @@ var mdPage = ( function( _d ){  //  Material Design INPUT Labels
     ["border-radius", "4px"],
     ["box-shadow", "none"],
     ["color", "#343a40"],
-    ["display", "block"],
+    ["display", "inline"],
     ["font-size", "16px"],
-    ["height", "44px"],
+    ["height", "40px"],
     ["padding", "6px"],
     ["z-index", "1"]
 ]],
@@ -87,24 +87,28 @@ var mdPage = ( function( _d ){  //  Material Design INPUT Labels
     }
     return {
         bind: function( _sBrand = "LTD" ){  //  Wire Events
-            addStylesheetRules( oCSS );
+            if( !bBound ) addStylesheetRules( oCSS );
             sBrand = _sBrand.toLowerCase();
-            aInp = [].slice.call( _d.querySelectorAll( "[data-md-page]") );
-            aInp.map( function( _inp, _idx ){
-                let eLab = _d.createElement("LABEL");
+            aInp = [].slice.call( _d.querySelectorAll( "[data-md-page]") ).filter(function( el ){
+                return ( !el.dataset.mdLabel );  //  Exclude Existing
+            });
+            aInp.map( function( _inp ){
+                var eLab = _d.createElement("LABEL");
+                nCnt++;
                 eLab.textContent = parsePH( _inp.placeholder );
                 eLab.setAttribute("for", _inp.id);
                 eLab.classList.add("label-md__lab", "h-vs__hidden");
                 aLab.push( eLab );
                 _inp.before( eLab );
-                _inp.dataset.mdLabel = _idx;
+                _inp.dataset.mdLabel = nCnt;
                 _inp.dataset.mdLabelCl = _inp.className;
                 _inp.classList.add( "label-md__inp" );  
                 _inp.addEventListener("focus", function( _ev ){ onInpFoc(_ev.currentTarget); });
                 _inp.addEventListener("blur", function( _ev ){ onInpBlur(_ev.currentTarget); });
             } );
+            bBound = true;
         }
     };
 } )( document );
 
-mdPage.bind( document.body.dataset.brand );
+oMDPage.bind( document.body.dataset.brand );
