@@ -241,6 +241,9 @@ text-decoration: underline;
 .l-evoCartRight__totals {display:block; margin: 0; padding: 0}
 
 /*  Progress Bar Begin  */
+.l-ProgressBar {
+margin: 6px;
+}
 .l-ProgressBar .ProgressBar-grd{
 align-items: left;
 display: flex;
@@ -1127,8 +1130,6 @@ var oSignIn_inline = (function( doc, aClasses ){
 })( document, ["js-signin__link", "modalSignin", "js-view__summary", "l-evoCartRight__totals"] );
 oSignIn_inline.init();
 
-
-
 var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
     var aNav, fCall, bDebounce=false; // Array of elements, callback function, and mutex
     return {
@@ -1290,10 +1291,17 @@ console.log( "--- Submit Asynce Form --- sku= " + sSKU_id.split("|")[0] + " qty=
                             ltdc_snackbar.q("More Tax|information");
                         };
                     });
+                    // Progress Bar Update Begin
+                    var eProgB = doc.getElementsByClassName("ProgressBar__value")[0];
+                    if( eProgB && eProgB.dataset.perCent ){
+                        eProgB.style.width = eProgB.dataset.perCent + "%";
+                    }
+                    // Progress Bar Update End
                 break;
             }
             oSimpleExpand.rebind();
 if( typeof oMDPage !== "undefined" ) oMDPage.bind();
+//  Below is just prototype code do not deploy
 document.getElementById("js-edit-pers").addEventListener("click", function( ev ){
     ltdc_reveal.autoOpen("modal-editPers");
 });
