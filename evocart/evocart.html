@@ -240,6 +240,49 @@ text-decoration: underline;
 .l-evoCartLeft__wishes  {display:block; margin: 0; padding: 0}
 .l-evoCartRight__totals {display:block; margin: 0; padding: 0}
 
+/*  Progress Bar Begin  */
+.l-ProgressBar .ProgressBar-grd{
+align-items: left;
+display: flex;
+flex-flow: row nowrap; /* Shorthand for flex-direction and flex-wrap */
+justify-content: flex-start;
+}
+.l-ProgressBar p {
+color: #555;
+font-size: 15px;
+flex:1 1;
+margin: 10px 0 4px 0;
+}
+.l-ProgressBar p.ProgressBar__txt--left { text-align: left; }
+.l-ProgressBar p.ProgressBar__txt--center { text-align: center; }
+.l-ProgressBar p.ProgressBar__txt--right { text-align: right; }
+.l-ProgressBar .ProgressBar{
+border: solid 1px #BFBFBF;
+border-radius: 33px;
+display: block;
+height: 20px;
+padding: 0;
+width: 100%;
+}
+.l-ProgressBar .ProgressBar__value{
+background-color: #3C9A12;
+border: solid 1px #BFBFBF;
+display: block;
+border-radius: 33px;
+height: 20px;
+width: 10%;
+}
+.l-ProgressBar p.ProgressBar__txt {
+color: #111;
+font-size: 16px;
+margin:  8px;
+text-align: center;
+}
+.l-ProgressBar p .ProgressBar__txt--red {
+color: #E01D1D;
+}
+/*  Progress Bar End  */
+
 .totals-promo {
     margin: 0; padding: 0;
 }
