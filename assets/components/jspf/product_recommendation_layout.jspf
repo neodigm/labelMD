@@ -47,12 +47,12 @@
                                     background-color: #f5f5f5;
                                 }
                                 [data-add-cart='false']  .l-prdrec .prod-figcap { text-align: center; min-height: 86px; max-height: 86px; overflow: hidden;}
-                                [data-add-cart='true']   .l-prdrec .prod-figcap { text-align: center; min-height: 86px; max-height: 86px; overflow: hidden;}
+                                [data-add-cart='true']   .l-prdrec .prod-figcap { text-align: center; min-height: 86px; max-height: 106px; overflow: hidden;}
                                 [data-add-cart='false']  .l-prdrec .js__pc--addToCart { display: none; }
                                     .l-prdrec .prod-caption { 
-                                        height: 54px;
+                                        height: 42px;
                                         overflow: hidden;
-                                        margin: 6px 0;
+                                        margin: 6px 0 1px;
                                         color: #222;
                                         font-size: 12px;
                                         font-weight: 600;
