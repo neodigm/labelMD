@@ -55,8 +55,8 @@
                                         margin: 6px 0;
                                         color: #222;
                                         font-size: 12px;
-                                        font-weight: 300;
-                                        text-align: left;
+                                        font-weight: 600;
+                                        text-align: center;
 
                                      }
                                     .l-prdrec .prod-price { 
