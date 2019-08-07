@@ -1167,7 +1167,12 @@ var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
             var eNav = this.parentElement, nChng = 0; // nav container
             if( evChange.type == "click"){
                 if( this.classList.contains( "qty-step__action--plus" ) ){ 
+                    var nMax = eNav.dataset.maxQty;
+                    if( !nMax ) nMax = 999;
                     nChng = ( eNav.nQty <= 998 ) ? 1 : 0;
+                    if( oSimpleQty.isMaxQty( eNav.nQty, nMax ) ){
+                        nChng = 0;
+                    }
                 }
                 if( this.classList.contains( "qty-step__action--minus" ) ){ 
                     nChng = ( eNav.nQty >= 2 ) ? -1 : 0;
@@ -1186,7 +1191,14 @@ var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
             var nChng, sChng;
             sChng = eNav.aNavSub[1].value.trim();
             if( oSimpleQty.isValid(sChng) ){
-                eNav.nQty = nChng = Number( sChng );
+                var nMax = eNav.dataset.maxQty;
+                if( !nMax ) nMax = 999;
+                if( oSimpleQty.isMaxQty( sChng, nMax ) ){
+                    nChng = 0;
+                    eNav.aNavSub[1].value = eNav.nQty; // revert
+                }else{
+                    eNav.nQty = nChng = Number( sChng );
+                }
             }else{
                 eNav.aNavSub[1].value = eNav.nQty; // revert
             }
@@ -1196,6 +1208,16 @@ var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
         "isValid": function( sChng ){
             if( sChng !== "" && !isNaN( sChng ) && !(sChng < 1) ){
                 return true;
+            }
+        },
+        "isMaxQty": function( sChng, sMax ){
+            if( Number( sChng ) >= Number( sMax ) ){
+                if( typeof ltdc_snackbar !== "undefined" ){
+                    ltdc_snackbar.q("Sorry, cannot order more than " + sMax + "|Call Customer Service.");
+                }
+                return true;
+            }else{
+                return false;
             }
         }
     }
