@@ -1,49 +1,5 @@
 var oMDPage = ( function( _d ){  //  Material Design INPUT Labels
     var aInp = [], aLab = [], sBrand="", bBound = false, nCnt = -1;
-    var oCSS = [
-[".h-vs__hidden", ["visibility", "hidden"]],
-["input.label-md__inp", [
-    ["background-color", "#fff"],
-    ["border-radius", "4px"],
-    ["box-shadow", "none"],
-    ["color", "#343a40"],
-    ["display", "inline"],
-    ["font-size", "16px"],
-    ["height", "40px"],
-    ["padding", "6px"],
-    ["z-index", "1"]
-]],
-["label.label-md__lab", [
-    ["background-color", "#fff"],
-    ["cursor", "text"],
-    ["display", "inline"],
-    ["font-family", "sans-serif"],
-    ["font-size", "14px"],
-    ["left", "6px"],
-    ["margin", "0 0 0 8px"],
-    ["padding", "0 6px"],
-    ["position", "relative"],
-    ["top", "10px"],
-]],
-["body[data-brand=LS]  input.label-md__inp", [
-    ["border", "1px solid #a1b5c2"]
-]],
-["body[data-brand=LTD] input.label-md__inp", [
-    ["border", "1px solid #30619a"]
-]],
-["body[data-brand=LS]  input:focus.label-md__inp", [
-    ["border", "1px solid #343a40"]
-]],
-["body[data-brand=LTD] input:focus.label-md__inp", [
-    ["border", "1px solid #4a90e2"]
-]],
-["body[data-brand=LS]  label.label-md__lab", [
-    ["color", "#343a40"]
-]],
-["body[data-brand=LTD] label.label-md__lab", [
-    ["color", "#4a90e2"]
-]],
-];
     function onInpFoc( _el ){  //  focus
         if( typeof _el.dataset.mdLabel !== "undefined" ){
             var sPH = _el.getAttribute("placeholder");
@@ -87,7 +43,7 @@ var oMDPage = ( function( _d ){  //  Material Design INPUT Labels
     }
     return {
         bind: function( _sBrand = "LTD" ){  //  Wire Events
-            if( !bBound ) addStylesheetRules( oCSS );
+            //if( !bBound ) addStylesheetRules( oCSS );
             sBrand = _sBrand.toLowerCase();
             aInp = [].slice.call( _d.querySelectorAll( "[data-md-page]") ).filter(function( el ){
                 return ( !el.dataset.mdLabel );  //  Exclude Existing
