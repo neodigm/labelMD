@@ -42,7 +42,7 @@ var oMDPage = ( function( _d ){  //  Material Design INPUT Labels
         }
     }
     return {
-        bind: function( _sBrand = "LTD" ){  //  Wire Events
+        bind: function( _sBrand  ){  //  Wire Events
             //if( !bBound ) addStylesheetRules( oCSS );
             sBrand = _sBrand.toLowerCase();
             aInp = [].slice.call( _d.querySelectorAll( "[data-md-page]") ).filter(function( el ){
