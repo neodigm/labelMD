@@ -815,8 +815,8 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
 
 
 
-<script src="signin_popup.js" async=""></script>
-<link rel="stylesheet" href="signin_popup_skin.css" as="style" onload="this.rel='stylesheet'">
+<script src="QQQQsignin_popup.js" async=""></script>
+<link rel="stylesheet" href="QQQQsignin_popup_skin.css" as="style" onload="this.rel='stylesheet'">
 
 
 <ltdc-reveal class="l-reveal reveal__init"> 
@@ -858,157 +858,7 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
 
 
 <ltdc-reveal class="l-reveal reveal__init">
-		<style>
-/*  CSS category State    */ /*  color display font visibility ...  */
-.l-editPers .nav-grd {
-  align-items: left;
-  display: flex;
-  flex-flow: column nowrap; /* Shorthand for flex-direction and flex-wrap */
-  justify-content: flex-start;
-}
-.l-editPers h4 {
-	font-size: 18px;
-	font-weight: 400;
-	margin: 2px; padding: 2px;
-	text-align: center;
-}
-.l-editPers p {
-	font-size: 16px;
-	font-weight: 400;
-	margin: 24px; padding: 2px;
-	text-align: left;
-}
-.l-editPers p span {
-	font-weight: 500;
-}
-.l-editPers .input-align {
-	margin: 2px auto;
-	width: 92%;
-}
-.l-editPers .input-pers {
-    border: solid 1px #BFBFBF;
-    font-size: 18px;
-    font-weight: 500;
-    height: 41px;
-    width: 100%;
-    margin: 6px 0;
-    padding: 0 4px;
-}
-.pers-error__feedback {
-    position: relative;
-    margin: -11px 0 0;
-    padding: 0;
-    text-align: left;
-}
-.pers-error__feedback>p {
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    height: 36px;
-    margin: 6px 0;
-    padding: 8px 4px 4px;
-width: 100%;
-}
-.l-editPers select {
-cursor: pointer;
-width: 826px;
-margin: 4px auto 4px 34px;
-display: block !important;
-height: 46px;
-line-height: 40px;
-font-size: 16px;
-color: #111;
-border: 1px solid #a1b5c2;
-padding: 0 8px;
-outline: 0;
-display: inline-block;
-border-radius: 4px;
-}
 
-.pers-error__feedback--red {
-    background-color: #e01d1d;
-    border: solid 1px #e01d1d;
-}
-/*  branded buttons begin  */
-.l-editPers .brand__button--primary,
-.l-editPers .brand__button--secondary {
-	cursor: pointer;
-	display: inline;
-	border: solid 2px;
-	border-radius: 3px;
-	font-family: sans-serif;
-	font-size: 1.1em;
-	text-align: center;
-	padding: 10px;
-	margin: 4px;
-	text-decoration: none;
-	width: 98%;
-}
-.l-editPers .brand__button-sm--primary,
-.l-editPers .brand__button-sm--secondary {
-	cursor: pointer;
-	display: block;
-	border-radius: 3px;
-	font-family: sans-serif;
-	font-size: .95em;
-	text-align: center;
-	padding: 6px;
-	margin: 3px 0;
-	text-decoration: none;
-	min-width: 100%;
-}
-/*  branded buttons end  */
-.editPers_reveal_percent {
-	width: 310px !important;
-}
-@media only screen
-    and (min-width: 375px)
-    and (max-width: 667px){  /* small *//* mobile 44.875em */
-	.editPers_reveal_percent {
-		width: 340px !important;
-	}
-}
-@media only screen 
-    and (min-width: 719px)
-    and (max-width: 1064px){  /* medium *//* tablet 47.750em */
-	.editPers_reveal_percent {
-		width: 700px !important;
-	}
-	.l-editPers .nav-grd {
-		flex-flow: row nowrap; /* Shorthand for flex-direction and flex-wrap */
-	}
-}
-@media only screen 
-	and (min-width: 1065px){  /* large *//* laptop 66.563em */
-	.editPers_reveal_percent {
-		width: 884px !important;
-	}		
-	.l-editPers .nav-grd {
-		flex-flow: row nowrap; /* Shorthand for flex-direction and flex-wrap */
-	}
-}
-/*  CSS category Theme    */ /*  color background hover ...  */
-body[data-brand="LS"]  .l-editPers .brand__button--primary,
-body[data-brand="LS"]  .l-editPers .brand__button-sm--primary,
-body[data-brand="LS"]  .l-editPers .brand__button--primary:visited,
-body[data-brand="LS"]  .l-editPers .brand__button-sm--primary:visited    
-{ color: #ffffff; background-color: #D0021B; border-color: #D0021B; }
-body[data-brand="LTD"] .l-editPers .brand__button--primary,
-body[data-brand="LTD"] .l-editPers .brand__button-sm--primary,
-body[data-brand="LTD"] .l-editPers .brand__button--primary:visited,
-body[data-brand="LTD"] .l-editPers .brand__button-sm--primary:visited 
-{ color: #ffffff; background-color: #30609A; border-color: #30609A; }
-body[data-brand="LS"]  .l-editPers .brand__button--secondary,
-body[data-brand="LS"]  .l-editPers .brand__button-sm--secondary,
-body[data-brand="LS"]  .l-editPers .brand__button--secondary:visited,
-body[data-brand="LS"]  .l-editPers .brand__button-sm--secondary:visited
-{ color: #D0021B; background-color: #ffffff; border-color: #D0021B; }
-body[data-brand="LTD"] .l-editPers .brand__button--secondary,
-body[data-brand="LTD"] .l-editPers .brand__button-sm--secondary,
-body[data-brand="LTD"] .l-editPers .brand__button--secondary:visited,
-body[data-brand="LTD"] .l-editPers .brand__button-sm--secondary:visited
-{ color: #30609A; background-color: #ffffff; border-color: #30619a; }
-		</style>
 		<section id="modal-editPers" class="editPers_reveal_percent" data-reveal> 
 			<figure class="h-height__full"></figure>
 			<ltdc-editPers id="js-editPers__id" class="l-editPers"><!--  Component Begin  -->
