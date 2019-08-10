@@ -133,119 +133,12 @@
 
 
 
-<script src="QQQQsignin_popup.js" async=""></script>
-<link rel="stylesheet" href="QQQQsignin_popup_skin.css" as="style" onload="this.rel='stylesheet'">
-
-
-<ltdc-reveal class="l-reveal reveal__init"> 
-    <section id="modalSignin" class="signin_reveal_percent reveal__box" data-reveal aria-hidden="false"> 
-        <figure class="h-height__full"></figure>
-        <ltdc-signin id="js-signin__id" class="l-signin"><!--  Component Begin  -->
-            <a class="close-reveal-modal svg__x" aria-label="Close">
-                <img src="closex.png" alt="Close">
-            </a>
-            <section class="js-forgot__view">
-                <h5>Please Sign Into Your Account</h5>
-                <aside class="input-align">	
-                    <input id="js-sign-in__email" class="input-pers" type="email" placeholder="* Email Address" value="" data-md-page="true">
-                </aside>
-                <aside class="input-align">	
-                    <input id="js-sign-in__password" class="input-pers" type="password" placeholder="* Password" value="" data-md-page="true">
-                </aside>
-                <nav class="nav-grd">
-                    <a id="js-sign-in__save" class="flex-item brand__button--primary">Sign In</a> <a class="js-forgot__view flex-item signin__link">Forgot your password?</a>
-                </nav>
-                <p>Don't have an account? <span class="signin__link">Create an Account</span></p>                
-            </section>
-            <section class="js-forgot__view hide">
-                <h5>Forgot your password?</h5>
-                <p>Enter your email address below and we will send you instructions to reset your password.</p>      
-                <aside class="input-align">	
-                    <input id="js-forgot__email" class="input-pers" type="email" placeholder="* Email Address" value="" data-md-page="true">
-                </aside>
-                <nav class="nav-grd">
-                    <a id="js-forgot__reset" class="flex-item brand__button--primary">Reset Password</a> <div class="flex-item "></div>
-                </nav>
-            </section>
-
-        </ltdc-signin><!--  Component End  -->	
-
-    </section>
-</ltdc-reveal>
-
-
-
-<ltdc-reveal class="l-reveal reveal__init">
-	
-		<section id="modal-editPers" class="editPers_reveal_percent" data-reveal> 
-			<figure class="h-height__full"></figure>
-			<ltdc-editPers id="js-editPers__id" class="l-editPers"><!--  Component Begin  -->
-				<h4>Change Personalization Instructions</h4>
-				<p><span>Please Note:</span> Monogrammed and personalized items cannot be returned except when due to defect. Once placed, your order for these items cannot be returned. This item cannot be shipped to APO/FPO addresses. An asterisk (*) indicates a required field.</p>
-                <p><span>Your personalized text will appear exactly as you enter it</span>, so please verify spelling, upper/lower-case letters and punctuation. If selecting a monogram, initials should be entered in the order you want them to appear left to right. (Please note that the use of parenthesis cannot be used in embroidered personalization text.)</p>
-				<aside class="input-align">	
-					<input class="input-pers" type="text" placeholder="* Name 1" value="" data-md-page="true">
-				</aside>
-				<aside class="input-align">
-					<input class="input-pers" type="text" placeholder="* Name 2" value="" data-md-page="true">
-					<section class="pers-error__feedback">
-						<p class="pers-error__feedback--red">Please enter required field.</p>
-					</section>
-                </aside>
-                <select>
-                    <option>Animal</option>
-                    <option>Cat</option>
-                    <option>Dog</option>
-                    <option>Elk</option>
-                    <option>Cow</option>
-                    <option>Pig</option>
-                    <option>Owl</option>
-                    <option>Ant</option>
-                </select>
-				<aside class="input-align">	
-					<input class="input-pers" type="text" placeholder="YYYY" value="" data-md-page="true">
-				</aside>
-				<p><INPUT type="checkbox"> I HAVE REVIEWED the personalization instructions and CONFIRM my personalization details are correct. I understand I cannot return this item unless it is defective.</p>
-				<nav class="nav-grd">
-					<a class="js-save brand__button--primary">Save</a> <a class="js-cancel brand__button--secondary">Cancel</a>
-				</nav>
-			</ltdc-editPers><!--  Component End  -->
-		</section>
-	</ltdc-reveal>
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<ltdc-reveal class="l-reveal"><!--  Component Begin  -->
-    <aside id="id-reveal__scrim" class="close-reveal-modal"></aside>
-</ltdc-reveal><!--  Component End  -->	
-
-<ltdc-snackbar class="l-snackbar">
-    <section id="js-snackbar__id" class="snackbar__cont snackbar__cont--hide" aria-live="polite" aria-atomic="true">
-        <p class="snackbar__msg"></p>
-    </section>
-</ltdc-snackbar>
 
 <link rel="stylesheet" href="QQQQmaterial_design_skin.css" as="style" onload="this.rel='stylesheet'">
 <link rel="stylesheet" href="./QQQQevocart_files/reveal_skin.min.css" as="style" onload="this.rel='stylesheet'">
@@ -255,52 +148,6 @@
 <script src="./QQQQevocart_files/snackbar.min.js.download"></script>
 <script src="QQQQmaterial_design_page.js"></script>
 
-<script>
-"use strict";
-
-var oEvoCart_config = {  //  Configuration Object
-    aSections: [
-    {ID:"items" ,elID:"js-evoCartLeft__items", url:"evoCartLeft__items.html"},
-    {ID:"recom" ,elID:"js-evoCartLeft__recom", url:"evoCartLeft__recom.html"},
-    {ID:"wishes",elID:"js-evoCartLeft__wishes",url:"evoCartLeft__wishes.html"},
-    {ID:"totals",elID:"js-evoCartRight__totals",url:"evoCartRight__totals.html"}]
-};
-var oEvoCart = (function( doc, oConf ){
-    oConf.aSections.forEach( function( e ){ // Populate NodeArray
-        e.elSection = doc.querySelectorAll( "." + e.elID )[0]; // js-class
-    });
-    return {
-        updateSection: function( sSect, fCB ){ // Given a section name, fetch then bind
-            var self = this, nCnt = 0;
-            oConf.aSections.forEach( function( e ){
-                if( e.ID === sSect ){
-                    var elSection = e.elSection; // Node ref
-                    self.fAsyncGet(nCnt, function( sRespn ){
-                        //sRespn = sRespn.split("<!---->")[1];
-                        e.elSection.innerHTML = sRespn; });
-                        setTimeout( function(){self.bind( sSect, elSection );}, 400 );
-                }
-                nCnt++;
-            } );
-        },
-        bind: function( sSect, elSection ){  //  Init the newly loaded section
-        },
-        fAsyncGet: function( iSect, fCB ){ // Given an index and a callback
-            var oX = new XMLHttpRequest();
-            var sURI = oConf.aSections[ iSect ].url;
-            oX.onreadystatechange = function(){ if (oX.readyState==4 && oX.status==200) fCB(oX.responseText); };
-            oX.open("GET", sURI, true); // true asynchronous 
-            oX.send( null );
-        }
-    };
-}
-)(document, oEvoCart_config);
-
-oEvoCart.updateSection( "items" );
-QQQQoEvoCart.updateSection( "recom" );
-QQQQoEvoCart.updateSection( "wishes" );
-QQQQoEvoCart.updateSection( "totals" );
-
-</script>
+QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
   </body>
 </html>
