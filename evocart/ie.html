@@ -1,12 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta QQQQcharset="QQQQutf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Evo Cart</title>
+
     <!--/*____ Component: flickity   ________________ begin */-->
-    <QQQQlink rel="stylesheet" href="./evocart_files/flickity.min.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="stylesheet" href="./QQQQevocart_files/flickity.min.css" as="style" onload="this.rel='stylesheet'">
     <!--/*____ Component: flickity   ________________ end   */-->
     <!-- ____ Component: Brand layout CSS > JSPF Begin -->
     <style type="text/css">
@@ -475,7 +475,6 @@ white-space: nowrap;
         }
         .l-evoCartRight__totals {
             position: -webkit-sticky; /* Safari */
-            position: fixed;
             position: sticky;
             top: 0;
         }
@@ -548,7 +547,6 @@ white-space: nowrap;
         }
         .l-evoCartRight__totals {
             position: -webkit-sticky; /* Safari */
-            position: fixed;
             position: sticky;
             top: 0;
         }
@@ -817,8 +815,8 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
 
 
 
-<script src="signin_popup.js" async=""></script>
-<link rel="stylesheet" href="signin_popup_skin.css" as="style" onload="this.rel='stylesheet'">
+<script src="QQQQsignin_popup.js" async=""></script>
+<link rel="stylesheet" href="QQQQsignin_popup_skin.css" as="style" onload="this.rel='stylesheet'">
 
 
 <ltdc-reveal class="l-reveal reveal__init"> 
@@ -1081,152 +1079,16 @@ body[data-brand="LTD"] .l-editPers .brand__button-sm--secondary:visited
     </section>
 </ltdc-snackbar>
 
-<link rel="stylesheet" href="material_design_skin.css" as="style" onload="this.rel='stylesheet'">
-<link rel="stylesheet" href="./evocart_files/reveal_skin.min.css" as="style" onload="this.rel='stylesheet'">
-<link rel="stylesheet" href="./evocart_files/snackbar_skin.min.css" as="style" onload="this.rel='stylesheet'">
-<script src="./evocart_files/reveal.min.js.download" async=""></script>
-<script src="./evocart_files/flickity.pkgd.min.js.download"></script>
-<script src="./evocart_files/snackbar.min.js.download"></script>
+<link rel="stylesheet" href="QQQQmaterial_design_skin.css" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="./QQQQevocart_files/reveal_skin.min.css" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="./QQQQevocart_files/snackbar_skin.min.css" as="style" onload="this.rel='stylesheet'">
+<script src=".QQQQ/evocart_files/reveal.min.js.download" async=""></script>
+<script src="./QQQQevocart_files/flickity.pkgd.min.js.download"></script>
+<script src="./QQQQevocart_files/snackbar.min.js.download"></script>
 <script src="QQQQmaterial_design_page.js"></script>
 
 <script>
 "use strict";
-var oSignIn_inline = (function( doc, aClasses ){
-    var eSignInLink = doc.getElementsByClassName( aClasses[0] );  //  Sign in link
-    var eSignInSum  = doc.getElementsByClassName( aClasses[2] );  //  View Summary link
-    return {
-        "init": function(){  //  Wire click events
-            if( eSignInLink && eSignInSum ){
-                eSignInLink[0].addEventListener("click", function(ev){
-                    ltdc_reveal.autoOpen( aClasses[1] );
-                    if(typeof oSignIn != "undefined" ) oSignIn.signin();
-                });
-                eSignInSum[0].addEventListener("click", function(ev){
-                    doc.getElementsByClassName( aClasses[3] )[0].scrollIntoView();
-                });
-            }
-        }
-    }
-})( document, ["js-signin__link", "modalSignin", "js-view__summary", "l-evoCartRight__totals"] );
-oSignIn_inline.init();
-
-var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
-    var aNav, fCall, bDebounce=false; // Array of elements, callback function, and mutex
-    return {
-        "rebind": function( fBack ){ // Call after region is reloaded
-            fCall = fBack;
-            aNav = [].slice.call( doc.querySelectorAll("[data-quantity-id]") );
-            if( aNav && (typeof fCall === "function") ){ // Wire events
-                aNav.forEach( function( eNav ){
-                    eNav.aNavSub = eNav.querySelectorAll("A, INPUT");
-                    eNav.nQty = Number( eNav.aNavSub[1].value );
-                    eNav.sSKU_id = eNav.dataset.quantityId;
-                    [0,2].forEach( function( nSub ) {
-                        eNav.aNavSub[ nSub ].removeEventListener( "click", oSimpleQty.changeQty );
-                        eNav.aNavSub[ nSub ].addEventListener( "click", oSimpleQty.changeQty );
-                    });
-                    eNav.aNavSub[ 1 ].removeEventListener( "keyup", oSimpleQty.changeQty );
-                    eNav.aNavSub[ 1 ].addEventListener( "keyup", oSimpleQty.changeQty );
-                } );
-            }
-        },
-        "changeQty": function( evChange ){
-            var eNav = this.parentElement, nChng = 0; // nav container
-            if( evChange.type == "click"){
-                if( this.classList.contains( "qty-step__action--plus" ) ){ 
-                    var nMax = eNav.dataset.maxQty;
-                    if( !nMax ) nMax = 999;
-                    nChng = ( eNav.nQty <= 998 ) ? 1 : 0;
-                    if( oSimpleQty.isMaxQty( eNav.nQty, nMax ) ){
-                        nChng = 0;
-                    }
-                }
-                if( this.classList.contains( "qty-step__action--minus" ) ){ 
-                    nChng = ( eNav.nQty >= 2 ) ? -1 : 0;
-                }
-                eNav.nQty = eNav.nQty + nChng;
-                eNav.aNavSub[1].value = eNav.nQty;
-            }else{
-                if( !bDebounce ){
-                    bDebounce = true; // Stream Keystrokes
-                    setTimeout( function(){ oSimpleQty.debounce( eNav ) }, 360);
-                }
-            }
-            if( nChng ) fCall( eNav.sSKU_id, eNav.nQty);
-        },
-        "debounce": function( eNav ){ // Delay action if events are too fast
-            var nChng, sChng;
-            sChng = eNav.aNavSub[1].value.trim();
-            if( oSimpleQty.isValid(sChng) ){
-                var nMax = eNav.dataset.maxQty;
-                if( !nMax ) nMax = 999;
-                if( oSimpleQty.isMaxQty( sChng, nMax ) ){
-                    nChng = 0;
-                    eNav.aNavSub[1].value = eNav.nQty; // revert
-                }else{
-                    eNav.nQty = nChng = Number( sChng );
-                }
-            }else{
-                eNav.aNavSub[1].value = eNav.nQty; // revert
-            }
-            if( nChng ) fCall( eNav.sSKU_id, eNav.nQty ); // Exe Callback
-            bDebounce = false;
-        },
-        "isValid": function( sChng ){
-            if( sChng !== "" && !isNaN( sChng ) && !(sChng < 1) ){
-                return true;
-            }
-        },
-        "isMaxQty": function( sChng, sMax ){
-            if( Number( sChng ) >= Number( sMax ) ){
-                if( typeof ltdc_snackbar !== "undefined" ){
-                    ltdc_snackbar.q("Sorry, cannot order more than " + sMax + "|Call Customer Service.");
-                }
-                return true;
-            }else{
-                return false;
-            }
-        }
-    }
-})( document );
-var oSimpleExpand = (function( doc ){ // Simple expand / collapse
-    var aSum, aDet; // Summary and Details paired elements 1:1
-    return {
-        "rebind": function(){
-            aSum = [].slice.call( doc.querySelectorAll("[data-expand-summary]") );
-            aDet = [].slice.call( doc.querySelectorAll("[data-expand-details]") );
-            aSum.forEach( function( aE ){
-                var aDecl = aE.dataset.expandSummary.split("|");
-                if(  aDecl.length > 0 ){
-                    aE.aDecl = aDecl;
-                    aE.eDet = aDet.filter( function( eDet ){ // match
-                        if( eDet.dataset.expandDetails == aDecl[0] ){ return true; }
-                    })[0];
-                    aE.removeEventListener( "click", oSimpleExpand.click );
-                    aE.addEventListener( "click", oSimpleExpand.click );                    
-                }
-            });
-        },
-        "click": function( eV ){ // hide or show
-            var eDet = this.eDet;
-            var aDecl = this.aDecl;
-            if( eDet.classList.contains("hide") ){
-                eDet.classList.remove("hide");
-                if( aDecl[1] ) this.classList.add( aDecl[1] );
-                if( aDecl[2] ) { // swap temp
-                    aDecl[3] = this.innerHTML;
-                    this.innerHTML = aDecl[2];
-                }
-            }else{
-                eDet.classList.add("hide");
-                if( aDecl[1] ) this.classList.remove( aDecl[1] );
-                if( aDecl[3] ) this.innerHTML = aDecl[3]; // undo
-            }
-        }
-    }
-})( document );
-// mock oTopmenu.isMobile() and oTopmenu.getTopmenuLoc()
-//var oTopmenu = {"isMobile": function(){ return ( document.body.clientWidth <= 1064 ) ? true : false; },"getTopmenuLoc": function(){ return "60px"; }};
 
 var oEvoCart_config = {  //  Configuration Object
     aSections: [
@@ -1254,59 +1116,6 @@ var oEvoCart = (function( doc, oConf ){
             } );
         },
         bind: function( sSect, elSection ){  //  Init the newly loaded section
-            switch( sSect ){
-                case "items":
-                    oSimpleQty.rebind( function( sSKU_id, nQty ){
-console.log( "--- Submit Asynce Form --- sku= " + sSKU_id.split("|")[0] + " qty= " + nQty + " items" );
-                    });
-                break;
-                case "recom":
-                    if( typeof Flickity != "undefined" ){
-                        //var nCells = oTopmenu.isMobile() ? 2 : 4; // Lay out Flick different if mobile
-                        var oFlick = new Flickity('.carsl', {
-                            "freeScroll": true,
-                            "groupCells": 4,
-                            "autoPlay": false,
-                            "initialIndex": 2,
-                            "cellAlign": "left",
-                            "wrapAround": true,
-                            "pageDots": false});
-                    }
-                    setTimeout( function(){
-                        oFlick.reloadCells();
-                        oFlick.resize();
-                    }, 400 );
-                break;
-                case "totals":
-                    if( typeof oTopmenu != "undefined" ){
-                        elSection.style.top = oTopmenu.getTopmenuLoc();
-                    }
-                    doc.getElementsByClassName("js-more-info-shipping")[0]
-                    .addEventListener("click", function( e ){
-                        if( typeof ltdc_snackbar != "undefined" ){
-                            ltdc_snackbar.q("More Shipping|information");
-                        };
-                    });
-                    doc.getElementsByClassName("js-more-info-tax")[0]
-                    .addEventListener("click", function( e ){
-                        if( typeof ltdc_snackbar != "undefined" ){
-                            ltdc_snackbar.q("More Tax|information");
-                        };
-                    });
-                    // Progress Bar Update Begin
-                    var eProgB = doc.getElementsByClassName("ProgressBar__value")[0];
-                    if( eProgB && eProgB.dataset.perCent ){
-                        eProgB.style.width = eProgB.dataset.perCent + "%";
-                    }
-                    // Progress Bar Update End
-                break;
-            }
-            oSimpleExpand.rebind();
-//QQQQif( typeof oMDPage !== "undefined" ) oMDPage.bind();
-//  Below is just prototype code do not deploy
-document.getElementById("js-edit-pers").addEventListener("click", function( ev ){
-    ltdc_reveal.autoOpen("modal-editPers");
-});
         },
         fAsyncGet: function( iSect, fCB ){ // Given an index and a callback
             var oX = new XMLHttpRequest();
@@ -1320,9 +1129,9 @@ document.getElementById("js-edit-pers").addEventListener("click", function( ev )
 )(document, oEvoCart_config);
 
 oEvoCart.updateSection( "items" );
-//QQQQoEvoCart.updateSection( "recom" );
-//QQQQoEvoCart.updateSection( "wishes" );
-//QQQQoEvoCart.updateSection( "totals" );
+QQQQoEvoCart.updateSection( "recom" );
+QQQQoEvoCart.updateSection( "wishes" );
+QQQQoEvoCart.updateSection( "totals" );
 
 </script>
   </body>
