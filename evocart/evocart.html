@@ -1336,7 +1336,7 @@ console.log( "--- Submit Asynce Form --- sku= " + sSKU_id.split("|")[0] + " qty=
                 break;
             }
             oSimpleExpand.rebind();
-if( typeof oMDPage !== "undefined" ) oMDPage.bind();
+if( typeof oMDPage !== "undefined" ) oMDPage.bind( doc.body.dataset.brand );
 //  Below is just prototype code do not deploy
 document.getElementById("js-edit-pers").addEventListener("click", function( ev ){
     ltdc_reveal.autoOpen("modal-editPers");
