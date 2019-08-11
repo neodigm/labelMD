@@ -340,8 +340,8 @@ var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
                         eNav.aNavSub[ nSub ].removeEventListener( "click", oSimpleQty.changeQty );
                         eNav.aNavSub[ nSub ].addEventListener( "click", oSimpleQty.changeQty );
                     });
-                    eNav.aNavSub[ 1 ].removeEventListener( "keyup", oSimpleQty.changeQty );
-                    eNav.aNavSub[ 1 ].addEventListener( "keyup", oSimpleQty.changeQty );
+                    eNav.aNavSub[ 1 ].removeEventListener( "blur", oSimpleQty.changeQty );
+                    eNav.aNavSub[ 1 ].addEventListener( "blur", oSimpleQty.changeQty );
                 } );
             }
         },
@@ -364,7 +364,8 @@ var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
             }else{
                 if( !bDebounce ){
                     bDebounce = true; // Stream Keystrokes
-                    setTimeout( function(){ oSimpleQty.debounce( eNav ) }, 360);
+                    //setTimeout( function(){ oSimpleQty.debounce( eNav ) }, 360);
+                    oSimpleQty.debounce( eNav );
                 }
             }
             if( nChng ) fCall( eNav.sSKU_id, eNav.nQty);
