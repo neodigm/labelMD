@@ -211,6 +211,9 @@ var vltdc_quickerview = new Vue( {
       this.dedupeTN();
       if( this.aSwatches.length > 0 ) this.dedupeSW();  //  Hide duplication Swatches
       this.update3();
+console.log("----------------------------");
+console.log( this.selectedPickr1SKU );
+console.log("---------------------------- end of watch");
     },
     nQty : function(){
         this.nQty = String( this.nQty ).replace(/[^0-9]/g,"");  //  Filter out alphas
@@ -218,6 +221,9 @@ var vltdc_quickerview = new Vue( {
   },
   methods: {
     doAction: function( sProd, sFinalURL, sBookId, bShowSoldOut, DefaultSKU ){
+  console.log("----------------------------");
+  console.log( sProd, sFinalURL, sBookId, bShowSoldOut, DefaultSKU );
+  console.log("----------------------------");
       this.toggleView( false );
       vltdc_quickerview = this;
       this.refresh();
@@ -236,6 +242,10 @@ var vltdc_quickerview = new Vue( {
           vltdc_quickerview.jResponse = jData; 
           var utag_data = "{"+response.data[ Object.keys(response.data)[0] ]["utag_data"]+"}";
           utag_data = JSON.parse(utag_data);
+console.log("----------------------------");
+console.log( jData );
+console.log("----------------------------");
+
           if(sFinalURL.indexOf("rrec") > -1){
             utag_data.page_type="recs_quick-view";
           }
@@ -815,6 +825,7 @@ var vltdc_quickerview = new Vue( {
   }
   },
   created: function( e ){
+    console.log("--------created---------");
     document.body.addEventListener("click", function( e ){  //  Outside Click close
       var cQv = vltdc_quickerview, eTarget = e.target, bInside = false;
       while( eTarget.tagName !== "HTML" ){  //  Disregard clicks from within
@@ -831,6 +842,7 @@ var vltdc_quickerview = new Vue( {
     }, true);
   },
   updated: function( e ){
+  console.log("--------updated---------");
       this.nUpdates++;
       if( this.nUpdates == 3 ){
         this.nUpdates = 0;

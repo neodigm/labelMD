@@ -226,42 +226,93 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
 
 
 <ltdc-reveal class="l-reveal reveal__init">
+    <section id="modal-editPers" class="editPers_reveal_percent" data-reveal> 
+        <figure class="h-height__full"></figure>
+        <ltdc-editPers id="js-editPers__id" class="l-editPers"><!--  Component Begin  -->
+            <h4>Change Personalization Instructions</h4>
+            <p><span>Please Note:</span> Monogrammed and personalized items cannot be returned except when due to defect. Once placed, your order for these items cannot be returned. This item cannot be shipped to APO/FPO addresses. An asterisk (*) indicates a required field.</p>
+            <p><span>Your personalized text will appear exactly as you enter it</span>, so please verify spelling, upper/lower-case letters and punctuation. If selecting a monogram, initials should be entered in the order you want them to appear left to right. (Please note that the use of parenthesis cannot be used in embroidered personalization text.)</p>
 
-		<section id="modal-editPers" class="editPers_reveal_percent" data-reveal> 
-			<figure class="h-height__full"></figure>
-			<ltdc-editPers id="js-editPers__id" class="l-editPers"><!--  Component Begin  -->
-				<h4>Change Personalization Instructions</h4>
-				<p><span>Please Note:</span> Monogrammed and personalized items cannot be returned except when due to defect. Once placed, your order for these items cannot be returned. This item cannot be shipped to APO/FPO addresses. An asterisk (*) indicates a required field.</p>
-                <p><span>Your personalized text will appear exactly as you enter it</span>, so please verify spelling, upper/lower-case letters and punctuation. If selecting a monogram, initials should be entered in the order you want them to appear left to right. (Please note that the use of parenthesis cannot be used in embroidered personalization text.)</p>
-				<aside class="input-align">	
-					<input class="input-pers" type="text" placeholder="* Name 1" value="" data-md-page="true">
-				</aside>
-				<aside class="input-align">
-					<input class="input-pers" type="text" placeholder="* Name 2" value="" data-md-page="true">
-					<section class="pers-error__feedback">
-						<p class="pers-error__feedback--red">Please enter required field.</p>
-					</section>
-                </aside>
-                <select>
-                    <option>Animal</option>
-                    <option>Cat</option>
-                    <option>Dog</option>
-                    <option>Elk</option>
-                    <option>Cow</option>
-                    <option>Pig</option>
-                    <option>Owl</option>
-                    <option>Ant</option>
-                </select>
-				<aside class="input-align">	
-					<input class="input-pers" type="text" placeholder="YYYY" value="" data-md-page="true">
-				</aside>
-				<p><INPUT type="checkbox"> I HAVE REVIEWED the personalization instructions and CONFIRM my personalization details are correct. I understand I cannot return this item unless it is defective.</p>
-				<nav class="nav-grd">
-					<a class="js-save brand__button--primary">Save</a> <a class="js-cancel brand__button--secondary">Cancel</a>
-				</nav>
-			</ltdc-editPers><!--  Component End  -->
-		</section>
-	</ltdc-reveal>
+            <aside class="input-align">
+                <input class="input-pers" type="text" placeholder="* Name 1" value=""
+                data-md-page="true"
+                data-valid-pattern="*">
+                <section class="pers-error__feedback hide">
+                    <p class="pers-error__feedback--red">Error</p>
+                </section>
+            </aside>
+
+            <aside class="input-align">
+                <input class="input-pers" type="text" placeholder="Name 2" value=""
+                data-md-page="true"
+                data-valid-pattern="">
+                <section class="pers-error__feedback hide">
+                    <p class="pers-error__feedback--red">Error</p>
+                </section>
+            </aside>
+            <select>
+                <option>Animal</option>
+                <option>Cat</option>
+                <option>Dog</option>
+                <option>Elk</option>
+                <option>Cow</option>
+                <option>Pig</option>
+                <option>Owl</option>
+                <option>Ant</option>
+            </select>
+            
+            <aside class="input-align">
+                <input class="input-pers" type="text" placeholder="* YYYY" value=""
+                data-md-page="true"
+                data-valid-pattern="*YYYY">
+                <section class="pers-error__feedback hide">
+                    <p class="pers-error__feedback--red">Error</p>
+                </section>
+            </aside>
+
+            <aside class="input-align">
+                <input class="input-pers" type="text" placeholder="* MM.DD.YYYY" value=""
+                data-md-page="true"
+                data-valid-pattern="*MM.DD.YYYY">
+                <section class="pers-error__feedback hide">
+                    <p class="pers-error__feedback--red">Error</p>
+                </section>
+            </aside>
+
+            <aside class="input-align">
+                <input class="input-pers" type="text" placeholder="* MM.DD.YY" value=""
+                data-md-page="true"
+                data-valid-pattern="*MM.DD.YY">
+                <section class="pers-error__feedback hide">
+                    <p class="pers-error__feedback--red">Error</p>
+                </section>
+            </aside>
+
+            <aside class="input-align">
+                <input class="input-pers" type="text" placeholder="* YY" value=""
+                data-md-page="true"
+                data-valid-pattern="*YY">
+                <section class="pers-error__feedback hide">
+                    <p class="pers-error__feedback--red">Error</p>
+                </section>
+            </aside>
+
+            <aside class="input-align">
+                <input class="input-pers" type="text" placeholder="* YYYY-YYYY" value=""
+                data-md-page="true"
+                data-valid-pattern="*YYYY-YYYY">
+                <section class="pers-error__feedback hide">
+                    <p class="pers-error__feedback--red">Error</p>
+                </section>
+            </aside>
+
+            <p><INPUT type="checkbox"> I HAVE REVIEWED the personalization instructions and CONFIRM my personalization details are correct. I understand I cannot return this item unless it is defective.</p>
+            <nav class="nav-grd">
+                <a class="js-pers-save brand__button--primary">Save</a> <a class="js-pers-cancel brand__button--secondary">Cancel</a>
+            </nav>
+        </ltdc-editPers><!--  Component End  -->
+    </section>
+</ltdc-reveal>
 
 
 
@@ -302,6 +353,7 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
 <script src="./evocart_files/snackbar.min.js.download"></script>
 <script src="material_design_page.js"></script>
 <script src="signin_popup.js" async=""></script>
+<script src="personalization_popup.js" async=""></script>
 
 
 <script>
