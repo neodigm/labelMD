@@ -71,27 +71,35 @@ var oPersPopup = (function( doc, sSaveQry ){  //  Validate pers edit
                 break;
                 case "MM.DD.YYYY":
                     var nLen = sVal.length, sDelm = sVal[2];
-                    if( nLen !== 10 ) return false;
                     if( sDelm ){
                         var sValNum = sVal.split( sDelm ).join("");
                         return ( sValNum.length === 8 && ( !isNaN( sValNum ) ));
-                    }
+                    }else{ return ( nLen === 0 ); }
                 break;
                 case "MM.DD.YY":
                     var nLen = sVal.length, sDelm = sVal[2];
-                    if( nLen !== 8 ) return false;
                     if( sDelm ){
                         var sValNum = sVal.split( sDelm ).join("");
                         return ( sValNum.length === 6 && ( !isNaN( sValNum ) ));
-                    }
+                    }else{ return ( nLen === 0 ); }
                 break;
                 case "YYYY-YYYY":
                     var nLen = sVal.length, sDelm = sVal[4];
-                    if( nLen !== 9 ) return false;
                     if( sDelm ){
                         var sValNum = sVal.split( sDelm ).join("");
                         return ( sValNum.length === 8 && ( !isNaN( sValNum ) ));
-                    }
+                    }else{ return ( nLen === 0 ); }
+                break;
+                case "MONTH DD, YYYY":
+                    var nLen = sVal.length, sDelm = " ";
+                    if( sVal.indexOf( sDelm ) != -1 ){
+                        var aVal = sVal.split( sDelm );
+                        var bMonth = ( (aVal[0].length > 2) && isNaN( aVal[0] ) );
+                        var bCom = ( aVal[1].indexOf(",") !== -1 );
+                        var bDay = ( (!isNaN( aVal[1].replace(",","") )) && (aVal[1].length === 3) );
+                        var bYear = ( (aVal[2].length === 4 ) && !isNaN( aVal[2] ) );
+                        return ( bMonth && bDay && bCom && bYear );
+                    }else{ return ( nLen === 0 ); }
                 break;
             }
             return true;  //  Not a Date

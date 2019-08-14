@@ -306,6 +306,15 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
                 </section>
             </aside>
 
+            <aside class="input-align">
+                <input class="input-pers" type="text" placeholder="* Month DD, YYYY" value=""
+                data-md-page="true"
+                data-valid-pattern="*Month DD, YYYY">
+                <section class="pers-error__feedback hide">
+                    <p class="pers-error__feedback--red">Error</p>
+                </section>
+            </aside>
+
             <p><INPUT type="checkbox"> I HAVE REVIEWED the personalization instructions and CONFIRM my personalization details are correct. I understand I cannot return this item unless it is defective.</p>
             <nav class="nav-grd">
                 <a class="js-pers-save brand__button--primary">Save</a> <a class="js-pers-cancel brand__button--secondary">Cancel</a>
@@ -448,7 +457,11 @@ var oSimpleQty = (function( doc ){ // Simple Minus, Plus and Keystoke capture
         "isMaxQty": function( sChng, sMax ){
             if( Number( sChng ) >= Number( sMax ) ){
                 if( typeof ltdc_snackbar !== "undefined" ){
-                    ltdc_snackbar.q("Sorry, cannot order more than " + sMax + "|Call Customer Service.");
+                    var sPhone = "833-267-2203";
+                    if( document.body.dataset.brand === "LS" ){
+                        sPhone = "833-267-2204";
+                    }
+                    ltdc_snackbar.q("The online order limit for this item is " + sMax + ".|To place a larger order, please call us at " + sPhone);
                 }
                 return true;
             }else{
