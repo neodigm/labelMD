@@ -2,6 +2,13 @@
 
 Vue.config.devtools = true;
 
+if( typeof vltdc_quickerview !== "undefined"){
+  vltdc_quickerview.$destroy(); 
+  vltdc_quickerview = null;
+  //setTimeout(function(){document.getElementById("js-quickerview--id").innerHTML = "";},8000);
+}else{
+
+
 var vltdc_quickerview = new Vue( {
   el: "#js-quickerview--id",
   data: {
@@ -849,8 +856,15 @@ console.log("----------------------------");
         this.toggleView( true );
         if( fSecCards_QV && !fSecCards_QV.isInit() ){ fSecCards_QV.bind( "ltdc-quickerview .seccard__surface", false ); }
       }
+  },
+  destroyed: function(){
+    document.getElementById("js-quickerview--id").innerHTML = "";
+    console.log("-----------------------destroyed");
   }
 } );
+
+
+}
 
 var fSecCards_QV = (function(){  //  function for Section Card bound events
   var _eCards, _bInit = false;
