@@ -274,14 +274,18 @@ white-space: nowrap;
     width: calc(100% - 118px);
     margin: 0; padding: 4px 0;
 }
-
-.order-sum__caption {
+.promo__caption {
+    border-bottom: solid 1px #BFBFBF;
+}
+.order-sum__caption,
+.promo__caption {
     line-height: .9;
     margin: 0; padding: 0;
     text-align: center;
 }
-.order-sum__caption > p {
-    font-size: 14px;
+.order-sum__caption > p,
+.promo__caption > p {
+    font-size: 19px;
     margin: 8px; padding: 4px;
 }
 .order-sum__cont {
@@ -373,8 +377,9 @@ white-space: nowrap;
         }
         .l-evoCartLeft__items .prd_card__pic > img,
         .l-evoCartLeft__wishes .prd_card__pic > img{ height: auto; width: 125px; }
-        .order-sum__caption > p {
-            font-size: 18px;
+        .order-sum__caption > p,
+        .promo__caption > p {
+            font-size: 20px;
         }
         .order-sum__tab p {
             font-size: 20px;
@@ -446,8 +451,9 @@ white-space: nowrap;
         .l-evoCartLeft__items .prd_card__pic > img,
         .l-evoCartLeft__wishes .prd_card__pic > img{ height: auto; width: 125px; }
 
-        .order-sum__caption > p {
-            font-size: 18px;
+        .order-sum__caption > p,
+        .promo__caption > p {
+            font-size: 20px;
         }
         .order-sum__tab p {
             font-size: 20px;
@@ -521,7 +527,8 @@ white-space: nowrap;
         .l-evoCartLeft__items .prd_card__pic > img,
         .l-evoCartLeft__wishes .prd_card__pic > img{ height: auto; width: 200px; }
 
-        .order-sum__caption > p {
+        .order-sum__caption > p,
+        .promo__caption > p {
             font-size: 23px;
         }
         .order-sum__tab p {
