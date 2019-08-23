@@ -256,7 +256,7 @@ white-space: nowrap;
 }
 .totals-promo__feedback > p {
     color: #fff;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
     height: 36px;
     width: calc(100% - 118px);

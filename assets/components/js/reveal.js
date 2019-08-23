@@ -1,6 +1,6 @@
 "use strict";
 var ltdc_reveal = {
-  aRevAct: 0, aRevX: 0, sRevId: "", eRev: 0, eRevScrim: 0, isOpen: false,
+  aRevAct: 0, aRevX: 0, sRevId: "", eRev: 0, eRevScrim: 0, isOpen: false, _fOnClose=null,
   "init" : function() {
     ltdc_reveal.fRevX();
     ltdc_reveal.aRevAct = document.querySelectorAll( "[data-reveal-id]" );
@@ -40,6 +40,7 @@ var ltdc_reveal = {
     ltdc_reveal.eRev.setAttribute( "aria-hidden", "true" );
     ltdc_reveal.isOpen = false;
     if( e ){ e.preventDefault(); }
+    if( _fOnClose ) _fOnClose();
   },
   "autoOpen" : function( _sId ){
     ltdc_reveal.sRevId = _sId;
@@ -55,6 +56,9 @@ var ltdc_reveal = {
       ltdc_reveal.isOpen = true;
       return true;
     }
+  },
+  "setOnClose" : function( _f ){
+    if( _f ) _fOnClose = _f;
   }
 };
 ltdc_reveal.init();
