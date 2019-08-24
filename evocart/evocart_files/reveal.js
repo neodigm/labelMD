@@ -58,7 +58,11 @@ var ltdc_reveal = {
     }
   },
   "setOnClose" : function( _f ){
-    if( _f ) ltdc_reveal._fOnClose = _f;
+    if( _f ){
+      ltdc_reveal._fOnClose = _f;
+    }else{
+      ltdc_reveal._fOnClose = null;
+    }
   }
 };
 ltdc_reveal.init();
