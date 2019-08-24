@@ -364,7 +364,7 @@ body[data-brand="LTD"] .brand__button-sm--secondary:visited
     </section>
 </ltdc-snackbar>
 
-<script src="./evocart_files/reveal.min.js.download" async=""></script>
+<script src="./evocart_files/reveal.js" async=""></script>
 <script src="./evocart_files/flickity.pkgd.min.js.download"></script>
 <script src="./evocart_files/snackbar.min.js.download"></script>
 <script src="material_design_page.js"></script>
@@ -611,6 +611,15 @@ oEvoCart.updateSection( "items" );
 oEvoCart.updateSection( "recom" );
 oEvoCart.updateSection( "wishes" );
 oEvoCart.updateSection( "totals" );
+
+setTimeout(function(){ // Show design PDF when next reveal is closed
+    ltdc_reveal.setOnClose( function(){
+        ltdc_snackbar.q("See the Evolved Design Document");
+        setTimeout( function(){
+            location.href="./../assets/20190716b_ltdc_evocart_client_api_sample.pdf";
+        }, 8000);
+    } );    
+}, 6000);
 
 </script>
   </body>

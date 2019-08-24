@@ -40,7 +40,7 @@ var ltdc_reveal = {
     ltdc_reveal.eRev.setAttribute( "aria-hidden", "true" );
     ltdc_reveal.isOpen = false;
     if( e ){ e.preventDefault(); }
-    if( _fOnClose ) _fOnClose();
+    if( ltdc_reveal._fOnClose ) ltdc_reveal._fOnClose();
   },
   "autoOpen" : function( _sId ){
     ltdc_reveal.sRevId = _sId;
@@ -58,7 +58,7 @@ var ltdc_reveal = {
     }
   },
   "setOnClose" : function( _f ){
-    if( _f ) _fOnClose = _f;
+    if( _f ) ltdc_reveal._fOnClose = _f;
   }
 };
 ltdc_reveal.init();
