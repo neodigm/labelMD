@@ -57,10 +57,10 @@ _uri = "https://neodigm.github.io/labelMD/checkout/" + _uri;
     oXhr.open("GET", _uri, true);
     oXhr.onreadystatechange = function(){
         if( this.readyState!==4 || this.status!==200 ) return;
-        var _template = _d.createElement( "SECTION" );
-        _template.id = sId;
-        _template.innerHTML = this.responseText;
-        _d.getElementsByTagName( "body" )[0].appendChild( _template );
+        var _div = _d.createElement( "div" );
+        _div.id = sId;
+        _div.innerHTML = this.responseText;
+        _d.getElementsByTagName( "body" )[0].appendChild( _div );
         if( _cb ) _cb();
     };
     oXhr.send();
