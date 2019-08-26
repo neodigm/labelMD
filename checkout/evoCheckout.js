@@ -57,7 +57,7 @@ _uri = "https://neodigm.github.io/labelMD/checkout/" + _uri;
     oXhr.open("GET", _uri, true);
     oXhr.onreadystatechange = function(){
         if( this.readyState!==4 || this.status!==200 ) return;
-        var _template = _d.createElement( "template" );
+        var _template = _d.createElement( "SECTION" );
         _template.id = sId;
         _template.innerHTML = this.responseText;
         _d.getElementsByTagName( "body" )[0].appendChild( _template );
@@ -75,12 +75,12 @@ _uri = "https://neodigm.github.io/labelMD/checkout/" + _uri;
 }
 
 fAsyncSnip( document, "evoCheckout_template.html", "js-template", function(){
-    console.log("---- snippet loaded html----");
+    console.log("---- snippet loaded html ----");
     [].slice.call( document.querySelectorAll("#js-template SECTION") ).filter(function( _sec ){
         console.log( _sec.dataset );
     });
 });
 
 fAsyncJS( document, "evoCheckout_override.css", function(){
-    console.log("---- snippet loaded css----");
+    console.log("---- snippet loaded cs s----");
 });
