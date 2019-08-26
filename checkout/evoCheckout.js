@@ -49,19 +49,38 @@ function changeClass( oXCheck, sBrn ){  //  Add or Remove Class by Element and B
 }
 
 changeClass( oXCheck_grids, document.body.dataset.brand );
-changeClass( oXCheck_logo, document.body.dataset.brand  );
+changeClass( oXCheck_logo,  document.body.dataset.brand );
 
-function fAsyncSnip( _d, _url, _sId, _cb){
-    var oXhr = new XMLHttpRequest(), _eTarg = _d.getElementById( _sId );
-    oXhr.open("GET", _url, true);
+function fAsyncSnip( _d, _uri, sId, _cb){  //  Get snippet and put in template on body
+    var oXhr = new XMLHttpRequest();
+_uri = "https://neodigm.github.io/labelMD/checkout/" + _uri;
+    oXhr.open("GET", _uri, true);
     oXhr.onreadystatechange = function(){
         if( this.readyState!==4 || this.status!==200 ) return;
-        _eTarg.innerHTML = this.responseText;
+        var _template = _d.createElement( "template" );
+        _template.id = sId;
+        _template.innerHTML = this.responseText;
+        _d.getElementsByTagName( "body" )[0].appendChild( _template );
         if( _cb ) _cb();
     };
     oXhr.send();
 }
+function fAsyncJS( _d, _uri, _cb ){  //  Load CSS Async then callback
+    var _link = _d.createElement( "link" );
+_uri = "https://neodigm.github.io/labelMD/checkout/" + _uri;
+    _link.rel = "stylesheet";
+    if( _cb ) _link.onload = function(){ _cb(); };
+    _link.href = _uri;
+    _d.getElementsByTagName( "head" )[0].appendChild( _link );
+}
 
-fAsyncSnip( document, "evoCheckout_template.html", "orderSummaryContainerId", function(){
-    console.log("-------------duck----");
-})
+fAsyncSnip( document, "evoCheckout_template.html", "js-template", function(){
+    console.log("---- snippet loaded html----");
+    [].slice.call( document.querySelectorAll("#js-template SECTION") ).filter(function( _sec ){
+        console.log( _sec.dataset );
+    });
+});
+
+fAsyncJS( document, "evoCheckout_override.css", function(){
+    console.log("---- snippet loaded css----");
+});
