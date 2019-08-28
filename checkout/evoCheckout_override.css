@@ -6,8 +6,8 @@
 .toplogo__home--image-ltd { width: 276px !important;}
 
 /*  branded buttons begin  */
-.brand__button--primary,
-.brand__button--secondary {
+.check-button--primary,
+.check-button--secondary {
 cursor: pointer;
 display: inline;
 border: solid 2px;
@@ -20,18 +20,13 @@ margin: 4px;
 text-decoration: none;
 width: 98%;
 }
-.brand__button-sm--primary,
-.brand__button-sm--secondary {
-cursor: pointer;
-display: block;
-border-radius: 3px;
-font-family: sans-serif;
-font-size: .95em;
-text-align: center;
-padding: 6px;
-margin: 3px 0;
-text-decoration: none;
-min-width: 100%;
+.check-button--primary {
+    color: #fff;
+    background-color: #000;
+}
+.check-button--secondary {
+    color: #000;
+    background-color: #fff;
 }
 /*  branded buttons end  */
 
@@ -81,6 +76,8 @@ left: 140px;
 }
 
 .l-talk p {
+    margin: 10px 2px;
+    color: #000;
     font-size: 14px;
 }
 /* Talk End */
