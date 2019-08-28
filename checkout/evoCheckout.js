@@ -48,9 +48,6 @@ function changeClass( oXCheck, sBrn ){  //  Add or Remove Class by Element and B
     return nC;
 }
 
-changeClass( oXCheck_grids, document.body.dataset.brand );
-changeClass( oXCheck_logo,  document.body.dataset.brand );
-
 function fAsyncSnip( _d, _uri, sId, _cb){  //  Get snippet and put in template on body
     var oXhr = new XMLHttpRequest();
 _uri = "https://neodigm.github.io/labelMD/checkout/" + _uri;
@@ -86,6 +83,11 @@ console.log( _sect.dataset );
     });
 });
 
-fAsyncJS( document, "evoCheckout_override.css", function(){
-    console.log("---- snippet loaded cs s----");
-});
+if( window.location.href.indexOf("purchase.jsp") !== -1 ){
+    fAsyncJS( document, "evoCheckout_override.css", function(){
+        changeClass( oXCheck_grids, document.body.dataset.brand );
+        changeClass( oXCheck_logo,  document.body.dataset.brand );
+        console.log("---- snippet loaded css---- " + window.location.href );
+    });    
+}
+
