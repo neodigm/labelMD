@@ -5,6 +5,27 @@
 .toplogo__home--image-lsc { width: 276px !important;}
 .toplogo__home--image-ltd { width: 276px !important;}
 
+/* Talk Begin */
+.l-talk {
+    position: relative;
+    background: #00aabb;
+    border-radius: .4em;
+}
+.l-talk:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 18px solid transparent;
+    border-top-color: #00aabb;
+    border-bottom: 0;
+    margin-left: -18px;
+    margin-bottom: -18px;
+}
+/* Talk End */
+
 @media only screen
     and (min-width: 375px)
     and (max-width: 667px){  /* small *//* mobile 44.875em */
