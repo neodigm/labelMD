@@ -5,6 +5,36 @@
 .toplogo__home--image-lsc { width: 276px !important;}
 .toplogo__home--image-ltd { width: 276px !important;}
 
+/*  branded buttons begin  */
+.brand__button--primary,
+.brand__button--secondary {
+cursor: pointer;
+display: inline;
+border: solid 2px;
+border-radius: 3px;
+font-family: sans-serif;
+font-size: 1.1em;
+text-align: center;
+padding: 10px;
+margin: 4px;
+text-decoration: none;
+width: 98%;
+}
+.brand__button-sm--primary,
+.brand__button-sm--secondary {
+cursor: pointer;
+display: block;
+border-radius: 3px;
+font-family: sans-serif;
+font-size: .95em;
+text-align: center;
+padding: 6px;
+margin: 3px 0;
+text-decoration: none;
+min-width: 100%;
+}
+/*  branded buttons end  */
+
 /* Talk Begin */
 .l-talk 
 {
