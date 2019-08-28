@@ -6,28 +6,52 @@
 .toplogo__home--image-ltd { width: 276px !important;}
 
 /* Talk Begin */
-.l-talk {
-    position: relative;
-    border: solid 1px #ddd;
-    background: #fff;
-    border-radius: .4em;
-    margin: 0 auto;
-    width: 364px;
-    z-index: 96;
-    box-shadow: #ddd;
+.l-talk 
+{
+/*box-shadow: 0px 0px 2px 2px rgba(119,119,119,1);*/
+position: relative;
+width: 366px;
+height: 114px;
+padding: 4px;
+background: #FFFFFF;
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+border: #888888 solid 1px;
+margin: 0 auto;
+z-index: 178;
 }
-.l-talk:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border: 18px solid transparent;
-    border-top-color: #fff;
-    border-bottom: 0;
-    margin-left: -18px;
-    margin-bottom: -18px;
+
+.l-talk:after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 0 24px 14px;
+border-color: #FFFFFF transparent;
+display: block;
+width: 0;
+z-index: 1;
+top: -14px;
+left: 140px;
+}
+
+.l-talk:before 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 0 24px 14px;
+border-color: #888888 transparent;
+display: block;
+width: 0;
+z-index: 0;
+top: -15px;
+left: 140px;
+}
+
+.l-talk p {
+    font-size: 14px;
 }
 /* Talk End */
 
