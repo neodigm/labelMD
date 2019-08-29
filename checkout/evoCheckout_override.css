@@ -20,11 +20,13 @@ margin: 4px;
 text-decoration: none;
 width: 98%;
 }
-.check-button--primary {
+.check-button--primary,
+.check-button--primary:hover {
     color: #fff;
     background-color: #000;
 }
-.check-button--secondary {
+.check-button--secondary,
+.check-button--secondary:hover {
     color: #000;
     background-color: #fff;
 }
