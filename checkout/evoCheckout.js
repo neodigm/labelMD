@@ -31,19 +31,31 @@ var oXCheck_logo = [{
     "remove":["l-grid"],
 }];
 
+//  step panel
+var oXCheck_panel = [{
+    "query": ".cmd_stp",
+    "add":[""],
+    "remove":["panel","radius"],
+}];
+
+
+
 function changeClass( oXCheck, sBrn ){  //  Add or Remove Class by Element and Brand
     var nC = 0;
     oXCheck.forEach( function( aE ){
         aE.aQuery = aE.query.split("|");  //  Optional Brand Criterion
-        var eL = document.querySelectorAll( aE.aQuery[0] )[0];
-        var sB = ( aE.aQuery[1] ) ? aE.aQuery[1].toUpperCase() : sBrn;
-        if( sB === sBrn ){
-            if( eL ){
-                aE.add.forEach( function( sCn ){ if( sCn ) eL.classList.add( sCn )} );
-                aE.remove.forEach( function( sCn ){ if( sCn ) eL.classList.remove( sCn )} );
-                nC++;
-            }else{ console.log("!--- element not found ---! " + aE.query ); }
-        }
+
+        [].slice.call( document.querySelectorAll( aE.aQuery[0] ) ).filter(function( eL ){
+            var sB = ( aE.aQuery[1] ) ? aE.aQuery[1].toUpperCase() : sBrn;
+            if( sB === sBrn ){
+                if( eL ){
+                    aE.add.forEach( function( sCn ){ if( sCn ) eL.classList.add( sCn )} );
+                    aE.remove.forEach( function( sCn ){ if( sCn ) eL.classList.remove( sCn )} );
+                    nC++;
+                }else{ console.log("!--- element not found ---! " + aE.query ); }
+            }
+        });
+
     });
     return nC;
 }
@@ -62,6 +74,7 @@ _uri = "https://neodigm.github.io/labelMD/checkout/" + _uri;
     };
     oXhr.send();
 }
+
 function fAsyncJS( _d, _uri, _cb ){  //  Load CSS Async then callback
     var _link = _d.createElement( "link" );
 _uri = "https://neodigm.github.io/labelMD/checkout/" + _uri;
@@ -78,7 +91,8 @@ console.log( _sect.dataset );
         var eTarget = document.querySelectorAll( _sect.dataset.targetQuery )[0];
         if( eTarget ){
             var _newSect = document.createElement( "section" );
-            eTarget.appendChild( _sect );
+            //eTarget.appendChild( _sect );
+            eTarget.insertAdjacentElement("afterEnd", _sect);
         }
     });
 });
@@ -87,6 +101,7 @@ if( window.location.href.indexOf("purchase.jsp") !== -1 ){
     fAsyncJS( document, "evoCheckout_override.css", function(){
         changeClass( oXCheck_grids, document.body.dataset.brand );
         changeClass( oXCheck_logo,  document.body.dataset.brand );
+        changeClass( oXCheck_panel,  document.body.dataset.brand );
         console.log("---- snippet loaded css---- " + window.location.href );
     });    
 }
