@@ -88,9 +88,11 @@ fAsyncSnip( document, "evoCheckout_template.html", "js-template", function(){
     console.log("---- snippet loaded html ----");
     [].slice.call( document.querySelectorAll("#js-template SECTION") ).filter(function( _sect ){
         var eTarget = document.querySelectorAll( _sect.dataset.targetQuery )[0];
+        var sPos = _sect.dataset.targetPosition;
         if( eTarget ){
             //var _newSect = document.createElement( "section" );
-            eTarget.insertAdjacentElement("afterEnd", _sect);
+        var sPos = _sect.dataset.targetPosition;
+        eTarget.insertAdjacentElement( sPos, _sect.firstElementChild );
         }
     });
 });
