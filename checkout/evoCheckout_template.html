@@ -10,7 +10,7 @@
 
     </section>
     <section data-target-query="#main-content div.small-10.medium-10.large-4.resp_col_pad_l.columns" data-target-position="afterBegin">
-        <nav class="l-task-progress h-flex">
+        <nav class="l-task-progress h-flex" data-four-buttons="true">
             <aside class="h-flex__auto">
                 <p>
                     <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -2 24 24" height="24" width="24">
@@ -23,87 +23,11 @@ CHECKOUT
                     <a class="task__link--d">Shipping<span>1</span></a>
                     <a class="task__link--e">Payment <span>2</span></a>
                     <a class="task__link--a">Review  <span>3</span></a>
-                    <a class="task__link--d">Expedite<span>4</span></a>
+                    <a class="task__link--d task__link--four">Expedite<span>4</span></a>
                 </aside>
                 <div class="task__line"></div>
             </section>
         </nav>
     </section>
-<style>
-.h-flex {display: flex; }
-.h-flex__auto {flex: auto; }
 
-/* Task Progress Begin */
-.l-task-progress {
-    font-family: Roboto, sans-serif;
-    text-align: center;
-    user-select: none;
-}
-
-.task__link a,
-.task__link a:link,
-.task__link a:visited,
-.task__link a:hover, .task__link a:focus,
-.task__link a:active,
-.task__link a {
-    color: #888888;
-    cursor: pointer;
-    display: block;
-    font-size: 13px;
-    overflow: hidden;
-    width: 58px;
-    text-decoration: none;
-}
-.task__link span {
-    display: block;
-    border: solid 2px #30619A;
-    border-radius: 100%;
-    font-size: 17px;
-    padding: 2px;
-    margin: 4px auto;
-    height: 34px;
-    width: 34px;
-    line-height: 1.6;
-}
-.task__link a.task__link--d {
-    color: #888888;
-    cursor:not-allowed;
-}
-.task__link a.task__link--d span {
-    color: #888888;
-    background-color: #fff;    
-}
-.task__link a.task__link--e {
-    color: #4A90E2;
-    cursor: pointer;;
-}
-.task__link a.task__link--e span {
-    color: #888888;
-    background-color: #fff;
-}
-.task__link a.task__link--a {
-    color: #4A90E2;
-    cursor:pointer;
-}
-.task__link a.task__link--a span {
-    color: #fff;
-    background-color: #30619A;
-}
-.task__line {
-    position: relative;
-    border-bottom: solid 4px #30619A;
-    top: -30px;
-    z-index: -2;
-}
-
-.l-task-progress p {
-    font-size: 1.4em !important;
-    font-weight: 300;
-}
-.l-task-progress aside svg {
-    fill: #9CCC65;
-}
-/* Task Progress End */
-
-</style>
 </output>

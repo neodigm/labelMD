@@ -155,10 +155,25 @@ left: 140px;
     color: #fff;
     background-color: #30619A;
 }
+
+[data-four-buttons='true']  a.task__link--four {
+    display: inline;
+}
+[data-four-buttons='false'] a.task__link--four {
+    display: none;
+}
+[data-four-buttons='true'] .task__link a {
+    width: 58px;
+}
+[data-four-buttons='false'] .task__link a {
+    width: 78px;
+
+}
+
 .task__line {
     position: relative;
-    border-bottom: solid 4px #30619A;
-    top: -30px;
+    border-bottom: solid 3px #30619A;
+    top: -23px;
     z-index: -2;
 }
 
