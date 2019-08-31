@@ -18,11 +18,14 @@
 CHECKOUT
                 </p>
             </aside>
-            <section class="task__link h-flex">
-                <a class="task__link--d">Shipping<span>1</span></a>
-                <a class="task__link--d">Payment <span>2</span></a>
-                <a class="task__link--d">Review  <span>3</span></a>
-                <a class="task__link--d">Expedite<span>4</span></a>
+            <section>
+                <aside class="task__link h-flex">
+                    <a class="task__link--d">Shipping<span>1</span></a>
+                    <a class="task__link--e">Payment <span>2</span></a>
+                    <a class="task__link--a">Review  <span>3</span></a>
+                    <a class="task__link--d">Expedite<span>4</span></a>
+                </aside>
+                <div class="task__line"></div>
             </section>
         </nav>
     </section>
@@ -62,6 +65,37 @@ CHECKOUT
     width: 34px;
     line-height: 1.6;
 }
+.task__link a.task__link--d {
+    color: #888888;
+    cursor:not-allowed;
+}
+.task__link a.task__link--d span {
+    color: #888888;
+    background-color: #fff;    
+}
+.task__link a.task__link--e {
+    color: #4A90E2;
+    cursor: pointer;;
+}
+.task__link a.task__link--e span {
+    color: #888888;
+    background-color: #fff;
+}
+.task__link a.task__link--a {
+    color: #4A90E2;
+    cursor:pointer;
+}
+.task__link a.task__link--a span {
+    color: #fff;
+    background-color: #30619A;
+}
+.task__line {
+    position: relative;
+    border-bottom: solid 4px #30619A;
+    top: -30px;
+    z-index: -2;
+}
+
 .l-task-progress p {
     font-size: 1.4em !important;
     font-weight: 300;

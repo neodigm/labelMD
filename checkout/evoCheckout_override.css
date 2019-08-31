@@ -131,6 +131,37 @@ left: 140px;
     width: 34px;
     line-height: 1.6;
 }
+.task__link a.task__link--d {
+    color: #888888;
+    cursor:not-allowed;
+}
+.task__link a.task__link--d span {
+    color: #888888;
+    background-color: #fff;    
+}
+.task__link a.task__link--e {
+    color: #4A90E2;
+    cursor: pointer;;
+}
+.task__link a.task__link--e span {
+    color: #888888;
+    background-color: #fff;
+}
+.task__link a.task__link--a {
+    color: #4A90E2;
+    cursor:pointer;
+}
+.task__link a.task__link--a span {
+    color: #fff;
+    background-color: #30619A;
+}
+.task__line {
+    position: relative;
+    border-bottom: solid 4px #30619A;
+    top: -30px;
+    z-index: -2;
+}
+
 .l-task-progress p {
     font-size: 1.4em !important;
     font-weight: 300;
