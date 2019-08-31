@@ -103,7 +103,11 @@ left: 140px;
     font-family: Roboto, sans-serif;
 }
 .l-task-progress p {
-    font-size: 28px;
+    font-size: 1.4em !important;
+    font-weight: 300;
+}
+.l-task-progress aside svg {
+    fill: #9CCC65;
 }
 /* Task Progress End */
 
