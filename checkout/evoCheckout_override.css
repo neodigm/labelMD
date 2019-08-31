@@ -12,7 +12,7 @@ cursor: pointer;
 display: block;
 border: solid 2px #000;
 border-radius: 3px;
-font-family: sans-serif;
+font-family: Roboto, sans-serif;
 font-size: 1.1em;
 text-align: center;
 padding: 10px;
@@ -57,8 +57,6 @@ width: 366px;
 height: 114px;
 padding: 8px;
 background: #FFFFFF;
--webkit-border-radius: 8px;
--moz-border-radius: 8px;
 border-radius: 8px;
 border: #888888 solid 1px;
 margin: 0 auto;
@@ -93,17 +91,21 @@ top: -15px;
 left: 140px;
 }
 
-.check-button--primary,
-.check-button--secondary {
-    QQQQmin-width: 138px;
-}
-
 .l-talk p {
     margin: 10px 2px; padding: 10px 2px 0 2px;
     color: #000;
     font-size: 14px !important;
 }
 /* Talk End */
+
+/* Task Progress Begin */
+.l-task-progress {
+    font-family: Roboto, sans-serif;
+}
+.l-task-progress p {
+    font-size: 28px;
+}
+/* Task Progress End */
 
 @media only screen
     and (min-width: 375px)
