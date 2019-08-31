@@ -1,7 +1,7 @@
 
 .h-txt__align--center{text-align: center}
 .h-mobile__only--block{display:block} .h-tablet__only--block{display:none!important;} .h-desktop__only--block{display:none!important} 
-
+.h-flex {display: flex};
 .toplogo__home--image-lsc { width: 276px !important;}
 .toplogo__home--image-ltd { width: 276px !important;}
 
@@ -9,7 +9,7 @@
 .check-button--primary,
 .check-button--secondary {
 cursor: pointer;
-display: inline;
+display: block;
 border: solid 2px #000;
 border-radius: 3px;
 font-family: sans-serif;
@@ -95,7 +95,7 @@ left: 140px;
 
 .check-button--primary,
 .check-button--secondary {
-    min-width: 138px;
+    QQQQmin-width: 138px;
 }
 
 .l-talk p {
