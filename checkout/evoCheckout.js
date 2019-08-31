@@ -91,7 +91,8 @@ fAsyncSnip( document, "evoCheckout_template.html", "js-template", function(){
         var sPos = _sect.dataset.targetPosition;
         if( eTarget ){
             //var _newSect = document.createElement( "section" );
-        var sPos = _sect.dataset.targetPosition;
+        var sPos = _sect.dataset.targetPosition;  //  beforebegin, afterbegin, beforeed, afterend
+        s
         eTarget.insertAdjacentElement( sPos, _sect.firstElementChild );
         }
     });
