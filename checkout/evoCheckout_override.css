@@ -102,6 +102,32 @@ left: 140px;
 /* Task Progress Begin */
 .l-task-progress {
     font-family: Roboto, sans-serif;
+    text-align: center;
+    user-select: none;
+}
+
+.task__link a,
+.task__link a:link,
+.task__link a:visited,
+.task__link a:hover, .task__link a:focus,
+.task__link a:active,
+.task__link a {
+    color: #888888;
+    cursor: pointer;
+    display: block;
+    font-size: 13px;
+    overflow: hidden;
+    width: 58px;
+    text-decoration: none;
+}
+.task__link span {
+    display: block;
+    border: solid 2px #30619A;
+    border-radius: 100%;
+    font-size: 18px;
+    padding: 2px; margin: 4px auto;
+    height: 28px; width: 28px;
+    line-height: 1.6;
 }
 .l-task-progress p {
     font-size: 1.4em !important;
