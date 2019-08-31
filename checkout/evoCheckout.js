@@ -88,8 +88,6 @@ fAsyncSnip( document, "evoCheckout_template.html", "js-template", function(){
     console.log("---- snippet loaded html ----");
     [].slice.call( document.querySelectorAll("#js-template SECTION") ).filter(function( _sect ){
         var eTarget = document.querySelector( _sect.dataset.targetQuery );
-console.log( eTarget );
-console.log( typeof eTarget );
         var sPos = _sect.dataset.targetPosition;
         if( eTarget ){
         var sPos = _sect.dataset.targetPosition;  //  beforebegin, afterbegin, beforeend, afterend
@@ -107,4 +105,3 @@ if( window.location.href.indexOf("purchase.jsp") !== -1 ){
         console.log("---- snippet loaded css---- " + window.location.href );
     });    
 }
-
