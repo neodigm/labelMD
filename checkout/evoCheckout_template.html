@@ -19,10 +19,10 @@ CHECKOUT
                 </p>
             </aside>
             <section class="task-links h-flex">
-                <a>Shipping<span>1</span></a>
-                <a>Payment <span>2</span></a>
-                <a>Review  <span>3</span></a>
-                <a>Expedite<span>4</span></a>
+                <a class="task__link--d">Shipping<span>1</span></a>
+                <a class="task__link--d">Payment <span>2</span></a>
+                <a class="task__link--d">Review  <span>3</span></a>
+                <a class="task__link--d">Expedite<span>4</span></a>
             </section>
         </nav>
     </section>
@@ -34,9 +34,17 @@ CHECKOUT
 .l-task-progress {
     font-family: Roboto, sans-serif;
 }
+
+.task-links a,
+.task-links a:link,
+.task-links a:visited,
+.task-links a:hover, .task-links a:focus,
+.task-links a:active,
 .task-links a {
+    color: #888888;
     display: block;
     font-size: 16px;
+    text-decoration: none;
 }
 .task-links span {
     display: block;
