@@ -87,12 +87,13 @@ _uri = "https://neodigm.github.io/labelMD/checkout/" + _uri;
 fAsyncSnip( document, "evoCheckout_template.html", "js-template", function(){
     console.log("---- snippet loaded html ----");
     [].slice.call( document.querySelectorAll("#js-template SECTION") ).filter(function( _sect ){
-        var eTarget = document.querySelectorAll( _sect.dataset.targetQuery )[0];
+        var eTarget = document.querySelector( _sect.dataset.targetQuery );
+console.log( eTarget );
+console.log( typeof eTarget );
         var sPos = _sect.dataset.targetPosition;
         if( eTarget ){
-            //var _newSect = document.createElement( "section" );
-        var sPos = _sect.dataset.targetPosition;  //  beforebegin, afterbegin, beforeed, afterend
-        s
+        var sPos = _sect.dataset.targetPosition;  //  beforebegin, afterbegin, beforeend, afterend
+        
         eTarget.insertAdjacentElement( sPos, _sect.firstElementChild );
         }
     });
