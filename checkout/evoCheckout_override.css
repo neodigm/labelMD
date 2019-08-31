@@ -93,6 +93,11 @@ top: -15px;
 left: 140px;
 }
 
+.check-button--primary,
+.check-button--secondary {
+    min-width: 138px;
+}
+
 .l-talk p {
     margin: 10px 2px; padding: 10px 2px;
     color: #000;
