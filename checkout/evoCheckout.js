@@ -10,6 +10,11 @@ var oXCheck_grids = [{
     "query": "#orderSummaryContainerId",
     "add":["large-5"],
     "remove":["large-6"],
+},
+{
+    "query": "header.row",
+    "add":["hide"],
+    "remove":["row"],
 }];
 
 //  Content areas
