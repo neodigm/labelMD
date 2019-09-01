@@ -1,0 +1,23 @@
+/*  CSS category State    */ /*  color display font visibility ...  */
+.l-topfab .l-topfab__a {
+border-color: #fff;
+border-radius: 3px;
+bottom: 30px;
+cursor: pointer;
+display: inline;
+left: 16px;
+margin: 0;
+padding: 6px;
+position: fixed;
+width: 26px;
+z-index: 6;
+}
+@media only screen and (max-width: 48em) {  /* small */
+	.l-topfab .l-topfab__a {
+		left: 22px;
+	}
+}
+
+/*  CSS category Theme    */ /*  color background hover ...  */
+body[data-brand="LS"] .l-topfab .l-topfab__a { background-color: #d0021b; }
+body[data-brand="LTD"] .l-topfab .l-topfab__a { background-color: #30619a; }

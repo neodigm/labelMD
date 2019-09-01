@@ -1,0 +1,56 @@
+<style type="text/css">
+.l-footsocial {
+    align-items: flex-start;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+        margin: 0 auto;
+        max-width: 1920px;
+        min-height: 122px; 
+}
+.l-footsocial .footsocial__nav--left { margin: auto 20px; }
+.l-footsocial .footsocial__nav--right { margin: auto 20px; }
+.l-footsocial .footsocial__link { cursor: pointer;text-decoration: none; }
+.l-footsocial .footsocial__image { }
+.l-footsocial .footsocial__div--sprite {
+    margin: 2px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background: url(/images/the-social-icons.jpg) no-repeat;
+}
+.l-footsocial .footsocial__image--fb { background-position: -2px 0; }
+.l-footsocial .footsocial__image--tw { background-position: -42px 0; }
+.l-footsocial .footsocial__image--gp { background-position: -82px 0; }
+.l-footsocial .footsocial__image--pn { background-position: -122px 0; }
+.l-footsocial .footsocial__image--ig { background-position: -162px 0; }
+
+.l-footsocial .footsocial__image--norton { margin: 6px 2px 12px 2px; }
+.l-footsocial .footsocial__image--seal   { margin: 6px 2px 24px 2px; }
+.l-footsocial .footsocial__image--trust  { margin: 6px 2px  6px 2px; }
+.l-footsocial .footsocial__image--torch  { margin: 6px 2px  6px 2px; }
+.l-footsocial .footsocial__image--paypal { margin: 6px 2px 16px 2px; }
+
+@media only screen and (max-width: 65em) {  /* small */
+    .l-footsocial {
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+        -webkit-justify-content: center;
+        justify-content: center;
+    }
+    .l-footsocial .footsocial__image { width: 18%;margin: 0; }
+    .l-footsocial .footsocial__nav--left { text-align: center;margin: 0 auto; }
+    .l-footsocial .footsocial__nav--right { text-align: center;margin: auto 0; }
+    .l-footsocial .footsocial__image--trust { margin-bottom: 12px; }
+    .l-footsocial .footsocial__image--torch { margin-bottom: 24px; }
+}
+</style>

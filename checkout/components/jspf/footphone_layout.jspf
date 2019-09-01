@@ -1,0 +1,69 @@
+<style type="text/css">
+.l-footphone {
+display: block;
+margin: 0 auto;
+height: 78px;
+}
+.l-footphone .footphone__grid {
+    align-items: flex-start;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: center;
+    justify-content: center;
+    padding: 4px;
+}
+.l-footphone p, .l-footphone a, .l-footphone a:visited {
+    font-size: 17px;
+    margin: 0;
+    text-decoration: none;
+}
+
+body[data-brand="LS"] .l-footphone .footphone__grid--left aside { border-radius: 3px; border: solid 1px #ffffff; }
+body[data-brand="LTD"] .l-footphone .footphone__grid--left aside { border-radius: 3px; border: solid 1px #d4ed91; }
+
+.l-footphone .footphone__grid--left aside,.l-footphone .footphone__grid--right {
+    padding: 2px 4px;
+    margin: 10px;
+}
+.l-footphone .footphone__text--phone {
+    display: inline;
+}
+.l-footphone .footphone__text--dial {
+    display: none;
+}
+body[data-brand="LS"] .l-footphone   { background-color: #343a40; }
+body[data-brand="LTD"] .l-footphone   { background-color: #30619a; }
+body[data-brand="LS"] .l-footphone p, .l-footphone a { color: #b8b8b8; }
+body[data-brand="LTD"] .l-footphone p, .l-footphone a { color: #cae3ff; }
+
+@media only screen and (max-width: 65em) {  /* small */
+    .l-footphone .footphone__grid {
+            align-items: center;
+            -ms-flex-flow: column wrap;
+                flex-flow: column wrap;
+    }
+    .l-footphone .footphone__grid--left aside,.l-footphone .footphone__grid--right {
+        padding: 2px 4px;
+        margin: 5px;   
+    }
+    .l-footphone .footphone__grid--right p {
+        text-align: center;
+        line-height: .86;
+        font-size: 14px;
+    }
+    .l-footphone .footphone__text--phone {
+        display: none;
+    }
+    .l-footphone .footphone__text--dial {
+        display: inline;
+    }
+}
+</style>

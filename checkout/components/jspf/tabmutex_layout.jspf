@@ -1,0 +1,36 @@
+<style type="text/css">.l-tabmutex .tabmutex-tablist {
+align-items: stretch;
+display: flex;
+flex-flow: row nowrap; /* Shorthand for flex-direction and flex-wrap */
+justify-content: flex-start;
+margin: 0 14px;
+padding: 0 0 0 14px;
+width: 96%
+}
+.l-tabmutex .tabmutex-tab {
+background-color: #fff;
+border-top-right-radius: 6px;
+border-top-left-radius: 6px;
+cursor: pointer;
+display: block;
+list-style: none;
+margin: 2px 4px 0 4px;
+padding: 4px 10px;
+user-select: none;
+}
+.l-tabmutex .tabmutex-tab__selected {
+margin-bottom: -1px;
+}
+.l-tabmutex .tabmutex-tab__link {
+font-size: 15px;
+font-weight: 400;
+outline: none;
+text-decoration: none;
+}
+.l-tabmutex .tabmutex-tab__selected .tabmutex-tab__link {
+font-weight: 600;
+}
+.tabmutex-tabpanel {
+margin: 0 0 0 14px;
+width: 100%;
+}</style>

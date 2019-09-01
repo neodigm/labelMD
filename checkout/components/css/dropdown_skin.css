@@ -1,0 +1,17 @@
+/*  CSS category Theme    */ /*  color background hover ...  */
+	body[data-brand="LS"] .l-dropdown .l-grid:hover { background-color: #8195a2; }
+	body[data-brand="LTD"] .l-dropdown .l-grid:hover { background-color: #2aa6ca; }
+
+	body[data-brand="LS"] .l-dropdown .l-grid--disabled:hover { background-color: #fff; }
+	body[data-brand="LTD"] .l-dropdown .l-grid--disabled:hover { background-color: #fff; }
+
+	body[data-brand="LS"] .l-dropdown .drop-surface__init--opened { border: solid 1px #677b88; }
+	body[data-brand="LTD"] .l-dropdown .drop-surface__init--opened { border: solid 1px #2aa6ca; }
+	body[data-brand="LS"] .l-dropdown .drop-surface__select--opened { border: solid 1px #677b88; }
+	body[data-brand="LTD"] .l-dropdown .drop-surface__select--opened { border: solid 1px #2aa6ca; }
+
+	body[data-brand="LS"] .l-dropdown .drop-container--opened { border: solid 1px #677b88; border-top: none;}
+	body[data-brand="LTD"] .l-dropdown .drop-container--opened { border: solid 1px #2aa6ca; border-top: none;}
+
+	body[data-brand="LS"] .l-dropdown .drop-surface__svg { fill: #7e2d3e; }
+	body[data-brand="LTD"] .l-dropdown .drop-surface__svg { fill: #297fb8; }

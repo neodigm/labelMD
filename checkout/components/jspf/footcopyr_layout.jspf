@@ -1,0 +1,65 @@
+<style type="text/css">
+		.l-footcopyr {
+			display: block;
+			height: 112px;
+		}
+		.l-footcopyr .footcopyr__grid {
+			align-items: flex-start;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: horizontal;
+			-webkit-box-direction: normal;
+				-ms-flex-flow: row nowrap;
+					flex-flow: row nowrap;
+			-webkit-box-pack: justify;
+			-moz-box-pack: justify;
+			-ms-flex-pack: justify;
+			-webkit-justify-content: space-between;
+			justify-content: space-between;
+				margin: 0 auto;
+			height: 112px;
+		}
+		.l-footcopyr .footcopyr__grid--left {
+		padding: 2px 20px;
+		}
+		.l-footcopyr .footcopyr__grid--right {
+		padding: 2px 20px;
+		}
+		.l-footcopyr .footcopyr__text {
+		color: #fff;
+		font-size: 14px;
+		text-decoration: none;
+		}
+		.l-footcopyr .footcopyr__text--link {
+		cursor: pointer;
+		text-decoration: none;
+		color: #fff !important;
+		}
+		.l-footcopyr .footcopyr__text--link:visited {
+		color: #fff;
+		}
+		
+		body[data-brand="LS"]  .l-footcopyr .footcopyr__grid { background: #000; }
+		body[data-brand="LTD"] .l-footcopyr .footcopyr__grid { background: #4a90e2; }
+		 
+		@media only screen and (max-width: 48em) {  /* small */
+			.l-footcopyr .footcopyr__grid {
+				align-items: center;
+				flex-flow: column wrap;
+				justify-content: end;
+				height: 112px;
+			}
+			.l-footcopyr .footcopyr__grid--left {
+			text-align: center;
+			padding: 4px;
+			}
+			.l-footcopyr .footcopyr__grid--right {
+			text-align: center;
+			padding: 4px;
+			}
+			.l-footcopyr .footcopyr__text {
+			font-size: 13px;
+			margin: 1px;
+		}
+</style>

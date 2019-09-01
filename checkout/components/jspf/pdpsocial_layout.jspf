@@ -1,0 +1,34 @@
+<style type="text/css">
+.l-pdpsocial {
+    position: relative;
+}
+.l-pdpsocial nav {
+    text-align: center;
+}
+.l-pdpsocial .pdpsocial__link { cursor: pointer;text-decoration: none; }
+
+.l-pdpsocial .pdpsocial__div--sprite {
+    margin: 2px;
+    width: 22px;
+    height: 26px;
+    display: inline-block;
+    background: url(/images/ltdc_pdp_social.png) no-repeat;
+    background-size: 142px 26px;
+}
+    
+.l-pdpsocial .pdpsocial__image--fb   { background-position:   -2px 0; }
+.l-pdpsocial .pdpsocial__image--tw   { background-position:  -25px 0; }
+.l-pdpsocial .pdpsocial__image--gp   { background-position:  -49px 0; }
+.l-pdpsocial .pdpsocial__image--pn   { background-position:  -71px 0; }
+.l-pdpsocial .pdpsocial__image--ig   { background-position: -103px 0; }
+.l-pdpsocial .pdpsocial__image--staf { background-position: -117px 0; }
+
+#smi--fig__ggp {left:  66px;}
+#smi--fig__fbk {left: -32px;}
+.smi-fig__off {position: absolute; z-index: 32;top: 64px;width: 116px;}
+.smi-fig__off>svg {position: absolute;z-index: -12;}
+.smi--svg__source {display: none;}
+.smi--svg {height: 26px; width: 26px; cursor: pointer;}
+.smi--fig {margin: 0px 8px 0px 8px;}
+.smi--fig:focus {outline: none;}
+</style>

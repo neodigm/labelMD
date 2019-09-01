@@ -1,0 +1,9 @@
+	/*  CSS category State    */ /*  color display font visibility ...  */
+  body[data-brand="LS"] .l-tabmutex .tabmutex-tab { border-top: 1px solid #7e2d3e; border-right: 1px solid #7e2d3e; border-left: 1px solid #7e2d3e;}
+  body[data-brand="LTD"] .l-tabmutex .tabmutex-tab { border-top: 1px solid #297fb8; border-right: 1px solid #297fb8; border-left: 1px solid #297fb8; }
+
+  body[data-brand="LS"] .l-tabmutex .tabmutex-tablist { border-bottom: 1px solid #7e2d3e; }
+  body[data-brand="LTD"] .l-tabmutex .tabmutex-tablist { border-bottom: 1px solid #297fb8; }
+
+  body[data-brand="LS"] .l-tabmutex .tabmutex-tab__link { color: #7e2d3e; }
+  body[data-brand="LTD"] .l-tabmutex .tabmutex-tab__link { color: #297fb8; }

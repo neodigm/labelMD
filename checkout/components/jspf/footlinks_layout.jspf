@@ -1,0 +1,47 @@
+<style type="text/css">
+.l-footlinks {
+align-items: center;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-orient: horizontal;
+-webkit-box-direction: normal;
+-ms-flex-flow: row wrap;
+flex-flow: column wrap;
+-webkit-box-pack: justify;
+-moz-box-pack: justify;
+-ms-flex-pack: justify;
+-webkit-justify-content: center;
+justify-content: center;
+margin: 0 auto;
+min-height: 140px;
+align-content: center;
+
+}
+.l-footlinks .footlinks__nav--left { margin: 12px 8px; }
+.l-footlinks .footlinks__nav--right { margin: 12px 8px; }
+.l-footlinks .footlinks__link { cursor: pointer;text-decoration: none; margin: 0 12px;}
+
+body[data-brand="LS"] .l-footlinks { background-color: #343a40; border-bottom: 2px dashed #b8b8b8; }
+body[data-brand="LTD"] .l-footlinks { background-color: #30619a; border-bottom: 2px dashed #cae3ff;}
+body[data-brand="LS"] .l-footlinks .footlinks__link { color: #b8b8b8; }
+body[data-brand="LTD"] .l-footlinks .footlinks__link { color: #cae3ff;  }
+body[data-brand="LS"] .l-footlinks .footlinks__link:hover { color: #fff; }
+body[data-brand="LTD"] .l-footlinks .footlinks__link:hover { color: #fff; }
+
+
+@media only screen and (max-width: 65em) {  /* small */
+    .l-footlinks {
+        align-items: flex-start;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -webkit-justify-content: center;
+        justify-content: center;
+    }
+    .l-footlinks .footlinks__link {
+        display: inherit;
+        font-size: 15px;
+        padding: 8px 0;
+    }
+}
+</style>
