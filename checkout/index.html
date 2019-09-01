@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Evo Checkout</title>
+
+    <link rel="stylesheet" href="material_design_skin.css">
+    <link rel="stylesheet" href="./evocart_files/reveal_skin.min.css">
+    <link rel="stylesheet" href="./evocart_files/snackbar_skin.min.css">
+    
+    <!-- ____ Component: Brand layout CSS > JSPF Begin -->
+    <style type="text/css">
+    [v-cloak],[v-cloak] .v-cloak--hide{display:none}
+    [v-cloak]::before{content:" ";display:block;position:relative;z-index:254;background:#677b88 url(/images/pdp-loader.gif) no-repeat center;background-position:calc(50% - 10px) calc(20% - 10px);opacity:.4;top:1px;width:100vw;height:100vh}
+    .reveal__init{display:none}
+    body{font-family:Roboto,sans-serif;padding:0;margin:0}
+    body[data-brand=LS] .brand--lsc__show,body[data-brand=LTD] .brand--ltd__show{display:inline}
+    body[data-brand=LS] .brand--lsc__showb,body[data-brand=LTD] .brand--ltd__showb{display:block}
+    .hidden,.hide,body[data-brand=LS] .brand--ltd__show,body[data-brand=LS] .brand--ltd__showb,body[data-brand=LTD] .brand--lsc__show,body[data-brand=LTD] .brand--lsc__showb{display:none!important}
+    .h-height__dbl{height:32px;margin:0} .h-height__full{height:16px;margin:0} .h-height__half{height:8px;margin:0} .h-height__quarter{height:4px;margin:0} .h-height__eighth{height:2px;margin:0}
+    .svg-icon{display:-webkit-inline-flex;display:inline-flex;align-self:center;position:relative;height:1em;width:1em}
+    .svg-icon svg{height:1.4em;width:1.4em}
+    .svg-icon.svg-baseline svg{position:absolute}
+    ::selection{background:#cae3ff;text-shadow:none}
+    .h-desktop__only--block{display:block}
+    .h-mobile__only--block{display:none}
+    .h-txt__align--center{text-align: center}
+    @media only screen and (min-width:48.1em) and (max-width:61em){
+        .h-desktop__only--block{display:none!important} .h-mobile__only--block{display:block}
+    }
+    @media only screen and (max-width:48em){
+        .h-desktop__only--block{display:none!important} .h-mobile__only--block{display:block} #egain-chat-wrapper.egain-launch-chat{bottom:80px!important}
+    }
+    @media print{.no__print,.no__print *{display:none!important;height:0}}
+    @media screen{.no__screen,.no__screen *{display:none!important;height:0}}
+    </style>
+    <!-- ____ Component: Brand layout CSS > JSPF End -->
+
+    <!-- ____ Component: evoCart layout CSS > JSPF Begin -->
+    <link rel="stylesheet" href="evocart_layout.css" >
+    <!-- ____ Component: evoCart layout CSS > JSPF End -->
+
+  </head>
+
+  <body id="onePageCheckout"  data-brand="LS">
+
+<ltdc-evoCart class="l-evoCart" role="main">
+    <section class="evoCart__content-grd">
+        <div class="evoCart__column-grd">
+            <article class="evoCartLeft">
+                <section class="js-evoCartLeft__signin l-evoCartLeft__signin">
+                    <p><a class="js-signin__link">Sign In</a> to see items that you may have added using another computer or device.</p>
+                    <div class="signin__column-grd">
+                        <h6><span class="js-items-count">3</span> Items in your Cart</h6>
+                        <a class="js-view__summary signin__view">View Summary</a>                       
+                    </div>
+                </section>
+                <section class="js-evoCartLeft__items l-evoCartLeft__items"></section>
+                <section class="js-evoCartLeft__recom l-evoCartLeft__recom"></section>
+                <section class="js-evoCartLeft__wishes l-evoCartLeft__wishes"></section>
+            </article>
+            <article class="evoCartRight">
+                <section class="js-evoCartRight__totals l-evoCartRight__totals"></section>
+            </article>
+        </div>
+        <aside class="evoCart__content">
+            <!--  Content Areas Begin  -->
+                <div style="
+                background-color: #ccc;
+                border: solid 1px #aaa;
+                margin: 8px;
+                text-align: center;
+                width: 99%;
+                "><h6>Content Area: evocart_footer_1</h6></div>
+                <div style="
+                background-color: #ccc;
+                border: solid 1px #aaa;
+                margin: 8px;
+                text-align: center;
+                width: 99%;
+                "><h6>Content Area: evocart_footer_2</h6></div>
+            <!--  Content Areas End -->
+        </aside>
+    </section>
+</ltdc-evoCart>
+
+
+
+
+
+
+
+
+
+
+
+<ltdc-reveal class="l-reveal"><!--  Component Begin  -->
+    <aside id="id-reveal__scrim" class="close-reveal-modal"></aside>
+</ltdc-reveal><!--  Component End  -->	
+
+<ltdc-snackbar class="l-snackbar">
+    <section id="js-snackbar__id" class="snackbar__cont snackbar__cont--hide" aria-live="polite" aria-atomic="true">
+        <p class="snackbar__msg"></p>
+    </section>
+</ltdc-snackbar>
+
+<script src="./evocart_files/reveal.js" async=""></script>
+<script src="./evocart_files/flickity.pkgd.min.js.download"></script>
+<script src="./evocart_files/snackbar.min.js.download"></script>
+<script src="material_design_page.js"></script>
+<script src="signin_popup.js" async=""></script>
+<script src="personalization_popup.js" async=""></script>
+
+
+<script>
+"use strict";
+
+var oSimpleExpand = (function( doc ){ // Simple expand / collapse
+    var aSum, aDet; // Summary and Details paired elements 1:1
+    return {
+        "rebind": function(){
+            aSum = [].slice.call( doc.querySelectorAll("[data-expand-summary]") );
+            aDet = [].slice.call( doc.querySelectorAll("[data-expand-details]") );
+            aSum.forEach( function( aE ){
+                var aDecl = aE.dataset.expandSummary.split("|");
+                if(  aDecl.length > 0 ){
+                    aE.aDecl = aDecl;
+                    aE.eDet = aDet.filter( function( eDet ){ // match
+                        if( eDet.dataset.expandDetails == aDecl[0] ){ return true; }
+                    })[0];
+                    aE.removeEventListener( "click", oSimpleExpand.click );
+                    aE.addEventListener( "click", oSimpleExpand.click );                    
+                }
+            });
+        },
+        "click": function( eV ){ // hide or show
+            var eDet = this.eDet;
+            var aDecl = this.aDecl;
+            if( eDet.classList.contains("hide") ){
+                eDet.classList.remove("hide");
+                if( aDecl[1] ) this.classList.add( aDecl[1] );
+                if( aDecl[2] ) { // swap temp
+                    aDecl[3] = this.innerHTML;
+                    this.innerHTML = aDecl[2];
+                }
+            }else{
+                eDet.classList.add("hide");
+                if( aDecl[1] ) this.classList.remove( aDecl[1] );
+                if( aDecl[3] ) this.innerHTML = aDecl[3]; // undo
+            }
+        }
+    }
+})( document );
+
+</script>
+  </body>
+  
+</html>
