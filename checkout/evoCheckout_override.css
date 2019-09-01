@@ -156,11 +156,17 @@ left: 140px;
     background-color: #30619A;
 }
 
-[data-four-buttons='true']  a.task__link--four {
+[data-four-buttons='true']  a .task__link--four {
     display: inline;
 }
-[data-four-buttons='false'] a.task__link--four {
+[data-four-buttons='false'] a .task__link--four {
     display: none;
+}
+[data-four-buttons='true']  a .task__link--three {
+    display: none;
+}
+[data-four-buttons='false'] a .task__link--three {
+    display: inline;
 }
 [data-four-buttons='true'] .task__link a {
     width: 58px;
