@@ -1,0 +1,267 @@
+/*  <style>  */
+.l-ecomCheck {
+    position: inherit;
+    display: block;
+    float: none;
+    margin: 0 auto; padding: 0;
+    max-width: 1360px;
+    width: inherit;
+    z-index: initial;
+}
+.ecomCheck__content-grd .ecomCheckLeft, .ecomCheckRight {margin: 4px; padding: 4px;}
+.ecomCheck__content {}
+
+/*  Sub-Components Begin  */
+
+/*  lgo Begin  */
+    .l-ecomCheck__lgo {
+        display: flex;
+    }
+    .l-ecomCheck__lgo a svg {
+        width: 176px;
+        height: 23px;
+    }
+    /*  lgo End  */
+
+
+ .l-ecomCheckLeft__items {display:block; margin: 0; padding: 0} 
+
+.l-ecomCheckLeft__recom   {display:block; margin: 0; padding: 32px 0px 0px 0px}
+.l-ecomCheckLeft__wishes  {display:block; margin: 0; padding: 32px 0px 0px 0px}
+.l-ecomCheckRight__totals {display:block; margin: 0; padding: 0}
+
+.totals-promo {
+    margin: 0; padding: 0;
+}
+
+.totals-promo > input {
+    border: solid 1px #BFBFBF;
+    font-size: 18px;
+    font-weight: 500;
+    height: 41px;
+    width: calc(100% - 118px);
+    margin: 6px 0; padding: 0 4px;
+}
+.totals-promo > a {
+    padding: 10px 20px;
+}
+.promo__caption {
+    border-bottom: solid 1px #BFBFBF;
+}
+.order-sum__caption,
+.promo__caption {
+    line-height: .9;
+    margin: 0; padding: 0;
+    text-align: center;
+}
+.order-sum__caption > p,
+.promo__caption > p {
+    font-size: 19px;
+    margin: 8px; padding: 4px;
+}
+.order-sum__cont {
+    border: solid 1px #BFBFBF;
+}
+.order-sum__tab p {
+    fill: #555;
+    font-size: 16px;
+    margin: 12px;
+}
+.order-sum__tab span {
+    float: right;
+}
+.order-sum__link {
+    cursor: pointer;
+}
+.order-sum__zip--expand {
+    color: #30619a; fill: #30619a;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+}
+.order-sum__zip--open svg {
+    transform: rotate(180deg);
+}
+.order-sum__zip {
+    margin: 6px; padding: 0;
+}
+.order-sum__zip input {
+    border: solid 1px #BFBFBF;
+    font-size: 18px;
+    font-weight: 500;
+    height: 41px;
+    width: calc(84% - 118px);
+    margin: 6px 0; padding: 0 4px;
+}
+.order-sum__zip > a {
+    padding: 10px 22px;
+}
+.order-sum__tab .you-saved {
+    border: solid 1px #E01D1D;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    display: block;
+    margin: 2px 52px;
+    text-align: center;
+}
+.order-sum__tab .c2a-continue {
+    margin: 12px 52px;
+}
+.order-sum__tab .c2a-paypal {
+    margin: 2px 52px 12px;
+    text-align: center;
+}
+.order-sum__tab .c2a-paypal img {
+    width: 125px; height: auto;
+}
+
+
+/*  Sub-Components End  */
+
+@media only screen
+    and (min-width: 375px)
+    and (max-width: 667px){  /* small *//* mobile 44.875em */
+    
+        .ecomCheck__content-grd .ecomCheckLeft, .ecomCheckRight {margin: 4px; padding: 4px;}
+        .order-sum__zip input {
+            width: calc(72% - 118px);
+        }
+        .l-ecomCheckLeft__items .prd_card__pic > img,
+        .l-ecomCheckLeft__wishes .prd_card__pic > img{ height: auto; width: 125px; }
+        .order-sum__caption > p,
+        .promo__caption > p {
+            font-size: 20px;
+        }
+        .order-sum__tab p {
+            font-size: 20px;
+        }
+}
+@media only screen 
+    and (min-width: 668px)
+    and (max-width: 1064px){  /* medium *//* tablet 47.750em */
+    
+        .ecomCheck__content-grd .ecomCheckLeft, .ecomCheckRight {margin: 4px; padding: 16px;}
+        .order-sum__zip input {
+            width: calc(72% - 118px);
+        }
+        .ecomCheck__content-grd {
+            display: flex;
+            flex-flow: column nowrap; /* Shorthand for flex-direction and flex-wrap */
+            justify-content: flex-start;
+        }
+        .ecomCheck__column-grd {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-content: flex-end;
+            align-items: center;
+        }
+        .ecomCheckLeft {
+            order: 0;
+            flex: 0 1 50%;
+            align-self: stretch;
+        }
+        .ecomCheckRight {
+            order: 0;
+            flex: 0 1 50%;
+            align-self: stretch;        
+        }
+        .l-ecomCheckRight__totals {
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+        }
+        .l-ecomCheckLeft__items .prd_card__pic > img,
+        .l-ecomCheckLeft__wishes .prd_card__pic > img{ height: auto; width: 125px; }
+
+        .order-sum__caption > p,
+        .promo__caption > p {
+            font-size: 20px;
+        }
+        .order-sum__tab p {
+            font-size: 20px;
+        }
+}
+@media only screen 
+    and (min-width: 1065px){  /* large *//* laptop 66.563em */
+    
+        .ecomCheck__content-grd .ecomCheckLeft, .ecomCheckRight {margin: 4px; padding: 16px;}
+        .order-sum__zip input {
+            width: calc(54% - 118px);
+        }
+        .ecomCheck__content-grd {
+            display: flex;
+            flex-flow: column nowrap; /* Shorthand for flex-direction and flex-wrap */
+            justify-content: flex-start;
+border: solid 2px #edba08;
+        }
+        .ecomCheck__column-grd {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-content: flex-end;
+            align-items: center;
+        }
+        .ecomCheckLeft {
+            order: 0;
+            flex: 1;
+            align-self: stretch;
+        }
+        .ecomCheckRight {
+            order: 0;
+            flex: 1;
+            align-self: stretch;        
+        }
+        .l-ecomCheckRight__totals {
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+        }
+        .l-ecomCheckLeft__items .prd_card__pic > img,
+        .l-ecomCheckLeft__wishes .prd_card__pic > img{ height: auto; width: 200px; }
+
+        .order-sum__caption > p,
+        .promo__caption > p {
+            font-size: 23px;
+        }
+        .order-sum__tab p {
+            font-size: 20px;
+        }
+
+
+}   /* large *//* laptop 66.563em */
+
+
+        /*  branded buttons begin  */
+        .brand__button--primary,
+        .brand__button--secondary {
+        cursor: pointer;
+        display: inline;
+        border: solid 2px;
+        border-radius: 3px;
+        font-family: sans-serif;
+        font-size: 1.1em;
+        text-align: center;
+        padding: 10px;
+        margin: 4px;
+        text-decoration: none;
+        width: 98%;
+        }
+        .brand__button-sm--primary,
+        .brand__button-sm--secondary {
+        cursor: pointer;
+        display: block;
+        border-radius: 3px;
+        font-family: sans-serif;
+        font-size: .95em;
+        text-align: center;
+        padding: 6px;
+        margin: 3px 0;
+        text-decoration: none;
+        min-width: 100%;
+        }
+        /*  branded buttons end  */
+        /*  Recommendations End  */
+        /*  Review Stars  */
+/*  </style>  */
