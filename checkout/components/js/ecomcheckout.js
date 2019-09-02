@@ -36,3 +36,33 @@ var oSimpleExpand = (function( doc ){ // Simple expand / collapse
         }
     }
 })( document );
+
+var oEComCheck_lgo = (function( doc, sQry ){  //  Handle Logo Click in Checkout
+    var aLgos = [].slice.call( doc.querySelectorAll( sQry  ) );
+    var eT = doc.querySelector(".l-talk");
+    var eStay = doc.querySelector(".js-talk-stay");
+console.log( eStay );
+    return {
+        "rebind": function(){
+            if( aLgos && (aLgos.length > 0) && eT && eStay){
+                aLgos.forEach(function( eLg ){
+                    eLg.removeEventListener("click", oEComCheck_lgo.talk );
+                    eLg.addEventListener("click", oEComCheck_lgo.talk );
+                });
+                eStay.removeEventListener("click", oEComCheck_lgo.talk );
+                eStay.addEventListener("click", oEComCheck_lgo.talk );
+            }
+        },
+        "talk": function(){
+            if( eT ){
+                if( eT.classList.contains("hide") ){
+                    eT.classList.remove("hide");
+                }else{
+                    eT.classList.add("hide");
+                }
+            } 
+        }
+    }
+})( document, ".l-ecomCheck__lgo a" );
+
+oEComCheck_lgo.rebind();

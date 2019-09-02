@@ -44,6 +44,11 @@ body[data-brand=LTD] .brand--lsc__showb,
 	display: none!important
 }
 
+.h-flex {display: flex; }
+.h-flex__auto {flex: auto; }
+
+.h-txt__align--right { text-align: right; }
+
 .h-height__dbl {
 	height: 32px; margin: 0;
 }
