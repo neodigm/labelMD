@@ -36,12 +36,12 @@ var oSimpleExpand = (function( doc ){ // Simple expand / collapse
         }
     }
 })( document );
+oSimpleExpand.rebind();
 
 var oEComCheck_lgo = (function( doc, sQry ){  //  Handle Logo Click in Checkout
     var aLgos = [].slice.call( doc.querySelectorAll( sQry  ) );
     var eT = doc.querySelector(".l-talk");
     var eStay = doc.querySelector(".js-talk-stay");
-console.log( eStay );
     return {
         "rebind": function(){
             if( aLgos && (aLgos.length > 0) && eT && eStay){

@@ -10,20 +10,46 @@
 }
 .ecomCheck__content-grd .ecomCheckLeft, .ecomCheckRight {margin: 4px; padding: 4px;}
 
-.l-ecomCheckLeft__bubble_nav   {display:block; margin: 0; padding: 0} 
-.l-ecomCheckLeft__shipping_1   {display:block; margin: 0; padding: 0} 
-.l-ecomCheckLeft__payment_2    {display:block; margin: 0; padding: 0} 
-.l-ecomCheckLeft__options_ship {display:block; margin: 0; padding: 0} 
-.l-ecomCheckLeft__review_3     {display:block; margin: 0; padding: 0} 
-.l-ecomCheckRight__items       {display:block; margin: 0; padding: 0}
-.l-ecomCheckRight__promo       {display:block; margin: 0; padding: 0}
-.l-ecomCheckRight__summary     {display:block; margin: 0; padding: 0}
+.l-ecomCheckLeft__bubble_nav   ,
+.l-ecomCheckLeft__shipping_1   ,
+.l-ecomCheckLeft__payment_2    ,
+.l-ecomCheckLeft__options_ship ,
+.l-ecomCheckLeft__review_3     ,
+.l-ecomCheckRight__items       ,
+.l-ecomCheckRight__promo       ,
+.l-ecomCheckRight__summary     {display:block; background-color: #fff;margin: 4px; padding: 4px;}
+
+/*  RB Items Begin  */
+.l-ecomCheckRight__items .items-inline__caption {
+    text-align: center;
+    user-select: none;
+
+}
+.l-ecomCheckRight__items .items-inline__caption p {
+    color: #000;
+    font-size: 22px !important;
+    margin: -2px 0; padding: 0;
+}
+.l-ecomCheckRight__items .items-inline__line {
+    background-color: #000;
+    height: 2px;
+    margin: 10px 0; padding: 1px;
+}
+.l-ecomCheckRight__items a {
+    display: block;
+    color: #4A90E2;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 10px 0; padding: 1px;
+    text-decoration: underline !important;
+}
+/*  RB Items End  */
 
 /*  Sub-Components Begin  */
 /*  lgo Begin  */
     .l-ecomCheck__lgo {
         display: flex;
-        border-bottom: solid 1px #999;
+        border-bottom: solid 1px #888;
         margin: 0 4px; padding: 0 1px;
         user-select: none;
     }
@@ -104,6 +130,7 @@ left: 140px;
 /* Task Progress Begin */
 .l-task-progress {
     font-family: Roboto, sans-serif;
+    padding-top: 5px;
     text-align: center;
     user-select: none;
 }
@@ -128,7 +155,7 @@ left: 140px;
     border-radius: 100%;
     font-size: 17px;
     padding: 2px;
-    margin: 4px auto;
+    margin: 6px auto;
     height: 34px;
     width: 34px;
     line-height: 1.6;
@@ -179,7 +206,6 @@ left: 140px;
 }
 [data-four-buttons='false'] .task__link a {
     width: 78px;
-
 }
 
 .task__line {
@@ -302,12 +328,49 @@ width: 98%;
             position: sticky;
             top: 0;
         }
+        /*  lgo Begin  */
+        .l-ecomCheck__lgo {
+            display: block;
+        }
+        .l-ecomCheck__lgo a svg {
+            width: 310px;
+            height: 40px;
+            margin: 6px auto 4px auto;
+        }
+        /*  lgo End  */
+
+        /* Lock CHECKOUT Begin */
+        .l-lock-checkout {
+            display: none;
+        }
+        /* Lock CHECKOUT End */
+
         /* Talk Begin */
         .l-talk 
         {
             left: calc(50% - 172px);
         }
         /* Talk End */
+
+        /* Sticky Begin */
+        .l-ecomCheckLeft__bubble_nav,
+        .ecomCheckRight--sticky {
+            position: sticky;
+            top: 0;
+        } 
+        /* Sticky End */
+
+        /* Task Progress Begin */
+        [data-four-buttons='true'] .task__link a {
+            width: 58px;
+        }
+        [data-four-buttons='false'] .task__link a {
+            width: 66px;
+        }
+        .l-task-progress p {
+            font-size: 1em !important;
+        }
+        /* Task Progress End */
 }
 @media only screen 
     and (min-width: 1065px){  /* large *//* laptop 66.563em */
@@ -317,7 +380,6 @@ width: 98%;
             display: flex;
             flex-flow: column nowrap; /* Shorthand for flex-direction and flex-wrap */
             justify-content: flex-start;
-border: solid 2px #edba08;
         }
         .ecomCheck__column-grd {
             display: flex;
@@ -361,6 +423,14 @@ border: solid 2px #edba08;
             left: calc(50% - 188px);
         }
         /* Talk End */
+
+        /* Sticky Begin */
+        .l-ecomCheckLeft__bubble_nav,
+        .ecomCheckRight--sticky {
+            position: sticky;
+            top: 0;
+        } 
+        /* Sticky End */
 
         .l-ecomCheckRight__totals {
             position: -webkit-sticky; /* Safari */
