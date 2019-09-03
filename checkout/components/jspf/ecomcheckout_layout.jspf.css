@@ -23,7 +23,6 @@
 .l-ecomCheckRight__items .items-inline__caption {
     text-align: center;
     user-select: none;
-
 }
 .l-ecomCheckRight__items .items-inline__caption p {
     color: #000;
@@ -32,10 +31,10 @@
 }
 .l-ecomCheckRight__items .items-inline__line {
     background-color: #000;
-    height: 2px;
+    height: 3px;
     margin: 10px 0; padding: 1px;
 }
-.l-ecomCheckRight__items a {
+.l-ecomCheckRight__items .items-inline__link {
     display: block;
     color: #4A90E2;
     cursor: pointer;
@@ -127,14 +126,24 @@ left: 140px;
 }
 /* Talk End */
 
+/* Sticky Begin */
+.l-ecomCheckLeft__bubble_nav {
+    position: sticky;
+    top: 0;
+} 
+/* Sticky End */
+
 /* Task Progress Begin */
 .l-task-progress {
+    display: block;
     font-family: Roboto, sans-serif;
-    padding-top: 5px;
+    padding-top: 2px;
     text-align: center;
     user-select: none;
 }
-
+.l-task-progress > aside {
+    display: none;
+}
 .task__link a,
 .task__link a:link,
 .task__link a:visited,
@@ -144,7 +153,7 @@ left: 140px;
     color: #888888;
     cursor: pointer;
     display: block;
-    font-size: 13px;
+    font-size: 16px;
     overflow: hidden;
     width: 58px;
     text-decoration: none;
@@ -184,7 +193,6 @@ left: 140px;
     color: #fff;
     background-color: #30619A;
 }
-
 [data-four-buttons='true']  a.task__link--four,
 [data-four-buttons='true']  span.task__link--four {
     display: block;
@@ -207,14 +215,12 @@ left: 140px;
 [data-four-buttons='false'] .task__link a {
     width: 78px;
 }
-
 .task__line {
     position: relative;
-    border-bottom: solid 3px #30619A;
+    border-bottom: solid 4px #30619A;
     top: -23px;
     z-index: -2;
 }
-
 .l-task-progress p {
     font-size: 1.4em !important;
     font-weight: 300;
@@ -225,6 +231,25 @@ left: 140px;
     fill: #9CCC65;
 }
 /* Task Progress End */
+
+/*  Step Banners Begin  */
+.step_banner {
+    font-size: 22px;
+    text-align: left;
+    margin: 6px; padding: 6px;
+    border-bottom: solid 3px;
+}
+.step_banner.step_banner--active {
+    color: #000;
+}
+.step_banner.step_banner--enabled {
+    color: #000;
+}
+.step_banner.step_banner--disabled {
+    color: #C6C6C6;
+}
+
+/*  Step Banners End  */
 
 /*  branded buttons begin  */
 .brand__button--primary,
@@ -423,6 +448,15 @@ width: 98%;
             left: calc(50% - 188px);
         }
         /* Talk End */
+
+        /* Task Progress Begin */
+        .l-task-progress {
+            display: flex;
+        }
+        .l-task-progress > aside {
+            display: block;
+        }
+        /* Task Progress End */
 
         /* Sticky Begin */
         .l-ecomCheckLeft__bubble_nav,

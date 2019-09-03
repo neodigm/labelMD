@@ -46,6 +46,7 @@ body[data-brand=LTD] .brand--lsc__showb,
 
 .h-flex {display: flex; }
 .h-flex__auto {flex: auto; }
+.h-flex__1 {flex: 1; }
 
 .h-txt__align--right { text-align: right; }
 

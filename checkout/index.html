@@ -59,34 +59,38 @@
         <div class="ecomCheck__column-grd">
             <article class="ecomCheckLeft">
                 <section class="js-ecomCheckLeft__bubble_nav l-ecomCheckLeft__bubble_nav">
-                    <nav class="l-task-progress h-flex" data-four-buttons="false">
-                            <aside class="h-flex__auto">
-                                <p>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -2 24 24" height="24" width="24">
-                                        <g fill="none"><path d="M0 0h24v24H0V0z"/><path opacity=".87" d="M0 0h24v24H0V0z"/></g><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg>CHECKOUT
-                                </p>
+                    <nav class="l-task-progress" data-four-buttons="false">
+                        <aside class="h-flex__auto">
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -2 24 24" height="24" width="24">
+                                    <g fill="none"><path d="M0 0h24v24H0V0z"/><path opacity=".87" d="M0 0h24v24H0V0z"/></g><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg>CHECKOUT
+                            </p>
+                        </aside>
+                        <section>
+                            <aside class="task__link h-flex">
+                                <a class="task__link--a h-flex__1">Shipping<span>1</span></a>
+                                <a class="task__link--d h-flex__1">Payment <span>2</span></a>
+                                <a class="task__link--d h-flex__1 task__link--four">Expedite<span>3</span></a>
+                                <a class="task__link--d h-flex__1">Review<span class="task__link--three">3</span><span class="task__link--four">4</span></a>
                             </aside>
-                            <section>
-                                <aside class="task__link h-flex">
-                                    <a class="task__link--a">Shipping<span>1</span></a>
-                                    <a class="task__link--d">Payment <span>2</span></a>
-                                    <a class="task__link--d task__link--four">Expedite<span>3</span></a>
-                                    <a class="task__link--d">Review<span class="task__link--three">3</span><span class="task__link--four">4</span></a>
-                                </aside>
-                                <div class="task__line"></div>
-                            </section>
-                        </nav>
+                            <div class="task__line"></div>
+                        </section>
+                    </nav>
                 </section>
-                <section class="js-ecomCheckLeft__shipping_1 l-ecomCheckLeft__shipping_1" data-step="1">shipping_1
+                <section class="js-ecomCheckLeft__shipping_1 l-ecomCheckLeft__shipping_1" data-step="1">
+                    <header id="step_banner_1" class="step_banner step_banner--enabled">1. Shipping Info</header>
                     <br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr>
                 </section>
-                <section class="js-ecomCheckLeft__payment_2 l-ecomCheckLeft__payment_2" data-step="2">payment_2
+                <section class="js-ecomCheckLeft__payment_2 l-ecomCheckLeft__payment_2" data-step="2">
+                        <header id="step_banner_2" class="step_banner step_banner--active">2. Select Payment Method</header>                    
                         <br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr>
                 </section>
                 <section class="js-ecomCheckLeft__options_ship l-ecomCheckLeft__options_ship">options_ship
                         <br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr>
                 </section>
-                <section class="js-ecomCheckLeft__review_3 l-ecomCheckLeft__review_3" data-step="3">review_3
+                <section class="js-ecomCheckLeft__review_3 l-ecomCheckLeft__review_3" data-step="3">
+                        <header id="step_banner_3" class="step_banner step_banner--disabled">3. Review and Place Order</header>                    
+                    
                         <br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr>
                 </section>
             </article>
@@ -96,7 +100,7 @@
                         <aside class="items-inline__caption">
                             <p>Items in Your Cart (<span class="js-items-count">5</span>)</p>
                             <figure class="items-inline__line"></figure>
-                            <a data-expand-summary="js-expand-items||Hide Items" >View / Edit your Items</a>
+                            <a class="items-inline__link" data-expand-summary="js-expand-items||Hide Items" >View / Edit your Items</a>
                         </aside>
 <!--  BEGIN ITEMS  -->
 <section id="resp_ccp_1_v" class="hide-for-small hide" data-expand-details="js-expand-items">
