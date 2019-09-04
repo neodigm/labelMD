@@ -247,6 +247,7 @@ left: 140px;
     display: none;
     font-size: .7em;
     float: right;
+    line-height: 1.3;
     user-select: none;
 }
 
