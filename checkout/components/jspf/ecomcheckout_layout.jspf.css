@@ -130,6 +130,7 @@ left: 140px;
 .l-ecomCheckLeft__bubble_nav {
     position: sticky;
     top: 0;
+    z-index: 6;
 } 
 /* Sticky End */
 
@@ -144,7 +145,6 @@ left: 140px;
 .l-task-progress > aside {
     display: none;
 }
-.task__link a,
 .task__link a:link,
 .task__link a:visited,
 .task__link a:hover, .task__link a:focus,
@@ -241,6 +241,29 @@ left: 140px;
 }
 .step_banner.step_banner--active {
     color: #000;
+}
+.step_banner .step_banner--edit,
+.step_banner .step_banner--required {
+    display: none;
+    font-size: .7em;
+    float: right;
+    user-select: none;
+}
+
+.step_banner .step_banner--edit:link,
+.step_banner .step_banner--edit:visited,
+.step_banner .step_banner--edit:hover, .step_banner .step_banner--edit:focus,
+.step_banner .step_banner--edit:active,
+.step_banner .step_banner--edit {
+    color: #4A90E2 !important;
+}
+.step_banner.step_banner--enabled .step_banner--edit {
+    display: inline;
+    text-decoration: underline !important;    
+}
+.step_banner.step_banner--active .step_banner--required {
+    display: inline;
+    color: #bababa;
 }
 .step_banner.step_banner--enabled {
     color: #000;
@@ -382,6 +405,7 @@ width: 98%;
         .ecomCheckRight--sticky {
             position: sticky;
             top: 0;
+            z-index: 6;
         } 
         /* Sticky End */
 
@@ -463,6 +487,7 @@ width: 98%;
         .ecomCheckRight--sticky {
             position: sticky;
             top: 0;
+            z-index: 6;
         } 
         /* Sticky End */
 

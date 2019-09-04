@@ -78,11 +78,72 @@
                     </nav>
                 </section>
                 <section class="js-ecomCheckLeft__shipping_1 l-ecomCheckLeft__shipping_1" data-step="1">
-                    <header id="step_banner_1" class="step_banner step_banner--enabled">1. Shipping Info</header>
-                    <br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr>
+                    <header id="step_banner_1" class="step_banner step_banner--active">1. Shipping Info
+                        <span class="step_banner--required">* Required</span>
+                        <a class="step_banner--edit">Edit</a>
+                    </header>
+
+<!-- NAVEEN, THIS IS JUST COPIED FROM PRODUCTION begin-->
+<br>
+                    <div class="guest_on"> <!-- A guest Begin End -->
+								
+                        <!-- Start inc_update_shipping_acap.jsp -->			
+                                <section class="row">
+                                    <aside class="columns resp_right_pad-6 small-10 medium-5 large-5 no-padding">
+                                        <label class="resp_access_label">* First Name</label>
+                                        <input autocomplete="off" maxlength="19" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" name="/ltd/commerce/order/purchase/LTDShippingFormHandler.address.firstName" aria-required="true" id="address-firstName" placeholder=" * First Name" value="" class="resp_input_brand resp_input_offset" aria-label="First Name"><input name="_D:/ltd/commerce/order/purchase/LTDShippingFormHandler.address.firstName" type="hidden" value=" ">
+                                    </aside>
+                                    <aside class="columns resp_left_pad-6 small-10 medium-5 large-5 no-padding">
+                                        <label class="resp_access_label">* Last Name</label> 
+                                        <input autocomplete="off" maxlength="20" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" name="/ltd/commerce/order/purchase/LTDShippingFormHandler.address.lastName" aria-required="true" id="address-lastName" placeholder=" * Last Name" value="" class="resp_input_brand resp_input_offset" aria-label="Last Name"><input name="_D:/ltd/commerce/order/purchase/LTDShippingFormHandler.address.lastName" type="hidden" value=" ">
+                                    </aside>
+                                </section>
+                                <label class="resp_access_label">Company Name</label>
+                                <input autocorrect="off" autocomplete="off" spellcheck="false" maxlength="40" name="/ltd/commerce/order/purchase/LTDShippingFormHandler.address.companyName" id="address-companyName" placeholder=" Company Name" type="text" autocapitalize="off" value="" class="resp_input_brand resp_input_offset" aria-label="Company Name"><input name="_D:/ltd/commerce/order/purchase/LTDShippingFormHandler.address.companyName" type="hidden" value=" ">
+                                <label class="resp_access_label">* Address Line 1</label>
+                                <input autocomplete="off" maxlength="40" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" name="/ltd/commerce/order/purchase/LTDShippingFormHandler.address.address1" aria-required="true" id="address-address1" placeholder=" * Address Line 1" value="" class="resp_input_brand resp_input_offset" aria-label="Address Line 1"><input name="_D:/ltd/commerce/order/purchase/LTDShippingFormHandler.address.address1" type="hidden" value=" ">
+                                <label class="resp_access_label">Apt., Floor or Suite # (Optional)</label>        	
+                                <input autocorrect="off" autocomplete="off" spellcheck="false" maxlength="10" name="/ltd/commerce/order/purchase/LTDShippingFormHandler.address.address2" id="address-address2" placeholder=" Apt., Floor or Suite # (Optional)" type="text" autocapitalize="off" value="" class="resp_input_brand resp_input_offset" aria-label="Apt., Floor or Suite # (Optional)"><input name="_D:/ltd/commerce/order/purchase/LTDShippingFormHandler.address.address2" type="hidden" value=" ">
+                                <label class="resp_access_label">* City</label>        	
+                                <input autocomplete="off" maxlength="28" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" name="/ltd/commerce/order/purchase/LTDShippingFormHandler.address.city" aria-required="true" id="address-city" placeholder=" * City" value="" class="resp_input_brand resp_input_offset" aria-label="City"><input name="_D:/ltd/commerce/order/purchase/LTDShippingFormHandler.address.city" type="hidden" value=" ">
+                                <label class="select-label">
+                                <input name="_D:/ltd/commerce/order/purchase/LTDShippingFormHandler.address.state" type="hidden" value=" "><select name="/ltd/commerce/order/purchase/LTDShippingFormHandler.address.state" aria-required="true" id="address-state" placeholder=" * State" class="select-custom resp_input_brand resp_input_offset_cust" aria-label="State"><option value=""> * State</option><option value="AL">Alabama</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option><option value="AA">AA</option><option value="AE">AE</option><option value="AP">AP</option></select>
+                                </label>
+                                <label class="resp_access_label">* Zip Code</label> 		
+                                <input autocomplete="off" maxlength="10" type="tel" autocapitalize="off" autocorrect="off" spellcheck="false" name="/ltd/commerce/order/purchase/LTDShippingFormHandler.address.postalCode" aria-required="true" id="address-postalCode" placeholder=" * Zip Code" value="" class="resp_input_brand resp_input_offset" aria-label="Zip Code"><input name="_D:/ltd/commerce/order/purchase/LTDShippingFormHandler.address.postalCode" type="hidden" value=" ">
+                                <section class="row">
+                                    <aside class="small-9 no-padding-left columns">
+                                    <label class="resp_access_label">* Phone</label> 				
+                                        <input maxlength="15" autocomplete="off" type="tel" autocapitalize="off" autocorrect="off" data-inputmask="'mask': '(999) 999-9999'" spellcheck="false" name="/ltd/commerce/order/purchase/LTDShippingFormHandler.address.phoneNumber" aria-required="true" id="address-phoneNumber" placeholder=" * Phone" value="" class="resp_input_brand resp_input_offset" aria-label="Phone"><input name="_D:/ltd/commerce/order/purchase/LTDShippingFormHandler.address.phoneNumber" type="hidden" value=" ">
+                                    </aside>
+                                    <aside class="small-1 text-center no-padding-left columns">
+                                         <span style="line-height: 36px;"></span>
+                                            <a class="toggle_content_area" data-content-area="responsive_checkout_telephone"><img src="https://www.lakeside.com/images/info-icon.png" alt="info-icon"></a>
+                                    </aside>
+                                </section>
+                                <detail id="responsive_checkout_telephone" class="row hide">
+                                    <article class="small-10 resp_content_area columns">
+                                        Required for communications regarding your order; we will not sell or otherwise give out your phone number to others.	 </article>	</detail>	
+                                        <label class="resp_access_label">* Email Address</label> 				
+                                            <input autocomplete="off" maxlength="50" type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="/ltd/commerce/order/purchase/LTDShippingFormHandler.address.email" aria-required="true" id="address-email" placeholder=" * Email Address" value="" class="resp_input_brand resp_input_offset" aria-label="Email Address"><input name="_D:/ltd/commerce/order/purchase/LTDShippingFormHandler.address.email" type="hidden" value=" "><input name="/ltd/commerce/order/purchase/LTDShippingFormHandler.editShipToAddressName" id="address-editShipToAddressName" type="hidden" value=""><input name="_D:/ltd/commerce/order/purchase/LTDShippingFormHandler.editShipToAddressName" type="hidden" value=" ">
+                        <!-- End inc_update_shipping_acap.jsp -->
+                        
+                                                                <section class="row">
+                                                                    <aside class="small-10 columns no-padding">
+                                                                        <label class="resp_msg_il">
+                                                                            <input name="/atg/userprofiling/Profile.sendPromoEmail" checked="" id="promoEmail" type="checkbox" value="true"><input name="_D:/atg/userprofiling/Profile.sendPromoEmail" type="hidden" value=" ">		          			
+                                                                                 <span class="resp_msg_prod_sm">Please send me promotional emails and discounts!</span> </label> </aside> </section>			
+                                                    </div>
+
+<!-- NAVEEN, THIS IS JUST COPIED FROM PRODUCTION end -->
+
+
+
+
+
                 </section>
                 <section class="js-ecomCheckLeft__payment_2 l-ecomCheckLeft__payment_2" data-step="2">
-                        <header id="step_banner_2" class="step_banner step_banner--active">2. Select Payment Method</header>                    
+                        <header id="step_banner_2" class="step_banner step_banner--enabled">2. Select Payment Method</header>                    
                         <br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr>
                 </section>
                 <section class="js-ecomCheckLeft__options_ship l-ecomCheckLeft__options_ship">options_ship
