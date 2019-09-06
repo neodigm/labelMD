@@ -1,4 +1,4 @@
-<style>
+/*  <style> */
 .l-evoCart {
     display: block;
     margin: 0 auto; padding: 0;
@@ -16,7 +16,7 @@
 }
 
 .l-evoCartLeft__signin p {
-	font-size: 15px;
+	font-size: 15px !important;
 	margin: 2px;
 	padding: 2px;
 }
@@ -27,7 +27,7 @@
 }
 
 .l-evoCartLeft__signin h6 {
-	font-size: 15px;
+	font-size: 15px !important;
 	font-weight: 400;
 	margin: 2px;
 	padding: 2px;
@@ -39,7 +39,7 @@
 	border: solid 1px;
 	border-radius: 3px;
 	font-family: sans-serif;
-	font-size: 12px;
+	font-size: 12px !important;
 	text-align: center;
 	padding: 6px;
 	margin: 3px 0;
@@ -115,7 +115,7 @@ body[data-brand="LTD"] .l-evoCartLeft__signin .signin__view {
 /*  wisth list Begin  */
 .l-prd-card .wish-list__caption {
     color: #000;
-    font-size: 23px;
+    font-size: 23px !important;
     margin: 8px;
 }
 .btn-cta__wish {
@@ -129,46 +129,46 @@ body[data-brand="LTD"] .l-evoCartLeft__signin .signin__view {
 
 .l-prd-card__grd .prd-card__dets p.prd-card__dets--desc {
 font-weight: 500;
-font-size: 15px;
+font-size: 15px !important;
 }
 .l-prd-card__grd .prd-card__dets p.prd-card__dets--price {
 color: #E01D1D;
 font-weight: 500;
-font-size: 20px;
+font-size: 20px !important;
 }
 .l-prd-card__grd .prd-card__dets span.prd-card__dets--price--red {
 font-weight: 500;
-font-size: 20px;
+font-size: 20px !important;
 color: #E01D1D;
 }
 .l-prd-card__grd .prd-card__dets span.prd-card__dets--price--strike {
 font-weight: 500;
-font-size: 20px;
+font-size: 20px !important;
 text-decoration: line-through;
 }
 .l-prd-card__grd .prd-card__dets p.prd-card__dets--sku {
-font-size: 13px;
+font-size: 13px !important;
 }
 .l-prd-card__grd .prd-card__dets p.prd-card__dets--save {
-font-size: 13px;
+font-size: 13px !important;
 }
 .l-prd-card__grd p.prd-card__dets--save span.prd-card__save--strike {
-font-size: 14px;
+font-size: 14px !important;
 text-decoration: line-through;
 }
 .l-prd-card__grd p.prd-card__dets--save span.prd-card__save--red {
-font-size: 14px;
+font-size: 14px !important;
 color: #E01D1D;
 }
 .l-prd-card__grd .prd-card__dets p.prd-card__dets--stock {
 font-weight: 500;
-font-size: 13px;
+font-size: 13px !important;
 font-style: italic;
 }
 .l-prd-card__grd .prd-card__dets p.prd-card__dets--drop {
 color: #555;
 fill: #555;
-font-size: 12px;
+font-size: 12px !important;
 }
 .l-prd-card__grd .prd-card__dets .l-grid-qty-stepr {
 display: flex;
@@ -187,7 +187,7 @@ border-left: none !important;
 .l-grid-qty-stepr .qty-step__action--input {
 border: solid 1px #BFBFBF;
 border-radius: 3px;
-font-size: 18px;
+font-size: 18px !important;
 font-weight: 500;
 height: 40px; width: 60px;
 margin: 6px 10px;
@@ -196,7 +196,7 @@ text-align: center;
 .l-prd-card__grd a.prd-card__dets--link {
 color: #000;
 cursor:pointer;
-font-size: 13px;
+font-size: 13px !important;
 margin: 4px 16px 2px 0;
 text-decoration: underline;
 }
@@ -240,13 +240,13 @@ text-decoration: underline;
     min-height: 40px; width: 220px;
 }
 .pers__view p {
-    font-size: 13px;
+    font-size: 13px !important;
     font-weight: 500;
 }
 .pers__view a {
     float: right;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 13px !important;
     margin: 0 16px 2px 0;
     text-decoration: underline;
 }
@@ -274,7 +274,7 @@ justify-content: flex-start;
 }
 .l-ProgressBar p {
 color: #555;
-font-size: 15px;
+font-size: 15px !important;
 flex:1 1;
 margin: 10px 0 4px 0;
 }
@@ -299,7 +299,7 @@ width: 10%;
 }
 .l-ProgressBar p.ProgressBar__txt {
 color: #111;
-font-size: 16px;
+font-size: 16px !important;
 margin:  8px;
 text-align: center;
 }
@@ -311,10 +311,13 @@ color: #E01D1D;
 .totals-promo {
     margin: 0; padding: 0;
 }
+.l-ecomCheckRight__promo .totals-promo {
+    margin: 4px 32px;
+}
 
 .totals-promo > input {
     border: solid 1px #BFBFBF;
-    font-size: 18px;
+    font-size: 18px !important;
     font-weight: 500;
     height: 41px;
     width: calc(100% - 118px);
@@ -334,7 +337,7 @@ color: #E01D1D;
 }
 .order-sum__caption > p,
 .promo__caption > p {
-    font-size: 19px;
+    font-size: 19px !important;
     margin: 8px; padding: 4px;
 }
 .order-sum__cont {
@@ -342,7 +345,7 @@ color: #E01D1D;
 }
 .order-sum__tab p {
     fill: #555;
-    font-size: 16px;
+    font-size: 16px !important;
     margin: 12px;
 }
 .order-sum__tab span {
@@ -354,7 +357,7 @@ color: #E01D1D;
 .order-sum__zip--expand {
     color: #30619a; fill: #30619a;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 16px !important;
     user-select: none;
 }
 .order-sum__zip--open svg {
@@ -365,7 +368,7 @@ color: #E01D1D;
 }
 .order-sum__zip input {
     border: solid 1px #BFBFBF;
-    font-size: 18px;
+    font-size: 18px !important;
     font-weight: 500;
     height: 41px;
     width: calc(84% - 118px);
@@ -418,10 +421,10 @@ color: #E01D1D;
         
      	/*  Sign In - inline prompt Begin  */
 	    .l-evoCartLeft__signin p {
-			font-size: 17px;
+			font-size: 17px !important;
 		}
 		.l-evoCartLeft__signin h6 {
-			font-size: 20px;
+			font-size: 20px !important;
 		}
 		/*  Sign In - inline prompt End  */
         .order-sum__zip input {
@@ -431,10 +434,10 @@ color: #E01D1D;
         .l-evoCartLeft__wishes .prd_card__pic > img{ height: auto; width: 125px; }
         .order-sum__caption > p,
         .promo__caption > p {
-            font-size: 20px;
+            font-size: 20px !important;
         }
         .order-sum__tab p {
-            font-size: 20px;
+            font-size: 20px !important;
         }
         /*  Recommendations Begin  */
         .recom_width_pixels {
@@ -460,10 +463,10 @@ color: #E01D1D;
                 height: 70px;
             }
             .l-evoCartLeft__signin p {
-                font-size: 17px;
+                font-size: 17px !important;
             }
             .l-evoCartLeft__signin h6 {
-                font-size: 20px;
+                font-size: 20px !important;
             }
             .l-evoCartLeft__signin .signin__view {
                 display: none;
@@ -508,10 +511,10 @@ color: #E01D1D;
 
         .order-sum__caption > p,
         .promo__caption > p {
-            font-size: 20px;
+            font-size: 20px !important;
         }
         .order-sum__tab p {
-            font-size: 20px;
+            font-size: 20px !important;
         }
 
         /*  Recommendations Begin  */
@@ -539,10 +542,10 @@ color: #E01D1D;
                 height: 70px;
             }
             .l-evoCartLeft__signin p {
-                font-size: 17px;
+                font-size: 17px !important;
             }
             .l-evoCartLeft__signin h6 {
-                font-size: 20px;
+                font-size: 20px !important;
             }
             .l-evoCartLeft__signin .signin__view {
                 display: none;
@@ -587,10 +590,10 @@ color: #E01D1D;
 
         .order-sum__caption > p,
         .promo__caption > p {
-            font-size: 23px;
+            font-size: 23px !important;
         }
         .order-sum__tab p {
-            font-size: 20px;
+            font-size: 20px !important;
         }
         /*  Carousel begin  */
             .l-evoCart .carsl_card,
@@ -614,27 +617,27 @@ color: #E01D1D;
         background-color: rgba(256,256,256,0);
         color: #111;
         font-family: sans-serif;
-        font-size: 1.4em;
+        font-size: 1.4em !important;
         font-style: normal;
         font-weight: 100;
         text-align: left;
         margin: 0 6px 6px 6px;
         }
         .l-evoCart h5 {
-        font-size: 1.2em;
+        font-size: 1.2em !important;
         text-align: center;
         }
         .l-evoCart .fcart-grd__top p {
         color: #111;
         font-family: sans-serif;
-        font-size: .98em;
+        font-size: .98em !important;
         text-align: left;
         margin: 6px;
         }
         .l-evoCart .fcart-grd__top .fcart__text--instock {
         color: #000;
         font-family: sans-serif;
-        font-size: .9em;
+        font-size: .9em !important;
         font-weight: 600;
         font-style: italic;
         text-align: left;
@@ -644,7 +647,7 @@ color: #E01D1D;
         color: #111;
         fill: #111;
         font-family: sans-serif;
-        font-size: .9em;
+        font-size: .9em !important;
         text-align: left;
         margin: 6px;
         }
@@ -666,7 +669,7 @@ color: #E01D1D;
 
         .carsl__desc {
         color: #222;
-        font-size: .92em;
+        font-size: .92em !important;
         font-weight: 300;
         text-align: left;
         }
@@ -692,6 +695,12 @@ color: #E01D1D;
         /*  Carousel end  */
 
         /*  branded buttons begin  */
+        .brand__button--blue:link,
+        .brand__button--blue:visited,
+        .brand__button--blue:hover,
+        .brand__button--blue:focus,
+        .brand__button--blue:active,
+        .brand__button--blue { color: #30619A; }
         .brand__button--primary,
         .brand__button--secondary {
         cursor: pointer;
@@ -699,7 +708,7 @@ color: #E01D1D;
         border: solid 2px;
         border-radius: 3px;
         font-family: sans-serif;
-        font-size: 1.1em;
+        font-size: 1.1em !important;
         text-align: center;
         padding: 10px;
         margin: 4px;
@@ -712,7 +721,7 @@ color: #E01D1D;
         display: block;
         border-radius: 3px;
         font-family: sans-serif;
-        font-size: .95em;
+        font-size: .95em !important;
         text-align: center;
         padding: 6px;
         margin: 3px 0;
@@ -745,4 +754,4 @@ color: #E01D1D;
 			width: 100%;
 			text-align: center;
 		}
-</style>
+/* </style> */
