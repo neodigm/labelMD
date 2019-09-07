@@ -29,14 +29,16 @@
     cursor: pointer;
     background-color: #fff;
     border: solid 1px #4A90E2;
-    margin: 4px; padding: 4px;
+    padding: 4px;
     height: 70px; min-width: 100px;
 }
 .cc-cards__credit {
-    background-image: url('../../img/credit_cards.jpg');
+    background-image: url('../../img/btn_credit_cards.jpg');
+    margin: 8px 8px 8px 0;
 }
 .cc-cards__paypal {
-    background-image: url('../../img/credit_paypal.jpg');
+    background-image: url('../../img/btn_credit_paypal.jpg');
+    margin: 8px 0 8px 8px;
 }
 /*  Credit Card Buttons End  */
 
@@ -336,8 +338,26 @@ left: 140px;
 .step_banner.step_banner--disabled {
     color: #C6C6C6;
 }
-
 /*  Step Banners End  */
+
+/*  Sub Banners Begin  */
+.sub_banner {
+    font-size: 22px;
+    text-align: left;
+    margin: 6px 4%; padding: 6px;
+}
+.sub_banner--required {
+    display: none;
+    font-size: .7em;
+    float: right;
+    line-height: 1.3;
+    user-select: none;
+}
+.sub_banner.sub_banner--active .sub_banner--required {
+    display: inline;
+    color: #bababa;
+}
+/*  Sub Banners End  */
 
 /*  branded buttons begin  */
 .brand__button--primary,
