@@ -154,8 +154,195 @@
                             <button class="cc-cards cc-cards__paypal"></button>
                         </nav>
                         <header class="sub_banner sub_banner--active">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="1 1 22 22" style="stroke: #4A90E2;fill: none;margin-bottom: -2px"><path d="M0 0h24v24H0V0z"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> Enter Credit Card
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="1 1 22 22" style="stroke: #4A90E2;fill: none;margin-bottom: -2px"><path d="M0 0h24v24H0V0z"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> Enter Credit Card
                             <span class="sub_banner--required">* Required</span>
+
+<!-- NAVEEN, THIS IS JUST COPIED FROM PRODUCTION begin -->
+<section class="CC_on row">				
+			
+        <div class="guest_off hide"> <!-- Not a guest Begin -->
+         <section class="row" data-equalizer="cc-lines">	
+             
+             <aside class="small-10 medium-10 large-10 columns" style="padding: 2px;">
+
+                 <div id="" class="panel radius" style="padding: 10px 0 0 0;">
+                      <label class="inputRadio selectToggle"> <input onclick="addCreditCardInput();" name="creditCardChooseBox" id="creditCardChooseBox" type="radio" value="NEW"><input name="_D:creditCardChooseBox" type="hidden" value=" ">
+                         <span id="addEditCreditCard">Add A New Credit Card</span>
+                     </label>
+                 </div>
+             </aside>
+         </section>
+    </div> <!-- Not a guest End -->
+
+                
+    
+    <div id="creditCardaddFormFields" class="">			
+         
+<!-- Start inc_update_credit_card_acap.jsp -->
+
+
+<script>
+
+ $(document).ready(function() {
+      $(".resp_crt_link").on("click", function(e){
+          e.preventDefault();
+          $('#sec_code_fig').toggleClass("hide");
+      });
+      //  Check Save if Default is checked
+      $("#chkDefaultCC").on("change", function(e){
+          if($(this).prop("checked") && $("#chkSaveCC").is(":visible")){
+             $("#chkSaveCC").prop("checked",true);
+          }
+      });
+      $("#chkSaveCC").on("change", function(e){
+          if(!$(this).prop("checked") && $("#chkDefaultCC").is(":visible")){
+             $("#chkDefaultCC").prop("checked",false);
+          }
+      });
+ });
+ 
+ function copyShippingAddressToCard(){
+ 
+     if($('#sameAsShipping').is(':checked')){
+ 
+         var firstName = 'Scott' ;
+         var lastName = 'Krause' ;
+         var address1 = '668 BETH CT' ;
+         var address2 = '' ;
+         var city = 'gurnee' ;
+         var state = 'IL' ;
+         var postalCode = '60031-3104' ;
+         $('#billingAddress-firstName').val(firstName);
+         $('#billingAddress-lastName').val(lastName);
+         $('#billingAddress-address1').val(address1);
+         $('#billingAddress-address2').val(address2);
+         $('#billingAddress-city').val(city);
+         $('#billingAddress-state').val(state);	
+         $('#billingAddress-postalCode').val(postalCode);
+         $('.cboSameAs').addClass('hide');
+     }else{
+         $('.cboSameAs').removeClass('hide');
+         $('#billingAddress-firstName').val('');
+         $('#billingAddress-lastName').val('');
+         $('#billingAddress-address1').val('');
+         $('#billingAddress-address2').val('');
+         $('#billingAddress-city').val('');
+         $('#billingAddress-state').val('');
+         $('#billingAddress-postalCode').val('');	
+     }
+ 
+ }
+
+</script>	
+
+<article class="columns small-10 medium-5 large-10 resp_right_pad-6 no-padding"> 
+ <aside class="columns no-padding small-10">
+     <label class="resp_access_label">* Card holder Name</label> 
+     <input autocomplete="off" maxlength="40" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" name="/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.cardHolderName" aria-required="true" id="cardholderName-field" placeholder=" * Card holder Name" value="" class="resp_input_brand resp_input_offset" aria-label="Card holder Name"><input name="_D:/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.cardHolderName" type="hidden" value=" ">
+ </aside>
+ <aside class="columns no-padding small-10">
+     <label class="inputText required hidden" id="creditCardTypeLabel">
+         <input id="creditCardType-disabledField" readonly="readonly" class="resp_input_brand resp_input_offset" type="text">
+         <input name="/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.creditCardType" id="creditCardType-field" type="hidden" value=""><input name="_D:/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.creditCardType" type="hidden" value=" ">
+</label> </aside> 
+ <aside class="columns no-padding small-10">
+     <label class="resp_access_label">* Card Number</label> 		
+     <input autocomplete="off" maxlength="16" type="tel" autocapitalize="off" autocorrect="off" spellcheck="false" name="/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.creditCardNumber" aria-required="true" id="creditCardNumber-field" placeholder=" * Card Number" value="" class="resp_input_brand resp_input_offset" aria-label="Card Number"><input name="_D:/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.creditCardNumber" type="hidden" value=" ">
+ </aside>
+ 
+ <aside class="columns no-padding small-10">
+     <section class="row">
+         <aside class="small-5 columns no-padding-left">
+             <label class="resp_access_label">* Security Code</label>				
+             <input autocomplete="off" maxlength="4" type="tel" autocapitalize="off" autocorrect="off" spellcheck="false" name="/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.cardVerificationNumber" aria-required="true" id="creditCardSecurity" placeholder=" * Security Code" value="" class="resp_input_brand resp_input_offset" aria-label="Security Code"><input name="_D:/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.cardVerificationNumber" type="hidden" value=" ">
+</aside>	
+                 <aside class="small-5 columns">
+                     <a class="resp_crt_link" style="line-height: 42px;">
+                         <p>What's this?</p>
+</a>	</aside>	
+                 <figure id="sec_code_fig" class="hide text-center">
+                     <br>
+                         <img src="/images/cc_security_code.jpg" alt="WhatIsThisModals">
+                     <br>	</figure>	        	
+     </section>
+         <section class="row">
+             <aside class="small-5 columns no-padding-left">
+                 <label class="select-label">
+                  <input name="_D:/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.expirationMonth" type="hidden" value=" "><select name="/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.expirationMonth" id="creditCardExpirationDate-Month" class="select-custom"><option value="1">January</option><option value="2">February</option><option value="3">March</option><option value="4">April</option><option value="5">May</option><option value="6">June</option><option value="7">July</option><option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select>
+                 </label>
+             </aside>
+             <aside class="small-5 columns no-padding-right">
+             <label class="select-label">
+               <input name="_D:/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.expirationYear" type="hidden" value=" "><select name="/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.expirationYear" id="creditCardExpirationDate-Year" class="select-custom"><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option></select>
+             </label>
+         </aside>
+     </section>
+ </aside>
+</article>
+<article class="columns small-10 medium-5 large-10 resp_left_pad-6 no-padding"> <!-- Step Bnr 2 Edit Right Col Begin -->
+ <hr class="hide-for-medium">
+ <aside class="small-10 columns no-padding">
+     <p class="resp_msg_il_lg text-left">Credit Card Billing Address</p>
+     <p class="resp_msg_prod_sm text-justify">Note: Must match address related on credit card.</p>
+     <br>
+     <p class="text-left">
+         <label class="resp_msg_il inputCheckbox" id="sameAsShippingLabel">
+             <input type="checkbox" id="sameAsShipping" name="sameAsShipping" onclick="copyShippingAddressToCard();"> 
+             <span class="sameAsShippingLabel">Same as Shipping Address</span>
+         </label>
+     </p>
+ </aside>
+ <div class="cboSameAs">
+ 
+     <section class="row">
+            <aside class="small-5 columns no-padding-left">
+             <label class="resp_access_label">* First Name</label>	       		
+             <input autocomplete="off" maxlength="19" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" name="/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.billingAddress.firstName" aria-required="true" id="billingAddress-firstName" placeholder=" * First Name" value="" class="resp_input_brand resp_input_offset" aria-label="First Name"><input name="_D:/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.billingAddress.firstName" type="hidden" value=" ">
+          </aside>
+                   
+          <aside class="small-5 columns no-padding-right">
+             <label class="resp_access_label">* Last Name</label>	  		         
+               <input autocomplete="off" maxlength="20" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" name="/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.billingAddress.lastName" aria-required="true" id="billingAddress-lastName" placeholder=" * Last Name" value="" class="resp_input_brand resp_input_offset" aria-label="Last Name"><input name="_D:/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.billingAddress.lastName" type="hidden" value=" ">
+          </aside>
+     </section>	    
+
+      <aside class="columns no-padding small-10">
+         <label class="resp_access_label">* Address Line 1</label>			 
+         <input autocomplete="off" maxlength="40" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" name="/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.billingAddress.address1" aria-required="true" id="billingAddress-address1" placeholder=" * Address Line 1" value="" class="resp_input_brand resp_input_offset" aria-label="Address Line 1"><input name="_D:/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.billingAddress.address1" type="hidden" value=" ">
+      </aside>
+
+      <aside class="columns no-padding small-10">
+          <label class="resp_access_label">Apt., Floor or Suite # (Optional)</label>
+          <input autocorrect="off" autocomplete="off" spellcheck="false" maxlength="10" name="/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.billingAddress.address2" id="billingAddress-address2" placeholder=" Apt., Floor or Suite # (Optional)" type="text" autocapitalize="off" value="" class="resp_input_brand resp_input_offset" aria-label="Apt., Floor or Suite # (Optional)"><input name="_D:/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.billingAddress.address2" type="hidden" value=" ">
+      </aside>
+
+      <aside class="columns no-padding small-10">
+          <label class="resp_access_label">* City</label>	         
+          <input autocomplete="off" maxlength="28" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" name="/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.billingAddress.city" aria-required="true" id="billingAddress-city" placeholder=" * City" value="" class="resp_input_brand resp_input_offset" aria-label="City"><input name="_D:/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.billingAddress.city" type="hidden" value=" ">
+      </aside>
+
+       <!-- <label class="selectOption required"> -->
+       <aside class="columns no-padding small-10">
+            <input name="_D:/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.billingAddress.state" type="hidden" value=" "><select name="/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.billingAddress.state" id="billingAddress-state" class="select-custom"><option value=""> * State</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option><option value="AA">AA</option><option value="AE">AE</option><option value="AP">AP</option></select>
+       </aside>
+     <aside class="columns no-padding small-10">
+          <label class="resp_access_label">* Zip Code</label>	 			
+         <input autocomplete="off" maxlength="10" type="tel" autocapitalize="off" autocorrect="off" spellcheck="false" name="/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.billingAddress.postalCode" aria-required="true" id="billingAddress-postalCode" placeholder=" * Zip Code" value="" class="resp_input_brand resp_input_offset" aria-label="Zip Code"><input name="_D:/ltd/commerce/order/purchase/LTDBillingFormHandler.creditCard.billingAddress.postalCode" type="hidden" value=" ">	
+     </aside>
+ </div>
+ <aside class="small-10 columns no-padding">
+     
+ </aside>
+ 
+ <aside class="small-10 columns no-padding">
+     
+</aside>	</article>
+<!-- End inc_update_credit_card_acap.jsp -->
+
+     </div>
+ </section>
+<!-- NAVEEN, THIS IS JUST COPIED FROM PRODUCTION end -->
+
                         </header>
                 </section>
                 <section class="js-ecomCheckLeft__options_ship l-ecomCheckLeft__options_ship">options_ship
