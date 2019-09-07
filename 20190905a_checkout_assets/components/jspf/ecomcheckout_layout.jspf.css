@@ -18,28 +18,6 @@
 .l-ecomCheckRight__items       ,
 .l-ecomCheckRight__promo       {display:block; background-color: #fff;margin: 4px; padding: 4px;}
 
-/*  Credit Card Buttons Begin  */
-.l-cc-cards {
-    display:flex;
-    margin: 4px; padding: 4px;
-}
-.cc-cards:hover,
-.cc-cards {
-    flex: 0;
-    cursor: pointer;
-    background-color: #fff;
-    border: solid 1px #4A90E2;
-    margin: 4px; padding: 4px;
-    height: 70px; min-width: 100px;
-}
-.cc-cards__credit {
-    background-image: url('../../img/credit_cards.jpg');
-}
-.cc-cards__paypal {
-    background-image: url('../../img/credit_paypal.jpg');
-}
-/*  Credit Card Buttons End  */
-
 /*  RB Items-Promo Begin  */
 .l-ecomCheckRight__items .items-inline__caption,
 .l-ecomCheckRight__promo .items-inline__caption {
