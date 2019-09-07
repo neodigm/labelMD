@@ -344,7 +344,7 @@ left: 140px;
 .sub_banner {
     font-size: 22px;
     text-align: left;
-    margin: 6px 4%; padding: 6px;
+    margin: 12px 4%; padding: 6px;
 }
 .sub_banner--required {
     display: none;
