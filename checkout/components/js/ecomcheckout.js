@@ -1,5 +1,30 @@
 "use strict";
 
+var oCheckoutPageState = (function( doc ){ // Maintain the state of the Checkout page progress
+    var nStateAvail = 1;  //  1 thru 4
+    var nStateCurrent = 1;  //  1 thru 4
+    var aTask, eStep, eEdit;  //  
+    var bExpedited = false;  //  Three or Four buttons (states)
+    return {
+        "rebind": function(){
+            aTask = [].slice.call( doc.querySelectorAll("[data-task-state]") );  //  Bubble Buttons
+            eStep = [].slice.call( doc.querySelectorAll("[data-step-state]") );  //  Step Banners
+        },
+        "setState": function( _nState ){  //  
+            nStateCurrent = _nState;
+            if( nStateAvail <= nStateCurrent) nStateAvail = nStateCurrent;
+        },
+        "getState": function(){  //  
+            return nStateCurrent;
+        },
+        "getStateAvail": function(){  //  
+            return nStateAvail;
+        }
+    }
+})( document );
+
+oCheckoutPageState.rebind();
+
 var oSimpleExpand = (function( doc ){ // Simple expand / collapse
     var aSum, aDet; // Summary and Details paired elements 1:1
     return {
@@ -36,6 +61,7 @@ var oSimpleExpand = (function( doc ){ // Simple expand / collapse
         }
     }
 })( document );
+
 oSimpleExpand.rebind();
 
 var oEComCheck_lgo = (function( doc, sQry ){  //  Handle Logo Click in Checkout
