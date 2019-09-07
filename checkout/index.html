@@ -145,6 +145,23 @@
                                                                             <input name="/atg/userprofiling/Profile.sendPromoEmail" checked="" id="promoEmail" type="checkbox" value="true"><input name="_D:/atg/userprofiling/Profile.sendPromoEmail" type="hidden" value=" ">		          			
                                                                                  <span class="resp_msg_prod_sm">Please send me promotional emails and discounts!</span> </label> </aside> </section>			
                                                     </div>
+
+<div><!-- Collapsible Content Panel - Gift Message Begin -->
+    <header id="resp_ccp_gm" class="resp_gm_med resp_ccp_blu resp_ccp_gm resp_ccp_blu_a" data-expand-summary="gift_msg"> 
+        <aside class="small-8 text-left  columns">Gift Message</aside>
+        <nav class="small-2 text-right columns" colp="plus">+</nav>
+        <nav class="small-2 text-right columns" colp="minus">-</nav>
+    </header>
+    <section id="resp_ccp_gm_v" class="hide" data-expand-details="gift_msg">		
+    <!-- Gift message for order -->
+        <input name="_D:/ltd/commerce/order/purchase/LTDShippingFormHandler.giftMessage" type="hidden" value=" "><textarea maxlength="110" onkeyup="limitGMChars();" name="/ltd/commerce/order/purchase/LTDShippingFormHandler.giftMessage" id="giftMessageComment" placeholder="Enter your personalized gift message here - up to 110 characters" rows="5" class="gift_msg resp_input_brand resp_input_offset" aria-label="Enter your personalized gift message here - up to 110 characters"></textarea>
+        <aside class="small-7 columns"> </aside>
+        <output class="small-3 text-right columns">
+            <p class="resp_msg_prod_sm"><span id="NuOChrs">0</span> / 110</p>
+        </output>						
+    </section>
+</div>
+
 <a class="js-talk-stay check-button--primary">Continue to Payment</a>
 
 <!-- NAVEEN, THIS IS JUST COPIED FROM PRODUCTION end -->
