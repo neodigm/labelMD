@@ -95,10 +95,9 @@
         <p>(312) 456-0393</p>
     </article>
 </article>
+
 <article data-step-edit="1">
-
 <br>
-
 <article class="addr-crd"
     data-addr-card-select="true" data-addr-card-default="true">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="1 1 22 22"><path d="M0 0h24v24H0V0z"></path><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"></path></svg>
@@ -195,8 +194,7 @@
 <!-- NAVEEN, THIS IS JUST COPIED FROM PRODUCTION end -->
 
 <br>
-<a class="js-talk-stay check-button--primary" onclick="oCheckoutPageState.setState(2)">Continue to Payment</a>
-
+<a class="js-talk-stay check-button--primary check-button--center" onclick="oCheckoutPageState.setState(2)">Continue to Payment</a>
 
 </article>
 
@@ -214,36 +212,42 @@ DISPLAY 2 - credit card current stuff
                             <button class="cc-cards cc-cards__credit"></button>
                             <button class="cc-cards cc-cards__paypal"></button>
                         </nav>
+
+                        <header class="sub_banner">Select a Credit Card</header>
+
+                        <article class="addr-crd"
+                            data-addr-card-select="true" data-addr-card-default="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="1 1 22 22"><path d="M0 0h24v24H0V0z"></path><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"></path></svg>
+                            <a class="addr-card__default">Default</a>
+                            <p>Rusty Griswold</p>
+                            <p>MasterCard Ending 1111</p>
+                            <p>Expires 02/23</p>
+                            <a class="addr-card__edit">Edit</a>
+                        </article>
+                        <article class="addr-crd"
+                        data-addr-card-select="false" data-addr-card-default="false">
+                            <a class="addr-card__default">Default</a>
+                            <p>Rusty Griswold</p>
+                            <p>Visa Ending 1111</p>
+                            <p>Expires 02/22</p>
+                            <a class="addr-card__edit">Edit</a>
+                        </article>
+
+                        <div class="h-txt__align--center">
+                            <a class="items-inline__link" data-expand-summary="js-expand-add-new-cc|hide|">Add a New Credit Card</a>    
+                        </div>                        
+
+<!-- NAVEEN, THIS IS JUST COPIED FROM PRODUCTION begin -->
+<section class="CC_on row hide" data-expand-details="js-expand-add-new-cc">				
                         <header class="sub_banner sub_banner--active">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="1 1 22 22" style="stroke: #4A90E2;fill: none;margin-bottom: -2px"><path d="M0 0h24v24H0V0z"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> Enter Credit Card
                             <span class="sub_banner--required">* Required</span> 
                         </header>
-<!-- NAVEEN, THIS IS JUST COPIED FROM PRODUCTION begin -->
-<section class="CC_on row">				
-			
-        <div class="guest_off hide"> <!-- Not a guest Begin -->
-         <section class="row" data-equalizer="cc-lines">	
-             
-             <aside class="small-10 medium-10 large-10 columns" style="padding: 2px;">
-
-                 <div id="" class="panel radius" style="padding: 10px 0 0 0;">
-                      <label class="inputRadio selectToggle"> <input onclick="addCreditCardInput();" name="creditCardChooseBox" id="creditCardChooseBox" type="radio" value="NEW"><input name="_D:creditCardChooseBox" type="hidden" value=" ">
-                         <span id="addEditCreditCard">Add A New Credit Card</span>
-                     </label>
-                 </div>
-             </aside>
-         </section>
-    </div> <!-- Not a guest End -->
-
-                
-    
     <div id="creditCardaddFormFields" class="">			
          
 <!-- Start inc_update_credit_card_acap.jsp -->
 
-
 <script>
-
  $(document).ready(function() {
       $(".resp_crt_link").on("click", function(e){
           e.preventDefault();
@@ -261,39 +265,7 @@ DISPLAY 2 - credit card current stuff
           }
       });
  });
- 
- function copyShippingAddressToCard(){
- 
-     if($('#sameAsShipping').is(':checked')){
- 
-         var firstName = 'Scott' ;
-         var lastName = 'Krause' ;
-         var address1 = '668 BETH CT' ;
-         var address2 = '' ;
-         var city = 'gurnee' ;
-         var state = 'IL' ;
-         var postalCode = '60031-3104' ;
-         $('#billingAddress-firstName').val(firstName);
-         $('#billingAddress-lastName').val(lastName);
-         $('#billingAddress-address1').val(address1);
-         $('#billingAddress-address2').val(address2);
-         $('#billingAddress-city').val(city);
-         $('#billingAddress-state').val(state);	
-         $('#billingAddress-postalCode').val(postalCode);
-         $('.cboSameAs').addClass('hide');
-     }else{
-         $('.cboSameAs').removeClass('hide');
-         $('#billingAddress-firstName').val('');
-         $('#billingAddress-lastName').val('');
-         $('#billingAddress-address1').val('');
-         $('#billingAddress-address2').val('');
-         $('#billingAddress-city').val('');
-         $('#billingAddress-state').val('');
-         $('#billingAddress-postalCode').val('');	
-     }
- 
- }
-
+ function copyShippingAddressToCard(){ }
 </script>	
 
 <article class="columns small-10 medium-5 large-10 resp_right_pad-6 no-padding"> 
@@ -403,6 +375,8 @@ DISPLAY 2 - credit card current stuff
      </div>
  </section>
 <!-- NAVEEN, THIS IS JUST COPIED FROM PRODUCTION end -->
+<br>
+<a class="js-talk-stay check-button--primary check-button--center" onclick="oCheckoutPageState.setState(3)">Continue with Credit Card</a>
 </article>                
 
 
