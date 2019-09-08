@@ -74,9 +74,9 @@
                         </aside>
                         <section>
                             <aside class="task__link h-flex">
-                                <a class="task__link--a h-flex__1" data-step-state="1">Shipping<span>1</span></a>
-                                <a class="task__link--d h-flex__1" data-step-state="2">Payment<span>2</span></a>
-                                <a class="task__link--d h-flex__1" data-step-state="3">Review<span>3</span></a>
+                                <a class="task__link--a h-flex__1" data-step-state="1" onclick="oCheckoutPageState.setState(1);">Shipping<span>1</span></a>
+                                <a class="task__link--d h-flex__1" data-step-state="2" onclick="oCheckoutPageState.setState(2);">Payment<span>2</span></a>
+                                <a class="task__link--d h-flex__1" data-step-state="3" onclick="oCheckoutPageState.setState(3);">Review<span>3</span></a>
                             </aside>
                             <div class="task__line"></div>
                         </section>
@@ -173,19 +173,17 @@
                             <a class="step_banner--edit">Edit</a>
                         </header>    
 <article data-step-display="2">
-DISPLAY 2
+DISPLAY 2 - credit card current stuff
 </article>
 <article data-step-edit="2">
-EDIT 2
-</article>                
-                        <nav class="l-cc-cards">
+                         <nav class="l-cc-cards">
                             <button class="cc-cards cc-cards__credit"></button>
                             <button class="cc-cards cc-cards__paypal"></button>
                         </nav>
                         <header class="sub_banner sub_banner--active">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="1 1 22 22" style="stroke: #4A90E2;fill: none;margin-bottom: -2px"><path d="M0 0h24v24H0V0z"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> Enter Credit Card
-                            <span class="sub_banner--required">* Required</span>
-
+                            <span class="sub_banner--required">* Required</span> 
+                        </header>
 <!-- NAVEEN, THIS IS JUST COPIED FROM PRODUCTION begin -->
 <section class="CC_on row">				
 			
@@ -371,8 +369,12 @@ EDIT 2
      </div>
  </section>
 <!-- NAVEEN, THIS IS JUST COPIED FROM PRODUCTION end -->
+</article>                
 
-                        </header>
+
+
+
+
                 </section>
                 <section class="js-ecomCheckLeft__options_ship l-ecomCheckLeft__options_ship">options_ship
                         <br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr>

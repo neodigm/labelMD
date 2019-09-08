@@ -324,7 +324,7 @@ left: 140px;
     [data-step-display='3'],
     [data-step-edit='1'],
     [data-step-edit='2'],   
-    [data-step-edit='3'] { QQQQdisplay: none; }
+    [data-step-edit='3'] { display: none; }
 
 /* available state -- enabled|edit */
 [data-step-avail='1'] [data-step-banner='1'],

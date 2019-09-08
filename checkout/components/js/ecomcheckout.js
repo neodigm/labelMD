@@ -13,6 +13,8 @@ var oCheckoutPageState = (function( doc ){ // Maintain the state of the Checkout
         "setState": function( _nState ){  //  Set the state and maybe the available state
             nStateCurrent = _nState;
             if( nStateAvail <= nStateCurrent) nStateAvail = nStateCurrent;
+            doc.querySelectorAll("ltdc-ecom-checkout")[0].dataset.stepCurrent = nStateCurrent;
+            doc.querySelectorAll("ltdc-ecom-checkout")[0].dataset.stepAvail = nStateAvail;
         },
         "getState": function(){  //  Retun the current state number
             return nStateCurrent;
