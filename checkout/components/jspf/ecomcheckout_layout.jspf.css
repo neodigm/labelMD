@@ -402,6 +402,17 @@ left: 140px;
 [data-addr-card-select='true'].addr-crd {
     border: solid 2px #4A90E2;
 }
+[data-addr-card-select='true'].addr-crd svg {
+    position: absolute;
+    display: block;
+    top: 33%;
+    stroke: #4A90E2;
+    fill: none;
+    margin-bottom: -2px;
+}
+[data-addr-card-select='false'].addr-crd svg {
+    display: none;
+}
 [data-addr-card-default='true'].addr-crd a.addr-card__default {
     display: inline;
     top: 4px; right: 4px;
@@ -424,13 +435,7 @@ left: 140px;
 .addr-crd a.addr-card__default {
     display: none;
 }
-.addr-crd svg {
-    position: absolute;
-    top: 33%;
-    stroke: #4A90E2;
-    fill: none;
-    margin-bottom: -2px
-}
+
 .addr-crd p {
     color: #000;
     font-size: 18px;
