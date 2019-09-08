@@ -205,7 +205,11 @@
                             <a class="step_banner--edit" onclick="oCheckoutPageState.editState(2);">Edit</a>
                         </header>    
 <article data-step-display="2">
-DISPLAY 2 - credit card current stuff
+
+    <article class="addr-crd__display">
+        <p>Visa ending in 1111 Exp. 02/2022</p>
+    </article>
+
 </article>
 <article data-step-edit="2">
                          <nav class="l-cc-cards">
@@ -224,6 +228,7 @@ DISPLAY 2 - credit card current stuff
                             <p>Expires 02/23</p>
                             <a class="addr-card__edit">Edit</a>
                         </article>
+
                         <article class="addr-crd"
                         data-addr-card-select="false" data-addr-card-default="false">
                             <a class="addr-card__default">Default</a>
@@ -384,18 +389,30 @@ DISPLAY 2 - credit card current stuff
 
 
                 </section>
-                <section class="js-ecomCheckLeft__options_ship l-ecomCheckLeft__options_ship">options_ship
-                        <br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr>
+                <section class="js-ecomCheckLeft__options_ship l-ecomCheckLeft__options_ship">
                 </section>
                 <section class="js-ecomCheckLeft__review_3 l-ecomCheckLeft__review_3" data-step="3">
                         <header id="step_banner_3" class="step_banner" data-step-banner="3">3. Review and Place Order</header>                    
 <article data-step-display="3">
-DISPLAY 3
 </article>
 <article data-step-edit="3">
-EDIT 3
+                        <article class="addr-crd"
+                            data-addr-card-select="false" data-addr-card-default="false">
+                            <figure class="h-height__half"></figure>
+                            <p>Standard Shipping - $23.99</p>
+                            <figure class="h-height__half"></figure>
+                        </article>
+
+                        <article class="addr-crd"
+                            data-addr-card-select="true" data-addr-card-default="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="1 1 22 22"><path d="M0 0h24v24H0V0z"></path><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"></path></svg>
+                            <figure class="h-height__half"></figure>
+                            <p>Two Day Shipping - $40.00</p>
+                            <figure class="h-height__half"></figure>
+                        </article>
+                        <br>
+                        <a class="js-talk-stay check-button--primary check-button--center" onclick="oCheckoutPageState.setState(3)">Continue to Review</a>
 </article>     
-                        <br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr><br><hr>
                 </section>
             </article>
             <article class="ecomCheckRight">
