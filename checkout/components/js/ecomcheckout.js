@@ -1,23 +1,23 @@
 "use strict";
 
 var oCheckoutPageState = (function( doc ){ // Maintain the state of the Checkout page progress
-    var nStateAvail = 1;  //  1 thru 4
-    var nStateCurrent = 1;  //  1 thru 4
+    var nStateAvail = 1;  //  1 thru 3
+    var nStateCurrent = 1;  //  1 thru 3
     var aTask, eStep, eEdit;  //  
     var bExpedited = false;  //  Three or Four buttons (states)
     return {
         "rebind": function(){
-            aTask = [].slice.call( doc.querySelectorAll("[data-task-state]") );  //  Bubble Buttons
-            eStep = [].slice.call( doc.querySelectorAll("[data-step-state]") );  //  Step Banners
+            aTask = [].slice.call( doc.querySelectorAll("[data-step-state]") );  //  Bubble Buttons
+            eStep = [].slice.call( doc.querySelectorAll("[data-step-banner]") );  //  Step Banners
         },
-        "setState": function( _nState ){  //  
+        "setState": function( _nState ){  //  Set the state and maybe the available state
             nStateCurrent = _nState;
             if( nStateAvail <= nStateCurrent) nStateAvail = nStateCurrent;
         },
-        "getState": function(){  //  
+        "getState": function(){  //  Retun the current state number
             return nStateCurrent;
         },
-        "getStateAvail": function(){  //  
+        "getStateAvail": function(){  //  Return the highest available state number
             return nStateAvail;
         }
     }
