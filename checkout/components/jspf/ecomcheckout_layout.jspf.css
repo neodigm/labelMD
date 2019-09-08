@@ -398,7 +398,14 @@ left: 140px;
     border: solid 1px #888;
     margin: 4px; padding: 4px;
     text-align: left;
-    widows: 100%;
+}
+[data-addr-card-select='true'].addr-crd {
+    border: solid 2px #4A90E2;
+}
+[data-addr-card-default='true'].addr-crd a.addr-card__default {
+    display: inline;
+    top: 4px; right: 4px;
+    color: #2E7D32;
 }
 .addr-crd a:link,
 .addr-crd a:visited,
@@ -415,8 +422,7 @@ left: 140px;
     text-decoration: underline !important;    
 }
 .addr-crd a.addr-card__default {
-    top: 4px; right: 4px;
-    color: #2E7D32;
+    display: none;
 }
 .addr-crd svg {
     position: absolute;
