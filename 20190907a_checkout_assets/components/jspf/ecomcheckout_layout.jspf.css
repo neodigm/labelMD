@@ -60,7 +60,6 @@
     height: 3px;
     margin: 10px 0; padding: 1px;
 }
-.ecomCheckLeft .items-inline__link,
 .l-ecomCheckRight__items .items-inline__link,
 .l-ecomCheckRight__promo .items-inline__link {
     display: block;
@@ -397,7 +396,7 @@ left: 140px;
     position: relative;
     cursor: pointer;
     border: solid 1px #888;
-    margin: 16px 4px; padding: 4px;
+    margin: 4px; padding: 4px;
     text-align: left;
 }
 [data-addr-card-select='true'].addr-crd {
