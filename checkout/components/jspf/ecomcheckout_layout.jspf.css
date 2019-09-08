@@ -241,7 +241,7 @@ left: 140px;
 [data-step-state='2']:hover,
 [data-step-state='2'],
 [data-step-state='3']:hover,
-[data-step-state='3'] { color: #888; cursor:not-allowed; }
+[data-step-state='3'] { color: #888; }
 
 [data-step-state='1'] span,
 [data-step-state='2'] span,

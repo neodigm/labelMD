@@ -34,7 +34,7 @@
   <body id="onePageCheckout" data-brand="LS">
 
 <ltdc-ecom-checkout class="l-ecomCheck" role="main"
-    data-step-current="2" data-step-avail="2">
+    data-step-current="1" data-step-avail="2">
 
     <section class="l-ecomCheck__lgo no__print" aria-label="Back to Cart">
         <div>
@@ -74,9 +74,9 @@
                         </aside>
                         <section>
                             <aside class="task__link h-flex">
-                                <a class="task__link--a h-flex__1" data-step-state="1" onclick="oCheckoutPageState.setState(1);">Shipping<span>1</span></a>
-                                <a class="task__link--d h-flex__1" data-step-state="2" onclick="oCheckoutPageState.setState(2);">Payment<span>2</span></a>
-                                <a class="task__link--d h-flex__1" data-step-state="3" onclick="oCheckoutPageState.setState(3);">Review<span>3</span></a>
+                                <a class="task__link--a h-flex__1" data-step-state="1" onclick="oCheckoutPageState.editState(1);">Shipping<span>1</span></a>
+                                <a class="task__link--d h-flex__1" data-step-state="2" onclick="oCheckoutPageState.editState(2);">Payment<span>2</span></a>
+                                <a class="task__link--d h-flex__1" data-step-state="3" onclick="oCheckoutPageState.editState(3);">Review<span>3</span></a>
                             </aside>
                             <div class="task__line"></div>
                         </section>
@@ -85,7 +85,7 @@
                 <section class="js-ecomCheckLeft__shipping_1 l-ecomCheckLeft__shipping_1" data-step="1">
                     <header id="step_banner_1" class="step_banner" data-step-banner="1">1. Shipping Info
                         <span class="step_banner--required">* Required</span>
-                        <a class="step_banner--edit">Edit</a>
+                        <a class="step_banner--edit" onclick="oCheckoutPageState.editState(1);">Edit</a>
                     </header>
 <article data-step-display="1">
     <p>Bruce Wayne Wayne Enterprises<br>200 Tri State Floor 2<br>Lincolnshire, IL 60069<br>Phone: (555) 555-5555</p>
@@ -170,7 +170,7 @@
                 <section class="js-ecomCheckLeft__payment_2 l-ecomCheckLeft__payment_2" data-step="2">
                         <header id="step_banner_2" class="step_banner" data-step-banner="2">2. Select Payment Method
                             <span class="step_banner--required">* Required</span>
-                            <a class="step_banner--edit">Edit</a>
+                            <a class="step_banner--edit" onclick="oCheckoutPageState.editState(2);">Edit</a>
                         </header>    
 <article data-step-display="2">
 DISPLAY 2 - credit card current stuff

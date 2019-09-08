@@ -7,14 +7,20 @@ var oCheckoutPageState = (function( doc ){ // Maintain the state of the Checkout
     var bExpedited = false;  //  Three or Four buttons (states)
     return {
         "rebind": function(){
-            aTask = [].slice.call( doc.querySelectorAll("[data-step-state]") );  //  Bubble Buttons
-            eStep = [].slice.call( doc.querySelectorAll("[data-step-banner]") );  //  Step Banners
+            nStateCurrent = doc.querySelectorAll("ltdc-ecom-checkout")[0].dataset.stepCurrent;
+            nStateAvail = doc.querySelectorAll("ltdc-ecom-checkout")[0].dataset.stepAvail;
         },
         "setState": function( _nState ){  //  Set the state and maybe the available state
             nStateCurrent = _nState;
             if( nStateAvail <= nStateCurrent) nStateAvail = nStateCurrent;
             doc.querySelectorAll("ltdc-ecom-checkout")[0].dataset.stepCurrent = nStateCurrent;
             doc.querySelectorAll("ltdc-ecom-checkout")[0].dataset.stepAvail = nStateAvail;
+        },
+        "editState": function( _nState ){  //  Attempt to set state
+            if( nStateAvail >= _nState ) {
+                oCheckoutPageState.setState( _nState );
+                return true;
+            }
         },
         "getState": function(){  //  Retun the current state number
             return nStateCurrent;
