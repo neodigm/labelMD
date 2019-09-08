@@ -344,10 +344,16 @@ left: 140px;
 
     /* Content Blocks */
     [data-step-avail='1'] [data-step-display='1'],
+    [data-step-avail='2'] [data-step-display='1'],
     [data-step-avail='2'] [data-step-display='2'],
+    [data-step-avail='3'] [data-step-display='1'],
+    [data-step-avail='3'] [data-step-display='2'],
     [data-step-avail='3'] [data-step-display='3'] { display: block; }
     [data-step-avail='1'] [data-step-edit='1'],
-    [data-step-avail='2'] [data-step-edit='2'],   
+    [data-step-avail='2'] [data-step-edit='1'],
+    [data-step-avail='2'] [data-step-edit='2'],
+    [data-step-avail='3'] [data-step-edit='1'],
+    [data-step-avail='3'] [data-step-edit='2'],
     [data-step-avail='3'] [data-step-edit='3'] { display: none; }
 
 /* current state -- active|required */
@@ -400,6 +406,18 @@ left: 140px;
     margin: 16px 4px; padding: 4px;
     text-align: left;
 }
+.addr-crd__display {
+    position: relative;
+    cursor: pointer;
+    margin: 8px; padding: 4px;
+    text-align: left;
+}
+.addr-crd__display p {
+    color: #000;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 2px; padding: 2px;
+}
 [data-addr-card-select='true'].addr-crd {
     border: solid 2px #4A90E2;
 }
@@ -436,7 +454,6 @@ left: 140px;
 .addr-crd a.addr-card__default {
     display: none;
 }
-
 .addr-crd p {
     color: #000;
     font-size: 18px;
