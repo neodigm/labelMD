@@ -418,8 +418,6 @@ left: 140px;
     font-weight: 500;
     margin: 2px 0; padding: 2px 0;
 }
-
-
 [data-addr-card-select='true'].addr-crd {
     border: solid 2px #4A90E2;
 }

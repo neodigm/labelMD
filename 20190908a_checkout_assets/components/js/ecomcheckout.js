@@ -1,30 +1,5 @@
 "use strict";
 
-var oWatchRadio = (function( doc, sQuery ){
-    var aRad = [].slice.call( doc.querySelectorAll( sQuery ) ), aInp;
-    return {
-        rebind: function(){
-            aRad.forEach(function( _el ){
-                _el.eWatchRadio = _el.firstElementChild;
-                _el.removeEventListener("click", oWatchRadio.clickRadio );
-                _el.addEventListener("click", oWatchRadio.clickRadio );
-            });
-        },
-        clickRadio: function( _ev ){
-            this.eWatchRadio.click();
-            this.dataset.addrCardSelect = "true";
-            oWatchRadio.synceRadio();
-        },
-        synceRadio: function(){
-            aRad.forEach(function( _el ){
-                _el.dataset.addrCardSelect = ( _el.firstElementChild.checked ) ? "true" : "false";
-            } );
-        }
-    }
-})( document, "[data-addr-card-select]" );
-
-oWatchRadio.rebind();
-
 var oCheckoutPageState = (function( doc ){ // Maintain the state of the Checkout page progress
     var nStateAvail = 1;  //  1 thru 3
     var nStateCurrent = 1;  //  1 thru 3

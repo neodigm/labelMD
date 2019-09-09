@@ -1,5 +1,7 @@
+"use strict";
+
 var oMDPage = ( function( _d ){  //  Material Design INPUT Labels
-    var aInp = [], aLab = [], sBrand="", bBound = false, nCnt = -1;
+    var aInp = [], aLab = [], sBrand="",nCnt = -1;
     function onInpFoc( _el ){  //  focus
         if( typeof _el.dataset.mdLabel !== "undefined" ){
             var sPH = _el.getAttribute("placeholder");
@@ -21,29 +23,8 @@ var oMDPage = ( function( _d ){  //  Material Design INPUT Labels
     function parsePH( sPH ){
         return sPH.replace("* ", "");
     }
-    function addStylesheetRules(rules) {
-        var styleEl = document.createElement("style");
-        document.head.appendChild(styleEl);
-        var styleSheet = styleEl.sheet;
-        for (var i = 0; i < rules.length; i++) {
-            var j = 1, 
-            rule = rules[i], 
-            selector = rule[0], 
-            propStr = "";
-            if (Array.isArray(rule[1][0])) {
-                rule = rule[1];
-                j = 0;
-            }
-            for (var pl = rule.length; j < pl; j++) {
-                var prop = rule[j];
-                propStr += prop[0] + ": " + prop[1] + " !important;\n";
-            }
-            styleSheet.insertRule(selector + "{" + propStr + "}", styleSheet.cssRules.length);
-        }
-    }
     return {
         bind: function( _sBrand ){  //  Wire Events
-            //if( !bBound ) addStylesheetRules( oCSS );
             sBrand = _sBrand.toLowerCase();
             aInp = [].slice.call( _d.querySelectorAll( "[data-md-page]") ).filter(function( el ){
                 return ( !el.dataset.mdLabel );  //  Exclude Existing
@@ -62,7 +43,6 @@ var oMDPage = ( function( _d ){  //  Material Design INPUT Labels
                 _inp.addEventListener("focus", function( _ev ){ onInpFoc(_ev.currentTarget); });
                 _inp.addEventListener("blur", function( _ev ){ onInpBlur(_ev.currentTarget); });
             } );
-            bBound = true;
         }
     };
 } )( document );
