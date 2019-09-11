@@ -1,14 +1,21 @@
 "use strict";
 
+alert("injected");
+
 var oWatchRadio = (function( doc, sQuery ){
     var aRad = [].slice.call( doc.querySelectorAll( sQuery ) ), aInp;
+    var aFrm = [].slice.call( doc.querySelectorAll( "FORM" ) );
     return {
         rebind: function(){
             aRad.forEach(function( _el ){
-                _el.eWatchRadio = _el.firstElementChild;
+                _el.eWatchRadio = _el.querySelectorAll("INPUT")[0];
                 _el.removeEventListener("click", oWatchRadio.clickRadio );
                 _el.addEventListener("click", oWatchRadio.clickRadio );
             });
+            aFrm.forEach(function( _Fm ){
+                _Fm.removeEventListener("click", oWatchRadio.synceRadio );
+                _Fm.addEventListener("click", oWatchRadio.synceRadio );
+            }); 
         },
         clickRadio: function( _ev ){
             this.eWatchRadio.click();
@@ -17,7 +24,7 @@ var oWatchRadio = (function( doc, sQuery ){
         },
         synceRadio: function(){
             aRad.forEach(function( _el ){
-                _el.dataset.addrCardSelect = ( _el.firstElementChild.checked ) ? "true" : "false";
+                _el.dataset.addrCardSelect = ( _el.querySelectorAll("INPUT")[0].checked ) ? "true" : "false";
             } );
         }
     }
