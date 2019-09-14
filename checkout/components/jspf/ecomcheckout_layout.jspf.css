@@ -18,6 +18,17 @@
 .l-ecomCheckRight__items       ,
 .l-ecomCheckRight__promo       {display:block; background-color: #fff;margin: 4px; padding: 4px;}
 
+/*  Button and I grid Begin  */
+.btn-grd-i__grd{
+    display:flex; width: 66%; margin: 4px auto;
+}
+.btn-grd-i__grd a {
+}
+.btn-grd-i__grd svg {
+    margin-top: 11px;
+}
+/*  Button and I grid End  */
+
 /*  Credit Card Buttons Begin  */
 .l-cc-cards {
     display:flex;
@@ -512,7 +523,7 @@ border-radius: 3px;
 font-family: Roboto, sans-serif;
 font-size: 1.1em;
 text-align: center;
-padding: 10px;
+padding: 14px;
 margin: 4px;
 text-decoration: none;
 width: 98%;
