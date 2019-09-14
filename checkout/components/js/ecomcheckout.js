@@ -1,7 +1,5 @@
 "use strict";
 
-alert("injected");
-
 var oWatchRadio = (function( doc, sQuery ){
     var aRad = [].slice.call( doc.querySelectorAll( sQuery ) ), aInp;
     var aFrm = [].slice.call( doc.querySelectorAll( "FORM" ) );
@@ -18,6 +16,12 @@ var oWatchRadio = (function( doc, sQuery ){
             }); 
         },
         clickRadio: function( _ev ){
+            if(  _ev.target.tagName.toUpperCase() === "A" ){
+                _ev.preventDefault();
+                _ev.stopPropagation();
+                oWatchRadio.synceRadio();
+                return false;
+            }
             this.eWatchRadio.click();
             this.dataset.addrCardSelect = "true";
             oWatchRadio.synceRadio();

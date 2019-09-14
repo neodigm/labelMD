@@ -23,8 +23,18 @@
     display:flex;
     margin: 4px; padding: 4px;
 }
-.cc-cards:hover,
-.cc-cards {
+[data-addr-card-select='true'].cc-cards:hover,
+[data-addr-card-select='true'].cc-cards {
+    flex: 0;
+    cursor: pointer;
+    background-color: #fff;
+    border: solid 2px #4A90E2;
+    padding: 4px;
+    height: 70px; min-width: 100px;
+    box-shadow: 1px 1px 4px 0px rgba(153,153,153,1);
+}
+[data-addr-card-select='false'].cc-cards:hover,
+[data-addr-card-select='false'].cc-cards {
     flex: 0;
     cursor: pointer;
     background-color: #fff;
