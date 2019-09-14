@@ -20,7 +20,7 @@
 
 /*  Button and I grid Begin  */
 .btn-grd-i__grd{
-    display:flex; width: 66%; margin: 4px auto;
+    display:flex; width: calc(100% - 72px); margin: 4px auto;
 }
 .btn-grd-i__grd svg {
     cursor: pointer;
