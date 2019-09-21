@@ -1,5 +1,4 @@
 "use strict";
-
 var oWatchRadio = (function( doc, sQuery ){
     var aRad = [].slice.call( doc.querySelectorAll( sQuery ) ), aInp;
     var aFrm = [].slice.call( doc.querySelectorAll( "FORM" ) );
@@ -36,77 +35,64 @@ var oWatchRadio = (function( doc, sQuery ){
 
 oWatchRadio.rebind();
 
-var oCheckoutPageState = (function( doc ){ // Maintain the state of the Checkout page progress
-    var nStateAvail = 1;  //  1 thru 3
-    var nStateCurrent = 1;  //  1 thru 3
-    var aTask, eStep, eEdit;  //  
-    var bExpedited = false;  //  Three or Four buttons (states)
-    return {
-        "rebind": function(){
-            nStateCurrent = doc.querySelectorAll("ltdc-ecom-checkout")[0].dataset.stepCurrent;
-            nStateAvail = doc.querySelectorAll("ltdc-ecom-checkout")[0].dataset.stepAvail;
-        },
-        "setState": function( _nState ){  //  Set the state and maybe the available state
-            nStateCurrent = _nState;
-            if( nStateAvail <= nStateCurrent) nStateAvail = nStateCurrent;
-            doc.querySelectorAll("ltdc-ecom-checkout")[0].dataset.stepCurrent = nStateCurrent;
-            doc.querySelectorAll("ltdc-ecom-checkout")[0].dataset.stepAvail = nStateAvail;
-        },
-        "editState": function( _nState ){  //  Attempt to set state
-            if( nStateAvail >= _nState ) {
-                oCheckoutPageState.setState( _nState );
-                return true;
-            }
-        },
-        "getState": function(){  //  Retun the current state number
-            return nStateCurrent;
-        },
-        "getStateAvail": function(){  //  Return the highest available state number
-            return nStateAvail;
-        }
-    }
-})( document );
+function doit(){
+    oSimpleExpand.click();
+}
 
-oCheckoutPageState.rebind();
-
-var oSimpleExpand = (function( doc ){ // Simple expand / collapse
-    var aSum, aDet; // Summary and Details paired elements 1:1
-    return {
-        "rebind": function(){
-            aSum = [].slice.call( doc.querySelectorAll("[data-expand-summary]") );
-            aDet = [].slice.call( doc.querySelectorAll("[data-expand-details]") );
-            aSum.forEach( function( aE ){
-                var aDecl = aE.dataset.expandSummary.split("|");
-                if(  aDecl.length > 0 ){
-                    aE.aDecl = aDecl;
-                    aE.eDet = aDet.filter( function( eDet ){ // match
-                        if( eDet.dataset.expandDetails == aDecl[0] ){ return true; }
-                    })[0];
-                    aE.removeEventListener( "click", oSimpleExpand.click );
-                    aE.addEventListener( "click", oSimpleExpand.click );                    
+if( false ){
+    var oSimpleExpand = (function( doc ){ // Simple expand / collapse
+        var aSum, aDet; // Summary and Details paired elements 1:1
+        return {
+            "rebind": function(){
+                aSum = [].slice.call( doc.querySelectorAll("[data-expand-summary]") );
+                aDet = [].slice.call( doc.querySelectorAll("[data-expand-details]") );
+                aSum.forEach( function( aE ){
+                    var aDecl = aE.dataset.expandSummary.split("|");
+                    if(  aDecl.length > 0 ){
+                        aE.aDecl = aDecl;
+                        aE.eDet = aDet.filter( function( eDet ){ // match
+                            if( eDet.dataset.expandDetails == aDecl[0] ){ return true; }
+                        })[0];
+                        aE.addEventListener( "click", oSimpleExpand.click );                    
+                    }
+                });
+            },
+            "click": function( eV ){ // hide or show
+                var eDet = this.eDet;
+                var aDecl = this.aDecl;
+                if( eDet.dataset.eventHide == "hide" ){
+                    eDet.classList.remove("hide");
+                    eDet.dataset.eventHide = "none";
+                    if( aDecl[1] ) this.classList.add( aDecl[1] );
+                    if( aDecl[2] ) { // swap temp
+                        aDecl[3] = this.innerHTML;
+                        this.innerHTML = "aDecl[2]";
+                    }
+                }else{
+                    eDet.classList.add("hide");
+                    eDet.dataset.eventHide = "hide";
+                    if( aDecl[1] ) this.classList.remove( aDecl[1] );
+                    if( aDecl[3] ) this.innerHTML = "aDecl[3]"; // undo
                 }
-            });
-        },
-        "click": function( eV ){ // hide or show
-            var eDet = this.eDet;
-            var aDecl = this.aDecl;
-            if( eDet.classList.contains("hide") ){
-                eDet.classList.remove("hide");
-                if( aDecl[1] ) this.classList.add( aDecl[1] );
-                if( aDecl[2] ) { // swap temp
-                    aDecl[3] = this.innerHTML;
-                    this.innerHTML = aDecl[2];
-                }
-            }else{
-                eDet.classList.add("hide");
-                if( aDecl[1] ) this.classList.remove( aDecl[1] );
-                if( aDecl[3] ) this.innerHTML = aDecl[3]; // undo
             }
         }
-    }
-})( document );
+    })( document );
+   // oSimpleExpand.rebind();
+}
 
-oSimpleExpand.rebind();
+document.getElementsByClassName("js-view__items--id")[0].addEventListener("click", function( eV ){
+    var eDet = document.getElementById("resp_ccp_1_v");
+    if( eDet ){
+        if( eDet.dataset.eventHide == "hide" ){
+            eDet.classList.remove("hide");
+            eDet.dataset.eventHide = "none";
+        }else{
+            eDet.classList.add("hide");
+            eDet.dataset.eventHide = "hide";
+        }
+    }
+console.log("elk | " + eDet.classList );
+});
 
 var oEComCheck_lgo = (function( doc, sQry ){  //  Handle Logo Click in Checkout
     var aLgos = [].slice.call( doc.querySelectorAll( sQry  ) );
@@ -116,11 +102,15 @@ var oEComCheck_lgo = (function( doc, sQry ){  //  Handle Logo Click in Checkout
         "rebind": function(){
             if( aLgos && (aLgos.length > 0) && eT && eStay){
                 aLgos.forEach(function( eLg ){
-                    eLg.removeEventListener("click", oEComCheck_lgo.talk );
-                    eLg.addEventListener("click", oEComCheck_lgo.talk );
+                    if( eLg.dataset.eventClicked !== "true" ){
+                        eLg.addEventListener("click", oEComCheck_lgo.talk );
+                        eLg.dataset.eventClicked = "true";
+                    }
                 });
-                eStay.removeEventListener("click", oEComCheck_lgo.talk );
-                eStay.addEventListener("click", oEComCheck_lgo.talk );
+                if( eStay.dataset.eventClicked !== "true" ){
+                    eStay.addEventListener("click", oEComCheck_lgo.talk );
+                    eStay.dataset.eventClicked = "true";
+                }
             }
         },
         "talk": function(){
