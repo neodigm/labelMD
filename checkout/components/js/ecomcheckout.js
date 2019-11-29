@@ -27,7 +27,8 @@ var oWatchRadio = (function( doc, sQuery ){
         },
         synceRadio: function(){
             aRad.forEach(function( _el ){
-                _el.dataset.addrCardSelect = ( _el.querySelectorAll("INPUT")[0].checked ) ? "true" : "false";
+                //_el.dataset.addrCardSelect = ( _el.querySelectorAll("INPUT")[0].checked ) ? "true" : "false";
+                _el.setAttribute("data-addr-card-select", ( (typeof el.querySelectorAll("INPUT") !== "undefined") && (_el.querySelectorAll("INPUT")[0].checked )) ? "true" : "false" );
             } );
         }
     }
