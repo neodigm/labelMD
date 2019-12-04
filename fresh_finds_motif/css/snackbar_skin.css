@@ -1,0 +1,50 @@
+/* completely rendered below the fold */
+/*  CSS category Base     */ /*  reset margin padding ...  */
+/*  CSS category Layout   */ /*  border display height media width ...  */
+.l-snackbar .snackbar__cont {
+  cursor: pointer;
+  background-color: #323232;
+  border: solid 1px #fff;
+  border-radius: 8px;
+  /*left: 38%;*/
+  min-width: 188px;
+  padding: 14px 14px;
+  position: fixed;
+  transition: bottom 0.6s ease-in-out;
+  user-select: none;
+  z-index: 10096;
+}
+.l-snackbar .snackbar__cont--error {
+  background-color: #d0021b;
+}
+
+.l-snackbar .snackbar__cont--maxQty {
+  box-shadow: 0 0 8px #9A9A9A;
+  background-color: #fff;
+}
+
+.l-snackbar .snackbar__cont--maxQty .snackbar__msg {
+	color: #C92D2D;
+}
+
+.l-snackbar .snackbar__cont--hide {
+  bottom: -112px;
+  transition: bottom 0.6s ease-in-out;
+}
+.l-snackbar .snackbar__cont--show {
+  bottom: 4px;
+  transition: bottom 0.6s ease-in-out;
+}
+.l-snackbar .snackbar__msg {
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 16px;
+  margin: 2px;
+  text-align: center;
+  /*text-transform: uppercase;*/
+  /*white-space: nowrap;*/
+}
+@media print
+{
+    .l-snackbar,  .l-snackbar  * { display: none !important; height: 0; }
+}

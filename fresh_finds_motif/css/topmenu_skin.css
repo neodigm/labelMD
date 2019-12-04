@@ -1,0 +1,302 @@
+body[data-brand="LS"] .l-topmenu { background-color: #343a40; }
+body[data-brand="LTD"] .l-topmenu { background-color: #30619a; }
+body[data-brand="LS"] .l-topmenu .l-grid { background-color: #343a40; }
+body[data-brand="LTD"] .l-topmenu .l-grid { background-color: #30619a; }
+body[data-brand="LS"] .l-topmenu .search__cont--vect   { fill: #D0021B;}
+body[data-brand="LTD"] .l-topmenu .search__cont--vect   { fill: #4a90e2;}
+body[data-brand="LS"]  .l-topmenu .search__cont--righta { background-color: rgba(256, 256, 256, 0); color: #D0021B;}
+body[data-brand="LTD"] .l-topmenu .search__cont--righta { background-color: rgba(256, 256, 256, 0); color: #30619a;}
+
+/* Visual Search Begin  
+.tt-dropdown .tt-recommendation-price.tt-recommendation-price-custom {
+    color: #000;
+    font-size: 15px;
+    font-weight: 100;
+    margin: 4px;
+    line-height: 20px;
+    text-align: left;
+}
+
+.tt-dropdown .tt-recommendation-name.tt-recommendation-name-custom {
+    color: #000;
+    background-color: #fff;
+    border: none;
+    font-family: "Roboto",sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    margin: 0 4px; padding: 2px;
+    max-width: 140px;
+    height: auto;
+    text-align: left;
+}
+.c_headnavtype aside.headnavtype{
+    width: 754px;
+}
+.tt-dropdown.tt-dropdown-custom{
+    margin: 0; padding: 4px;
+    border: solid 2px #000;
+    flex-wrap: wrap-reverse;
+}
+.tt-dropdown .tt-suggestions-title.tt-suggestions-title-custom{
+    display: none;
+}
+.tt-dropdown .tt-suggestion-wrapper.tt-suggestion-wrapper-custom,
+.tt-dropdown .tt-suggestion-text.tt-suggestion-text-custom {
+    color: #000;
+    background-color: #fff;
+    border: none;
+    font-family: "Roboto",sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    margin: 0 4px; padding: 2px;
+    height: auto;
+
+    white-space: nowrap;
+    overflow: hidden;
+}
+.tt-dropdown DIV.tt-suggestion-wrapper.tt-suggestion-wrapper-custom {
+    cursor: default;
+    text-transform: uppercase;
+}
+.tt-dropdown A.tt-suggestion-wrapper.tt-suggestion-wrapper-custom.tt-active DIV {
+    font-weight: 600;
+    text-decoration: underline;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.tt-dropdown A.tt-suggestion-wrapper.tt-suggestion-wrapper-custom.tt-active DIV:hover{
+	background-color:#fff;
+	text-decoration: underline;
+}
+.tt-dropdown .tt-close-button.tt-close-button-custom {
+    display: none;
+}
+.tt-dropdown .tt-suggestions-custom {
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap
+}
+
+.tt-dropdown .tt-recommendation-wrapper.tt-recommendation-wrapper-custom.tt-active {
+    background-color: #fff;
+    text-decoration: underline;
+}
+
+.tt-dropdown .tt-recommendations-custom {
+    -webkit-box-ordinal-group: 3!important;
+    -webkit-order: 2!important;
+    -ms-flex-order: 2!important;
+    order: 2!important
+}
+
+.tt-dropdown .tt-suggestions-custom {
+    -webkit-box-ordinal-group: 2!important;
+    -webkit-order: 1!important;
+    -ms-flex-order: 1!important;
+    order: 1!important;
+}
+
+#search_bar .tt-dropdown.tt-dropdown-custom {
+    padding-bottom: 22px;
+    border: 2px solid rgba(0,0,0,.9);
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.tt-dropdown .tt-suggestions.tt-suggestions-custom category{
+	padding-bottom: 4px;
+}
+.tt-dropdown .tt-suggestions.tt-suggestions-custom product{
+	padding: 4px 0px 4px 0px;
+}
+
+.tt-see-all-results-link.tt-see-all-results-link-custom {
+	padding-bottom: 12px;
+    margin-left: 12px;
+    font-weight: 600;
+    text-decoration: underline;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.suggestion-group-title.tt-suggestion-wrapper.tt-suggestion-wrapper-custom{
+	font-weight:700
+}
+.tt-dropdown .tt-recommendations.tt-recommendations-custom {
+    overflow: hidden;
+    width: 50%;
+    padding: 20px 0 15px 22px;
+    height: 280px; 
+}
+
+.tt-dropdown .tt-suggestions.tt-suggestions-custom {
+    width: 260px!important;
+    margin-top: 20px;
+    padding: 0 0 22px;
+    color: #000;
+    border: 0;
+    border-right: 1px solid rgba(0,0,0,.2);
+    background-color: #fff;
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+}
+
+.tt-dropdown .tt-recommendations-title.tt-recommendations-title-custom {
+    display: block;
+    margin: 0 0 10px 5px;
+    padding: 0;
+    text-align: left;
+    text-transform: uppercase;
+    font-family: "Roboto",sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.tt-dropdown .tt-suggestions-title.tt-suggestions-title-custom {
+    padding-left: 15px;
+}
+
+.tt-dropdown .tt-recommendation-wrapper.tt-recommendation-wrapper-custom {
+    border-bottom: none;
+    width: auto;
+    max-width: 30%;
+    height: auto;
+    margin-right: 2%;
+    padding: 0;
+    vertical-align: top;
+}
+
+.tt-dropdown .tt-recommendation-wrapper.tt-recommendation-wrapper-custom:nth-child(4) {
+    display: none;
+}
+
+.tt-dropdown .tt-recommendation-image-wrapper.tt-recommendation-image-wrapper-custom,.tt-dropdown .tt-recommendation-image.tt-recommendation-image-custom {
+    width: 100%;
+    max-width: 113px;
+    height: auto;
+    margin: 0 0 4px 4px;
+}
+
+.tt-dropdown .tt-suggestions-list.tt-suggestions-list-custom {
+    min-height: initial;
+    margin: 0;
+    padding: 0 0 10px 5px;
+    border: 0;
+    border-left: 0;
+}
+
+.tt-dropdown .tt-recommendations-list.tt-recommendations-list-custom {
+    padding-top: 8px;
+    border-top: 0px;
+}
+
+@media (max-width: 822px) {
+    #search_bar .tt-dropdown.tt-dropdown-custom {
+        overflow:auto;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%!important;
+        margin: 0;
+    }
+
+    body.search-expanded #search_bar .tt-dropdown.tt-dropdown-custom {
+        top: 34px;
+        right: 0;
+        left: 0;
+        overflow-y: auto;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 640px) {
+	.c_headnavtype aside.headnavtype{
+    	width: 92%;
+	}
+    .tt-dropdown .tt-suggestions-custom {
+        -webkit-flex-wrap:wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+    .tt-dropdown .tt-recommendations-custom {
+        -webkit-box-ordinal-group: 3!important;
+        -webkit-order: 2!important;
+        -ms-flex-order: 2!important;
+        order: 2!important;
+    }
+
+    .tt-dropdown .tt-suggestions-custom {
+        -webkit-box-ordinal-group: 2!important;
+        -webkit-order: 1!important;
+        -ms-flex-order: 1!important;
+        order: 1!important;
+    }
+
+    .tt-dropdown .tt-suggestions.tt-suggestions-custom {
+        width: 100%;
+        margin-top: 5px;
+        padding: 0;
+        border: none;
+    }
+
+    .tt-dropdown .tt-suggestions-title.tt-suggestions-title-custom {
+        padding-left: 10px;
+    }
+
+    .tt-dropdown .tt-suggestions-list.tt-suggestions-list-custom {
+        padding: 0 0 10px;
+    }
+
+    .tt-dropdown .tt-suggestion-wrapper.tt-suggestion-wrapper-custom {
+        padding: 0 10px;
+    }
+
+    .tt-dropdown .tt-recommendations.tt-recommendations-custom {
+        padding: 8px 0 0 11px;
+        border-top: 2px solid rgba(0,0,0,.95);
+        width: 100%;
+        height: 212px;
+    }
+
+    #search_bar .tt-dropdown.tt-dropdown-custom {
+        padding-bottom: 0;
+    }
+
+    .tt-dropdown .tt-recommendations-list.tt-recommendations-list-custom {
+        padding-top: 8px;
+        border-top: 0px;
+    }
+
+    .tt-dropdown .tt-recommendations-title.tt-recommendations-title-custom,.tt-dropdown .tt-suggestions-title.tt-suggestions-title-custom {
+        margin: 0;
+        color: rgba(0,0,0,.5);
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .tt-dropdown .tt-suggestion-wrapper.tt-suggestion-wrapper-custom:nth-child(10),.tt-dropdown .tt-suggestion-wrapper.tt-suggestion-wrapper-custom:nth-child(8),.tt-dropdown .tt-suggestion-wrapper.tt-suggestion-wrapper-custom:nth-child(9) {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .tt-dropdown .tt-recommendation-image.tt-recommendation-image-custom {
+        width:70%;
+    }
+
+    .tt-dropdown .tt-recommendation-text.tt-recommendation-text-custom {
+        height: auto;
+        line-height: 1.25;
+    }
+}
+
+.tt-dropdown .tt-recommendation-wrapper.tt-recommendation-wrapper-custom .tt-recommendation-text-custom span {
+    color: #4a90e2;
+    font-weight: 500;
+    font-size: .7rem;
+    text-transform: capitalize;
+}*/

@@ -1,0 +1,113 @@
+/*  CSS category State    */ /*  color display font visibility ...  */
+@media only screen and (max-width:61em){
+  /* small and medium */
+  .c-leftnav .l-grid-leftnav {
+  align-items: center;
+  border-bottom: 1px solid #cacaca;
+  display: flex;
+  flex-flow: row nowrap; /* Shorthand for flex-direction and flex-wrap */
+  height: 32px;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  }
+  .c-leftnav li {
+  list-style-position: outside;
+  list-style-type: none;
+  display: block;
+  }
+  .c-leftnav a {
+  color: #4a4d4a;
+  border-right: solid 1px #ccc;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 26px;
+  padding-left: 6px;
+  text-decoration: none;
+  width: 100%;
+  }
+  .c-leftnav a:hover {
+  color: #000;
+  }
+  .c-leftnav li li li a {
+  color: #000;
+  font-weight: normal;
+  padding-left: 16px;
+  }
+  .c-leftnav li li li li a {
+  color: #949694;
+  font-size: 12px;
+  font-weight: normal;
+  padding-left: 24px;
+  }
+  .c-leftnav li li li nav { background-color: #fff !important;}
+
+  .c-leftnav__static a {
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 26px;
+  padding-left: 6px;
+  text-decoration: none;
+  width: 100%;
+  }
+
+  /*  CSS category Theme    */ /*  color background hover ...  */
+
+  .c-leftnav .leftnav__open  svg.js-nav-minus { display: block; margin: 4px; }
+  .c-leftnav .leftnav__open  svg.js-nav-plus  { display: none; }
+  .c-leftnav .leftnav__close svg.js-nav-minus { display: none; }
+  .c-leftnav .leftnav__close svg.js-nav-plus  { display: block; margin: 4px;}
+
+  body[data-brand="LS"] .c-leftnav__static a { color: #7e2d3e; }
+  body[data-brand="LTD"] .c-leftnav__static a { color: #297fb8; }
+  body[data-brand="LS"] .c-leftnav .isFolder { background-color: #fffaff; }
+  body[data-brand="LTD"] .c-leftnav .isFolder { background-color: #f2faff; }
+}
+@media only screen and (min-width: 48em){
+  /*  large  */
+  .c-leftnav .l-grid-leftnav {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row nowrap; /* Shorthand for flex-direction and flex-wrap */
+  height: 26px;
+  justify-content: space-between;
+  user-select: none;
+  }
+  .c-leftnav li {
+  list-style-position: outside;
+  list-style-type: none;
+  display: block;
+  }
+  .c-leftnav a {
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 26px;
+  text-decoration: none;
+  width: 100%;
+  }
+  .c-leftnav li li li a {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 18px;
+  padding-left: 20px;
+  }
+  .c-leftnav li li li li a {
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 18px;
+  padding-left: 32px;
+  }
+  .c-leftnav .leftnav__current {
+  font-weight: bold;
+  }
+  .c-leftnav .leftnav__open  svg.js-nav-minus { display: none; }
+  .c-leftnav .leftnav__open  svg.js-nav-plus  { display: none; }
+  .c-leftnav .leftnav__close svg.js-nav-minus { display: none; }
+  .c-leftnav .leftnav__close svg.js-nav-plus  { display: none; }
+  body[data-brand="LS"] .c-leftnav a { color: #7e2d3e; }
+  body[data-brand="LTD"] .c-leftnav a { color: #000; }
+}

@@ -1,0 +1,70 @@
+.dropdown__ul {
+    background-color: #fff;
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    list-style: none;
+    margin-top: 8px;
+    max-width: 150px;
+    padding: 4px;
+    position: absolute;
+    text-align: left;
+    width: 216px;
+    z-index: 48;
+}
+.dropdown__ul li {
+	cursor: pointer;
+	text-align: center;
+}
+.dropdown__ul li:hover {
+	background-color: #ddd;
+}
+.dropdown__ul--a {
+    background: 0 0;
+    color: #555;
+    display: block;
+    font-family: sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 6px;
+    text-decoration: none;
+}
+#js-sr-sort__pnl--id {
+	right: 64px;
+	top: 34px;
+}
+#js-sr-page__pnl--id {
+	right: 16px;
+	top: 34px;
+}
+
+body[data-brand="LS"] .l-sortrefine { background-color: #fff; }
+body[data-brand="LTD"] .l-sortrefine { background-color: #fff; }
+body[data-brand="LS"] .l-sortrefine .sr-grid .sr-btn { color: #35424a; }
+body[data-brand="LTD"] .l-sortrefine .sr-grid .sr-btn { color: #30619a; }
+
+body[data-brand="LS"] .l-sortrefine .sr-btn__chip--clear { color: #35424a; }
+body[data-brand="LTD"] .l-sortrefine .sr-btn__chip--clear { color: #30619a; }
+body[data-brand="LS"] .l-sortrefine .sr-btn__chip--clear:link { color: #35424a; }
+body[data-brand="LTD"] .l-sortrefine .sr-btn__chip--clear:link { color: #30619a; }
+body[data-brand="LS"] .l-sortrefine .sr-btn__chip--clear:visited { color: #35424a; }
+body[data-brand="LTD"] .l-sortrefine .sr-btn__chip--clear:visited { color: #30619a; }
+
+body[data-brand="LS"] .btn--open { border-color: #35424a !important; }
+body[data-brand="LTD"] .btn--open { border-color: #30619a !important; }
+
+body[data-brand="LS"] .sr-grid__criteria { background-color: #fff !important; }
+body[data-brand="LTD"] .sr-grid__criteria { background-color: #fff !important; }
+
+body[data-brand="LS"] .sr-btn--sel { background-color: #343a40; }
+body[data-brand="LTD"] .sr-btn--sel { background-color: #4a90e2; }
+
+body[data-brand="LS"] .sr-grid__chip .sr-btn { background-color: #343a40; }
+body[data-brand="LTD"] .sr-grid__chip .sr-btn { background-color: #4a90e2; }
+
+@media only screen and (max-width: 48em) {  /* small */
+    #js-sr-sort__pnl--id {
+        right: 32px;
+    }
+    body[data-brand="LS"] .sr-grid__criteria { background-color: #f5f5f5 !important; }
+    body[data-brand="LTD"] .sr-grid__criteria { background-color: #f5f5f5 !important; }
+}

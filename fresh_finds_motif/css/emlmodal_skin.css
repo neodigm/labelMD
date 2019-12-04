@@ -1,0 +1,128 @@
+/* Email Modal / Item are completely rendered below the fold */
+/*  CSS category Base     */ /*  reset margin padding ...  */
+/*  CSS category Layout   */ /*  border display height media width ...  */
+.eml-modal {
+	background: url(/images/email-signup-modal-bg.png) no-repeat;
+	width: 700px !important;
+	height: 314px !important;
+	padding: 0 !important;
+}
+.eml-modal .eml-msg__x{
+	position: absolute;
+	top: -24px;
+	right: -34px;
+}
+.eml-modal .eml-msg__padding{
+	padding: 32px;
+}
+.eml-modal h4{
+	font-family: sans-serif;
+	font-size: 23px;
+	font-weight: bold;
+	margin: 14px 4px;
+}
+.eml-modal h3{
+	font-family: sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 4px;
+}
+.eml-modal p{
+	color: #222;
+	font-size: 14px;
+}
+.eml-modal .l-grid{
+	align-items: flex-start;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+}
+.eml-modal .l-grid div:nth-of-type(1){
+	width: 66%;
+}
+.eml-modal .l-grid div:nth-of-type(2){
+	width: 30%;
+}
+.eml-modal .eml-msg__input{
+	background-color: #fff;
+	border: #ccc solid 1px;
+	padding: 9px 6px;
+	margin: 2px 0 10px 0;
+	width: 100%;
+}
+.eml-modal .eml-msg__button{
+	border-radius: 3px;
+	color: #fff !important;
+	cursor: pointer;
+	display: block;
+	font-family: sans-serif;
+	font-size: 16px;
+	font-weight: 300;
+	margin: 2px 16px 2px 32px;
+	padding: 8px 6px;
+	text-align: center;
+	text-decoration: none;
+	min-width: 172px;
+}
+.eml-modal .eml-msg__button--err{
+	background-color: #ff6666 !important;
+}
+.eml-modal .eml-msg__legal{
+	color: #666;
+	font-size: 13px;
+	font-weight: 600;
+	margin: 22px;
+	text-align: center;
+}
+.eml-modal .eml-msg__legal .eml-msg__legal--a{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+@media only screen and (max-width: 48em) {
+/* small */
+	.eml-modal {
+		background: none;
+		height: auto !important;
+		width: 80% !important;
+	}
+	.eml-modal .eml-msg__padding{
+		padding: 28px;
+	}
+	.eml-modal .l-grid{
+		flex-flow: column nowrap;
+	}
+	.eml-modal .l-grid div:nth-of-type(1){
+		width: 100%;
+	}
+	.eml-modal .l-grid div:nth-of-type(2){
+		width: 100%;
+	}
+	.eml-modal .eml-msg__button{
+		margin: 0;
+		width: 100%;
+	}
+	.eml-modal h4{
+		font-size: 18px;
+	}
+	.eml-modal h3{
+		font-size: 14px;
+		font-weight: normal;
+	}
+	.eml-modal .eml-msg__legal{
+		font-size: 12px;
+	}
+	.eml-modal p{
+		font-size: 12px;
+	}
+}
+
+body[data-brand="LS"] .eml-msg__button { background-color: #7e2d3e; }
+body[data-brand="LTD"] .eml-msg__button { background-color: #2ba6cb; }
+body[data-brand="LS"] .eml-msg__button:hover { background-color: #672634; }
+body[data-brand="LTD"] .eml-msg__button:hover { background-color: #007095; }
+
+body[data-brand="LS"] .eml-modal .eml-msg__legal--a { color: #7e2d3e; }
+body[data-brand="LTD"] .eml-modal .eml-msg__legal--a { color: #2ba6cb; }
+body[data-brand="LS"] .eml-modal .eml-msg__legal--a:hover { color: #7e2d3e !important; }
+body[data-brand="LTD"] .eml-modal .eml-msg__legal--a:hover { color: #0078a0 !important; }
