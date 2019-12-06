@@ -1,4 +1,4 @@
-/* Email Modal / Item are completely rendered below the fold */
+    /* Email Modal / Item are completely rendered below the fold */
 /*  CSS category Base     */ /*  reset margin padding ...  */
 /*  CSS category Layout   */ /*  border display height media width ...  */
 .eml-modal {
@@ -126,3 +126,9 @@ body[data-brand="LS"] .eml-modal .eml-msg__legal--a { color: #7e2d3e; }
 body[data-brand="LTD"] .eml-modal .eml-msg__legal--a { color: #2ba6cb; }
 body[data-brand="LS"] .eml-modal .eml-msg__legal--a:hover { color: #7e2d3e !important; }
 body[data-brand="LTD"] .eml-modal .eml-msg__legal--a:hover { color: #0078a0 !important; }
+
+body[data-brand="FF"] .eml-msg__button { background-color: #2ba6cb; }
+body[data-brand="FF"] .eml-msg__button:hover { background-color: #007095; }
+
+body[data-brand="FF"] .eml-modal .eml-msg__legal--a { color: #2ba6cb; }
+body[data-brand="FF"] .eml-modal .eml-msg__legal--a:hover { color: #0078a0 !important; }

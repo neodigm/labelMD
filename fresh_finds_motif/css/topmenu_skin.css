@@ -7,6 +7,12 @@ body[data-brand="LTD"] .l-topmenu .search__cont--vect   { fill: #4a90e2;}
 body[data-brand="LS"]  .l-topmenu .search__cont--righta { background-color: rgba(256, 256, 256, 0); color: #D0021B;}
 body[data-brand="LTD"] .l-topmenu .search__cont--righta { background-color: rgba(256, 256, 256, 0); color: #30619a;}
 
+
+body[data-brand="FF"] .l-topmenu { background-color: #005b7d; }
+body[data-brand="FF"] .l-topmenu .l-grid { background-color: #005b7d; }
+body[data-brand="FF"] .l-topmenu .search__cont--vect   { fill: #4a90e2;}
+body[data-brand="FF"] .l-topmenu .search__cont--righta { background-color: rgba(256, 256, 256, 0); color: #005b7d;}
+
 /* Visual Search Begin  
 .tt-dropdown .tt-recommendation-price.tt-recommendation-price-custom {
     color: #000;

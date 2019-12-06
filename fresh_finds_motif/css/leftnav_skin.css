@@ -64,6 +64,8 @@
   body[data-brand="LTD"] .c-leftnav__static a { color: #297fb8; }
   body[data-brand="LS"] .c-leftnav .isFolder { background-color: #fffaff; }
   body[data-brand="LTD"] .c-leftnav .isFolder { background-color: #f2faff; }
+body[data-brand="FF"] .c-leftnav__static a { color: #297fb8; }
+  body[data-brand="FF"] .c-leftnav .isFolder { background-color: #f2faff; }
 }
 @media only screen and (min-width: 48em){
   /*  large  */
@@ -110,4 +112,5 @@
   .c-leftnav .leftnav__close svg.js-nav-plus  { display: none; }
   body[data-brand="LS"] .c-leftnav a { color: #7e2d3e; }
   body[data-brand="LTD"] .c-leftnav a { color: #000; }
+body[data-brand="FF"] .c-leftnav a { color: #000; }
 }

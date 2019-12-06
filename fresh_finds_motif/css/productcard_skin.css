@@ -1,50 +1,55 @@
-/*  CSS category State    */ /*  color display font visibility ...  */
-.productcard:hover .productcard__a--qv {
-color: #fff;
-}
-.productcard__excl--lsc {
-background-color: #5e0d20;
-color: #fff;
-}
-.productcard__excl--ltd {
-background-color: #095f98;
-color: #fff;
-}
-.productcard .productcard__p {
-color: #cc2d41;
-}
-.productcard .productcard__p--comp-price {
-color: #898989;
-}
-.productcard .productcard__p--old-price {
-color: #525a65;
-text-decoration: line-through;
-}
-.productcard .productcard__h2 {
-color: #273546;
-}
-.review-stars {
-background: url('/media/global/images/sprites/review-stars-sprite.png') no-repeat;
-height: 18px;
-margin: 5px auto 0 auto;
-width: 92px;
-}
-.qv--open {
-  overflow: hidden;
-}
-.half-star {background-position: 0 -18px;}
-.one-star {background-position: 0 -36px;}
-.one-half-star {background-position: 0 -54px;}
-.two-star {background-position: 0 -72px;}
-.two-half-star {background-position: 0 -90px;}
-.three-star {background-position: 0 -108px;}
-.three-half-star {background-position: 0 -126px;}
-.four-star {background-position: 0 -144px;}
-.four-half-star {background-position: 0 -162px;}
-.five-star {background-position: 0 -180px;}
-
-/*  CSS category Theme    */ /*  color background hover ...  */
-body[data-brand="LS"] .productcard__a--qv { background-color: #7e2d3e; }
-body[data-brand="LTD"] .productcard__a--qv { background-color: #2b7ec0; }
-/*body[data-brand="LS"] .productcard__pic { background-color: #7e2d3e; }
-body[data-brand="LTD"] .productcard__pic { background-color: #2b7ec0; }*/
+    /*  CSS category State    */ /*  color display font visibility ...  */
+    .productcard:hover .productcard__a--qv {
+      color: #fff;
+      }
+      .productcard__excl--lsc {
+      background-color: #5e0d20;
+      color: #fff;
+      }
+      .productcard__excl--ltd {
+      background-color: #095f98;
+      color: #fff;
+      }
+      .productcard .productcard__p {
+      color: #cc2d41;
+      }
+      .productcard .productcard__p--comp-price {
+      color: #898989;
+      }
+      .productcard .productcard__p--old-price {
+      color: #525a65;
+      text-decoration: line-through;
+      }
+      .productcard .productcard__h2 {
+      color: #273546;
+      }
+      .review-stars {
+      background: url('/media/global/images/sprites/review-stars-sprite.png') no-repeat;
+      height: 18px;
+      margin: 5px auto 0 auto;
+      width: 92px;
+      }
+      .qv--open {
+        overflow: hidden;
+      }
+      .half-star {background-position: 0 -18px;}
+      .one-star {background-position: 0 -36px;}
+      .one-half-star {background-position: 0 -54px;}
+      .two-star {background-position: 0 -72px;}
+      .two-half-star {background-position: 0 -90px;}
+      .three-star {background-position: 0 -108px;}
+      .three-half-star {background-position: 0 -126px;}
+      .four-star {background-position: 0 -144px;}
+      .four-half-star {background-position: 0 -162px;}
+      .five-star {background-position: 0 -180px;}
+      
+      /*  CSS category Theme    */ /*  color background hover ...  */
+      body[data-brand="LS"] .productcard__a--qv { background-color: #7e2d3e; }
+      body[data-brand="LTD"] .productcard__a--qv { background-color: #2b7ec0; }
+      /*body[data-brand="LS"] .productcard__pic { background-color: #7e2d3e; }
+      body[data-brand="LTD"] .productcard__pic { background-color: #2b7ec0; }*/
+      
+      
+      body[data-brand="FF"] .productcard__a--qv { background-color: #2b7ec0; }
+      /*body[data-brand="FF"] .productcard__pic { background-color: #2b7ec0; }*/
+      

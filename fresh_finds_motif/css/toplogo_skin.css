@@ -64,3 +64,63 @@ body[data-brand="LTD"] .l-toplogo .toplogo__slide--opened { border-color: #cae3f
 	}
 	/*  lgo End  */
 }	
+
+body[data-brand="FF"] .l-toplogo { background-color: #fff; }
+
+body[data-brand="FF"] .l-toplogo .toplogo__gridright--link { color: #4a90e2; }
+body[data-brand="FF"] .l-toplogo .resp_btn_green.toplogo__gridright--link { color: #fff !important; }
+
+body[data-brand="FF"] .l-grid .toplogo__gridright--vect { fill: #4a90e2; }
+
+body[data-brand="FF"] .toplogo__slide--opened svg  { fill: #4a90e2; }
+
+body[data-brand="FF"] .toplogo-email__btn--submit { background-color: #cae3ff; color: #275f9b; }
+
+body[data-brand="FF"] .l-toplogo .toplogo__slide--opened { border-color: #cae3ff; }
+
+/*  lgo Begin  */
+.l-ecomCheck__lgo {
+    display: flex;
+    border-bottom: solid 1px #888;
+    margin: 0 4px; padding: 0 1px;
+    user-select: none;
+}
+.l-ecomCheck__lgo a {
+    cursor: pointer;
+}
+.l-ecomCheck__lgo a svg {
+    width: 176px;
+    height: 23px;
+    margin-top: 8px;
+}
+/*  lgo End  */
+
+@media only screen 
+    and (min-width: 668px)
+    and (max-width: 1064px){  /* medium *//* tablet 47.750em */
+
+        /*  lgo Begin  */
+        .l-ecomCheck__lgo {
+            display: block;
+        }
+        .l-ecomCheck__lgo a svg {
+            width: 310px;
+            height: 40px;
+            margin: 6px auto 4px auto;
+        }
+        /*  lgo End  */
+}        
+@media only screen 
+    and (min-width: 1065px){  /* large *//* laptop 66.563em */        
+        
+	/*  lgo Begin  */
+	.l-ecomCheck__lgo {
+	    display: block;
+	}
+	.l-ecomCheck__lgo a svg {
+	    width: 310px;
+	    height: 40px;
+	    margin: 6px auto 4px auto;
+	}
+	/*  lgo End  */
+}	

@@ -28,3 +28,7 @@ body[data-brand="LS"] input:focus.label-md__inp { border: 1px solid #343a40; }
 body[data-brand="LTD"] input:focus.label-md__inp { border: 1px solid #4a90e2; }
 body[data-brand="LS"] label.label-md__lab { color: #343a40; }
 body[data-brand="LTD"] label.label-md__lab { color: #4a90e2; }
+
+body[data-brand="FF"] input.label-md__inp { border: 1px solid #005b7d; }
+body[data-brand="FF"] input:focus.label-md__inp { border: 1px solid #4a90e2; }
+body[data-brand="FF"] label.label-md__lab { color: #4a90e2; }

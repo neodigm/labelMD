@@ -13,3 +13,13 @@ body[data-brand="LTD"] .l-productthumb .prod-c2a--pers { background-color: #27ae
 
 body[data-brand="LS"]  .prod-par__vm { color: #343a40; }
 body[data-brand="LTD"] .prod-par__vm { color: #30619a; }
+
+body[data-brand="FF"] .l-productthumb .prod-exclusive { background-color: #005b7d; }
+
+body[data-brand="FF"] .l-productthumb .prod-c2a--add { background-color: #27ae60; }
+
+body[data-brand="FF"] .l-productthumb .prod-c2a--more { background-color: #27ae60; }
+
+body[data-brand="FF"] .l-productthumb .prod-c2a--pers { background-color: #27ae60; }
+
+body[data-brand="FF"] .prod-par__vm { color: #005b7d; }

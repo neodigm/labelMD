@@ -68,3 +68,25 @@ body[data-brand="LTD"] .sr-grid__chip .sr-btn { background-color: #4a90e2; }
     body[data-brand="LS"] .sr-grid__criteria { background-color: #f5f5f5 !important; }
     body[data-brand="LTD"] .sr-grid__criteria { background-color: #f5f5f5 !important; }
 }
+
+body[data-brand="FF"] .l-sortrefine { background-color: #fff; }
+body[data-brand="FF"] .l-sortrefine .sr-grid .sr-btn { color: #005b7d; }
+
+body[data-brand="FF"] .l-sortrefine .sr-btn__chip--clear { color: #005b7d; }
+body[data-brand="FF"] .l-sortrefine .sr-btn__chip--clear:link { color: #005b7d; }
+body[data-brand="FF"] .l-sortrefine .sr-btn__chip--clear:visited { color: #005b7d; }
+
+body[data-brand="FF"] .btn--open { border-color: #005b7d !important; }
+
+body[data-brand="FF"] .sr-grid__criteria { background-color: #fff !important; }
+
+body[data-brand="FF"] .sr-btn--sel { background-color: #4a90e2; }
+
+body[data-brand="FF"] .sr-grid__chip .sr-btn { background-color: #4a90e2; }
+
+@media only screen and (max-width: 48em) {  /* small */
+    #js-sr-sort__pnl--id {
+        right: 32px;
+    }
+    body[data-brand="FF"] .sr-grid__criteria { background-color: #f5f5f5 !important; }
+}
