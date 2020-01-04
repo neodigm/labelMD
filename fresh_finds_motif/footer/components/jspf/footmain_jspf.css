@@ -1,0 +1,320 @@
+footer {
+  color: #fff;
+  font-family: sans-serif;
+  font-weight: 400;
+  display: block;
+  padding:1rem;
+  background: #30619a;
+}
+footer a {
+  color: #fff;
+}
+ltdc-footermain {
+  display: flex;
+  max-width: 1440px;
+  padding: 1.5rem; margin: 0 auto;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+ltdc-footermain a, 
+ltdc-footermain p a:hover,
+ltdc-footer-copyrite p a:hover {
+  text-decoration: none; 
+}
+
+ltdc-footermain a:hover, 
+ltdc-footermain p a,
+ltdc-footer-copyrite p a {
+  text-decoration: underline;
+}
+
+ltdc-footermain article:nth-child(1),
+ltdc-footermain article:nth-child(2),
+ltdc-footermain article:nth-child(3),
+ltdc-footermain article:nth-child(4) {
+  margin: 0 2rem;
+}
+
+ltdc-footermain article {
+  flex: 0 1 auto;
+}
+
+ltdc-footermain article:last-child {
+  flex: 0 1 auto;
+  margin-left: 10vw;
+}
+
+ltdc-footermain span {
+  display: block;
+  font-weight: 600;
+  font-size: .9rem;
+  pointer-events: auto;
+}
+ltdc-footermain span aside {
+  display: none;
+}
+
+ltdc-footermain ul {
+  list-style: none;
+  font-size: .9rem;
+  line-height: 1.8rem;
+  padding: 0; margin: .5rem 0;
+}
+
+ltdc-footermain .form {
+  max-width: 400px;
+  margin: 1.2rem 0 2rem;
+}
+
+ltdc-footermain .form p {
+  font-size: .725rem;
+  font-weight: 300;
+  padding:0; margin: .8rem 0;
+}
+
+ltdc-footermain form {
+  display:flex;
+  flex-direction:row;
+  height: 35px;
+  margin: 0;
+}
+
+ltdc-footermain  input {
+  flex-grow:2;
+  border:none;
+  padding-left: 12px;
+}
+
+ltdc-footermain  input:focus {
+  outline: none;
+}
+
+ltdc-footermain button {
+  border:1px solid #cae3ff;
+  background:#cae3ff;
+  color:#275f9b;
+  font-size: .9rem;
+  font-weight: 500;
+  width: 90px;
+}
+
+ltdc-footer-phone {
+  display: block;
+  font-weight: 300;
+  text-align: center;
+}
+
+ltdc-footer-phone span {
+  border-radius: 3px;
+  border: solid 1px #d4ed91;
+  padding: .3rem .6rem;
+  margin-right: .6rem;
+}
+
+ltdc-footer-copyrite {
+  display: block;
+  font-size: .8rem;
+  font-weight: 300;
+  text-align: center;
+  margin: 2rem 0 0;
+}
+
+/* --------------------------- 
+    Brand Theme Overrides
+--------------------------- */
+[data-brand="LS"] footer {
+  color: #fff;
+  background: #343a40;
+}
+
+[data-brand="LS"] footer button {
+  color: #fff;
+  background: #d0021b;
+  border-color: #d0021b;
+}
+
+[data-brand="FF"] footer {
+  color: #fff;
+  background: #7b8066;
+}
+
+[data-brand="FF"] footer button {
+  color: #fff;
+  background: #005b7d;
+  border-color: #005b7d;
+}
+
+[data-brand="FF"] ltdc-footer-phone span {  
+  border-color: #fff;
+}
+
+/* --------------------------- 
+    Small Screen Overrides
+--------------------------- */
+@media screen and (max-width:599px) {
+  .content {
+    display: none;
+    overflow: hidden;
+  }
+  ltdc-footermain article span aside  {
+    display: block;
+    float: right;
+    margin-top: -5px;
+  }
+  ltdc-footermain article span.collapsible aside.minus  {
+    display: none;
+  }
+  ltdc-footermain article span.collapsible.active aside.plus  {
+    display: none;
+  }
+  ltdc-footermain article span.collapsible.active aside.minus  {
+    display: block;
+  }
+}
+@media (min-width:320px) and (max-width:599px) {
+  footer {
+    padding: 0rem; margin: 0;
+  }
+  ltdc-footermain {
+    flex-wrap: wrap;
+    padding: 1.5rem .6rem 0;
+  }
+  ltdc-footermain li {
+    margin-bottom: .8rem;
+  }
+  ltdc-footermain li:first-child {
+    margin-top: .8rem;
+  }
+  ltdc-footermain span {
+    padding-bottom: .6rem;
+    border-bottom: 1px solid #fff;
+  }
+  ltdc-footermain article:last-child span {
+    text-align: center;
+  }
+  ltdc-footermain span em {
+    font-size: 1.4rem;
+    font-weight: 300;
+    font-style: normal;
+  }
+  ltdc-footermain article:nth-child(1),
+  ltdc-footermain article:nth-child(2),
+  ltdc-footermain article:nth-child(3),
+  ltdc-footermain article:nth-child(4) {
+    margin: .5rem 1rem;
+  }
+  ltdc-footermain article:nth-child(1),
+  ltdc-footermain article:nth-child(2),
+  ltdc-footermain article:nth-child(3) {
+    flex: 1 1 100%;
+    order:2;
+  }
+  ltdc-footermain article:last-child {
+    flex: 1 1 auto;
+    padding: 0 0rem; margin-bottom: .5rem;
+    order: 1;
+  }
+  ltdc-footermain .form {
+    max-width: 100%;
+  }
+  ltdc-footer-phone p {
+    font-size: .9rem;
+    line-height: 1.3rem;
+    padding: 0 2rem;
+  }
+  ltdc-footer-phone span {
+    display: block;
+    margin-bottom: .5rem;
+  }
+  ltdc-footer-copyrite p {
+    line-height: 1.3rem;
+    padding: 0 1rem 1.5rem; margin-bottom: 0;
+  }
+  ltdc-footer-copyrite p span {
+    display: block;
+  }
+}
+
+/* --------------------------- 
+    Medium Screen Overrides
+--------------------------- */
+@media (min-width:600px) and (max-width:768px) {
+  footer {
+    padding: 1rem;
+  }
+  ltdc-footermain {
+    flex-wrap: wrap;
+  }
+  ltdc-footermain li {
+    margin-bottom: .5rem;
+  }
+  ltdc-footermain li:first-child {
+    margin-top: .5rem;
+  }
+  ltdc-footermain article:nth-child(1),
+  ltdc-footermain article:nth-child(2),
+  ltdc-footermain article:nth-child(3),
+  ltdc-footermain article:nth-child(4) {
+    margin: 0 1rem;
+  }
+  ltdc-footermain article:nth-child(1),
+  ltdc-footermain article:nth-child(2),
+  ltdc-footermain article:nth-child(3) {
+    flex: 0 1 auto;
+    order:2;
+  }
+  ltdc-footermain article:last-child {
+    flex: 1 1 100vw;
+    padding: 0rem; margin-bottom: 1.5rem;
+    order: 1;
+  }
+  ltdc-footermain article:last-child span {
+   text-align: center;
+   margin: 0 0 1rem;
+  }
+  ltdc-footermain article section.side-by-side-forms {
+    display: flex;
+  }
+  ltdc-footermain article section.side-by-side-forms div {
+    flex: 1 1 50vw;
+  }
+  ltdc-footermain .form {
+    max-width: 100%;
+    margin: 0 .6rem;
+  }
+  ltdc-footer-phone p {
+    font-size: .9rem;
+  }
+  [data-brand="FF"] ltdc-footermain .form {
+    max-width: 65%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+@media (min-width:1024px) and (max-width:1259px) {
+  ltdc-footermain article {
+    flex: 1 1 auto;
+  }
+  ltdc-footermain article:last-child {
+    flex: 0 2 auto;
+    margin-left: 0;
+  }
+}
+/* --------------------------- 
+    Large Screen Overrides
+--------------------------- */
+@media screen and (min-width:769px) {
+  ltdc-footermain span {
+    pointer-events: none;
+  }
+}
+
+/* --------------------------- 
+      IE 11 Overrides
+--------------------------- */
+@media (min-width:600px) and (max-width:768px) and (-ms-high-contrast: active), 
+(min-width:600px) and (max-width:768px) and (-ms-high-contrast: none) {
+  ltdc-footermain .form {max-width: 45%;} 
+}

@@ -1,11 +1,11 @@
 <html lang="en">
 <head>
-    <title>ltdc-footexpand</title>
+    <title>ltdc-footmain</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height"/>
 
 <link href="components/jspf/site_layout_jspf.css" rel="stylesheet">
-<link href="components/jspf/footexpand_jspf.css" rel="stylesheet">
+<link href="components/jspf/footmain_jspf.css" rel="stylesheet">
 
 <link href="components/jspf/footlinks_layout_jspf.css" rel="stylesheet">
 <link href="components/jspf/footemail_layout_jspf.css" rel="stylesheet">
@@ -36,7 +36,7 @@ ltdc-footcopyr
 
 
 <hr><hr>
-<footer class="no__print">
+<footer class="no__print hidden">
 		
         <!-- category promo banner name: footer_social_accolades_block_LTD -->	 
     
@@ -142,7 +142,7 @@ ltdc-footcopyr
 <section>
     <!-- Footer Code Starts -->
     <footer>
-      <ltdc-footer-main>
+      <ltdc-footermain>
         <article>
           <span class="collapsible">
             MORE TO EXPLORE
@@ -271,7 +271,7 @@ ltdc-footcopyr
             </div>
           </section>
         </article>
-      </ltdc-footer-main>
+      </ltdc-footermain>
       <ltdc-footer-phone>
         <p><span>Call Us (847) 295-6058</span> We're open 24/7! Order online or over the phone anytime, day or night.</p>
       </ltdc-footer-phone>
@@ -286,10 +286,10 @@ ltdc-footcopyr
   
   <br><br>
 
-  <section>
+  <section class="hidden">
     <!-- Footer Code Starts -->
      <footer>
-      <ltdc-footer-main>
+      <ltdc-footermain>
         <article>
           <span class="collapsible">
             LET US HELP
@@ -386,7 +386,7 @@ ltdc-footcopyr
             </div>
           </section>
         </article>
-      </ltdc-footer-main>
+      </ltdc-footermain>
       <ltdc-footer-phone>
         <p><span>Call Us (847) 444-3150</span> We're open 24/7! Order online or over the phone anytime, day or night.</p>
       </ltdc-footer-phone>
@@ -401,10 +401,10 @@ ltdc-footcopyr
 
   <br><br>
 
-  <section>
+  <section class="hidden">
     <!-- Footer Code Starts -->
     <footer>
-      <ltdc-footer-main>
+      <ltdc-footermain>
         <article>
           <span class="collapsible">
             LET US HELP
@@ -483,7 +483,7 @@ ltdc-footcopyr
               <p>We will never sell your email address. To learn more read our <a href="#">Privacy Policy</a></p>
             </div>
         </article>
-      </ltdc-footer-main>
+      </ltdc-footermain>
       <ltdc-footer-phone>
         <p><span>Call Us (847) 444-3150</span> We're open 24/7! Order online or over the phone anytime, day or night.</p>
       </ltdc-footer-phone>
@@ -520,7 +520,8 @@ for (i = 0; i < coll.length; i++) {
             _e.addEventListener("click", function( ev ){
                 document.body.dataset.brand = ev.currentTarget.dataset.brandSet;
             });
-        });
+        }
+    );
   </script>
   <style>
   .l-proto-brand {
