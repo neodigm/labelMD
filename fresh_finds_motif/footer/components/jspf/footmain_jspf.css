@@ -1,12 +1,18 @@
-footer {
+<style type="text/css">
+/*  Brand Themes required Above the Fold  */
+
+.l-footmain {
+  display: block;
+}
+
+footer.l-footmain {
   color: #fff;
   font-family: sans-serif;
   font-weight: 400;
-  display: block;
   padding:1rem;
   background: #30619a;
 }
-footer a {
+footer.l-footmain a {
   color: #fff;
 }
 ltdc-footermain {
@@ -318,3 +324,4 @@ ltdc-footer-copyrite {
 (min-width:600px) and (max-width:768px) and (-ms-high-contrast: none) {
   ltdc-footermain .form {max-width: 45%;} 
 }
+</style>
