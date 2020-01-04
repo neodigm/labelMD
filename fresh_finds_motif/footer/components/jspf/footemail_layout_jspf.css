@@ -82,6 +82,11 @@ body[data-brand="LTD"] .l-footemail { background-color: #30619a; border-bottom: 
 body[data-brand="LS"]  .l-footemail .footemail__cont--righta { background-color: #d0021b; color: #fff; }
 body[data-brand="LTD"] .l-footemail .footemail__cont--righta { background-color: #cae3ff; color: #275f9b; }
 
+body[data-brand="FF"]  .l-footemail .promo__msg {color: #cae3ff;}
+body[data-brand="FF"]  .l-footemail .footemail__cont--vect { fill: #005b7d;}
+body[data-brand="FF"]  .l-footemail { background-color: #005b7d; border-bottom: 2px dashed #cae3ff; }
+body[data-brand="FF"]  .l-footemail .footemail__cont--righta { background-color: #cae3ff; color: #005b7d; }
+
 @media only screen and (max-width: 63.9em) {  /* small */
     .l-footemail .footemail__cont {
     margin: 0 6%;
