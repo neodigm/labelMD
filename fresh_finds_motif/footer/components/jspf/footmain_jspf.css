@@ -130,29 +130,29 @@ ltdc-footer-copyrite {
 /* --------------------------- 
     Brand Theme Overrides
 --------------------------- */
-[data-brand="LS"] footer {
+body[data-brand="LS"] footer {
   color: #fff;
   background: #343a40;
 }
 
-[data-brand="LS"] footer button {
+body[data-brand="LS"] footer button {
   color: #fff;
   background: #d0021b;
   border-color: #d0021b;
 }
 
-[data-brand="FF"] footer {
+body[data-brand="FF"] footer {
   color: #fff;
   background: #7b8066;
 }
 
-[data-brand="FF"] footer button {
+body[data-brand="FF"] footer button {
   color: #fff;
   background: #005b7d;
   border-color: #005b7d;
 }
 
-[data-brand="FF"] ltdc-footer-phone span {  
+body[data-brand="FF"] ltdc-footer-phone span {  
   border-color: #fff;
 }
 
@@ -293,7 +293,7 @@ ltdc-footer-copyrite {
   ltdc-footer-phone p {
     font-size: .9rem;
   }
-  [data-brand="FF"] ltdc-footermain .form {
+  body[data-brand="FF"] ltdc-footermain .form {
     max-width: 65%;
     margin: 0 auto;
     text-align: center;
