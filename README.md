@@ -1,6 +1,6 @@
 # labelMD
 Label Material Design | A placeholder > label polyfill for existing legacy INPUT elements.
-https://repository-images.githubusercontent.com/182188356/5f934800-63bc-11e9-9ce7-a9d8c303917e
+
 ---
 ![](https://repository-images.githubusercontent.com/178555357/2b6ad880-7aa0-11ea-8dde-63e70187e3e9)
 #
