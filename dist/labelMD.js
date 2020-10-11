@@ -1,129 +1,73 @@
-var labelMD_default = {  //  Detault configuration
-    mode: "default",
-    aExcludeID: ["js-qty__input--id","js-inp-search--id","js-toplogo-slide__input--id","js-inp-topsearch--id","quickSearch-query-for-small","emailSubscribeAddressModal","emailAddressFieldId","quickSearch-query"],
-    aExcludeCL: ["js-eml__input--field", "js-sms__input"]
-};
 
-//var labelMD_custom = { mode: "custom" }  //  Custom configuration
-
-var labelMD = ( function( _d, _g ){  //  Dynamic Material Design INPUT Labels
-    var aInp = [], aLab = [], oCnf = {}, sBrand;
-    var oCSS = [
-[".h-vs__hidden", ["visibility", "hidden"]],
-["input.label-md__inp", [
-    ["background-color", "#fff"],
-    ["border-radius", "4px"],
-    ["box-shadow", "none"],
-    ["color", "#343a40"],
-    ["display", "block"],
-    ["font-size", "16px"],
-    ["height", "44px"],
-    ["padding", "6px"],
-    ["z-index", "1"]
-]],
-["label.label-md__lab", [
-    ["background-color", "#fff"],
-    ["cursor", "text"],
-    ["display", "inline"],
-    ["font-family", "sans-serif"],
-    ["font-size", "14px"],
-    ["left", "6px"],
-    ["margin", "0 0 0 8px"],
-    ["padding", "0 6px"],
-    ["position", "relative"],
-    ["top", "10px"],
-]],
-["body[data-brand=LS]  input.label-md__inp", [
-    ["border", "1px solid #a1b5c2"]
-]],
-["body[data-brand=LTD] input.label-md__inp", [
-    ["border", "1px solid #30619a"]
-]],
-["body[data-brand=LS]  input:focus.label-md__inp", [
-    ["border", "1px solid #343a40"]
-]],
-["body[data-brand=LTD] input:focus.label-md__inp", [
-    ["border", "1px solid #4a90e2"]
-]],
-["body[data-brand=LS]  label.label-md__lab", [
-    ["color", "#343a40"]
-]],
-["body[data-brand=LTD] label.label-md__lab", [
-    ["color", "#4a90e2"]
-]],
-];
-    oCnf = ( typeof _g.labelMD_custom === "undefined" ) ? _g.labelMD_default : _g.labelMD_custom; // over-ride
-    function onInpFoc( _el ){
-        if( typeof _el.dataset.labelMd !== "undefined" ){
+var oMDPage = ( function( _d, _aQuery ){  //  Material Design INPUT Labels.
+    var aInp = [], aLab = [], sBrand="", bBound = false, nCnt = -1;
+    function onInpFoc( _el ){  //  focus
+        if( typeof _el.dataset.mdLabel !== "undefined" ){
             var sPH = _el.getAttribute("placeholder");
             if( sPH ){
-                _el.dataset.labelMdPh = sPH;
+                _el.dataset.mdLabelPh = sPH;
                 _el.placeholder = "";
-                aLab[ _el.dataset.labelMd ].classList.remove( "h-vs__hidden" );                
+                aLab[ _el.dataset.mdLabel ].textContent = sPH;
+                aLab[ _el.dataset.mdLabel ].classList.remove( "h-vs__hidden" );                
             }
         }
     }
-    function onInpBlur( _el ){
-        if( typeof _el.dataset.labelMd !== "undefined" ){
-            if( typeof _el.dataset.labelMdPh !== "undefined" ){
-                _el.placeholder = _el.dataset.labelMdPh;
-                aLab[ _el.dataset.labelMd ].classList.add( "h-vs__hidden" );
+    function onInpBlur( _el ){  //  blur
+        if( typeof _el.dataset.mdLabel !== "undefined" ){
+            if( typeof _el.dataset.mdLabelPh !== "undefined" ){
+            	if( !_el.value ){
+	                _el.placeholder = _el.dataset.mdLabelPh;
+	                aLab[ _el.dataset.mdLabel ].classList.add( "h-vs__hidden" );
+            	}
             }
         }
     }
     function parsePH( sPH ){
         return sPH.replace("* ", "");
     }
-    function addStylesheetRules(rules) {
-        var styleEl = document.createElement("style");
-        document.head.appendChild(styleEl);
-        var styleSheet = styleEl.sheet;
-        for (var i = 0; i < rules.length; i++) {
-            var j = 1, 
-            rule = rules[i], 
-            selector = rule[0], 
-            propStr = "";
-            if (Array.isArray(rule[1][0])) {
-                rule = rule[1];
-                j = 0;
-            }
-            for (var pl = rule.length; j < pl; j++) {
-                var prop = rule[j];
-                propStr += prop[0] + ": " + prop[1] + " !important;\n";
-            }
-            styleSheet.insertRule(selector + "{" + propStr + "}", styleSheet.cssRules.length);
-        }
-    }
     return {
-        bind: function( _sBrand = "LTD" ){
-            addStylesheetRules( oCSS );
+        bind: function( _sBrand ){  //  Wire Events
             sBrand = _sBrand.toLowerCase();
-            aInp = [].slice.call( _d.querySelectorAll("INPUT") ).filter(function( _inp ){
-                var bRet = true;  //  Exclusion logic  //  TODO exclude if no placeholder or len LT 4, or no id
-                if( "checkbox hidden image submit".indexOf( _inp.type ) !== -1 ) return false;
-                oCnf.aExcludeCL.map( function( _cl ){  //  Exclude by Class
-                    if( _inp.classList.toString().indexOf( _cl ) !== -1 ) bRet = false;
-                } );
-                return ( bRet && (oCnf.aExcludeID.indexOf( _inp.id ) === -1) );
+            aInp = [].slice.call( _d.querySelectorAll( _aQuery[0] ) ).filter(function( el ){
+                return ( !el.dataset.mdLabel );  //  Exclude Existing
             });
-            aInp.map( function( _inp, _idx ){
-                let eLab = _d.createElement("LABEL");
+            aInp.map( function( _inp ){
+                var eLab = _d.createElement("LABEL");
+                nCnt++;
                 eLab.textContent = parsePH( _inp.placeholder );
                 eLab.setAttribute("for", _inp.id);
-                eLab.classList.add("label-md__lab", "h-vs__hidden");
-                aLab.push( eLab );
-                _inp.before( eLab );  //  TODO test in MS IE & Edge
-                _inp.dataset.labelMd = _idx;
-                _inp.dataset.labelMdCl = _inp.className;
+                eLab.classList.add("label-md__lab");
+                eLab.classList.add("h-vs__hidden");
+                aLab.push( eLab ); 
+                _inp.parentNode.insertBefore(eLab, _inp);
+                _inp.dataset.mdLabel = nCnt;
+                _inp.dataset.mdLabelCl = _inp.className;
                 _inp.classList.add( "label-md__inp" );  
                 _inp.addEventListener("focus", function( _ev ){ onInpFoc(_ev.currentTarget); });
                 _inp.addEventListener("blur", function( _ev ){ onInpBlur(_ev.currentTarget); });
+				if (_inp.value) {
+					if (typeof _inp.dataset.mdLabel !== "undefined") {
+						var sPH = _inp.getAttribute("placeholder");
+						if (sPH) {
+							_inp.dataset.mdLabelPh = sPH;
+							_inp.placeholder = "";
+							aLab[_inp.dataset.mdLabel].classList
+									.remove("h-vs__hidden");
+						}
+					}
+                }
+                
             } );
+            bBound = true;
         },
-        unbind: function( sQuery ){
-            //  remove data attr but leave in data model
+        rebind: function( _sBrand ){ // Vue interface
+            aInp = [].slice.call( _d.querySelectorAll( _aQuery[1] ) )
+                .map(function( el ){
+                    el.dataset.mdPage = "true";
+            });
+            this.bind( _sBrand );
         }
     };
-} )( document, window );
+} )( document, ["[data-md-page]", "[data-md-vue]", ".sku-panel__inner [type='TEXT']"] );
 
-labelMD.bind( document.body.dataset.brand );
+oMDPage.bind( document.body.dataset.brand );
