@@ -1,6 +1,7 @@
 [![License: BSD](https://badgen.net/badge/license/BSD/orange)](https://opensource.org/licenses/BSD-3-Clause)
 Label Material Design | A placeholder > label polyfill for existing legacy INPUT elements.
 #
+---
 [Portfolio Blog](https://www.theScottKrause.com) |
 [🚀 Résumé](https://thescottkrause.com/Arcanus_Scott_C_Krause_2020.pdf) |
 [NPM](https://www.npmjs.com/~neodigm) |
