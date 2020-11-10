@@ -1,6 +1,8 @@
 [![License: BSD](https://badgen.net/badge/license/BSD/orange)](https://opensource.org/licenses/BSD-3-Clause)
 ---
 
+Label Material Design | A placeholder > label polyfill for existing legacy INPUT elements.
+
 ```javascript
 // Scott C. Krause | neodigm
 var oMDPage = ( function( _d, _aQuery ){  //  Material Design INPUT Labels.
@@ -79,7 +81,6 @@ oMDPage.bind( document.body.dataset.brand );
 
 ```
 
-Label Material Design | A placeholder > label polyfill for existing legacy INPUT elements.
 #
 ---
 [Portfolio Blog](https://www.theScottKrause.com) |
