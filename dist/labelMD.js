@@ -1,4 +1,4 @@
-
+// Scott C. Krause | neodigm
 var oMDPage = ( function( _d, _aQuery ){  //  Material Design INPUT Labels.
     var aInp = [], aLab = [], sBrand="", bBound = false, nCnt = -1;
     function onInpFoc( _el ){  //  focus
