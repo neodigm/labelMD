@@ -1,3 +1,4 @@
+echo five 5 V
 git config --global user.name "neodigm"
 git config --global user.email "neodigm@users.noreply.github.com"
 git status .
