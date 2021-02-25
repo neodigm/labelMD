@@ -1,7 +1,7 @@
 [![License: BSD](https://badgen.net/badge/license/BSD/orange)](https://opensource.org/licenses/BSD-3-Clause)
 ---
 
-A declarative and reactive Label Material Design | Placeholder > label polyfill for existing legacy INPUT elements.
+A declarative and reactive Label Material Design | Placeholder > label polyfill for existing legacy INPUT HTML elements.
 
 ```javascript
 // Scott C. Krause | neodigm 55
