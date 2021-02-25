@@ -105,3 +105,5 @@ oMDPage.bind( document.body.dataset.brand );
   <img src="https://repository-images.githubusercontent.com/178555357/2b6ad880-7aa0-11ea-8dde-63e70187e3e9" title="D3js Skills with Audio">
   </a>
 </p>
+
+UX artisan ⚡ illustrator ⚡ front-end engineer
