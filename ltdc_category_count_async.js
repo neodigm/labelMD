@@ -1,4 +1,4 @@
-var catcount = (function(_d,_q){  //  Report on number of products by category | Scott C. Krause 2020
+var catcount = (function(_d,_q){  //  Report on number of products by category | Scott C. Krause 2020 - see gist
     "use strict";
     var aSub = [];
 
