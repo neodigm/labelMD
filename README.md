@@ -4,7 +4,7 @@
 A declarative and reactive Label Material Design | Placeholder > label polyfill for existing legacy INPUT HTML elements.
 
 ```javascript
-// Scott C. Krause | neodigm 55
+// Scott C. Krause | neodigm 55 | TheScottKrause.com
 var oMDPage = ( function( _d, _aQuery ){  //  Material Design INPUT Labels.
     var aInp = [], aLab = [], sBrand="", bBound = false, nCnt = -1;
     function onInpFoc( _el ){  //  focus
