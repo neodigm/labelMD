@@ -1,4 +1,4 @@
-"use strict";
+"use strict";  //. eCom inline PDP VUE.JS
 
 Vue.config.devtools = true;
 
@@ -63,7 +63,7 @@ var vltdc_quickerview = new Vue( {
     isCartMsgErr : function(){
       if( this.isCartMsgErr ){
         var _self = this;
-        setTimeout(function(){ _self.isCartMsgErr = false; }, 6400);
+        setTimeout(function(){ _self.isCartMsgErr = false; }, 7600);
       }
     },
     isGiftMsg : function(){
@@ -112,7 +112,7 @@ var vltdc_quickerview = new Vue( {
         if( _child.value.largeImageUrl ) _aThumbnails.push( { "level" : nSkuCnt + 12, "img": _child.value.largeImageUrl, "sku": _child.key, "pers": false, "hide":false, "alt": _child.value.displayName } );
           if( _child.value.auxiliaryMedia ){
             _child.value.auxiliaryMedia.filter( function( _aux ){
-              for( var k in _aux ){  //  Add tn from aux media if the key contains MN
+              for( var k in _aux ){  //  Add tn from aux media if the key contains MN sort
                 if(  k.indexOf("sw") != -1 ){
                   if( _v.noDropdowns === 1 ){
                     _aSwatches.push( {"p1v": _v.getSwatchName( nSkuCnt ), "img": _aux[ k ], "imgtn": _aux.largeImageUrl, "avail": _child.value.availabilityId, "availPost": _child.value.availabilityId, "sku": _child.key, "pers": false, "alt": _v.getSwatchName( nSkuCnt ) } );
@@ -149,7 +149,7 @@ var vltdc_quickerview = new Vue( {
       _sSizeChart = this.getSizeChart();
       if( _sSizeChart ){  //  Size Charts TN
         if( _aSizeCharts.length == 0 ){  //  No need for another size chart if SC exists.
-          _aSizeCharts.push( { "img": _sSizeChart , "sku": this.jResponse.repositoryId, "pers": true, "alt": "Size Chart" } ); // Size chart
+          _aSizeCharts.push( { "img": _sSizeChart , "sku": this.jResponse.repositoryId, "pers": true, "alt": "Size Chart" } ); // Size charts
         }
       }
 
