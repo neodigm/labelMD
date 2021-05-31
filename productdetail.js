@@ -1,4 +1,4 @@
-"use strict";
+"use strict";  //  Three.js 🚀 TypeScript 🍭 WASM ✨ Go
 
 Vue.config.devtools = true;
 
