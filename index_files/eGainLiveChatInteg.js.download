@@ -3,7 +3,7 @@ var integWrapUpFlag = false;
 
 function egainLiveCustomConfigHook()
 {
-	return false;
+	return "false";
 }
 
 function getUrlParameterInteg(name) {
