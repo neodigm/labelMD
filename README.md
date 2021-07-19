@@ -1,6 +1,3 @@
-[![License: BSD](https://badgen.net/badge/license/BSD/orange)](https://opensource.org/licenses/BSD-3-Clause)
----
-
 A declarative and reactive Label Material Design | Placeholder > label [polyfill](https://www.thescottkrause.com/tags/javascript/) for existing legacy INPUT HTML elements.
 
 ```javascript
@@ -107,6 +104,9 @@ oMDPage.bind( document.body.dataset.brand );
 🦄">
   </a>
 </p>
+
+
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/neodigm/vivid_vector_alphabet)
 
 <p align="center">
 	<a target="_blank" href="https://www.thescottkrause.com">
