@@ -1,4 +1,4 @@
-"use strict";  //. eCom inline PDP VUE.JS
+"use strict";  // eCom inline PDP VUE.JS Vue.js
 
 Vue.config.devtools = true;
 
