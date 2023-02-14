@@ -74,6 +74,7 @@ var oMDPage = ( function( _d, _aQuery ){  //  Material Design INPUT Labels.
 } )( document, ["[data-md-page]", "[data-md-vue]", ".sku-panel__inner [type='TEXT']"] );
 
 oMDPage.bind( document.body.dataset.brand );
+```
 
 ---
 #
