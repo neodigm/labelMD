@@ -1,4 +1,4 @@
-A declarative and reactive Label Material Design | Placeholder > label [polyfill](https://www.thescottkrause.com/tags/javascript/) for existing legacy INPUT HTML elements.
+A [declarative](https://thescottkrause.com/emerging_tech/neodigm55_ux_library/) and reactive Label Material Design | Placeholder > label [polyfill](https://www.thescottkrause.com/tags/javascript/) for existing legacy INPUT HTML elements.
 
 ```javascript
 // Scott C. Krause | neodigm 55 | TheScottKrause.com
