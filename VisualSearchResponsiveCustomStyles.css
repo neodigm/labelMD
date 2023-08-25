@@ -1,9 +1,10 @@
+/*  Infographics UX PWA Typescript Svelte ThreeJS Vue ✨htmlx  */
 @media screen and (max-width: 1280px) {
   .tt-suggestions {
     flex-grow: 0;
     flex-shrink: 0;
     border: none;
-    width: 100%;
+    width: 98%;
     user-select: none;
   }
   .tt-suggestions-list {
