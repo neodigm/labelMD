@@ -841,7 +841,7 @@ var vltdc_quickerview = new Vue( {
 } );
 
 var fSecCards_QV = (function(){  //  function for Section Card bound events
-  var _eCards, _bInit = false;
+  var _eCards, _bInit = false;  //  Shopify PWA Polaris Liquid GraphQL 🍭
   return {
       isInit: function(){ return _bInit; },
       bind: function( sQuery, bMobile ){  //  Wire DOM events
